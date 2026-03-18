@@ -8,25 +8,45 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
           {/* Left Side (Content) */}
-          <div className="flex flex-col items-start gap-6 relative z-10">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-foreground leading-tight">
-              Pioneering Innovation <br className="hidden md:block" /> With Smart Solutions
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left gap-8 relative z-10 w-full">
+            
+            {/* Label */}
+            <div className="inline-flex items-center rounded-full border border-border/40 bg-background/50 backdrop-blur-sm px-3 py-1 text-sm font-medium text-muted-foreground animate-in fade-in slide-in-from-bottom-4 duration-700">
+              <span className="flex h-2 w-2 rounded-full bg-blue-500/80 mr-2 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
+              Cloud Nexus
+            </div>
+
+            {/* Headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground leading-[1.15] md:leading-[1.15] lg:leading-[1.15]">
+              <span className="block animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150 fill-mode-both whitespace-nowrap text-[8.5vw] sm:text-5xl lg:text-6xl pb-1 md:pb-2">
+                Pioneering Innovation.
+              </span>
+              <span className="flex flex-wrap justify-center lg:justify-start gap-x-3 text-muted-foreground/90 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-both text-[8.5vw] sm:text-5xl lg:text-6xl">
+                <span>Smart</span>
+                <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-blue-500 bg-[length:200%_auto] bg-clip-text text-transparent animate-text-shimmer pb-1">
+                  Solutions.
+                </span>
+              </span>
             </h1>
-            {/* <p className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed">
-              We design and build scalable digital solutions including web applications, cloud infrastructure, data platforms, and modern software systems.
-            </p> */}
-            <div className="flex flex-col sm:flex-row gap-4 mt-4 w-full sm:w-auto">
-              <Button size="lg" className="h-12 px-8 text-base rounded-sm shadow-sm">
+
+            {/* Description */}
+            <p className="max-w-xl mx-auto lg:mx-0 text-base md:text-lg text-muted-foreground leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700 fill-mode-both pt-2">
+              Building the digital infrastructure of tomorrow with precision and scale.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full sm:w-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-1000 fill-mode-both">
+              <Button size="lg" className="rounded-md">
                 Get Started
               </Button>
-              <Button variant="outline" size="lg" className="h-12 px-8 text-base rounded-sm bg-background/50 backdrop-blur-sm border-border/50 shadow-sm hover:bg-accent/50">
+              <Button variant="outline" size="lg" className="rounded-md bg-background/50 backdrop-blur-sm border-border/50 hover:bg-accent/50">
                 Explore Services
               </Button>
             </div>
           </div>
 
           {/* Right Side (Visual) */}
-          <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] flex items-center justify-center lg:justify-end">
+          <div className="relative w-full h-[320px] sm:h-[400px] lg:h-[600px] flex items-center justify-center lg:justify-end">
             <div className="absolute inset-0 lg:-right-32 lg:scale-110 pointer-events-none sm:pointer-events-auto">
               <Spline
                 scene="https://prod.spline.design/s5qNGeR6oT0MDO0i/scene.splinecode"

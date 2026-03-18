@@ -13,14 +13,14 @@
     --card-foreground: oklch(0.985 0 0);
     --popover: oklch(0.06 0 0);
     --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.546 0.245 262.881); /* Brand Blue */
+    --primary-foreground: oklch(0.985 0 0); /* White */
     --secondary: oklch(0.14 0 0);
     --secondary-foreground: oklch(0.985 0 0);
     --muted: oklch(0.14 0 0);
     --muted-foreground: oklch(0.6 0 0);
-    --accent: oklch(0.14 0 0);
-    --accent-foreground: oklch(0.985 0 0);
+    --accent: oklch(0.85 0.1 260); /* Lighter Blue */
+    --accent-foreground: oklch(0.145 0 0);
     --destructive: oklch(0.704 0.191 22.216);
     --border: oklch(1 0 0 / 8%);
     --input: oklch(1 0 0 / 10%);
@@ -48,13 +48,13 @@
     --card-foreground: oklch(0.985 0 0);
     --popover: oklch(0.205 0 0);
     --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
+    --primary: oklch(0.623 0.214 259.815); /* Brand Lighter Blue for dark */
+    --primary-foreground: oklch(0.985 0 0);
     --secondary: oklch(0.269 0 0);
     --secondary-foreground: oklch(0.985 0 0);
     --muted: oklch(0.269 0 0);
     --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
+    --accent: oklch(0.269 0.1 260); /* Soft blue tinted accent */
     --accent-foreground: oklch(0.985 0 0);
     --destructive: oklch(0.704 0.191 22.216);
     --border: oklch(1 0 0 / 10%);
@@ -180,5 +180,16 @@
   to {
     opacity: 1;
     transform: translateY(0) translateX(-50%);
+  }
+}
+
+/* ── Custom text animations ───────────────────────────── */
+@layer utilities {
+  @keyframes text-shimmer {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
+  }
+  .animate-text-shimmer {
+    animation: text-shimmer 3s linear infinite;
   }
 }
