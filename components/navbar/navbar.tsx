@@ -183,7 +183,7 @@ export function Navbar() {
             <Button
               variant="outline"
               size="sm"
-              className="rounded-full border border-white/10 bg-white/[0.06] px-4 text-sm font-medium text-white backdrop-blur transition-all duration-200 hover:border-white/20 hover:bg-white hover:text-black"
+              className="rounded-sm hover:bg-white hover:text-black"
             >
               Get Started
             </Button>

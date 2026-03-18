@@ -16,10 +16,10 @@ export function HeroSection() {
               We design and build scalable digital solutions including web applications, cloud infrastructure, data platforms, and modern software systems.
             </p> */}
             <div className="flex flex-col sm:flex-row gap-4 mt-4 w-full sm:w-auto">
-              <Button size="lg" className="h-12 px-8 text-base rounded-full shadow-sm">
+              <Button size="lg" className="h-12 px-8 text-base rounded-sm shadow-sm">
                 Get Started
               </Button>
-              <Button variant="outline" size="lg" className="h-12 px-8 text-base rounded-full bg-background/50 backdrop-blur-sm border-border/50 shadow-sm hover:bg-accent/50">
+              <Button variant="outline" size="lg" className="h-12 px-8 text-base rounded-sm bg-background/50 backdrop-blur-sm border-border/50 shadow-sm hover:bg-accent/50">
                 Explore Services
               </Button>
             </div>
