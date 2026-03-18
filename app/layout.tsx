@@ -1,20 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ReduxProvider } from "@/store/provider";
 import { Navbar } from "@/components/navbar/navbar";
 import { cn } from "@/lib/utils";
-
-const fontSans = Geist({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
-
-const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -33,9 +23,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, fontSans.variable)}
+      className="antialiased"
     >
-      <body className="flex min-h-screen flex-col font-sans">
+      <body className={cn("flex min-h-screen flex-col", GeistSans.className)}>
         <ThemeProvider>
           <ReduxProvider>
             {/* Navbar */}
