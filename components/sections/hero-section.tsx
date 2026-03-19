@@ -12,10 +12,10 @@ export function HeroSection() {
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left gap-8 relative z-10 w-full">
 
             {/* Label */}
-            <div className="inline-flex items-center rounded-sm border border-border/40 bg-background/100 backdrop-blur-sm px-3 py-1 text-sm font-medium text-muted-foreground animate-in fade-in slide-in-from-bottom-4 duration-700">
+            {/* <div className="inline-flex items-center rounded-sm border border-border/40 bg-background/100 backdrop-blur-sm px-3 py-1 text-sm font-medium text-muted-foreground animate-in fade-in slide-in-from-bottom-4 duration-700">
               <span className="flex h-2 w-2 rounded-full bg-blue-500/80 mr-2 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
               Cloud Nexus
-            </div>
+            </div> */}
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground leading-[1.15] md:leading-[1.15] lg:leading-[1.15]">

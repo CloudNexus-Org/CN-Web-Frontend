@@ -59,7 +59,7 @@ export function Navbar() {
           className="flex items-center gap-2 text-base font-semibold tracking-tight text-white"
           onClick={() => { services.close(); company.close(); help.close(); }}
         >
-          <div className="relative h-7 w-7 sm:h-8 sm:w-8 transition-all">
+          <div className="relative h-9 w-9 sm:h-10 sm:w-10 transition-all">
             <img src="/asset/cn-icon.png" alt="Cloud Nexus Logo" className="object-contain" />
           </div>
           <span className="hidden sm:inline-block text-white">Cloud Nexus</span>
