@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "public/asset/cn-icon.png";
 import { useRef, useState } from "react";
 import { ChevronDown, LifeBuoy, Mail } from "lucide-react";
 import { ServicesDropdown } from "./services-dropdown";
@@ -58,8 +59,10 @@ export function Navbar() {
           className="flex items-center gap-2 text-base font-semibold tracking-tight text-white"
           onClick={() => { services.close(); company.close(); help.close(); }}
         >
-          {/* Simple wordmark — replace with your SVG logo */}
-          <span className="text-white">CN</span>
+          <div className="relative h-7 w-7 sm:h-8 sm:w-8 transition-all">
+            <img src="/asset/cn-icon.png" alt="Cloud Nexus Logo" className="object-contain" />
+          </div>
+          <span className="hidden sm:inline-block text-white">Cloud Nexus</span>
         </Link>
 
         {/* ── Center nav ── */}
@@ -181,9 +184,9 @@ export function Navbar() {
         <div className="hidden md:block">
           <Link href="/contact">
             <Button
-              variant="outline"
+              variant="ghost"
               size="sm"
-              className="rounded-sm hover:bg-white hover:text-black"
+              className="rounded-sm hover:bg-white/50 hover:text-white"
             >
               Get Started
             </Button>

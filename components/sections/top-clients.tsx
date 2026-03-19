@@ -57,7 +57,7 @@ export const TopClients: FC = () => {
           {/* Mask Gradients for fade out effect on edges */}
           <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
-          
+
           <div className="group flex overflow-hidden w-full [--gap:2.5rem] md:[--gap:4rem] [--duration:30s] gap-[var(--gap)]">
             {Array(4).fill(0).map((_, i) => (
               <div
@@ -77,7 +77,7 @@ export const TopClients: FC = () => {
           </div>
         </div>
 
-        <p className="text-[14px] md:text-[15px] font-medium text-[#8b8b8b] tracking-wide text-center">
+        <p className="text-[12px] md:text-[13px] font-medium text-[#8b8b8b] tracking-wide text-center">
           Trusted by fast-growing companies worldwide
         </p>
 
