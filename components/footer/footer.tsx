@@ -2,6 +2,7 @@ import Spline from '@splinetool/react-spline/next';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
+
 export function Footer() {
   return (
     <footer className="relative mt-auto border-t border-white/10 bg-black overflow-hidden pt-24 pb-12">
@@ -22,7 +23,9 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10 lg:gap-8">
           <div className="col-span-2 lg:col-span-2">
             <Link href="/" className="text-2xl font-bold tracking-tighter text-white flex items-center gap-2">
-              <span className="text-blue-500 text-3xl">CN</span>
+              <div className="relative h-9 w-9 sm:h-10 sm:w-10 transition-all">
+                <img src="/asset/cn-icon.png" alt="Cloud Nexus Logo" className="object-contain" />
+              </div>
             </Link>
             <p className="mt-6 text-sm leading-relaxed text-neutral-400 max-w-sm">
               We design and build scalable digital solutions including web applications,

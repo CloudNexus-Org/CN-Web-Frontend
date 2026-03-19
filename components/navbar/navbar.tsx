@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "public/asset/cn-icon.png";
 import { useRef, useState } from "react";
 import { ChevronDown, LifeBuoy, Mail } from "lucide-react";
 import { ServicesDropdown } from "./services-dropdown";

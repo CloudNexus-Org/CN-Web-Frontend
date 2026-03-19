@@ -279,18 +279,19 @@ export function CaseStudies() {
       <div className="mx-auto max-w-7xl px-6 md:px-8">
 
         {/* Section Header */}
-        <div className="flex flex-col gap-3 mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-[#3b82f6]/10 border border-[#3b82f6]/20 w-fit">
+        {/* <div className="flex flex-col gap-3"> */}
+        {/* <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-[#3b82f6]/10 border border-[#3b82f6]/20 w-fit">
             <div className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_8px_#3b82f6] animate-pulse" />
             <span className="text-[13px] font-medium text-[#3b82f6] tracking-wide uppercase">
               Case Studies
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white leading-tight">
-            Built for outcomes.<br />
-            <span className="text-[#8b8b8b]">Measured in results.</span>
-          </h2>
-        </div>
+          <div className="flex-shrink-0 w-full md:w-auto text-center md:text-left">
+            <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-[#8b8b8b]">
+              <span className="text-white block sm:inline"></span>
+            </h2>
+          </div> */}
+        {/* </div> */}
 
         {/* Tab Selector */}
         <div className="flex flex-wrap gap-2 mb-10">
