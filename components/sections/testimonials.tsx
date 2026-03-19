@@ -97,7 +97,7 @@ const ReviewCard = ({
 
 export function Testimonials() {
   return (
-    <section className="relative w-full overflow-hidden bg-black py-24 sm:py-12">
+    <section className="relative w-full overflow-hidden bg-black py-24 sm:py-12 mb-12">
       {/* Subtle top gradient line to separate sections if needed */}
       {/* <div className="absolute top-0 inset-x-0 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" /> */}
 
