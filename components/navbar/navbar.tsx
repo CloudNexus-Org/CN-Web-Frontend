@@ -183,9 +183,9 @@ export function Navbar() {
         <div className="hidden md:block">
           <Link href="/contact">
             <Button
-              variant="ghost"
+              variant="outline"
               size="sm"
-              className="rounded-sm hover:bg-white/50 hover:text-white"
+              className="rounded-sm text-blue-500 border-blue-500"
             >
               Get Started
             </Button>

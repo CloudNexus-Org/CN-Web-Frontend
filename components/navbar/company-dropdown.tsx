@@ -31,24 +31,6 @@ const companyLinks = [
     href: "/company#careers",
   },
   {
-    icon: Users,
-    label: "Customers",
-    description: "Companies that trust us",
-    href: "/company#customers",
-  },
-  {
-    icon: HeartHandshake,
-    label: "Humans",
-    description: "The people behind the work",
-    href: "/company#humans",
-  },
-  {
-    icon: ScrollText,
-    label: "Handbook",
-    description: "How we operate",
-    href: "/company#handbook",
-  },
-  {
     icon: Lightbulb,
     label: "Philosophy",
     description: "Our values & principles",
