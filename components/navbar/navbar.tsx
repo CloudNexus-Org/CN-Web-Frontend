@@ -19,7 +19,7 @@ const helpLinks = [
     icon: Mail,
     label: "Contact",
     description: "Reach our team directly",
-    href: "/help/contact",
+    href: "/contact",
   },
 ];
 

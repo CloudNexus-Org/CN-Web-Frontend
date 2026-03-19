@@ -9,6 +9,7 @@ import {
   HeartHandshake,
   ScrollText,
   Lightbulb,
+  Zap,
 } from "lucide-react";
 
 const companyLinks = [
@@ -16,19 +17,19 @@ const companyLinks = [
     icon: Info,
     label: "About",
     description: "Our story and mission",
-    href: "/company#about",
+    href: "/about",
   },
   {
     icon: BookOpen,
     label: "Blog",
     description: "Thoughts, guides & updates",
-    href: "/company#blog",
+    href: "/blog",
   },
   {
     icon: Briefcase,
     label: "Careers",
     description: "Join our growing team",
-    href: "/company#careers",
+    href: "/career",
   },
   {
     icon: Users,
@@ -52,7 +53,13 @@ const companyLinks = [
     icon: Lightbulb,
     label: "Philosophy",
     description: "Our values & principles",
-    href: "/company#philosophy",
+    href: "/company/philosophy",
+  },
+  {
+    icon: Zap,
+    label: "Workflow",
+    description: "How we deliver excellence",
+    href: "/workflow",
   },
 ];
 

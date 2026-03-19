@@ -132,14 +132,26 @@
   }
 }
 
-/* ── Dropdown entrance animations ───────────────────────────── */
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-6px) translateX(-50%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) translateX(-50%);
-  }
+/* ── Premium Utilities ────────────────────────────────────── */
+@layer utilities {
+    .brand-glass {
+        @apply bg-white/[0.01] backdrop-blur-xl border border-white/[0.05] shadow-[0_8px_32px_0_rgba(0,0,0,0.8)];
+    }
+    
+    .brand-glow {
+        background: radial-gradient(circle at center, oklch(0.68 0.18 240 / 8%) 0%, transparent 70%);
+    }
+
+    .nexus-pattern {
+        background-image: radial-gradient(circle at 1px 1px, oklch(1 0 0 / 3%) 1px, transparent 0);
+        background-size: 32px 32px;
+    }
+
+    .text-glow {
+        text-shadow: 0 0 30px oklch(0.68 0.18 240 / 30%);
+    }
+
+    .premium-gradient-text {
+        @apply bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60;
+    }
 }
