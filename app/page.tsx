@@ -3,6 +3,8 @@ import { HeroSection } from "@/components/sections/hero-section";
 import { TopClients } from "@/components/sections/top-clients";
 import { KnownFor } from "@/components/sections/known-for";
 import { TechStack } from "@/components/sections/tech-stack";
+import { Testimonials } from "@/components/sections/testimonials";
+import { CaseStudies } from "@/components/sections/case-studies";
 
 export const metadata: Metadata = {
   title: "Build Powerful Digital Products",
@@ -16,6 +18,8 @@ export default function HomePage() {
       <TopClients />
       <KnownFor />
       <TechStack />
+      <CaseStudies />
+      <Testimonials />
     </main>
   );
 }

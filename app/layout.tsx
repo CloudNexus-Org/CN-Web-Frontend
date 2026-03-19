@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ReduxProvider } from "@/store/provider";
 import { Navbar } from "@/components/navbar/navbar";
+import { Footer } from "@/components/footer/footer";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -34,10 +35,8 @@ export default function RootLayout({
             {/* Main content */}
             <main className="flex-1">{children}</main>
 
-            {/* Footer placeholder */}
-            <footer className="border-t py-6 text-center text-sm text-muted-foreground">
-              © {new Date().getFullYear()} CN. All rights reserved.
-            </footer>
+            {/* Footer */}
+            <Footer />
           </ReduxProvider>
         </ThemeProvider>
       </body>
