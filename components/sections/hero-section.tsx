@@ -12,7 +12,7 @@ export function HeroSection() {
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left gap-8 relative z-10 w-full">
 
             {/* Label */}
-            <div className="inline-flex items-center rounded-full border border-border/40 bg-background/50 backdrop-blur-sm px-3 py-1 text-sm font-medium text-muted-foreground animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <div className="inline-flex items-center rounded-sm border border-border/40 bg-background/100 backdrop-blur-sm px-3 py-1 text-sm font-medium text-muted-foreground animate-in fade-in slide-in-from-bottom-4 duration-700">
               <span className="flex h-2 w-2 rounded-full bg-blue-500/80 mr-2 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
               Cloud Nexus
             </div>
@@ -39,7 +39,7 @@ export function HeroSection() {
               <span className="invisible text-center lg:text-left text-base md:text-lg leading-relaxed select-none pointer-events-none">
                 Building the digital infrastructure of tomorrow with precision and scale.
               </span>
-              <TypingAnimation 
+              <TypingAnimation
                 delay={700}
                 className="absolute inset-x-0 top-0 text-center lg:text-left text-base md:text-lg text-muted-foreground leading-relaxed"
               >
@@ -49,10 +49,10 @@ export function HeroSection() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full sm:w-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-1000 fill-mode-both">
-              <Button size="lg" className="rounded-md">
+              <Button size="lg" className="rounded-sm text-black bg-white hover:bg-white/80 hover:text-black">
                 Get Started
               </Button>
-              <Button variant="outline" size="lg" className="rounded-md bg-background/50 backdrop-blur-sm border-border/50 hover:bg-accent/50">
+              <Button variant="outline" size="lg" className="rounded-sm bg-background/50 backdrop-blur-sm border-border/50 hover:bg-accent/50 text-primary hover:text-primary">
                 Explore Services
               </Button>
             </div>
