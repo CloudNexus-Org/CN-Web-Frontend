@@ -277,7 +277,7 @@ export function Navbar() {
             <Link href="/contact">
               <Button
                 size="sm"
-                className="group relative rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-4 text-white shadow-lg shadow-blue-900/30 transition-all duration-200 hover:from-blue-500 hover:to-indigo-500 hover:shadow-blue-800/40 border-0"
+                className="bg-white text-black rounded-sm"
               >
                 Get Started
                 <ArrowRight
