@@ -13,21 +13,21 @@ export function Footer() {
       </div>
 
       {/* Large Background Text Effect */}
-      {/* <div className="absolute inset-x-0 top-0 z-0 flex justify-center pointer-events-none select-none overflow-hidden">
-        <span className="text-[20vw] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/[0.08] to-transparent leading-none whitespace-nowrap translate-y-[-15%]">
+      <div className="absolute inset-x-0 top-0 z-0 flex justify-center pointer-events-none select-none overflow-hidden">
+        <span className="text-[18vw] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/[0.08] to-transparent leading-none whitespace-nowrap translate-y-[-15%]">
           Cloud Nexus
         </span>
-      </div> */}
+      </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10 lg:gap-8">
           <div className="col-span-2 lg:col-span-2">
-            <Link href="/" className="text-2xl font-bold tracking-tighter text-white flex items-center gap-2">
+            {/* <Link href="/" className="text-2xl font-bold tracking-tighter text-white flex items-center gap-2">
               <div className="relative h-9 w-9 sm:h-10 sm:w-10 transition-all">
                 <img src="/asset/cn-icon.png" alt="Cloud Nexus Logo" className="object-contain" />
               </div>
-            </Link>
-            <p className="mt-6 text-sm leading-relaxed text-neutral-400 max-w-sm">
+            </Link> */}
+            <p className="mt-30 text-sm leading-relaxed text-neutral-400 max-w-sm">
               We design and build scalable digital solutions including web applications,
               cloud infrastructure, data platforms, and modern software systems.
             </p>
