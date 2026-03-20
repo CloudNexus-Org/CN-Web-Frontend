@@ -27,7 +27,7 @@ export function Footer() {
                 <img src="/asset/cn-icon.png" alt="Cloud Nexus Logo" className="object-contain" />
               </div>
             </Link> */}
-            <p className="mt-30 text-sm leading-relaxed text-neutral-400 max-w-sm">
+            <p className="mt-30 text-sm leading-relaxed text-transparent bg-clip-text bg-gradient-to-b from-neutral-400 to-neutral-700 max-w-sm">
               We design and build scalable digital solutions including web applications,
               cloud infrastructure, data platforms, and modern software systems.
             </p>
