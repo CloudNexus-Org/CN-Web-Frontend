@@ -36,11 +36,11 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-white mb-5 text-sm">Services</h3>
             <ul className="space-y-4 text-sm text-neutral-400">
-              <li><Link href="#" className="hover:text-white transition-colors">Database</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Auth</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Functions</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Realtime</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Storage</Link></li>
+              <li><Link href="/services/java-migration" className="hover:text-white transition-colors">Java Migration</Link></li>
+              <li><Link href="/services/ai-integration" className="hover:text-white transition-colors">AI Integration</Link></li>
+              <li><Link href="/services/generative-ai" className="hover:text-white transition-colors">Generative AI</Link></li>
+              <li><Link href="/services/spring-boot-development" className="hover:text-white transition-colors">Spring Boot</Link></li>
+              <li><Link href="/services/devops-engineering" className="hover:text-white transition-colors">DevOps Engineering</Link></li>
             </ul>
           </div>
 

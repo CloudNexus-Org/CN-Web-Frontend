@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Link from 'next/link';
 import { Coffee, Bot, Sparkles, Leaf, Wrench, Network, Rocket, GitMerge, ArrowRight, Code2, Activity, Boxes, Settings } from 'lucide-react';
 
 const services = [
@@ -158,8 +159,9 @@ export const KnownFor: FC = () => {
               const isLarge = i === 0 || i === 1 || i === 6 || i === 7;
 
               return (
-                <div
+                <Link
                   key={i}
+                  href={`/services/${service.title.toLowerCase().replace(/\//g, '-').replace(/ /g, '-')}`}
                   className={`group relative flex flex-col items-start bg-[#121212] border border-[#2e2e2e] hover:border-[#3b82f6]/50 hover:bg-[#161616] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(59,130,246,0.12)] transition-all duration-500 rounded-2xl p-8 overflow-hidden cursor-pointer min-h-[20rem] md:min-h-[22rem] ${isLarge ? 'lg:col-span-2' : 'lg:col-span-1'}`}
                 >
                   {service.Visual && <service.Visual />}
@@ -179,7 +181,7 @@ export const KnownFor: FC = () => {
                   <div className="relative z-10 mt-auto flex items-center text-[#3b82f6] text-sm font-medium opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
                     Explore <ArrowRight className="w-4 h-4 ml-1" />
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>

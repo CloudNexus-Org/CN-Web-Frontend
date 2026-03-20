@@ -327,7 +327,7 @@ export function CaseStudies() {
           <div className="grid lg:grid-cols-[1fr_360px] min-h-[480px]">
 
             {/* Left — Story */}
-            <div className={`relative p-8 md:p-10 lg:p-12 bg-gradient-to-br ${study.gradient} overflow-hidden`}>
+            <div className={`relative p-8 md:p-10 lg:p-12 overflow-hidden`}>
 
               {/* Top row: badges */}
               <div className="flex flex-wrap items-center gap-2 mb-8">
