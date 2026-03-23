@@ -1,0 +1,70 @@
+﻿
+> CN-Web-V0@0.0.1 build
+> next build
+
+Γû▓ Next.js 16.1.7 (Turbopack)
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 21.4s
+  Running TypeScript ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/29) ...
+node.exe : Error occurred 
+prerendering page "/admin/blog". 
+Read more: https://nextjs.org/docs
+/messages/prerender-error
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~
+    + CategoryInfo          : Not 
+   Specified: (Error occurred ..  
+  .prerender-error:String) [],    
+ RemoteException
+    + FullyQualifiedErrorId : Nat 
+   iveCommandError
+ 
+Error: Supabase environment 
+variables are missing in 
+.env.local
+    at instantiateModule (C:\Users
+\mdtal\Dev\CN\CN-Web-V0\.next\serv
+er\chunks\ssr\[turbopack]_runtime.
+js:740:9)
+    at 
+getOrInstantiateModuleFromParent (
+C:\Users\mdtal\Dev\CN\CN-Web-V0\.n
+ext\server\chunks\ssr\[turbopack]_
+runtime.js:763:12)
+    at Context.esmImport [as i] (C
+:\Users\mdtal\Dev\CN\CN-Web-V0\.ne
+xt\server\chunks\ssr\[turbopack]_r
+untime.js:228:20)
+    at module evaluation (C:\Users
+\mdtal\Dev\CN\CN-Web-V0\.next\serv
+er\chunks\ssr\[root-of-the-server]
+__8e33cafe._.js:1:2143)
+    at instantiateModule (C:\Users
+\mdtal\Dev\CN\CN-Web-V0\.next\serv
+er\chunks\ssr\[turbopack]_runtime.
+js:740:9)
+    at 
+getOrInstantiateModuleFromParent (
+C:\Users\mdtal\Dev\CN\CN-Web-V0\.n
+ext\server\chunks\ssr\[turbopack]_
+runtime.js:763:12)
+    at Context.commonJsRequire 
+[as r] (C:\Users\mdtal\Dev\CN\CN-W
+eb-V0\.next\server\chunks\ssr\[tur
+bopack]_runtime.js:249:12) {
+  digest: '1728026935'
+}
+Export encountered an error on 
+/(admin)/admin/blog/page: 
+/admin/blog, exiting the build.
+Γ¿» Next.js build worker exited 
+with code: 1 and signal: null

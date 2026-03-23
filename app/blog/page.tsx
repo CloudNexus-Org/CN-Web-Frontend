@@ -4,21 +4,22 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { Search, Loader2 } from "lucide-react";
-import { getPublishedPosts, BlogPost } from "@/services/blogService";
-import { categories } from "@/app/data/blog-posts";
+import { BlogPost } from "@/services/blogService";
+import { fetchPosts } from "@/store/slices/blogSlice";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+
+import { RootState } from "@/store/store";
 
 export default function BlogPage() {
+  const dispatch = useAppDispatch();
+  const { posts, loading } = useAppSelector((state: RootState) => state.blog);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getPublishedPosts()
-      .then((data) => setPosts(data))
-      .catch((err) => console.error("Error fetching blogs:", err))
-      .finally(() => setLoading(false));
-  }, []);
+    dispatch(fetchPosts());
+  }, [dispatch]);
+
 
   const dynamicCategories = ["All", ...Array.from(new Set(posts.map(p => p.category)))];
 

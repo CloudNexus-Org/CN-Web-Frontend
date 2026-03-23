@@ -4,7 +4,9 @@ import { useState, useMemo, useRef, useEffect } from "react";
 import { motion, useInView } from "motion/react";
 import { JobListItem } from "@/components/career/JobListItem";
 import { FilterBar } from "@/components/career/FilterBar";
-import { getActiveJobs, Job } from "@/services/jobService";
+import { Job } from "@/services/jobService";
+import { fetchJobs } from "@/store/slices/jobSlice";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
 
@@ -35,41 +37,35 @@ const testimonials = [
   }
 ];
 
+import { RootState } from "@/store/store";
+
 export default function CareersPage() {
-  const [jobs, setJobs] = useState<Job[]>([]);
-  const [loading, setLoading] = useState(true);
+  const dispatch = useAppDispatch();
+  const { jobs, loading } = useAppSelector((state: RootState) => state.jobs);
   const [selectedDepartment, setSelectedDepartment] = useState("All");
   const [selectedLocation, setSelectedLocation] = useState("All");
   const [selectedType, setSelectedType] = useState("All");
   const jobsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const data = await getActiveJobs();
-        setJobs(data);
-      } catch (error) {
-        console.error("Failed to fetch jobs:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchJobs();
-  }, []);
+    dispatch(fetchJobs());
+  }, [dispatch]);
+
 
   // Derive filter options from data
-  const departments = useMemo(() => ["All", ...Array.from(new Set(jobs.map(j => j.category)))], [jobs]);
-  const locations = useMemo(() => ["All", ...Array.from(new Set(jobs.map(j => j.location)))], [jobs]);
-  const types = useMemo(() => ["All", ...Array.from(new Set(jobs.map(j => j.employmentType)))], [jobs]);
+  const departments = useMemo(() => ["All", ...Array.from(new Set(jobs.map((j: Job) => j.category)))], [jobs]);
+  const locations = useMemo(() => ["All", ...Array.from(new Set(jobs.map((j: Job) => j.location)))], [jobs]);
+  const types = useMemo(() => ["All", ...Array.from(new Set(jobs.map((j: Job) => j.employmentType)))], [jobs]);
 
   const filteredJobs = useMemo(() => {
-    return jobs.filter((job) => {
+    return jobs.filter((job: Job) => {
       const deptMatch = selectedDepartment === "All" || job.category === selectedDepartment;
       const locMatch = selectedLocation === "All" || job.location === selectedLocation;
       const typeMatch = selectedType === "All" || job.employmentType === selectedType;
       return deptMatch && locMatch && typeMatch;
     });
   }, [jobs, selectedDepartment, selectedLocation, selectedType]);
+
 
   const scrollToJobs = () => {
     jobsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });

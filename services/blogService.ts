@@ -1,4 +1,4 @@
-import apiClient from './apiClient';
+import apiClient from "@/lib/api/axios";
 
 export interface BlogPost {
   id?: number;

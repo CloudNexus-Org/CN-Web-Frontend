@@ -32,24 +32,6 @@ const companyLinks = [
     href: "/career",
   },
   {
-    icon: Users,
-    label: "Customers",
-    description: "Companies that trust us",
-    href: "/company#customers",
-  },
-  {
-    icon: HeartHandshake,
-    label: "Humans",
-    description: "The people behind the work",
-    href: "/company#humans",
-  },
-  {
-    icon: ScrollText,
-    label: "Handbook",
-    description: "How we operate",
-    href: "/company#handbook",
-  },
-  {
     icon: Lightbulb,
     label: "Philosophy",
     description: "Our values & principles",
@@ -70,7 +52,7 @@ interface CompanyDropdownProps {
 export function CompanyDropdown({ onClose }: CompanyDropdownProps) {
   return (
     <div
-      className="absolute left-1/2 top-full mt-3 w-72 -translate-x-1/2 animate-in fade-in slide-in-from-top-2 duration-150"
+      className="absolute left-1/2 top-full mt-3 w-72 -translate-x-1/2 animate-in fade-in zoom-in-95 slide-in-from-top-2 duration-200 ease-out"
       onMouseLeave={onClose}
     >
       {/* Arrow */}
