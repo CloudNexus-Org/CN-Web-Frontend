@@ -1,4 +1,4 @@
-import apiClient from './apiClient';
+import apiClient from "@/lib/api/axios";
 import { BlogPost } from './blogService';
 import { Job } from './jobService';
 import { Applicant } from './applicantService';

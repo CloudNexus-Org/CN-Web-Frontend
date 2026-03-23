@@ -2,27 +2,21 @@
 
 import { useEffect, useState } from "react";
 import { Briefcase, Plus, MapPin, Clock, Users, Loader2, Edit2, Trash2, Eye } from "lucide-react";
-import { getJobs, Job, deleteJob } from "../../../../services/jobService";
+import { Job } from "@/services/jobService";
+import { fetchJobs, removeJob } from "@/store/slices/jobSlice";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import JobModal from "./JobModal";
 import Link from "next/link";
 
 export default function JobsPage() {
-  const [jobs, setJobs] = useState<Job[]>([]);
-  const [loading, setLoading] = useState(true);
+  const dispatch = useAppDispatch();
+  const { jobs, loading, error } = useAppSelector((state) => state.jobs);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
 
-  const fetchJobs = () => {
-    setLoading(true);
-    getJobs()
-      .then((data) => setJobs(data))
-      .catch((err) => console.error("Error fetching jobs:", err))
-      .finally(() => setLoading(false));
-  };
-
   useEffect(() => {
-    fetchJobs();
-  }, []);
+    dispatch(fetchJobs());
+  }, [dispatch]);
 
   const handleCreate = () => {
     setSelectedJob(null);
@@ -37,14 +31,14 @@ export default function JobsPage() {
   const handleDelete = async (id: number) => {
     if (window.confirm("Are you sure you want to delete this job?")) {
       try {
-        await deleteJob(id);
-        fetchJobs();
-      } catch (error) {
-        console.error("Error deleting job:", error);
+        await dispatch(removeJob(id)).unwrap();
+      } catch (err) {
+        console.error("Error deleting job:", err);
         alert("Failed to delete job.");
       }
     }
   };
+
 
   return (
     <div className="space-y-4 md:space-y-6 max-w-[1400px]">
@@ -160,7 +154,7 @@ export default function JobsPage() {
       <JobModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
-        onSuccess={fetchJobs}
+        onSuccess={() => dispatch(fetchJobs())}
         job={selectedJob}
       />
     </div>

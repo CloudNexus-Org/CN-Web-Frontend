@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { FileText, Calendar, Eye, Edit, Plus, Loader2, ArrowLeft, Upload, Image as ImageIcon, Trash2 } from "lucide-react";
-import { getPosts, createPost, deletePost, BlogPost } from "../../../../services/blogService";
-import { uploadFileToSupabase } from "../../../../lib/uploadService";
+import { BlogPost } from "@/services/blogService";
+import { fetchPosts, removePost, addPost } from "@/store/slices/blogSlice";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { uploadFileToSupabase } from "@/lib/uploadService";
 
 export default function AdminBlogPage() {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
+  const dispatch = useAppDispatch();
+  const { posts, loading } = useAppSelector((state) => state.blog);
   const [isCreating, setIsCreating] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
@@ -21,16 +23,8 @@ export default function AdminBlogPage() {
   const [authorFile, setAuthorFile] = useState<File | null>(null);
 
   useEffect(() => {
-    fetchPosts();
-  }, []);
-
-  const fetchPosts = () => {
-    setLoading(true);
-    getPosts()
-      .then((data) => setPosts(data))
-      .catch((err) => console.error("Error fetching posts:", err))
-      .finally(() => setLoading(false));
-  };
+    dispatch(fetchPosts());
+  }, [dispatch]);
 
   const handleCreateSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,7 +46,7 @@ export default function AdminBlogPage() {
         }
       }
 
-      await createPost({
+      await dispatch(addPost({
         title,
         author,
         authorImageUrl,
@@ -61,11 +55,10 @@ export default function AdminBlogPage() {
         summary,
         coverImageUrl,
         status: "Published",
-      });
+      })).unwrap();
 
       setIsCreating(false);
       resetForm();
-      fetchPosts();
     } catch (error) {
       console.error("Error creating post:", error);
       alert("Failed to create post. Check console for details.");
@@ -77,13 +70,13 @@ export default function AdminBlogPage() {
   const handleDelete = async (id: number) => {
     if (!confirm("Are you sure you want to delete this post?")) return;
     try {
-      await deletePost(id);
-      fetchPosts();
+      await dispatch(removePost(id)).unwrap();
     } catch (error) {
       console.error("Error deleting post:", error);
       alert("Failed to delete post.");
     }
   };
+
 
   const resetForm = () => {
     setTitle("");
