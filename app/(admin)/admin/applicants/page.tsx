@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { UserCheck, Mail, Phone, Download, Filter, Loader2, Linkedin, ExternalLink, X, Calendar, CheckCircle, XCircle, FileText, User } from "lucide-react";
 import { getApplicants, getApplicantsByJob, Applicant, updateApplicantStatus, deleteApplicant } from "../../../../services/applicantService";
 
-export default function ApplicantsPage() {
+function ApplicantsContent() {
   const searchParams = useSearchParams();
   const jobId = searchParams.get("jobId");
   const [applicants, setApplicants] = useState<Applicant[]>([]);
@@ -324,5 +324,18 @@ export default function ApplicantsPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function ApplicantsPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex items-center text-gray-400 text-sm py-10 justify-center">
+        <Loader2 className="w-6 h-6 mr-2 animate-spin text-[#22a8e7]" />
+        Loading applicants view...
+      </div>
+    }>
+      <ApplicantsContent />
+    </Suspense>
   );
 }
