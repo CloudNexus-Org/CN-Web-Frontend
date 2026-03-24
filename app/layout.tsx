@@ -3,8 +3,6 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ReduxProvider } from "@/store/provider";
-import { Navbar } from "@/components/navbar/navbar";
-import { Footer } from "@/components/footer/footer";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -26,17 +24,11 @@ export default function RootLayout({
       suppressHydrationWarning
       className="antialiased"
     >
-      <body className={cn("flex min-h-screen flex-col", GeistSans.className)}>
+      <body suppressHydrationWarning className={cn("flex min-h-screen flex-col", GeistSans.className)}>
         <ThemeProvider>
           <ReduxProvider>
-            {/* Navbar */}
-            <Navbar />
-
             {/* Main content */}
-            <main className="flex-1">{children}</main>
-
-            {/* Footer */}
-            <Footer />
+            {children}
           </ReduxProvider>
         </ThemeProvider>
       </body>

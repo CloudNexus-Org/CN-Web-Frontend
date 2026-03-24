@@ -12,12 +12,24 @@ import {
   LogOut,
   Search,
   Bell,
-  ChevronDown,
   Menu,
   X,
 } from "lucide-react";
-import { useState } from "react";
 import Image from "next/image";
+import { useState } from "react";
+
+// Shadcn UI Imports
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 const navigationItems = [
   { name: "Dashboard", path: "/admin", icon: LayoutDashboard },
@@ -35,191 +47,140 @@ export default function AdminLayout({
 }) {
   const pathname = usePathname();
   const router = useRouter();
-  const [showProfileMenu, setShowProfileMenu] = useState(false);
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const handleLogout = () => {
     console.log("Logging out...");
-    // router.push("/login");
   };
 
+  const SidebarContent = () => (
+    <div className="flex flex-col h-full bg-[#0a0a0a]">
+      {/* Logo */}
+      <div className="px-6 py-6 border-b border-[#1a1a1a]">
+        <Image 
+          src="/assets/admin-logo.png" 
+          alt="Cloud Nexus" 
+          width={150} 
+          height={40} 
+          className="w-full h-auto"
+          priority
+        />
+      </div>
+
+      {/* Navigation */}
+      <nav className="flex-1 px-3 py-6 space-y-1 overflow-y-auto">
+        {navigationItems.map((item) => {
+          const isActive = pathname === item.path;
+          return (
+            <Link
+              key={item.path}
+              href={item.path}
+              className={`flex items-center gap-3 px-3 py-2.5 rounded-md transition-all text-sm font-medium ${
+                isActive
+                  ? "bg-[#22a8e7]/10 text-[#22a8e7] border-l-2 border-[#22a8e7]"
+                  : "text-neutral-400 hover:text-white hover:bg-neutral-900"
+              }`}
+            >
+              <item.icon className="w-4 h-4" />
+              <span>{item.name}</span>
+            </Link>
+          );
+        })}
+      </nav>
+
+      {/* Logout */}
+      <div className="p-4 border-t border-[#1a1a1a]">
+        <Button
+          variant="ghost"
+          className="w-full justify-start text-neutral-400 hover:text-red-400 hover:bg-neutral-900"
+          onClick={handleLogout}
+        >
+          <LogOut className="w-4 h-4 mr-3" />
+          Logout
+        </Button>
+      </div>
+    </div>
+  );
+
   return (
-    <div className="flex h-screen bg-black text-white">
+    <div className="flex h-screen bg-black text-white selection:bg-[#22a8e7]/30">
       {/* Sidebar - Desktop */}
-      <aside className="hidden md:flex w-56 bg-[#0a0a0a] border-r border-[#1a1a1a] flex-col">
-        {/* Logo */}
-        <div className="px-6 py-6">
-          <Image 
-            src="/assets/admin-logo.png" 
-            alt="Cloud Nexus" 
-            width={150} 
-            height={40} 
-            className="w-full h-auto"
-            priority
-          />
-        </div>
-
-        {/* Navigation */}
-        <nav className="flex-1 px-3 space-y-0.5">
-          {navigationItems.map((item) => {
-            const isActive = pathname === item.path;
-            return (
-              <Link
-                key={item.path}
-                href={item.path}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-md transition-all text-sm ${
-                  isActive
-                    ? "bg-[#22a8e7]/10 text-[#22a8e7] border-l-2 border-[#22a8e7]"
-                    : "text-gray-400 hover:text-white hover:bg-[#141414]"
-                }`}
-              >
-                <item.icon className="w-4 h-4" />
-                <span>{item.name}</span>
-              </Link>
-            );
-          })}
-        </nav>
-
-        {/* Logout */}
-        <div className="p-3">
-          <button
-            onClick={handleLogout}
-            className="flex items-center gap-3 px-3 py-2.5 rounded-md text-gray-400 hover:text-white hover:bg-[#141414] transition-all w-full text-sm"
-          >
-            <LogOut className="w-4 h-4" />
-            <span>Logout</span>
-          </button>
-        </div>
+      <aside className="hidden lg:flex w-64 flex-col border-r border-[#1a1a1a]">
+        <SidebarContent />
       </aside>
 
-      {/* Mobile Sidebar Overlay */}
-      {showMobileMenu && (
-        <div className="fixed inset-0 z-50 md:hidden">
-          <div
-            className="absolute inset-0 bg-black/80"
-            onClick={() => setShowMobileMenu(false)}
-          ></div>
-
-          <aside className="absolute left-0 top-0 bottom-0 w-64 bg-[#0a0a0a] border-r border-[#1a1a1a] flex flex-col">
-            <div className="px-6 py-6 flex items-center justify-between">
-              <Image 
-                src="/assets/admin-logo.png" 
-                alt="Cloud Nexus" 
-                width={120} 
-                height={32} 
-                className="w-32 h-auto"
-              />
-              <button
-                onClick={() => setShowMobileMenu(false)}
-                className="text-gray-400 hover:text-white"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <nav className="flex-1 px-3 space-y-0.5">
-              {navigationItems.map((item) => {
-                const isActive = pathname === item.path;
-                return (
-                  <Link
-                    key={item.path}
-                    href={item.path}
-                    onClick={() => setShowMobileMenu(false)}
-                    className={`flex items-center gap-3 px-3 py-2.5 rounded-md transition-all text-sm ${
-                      isActive
-                      ? "bg-[#22a8e7]/10 text-[#22a8e7] border-l-2 border-[#22a8e7]"
-                        : "text-gray-400 hover:text-white hover:bg-[#141414]"
-                    }`}
-                  >
-                    <item.icon className="w-4 h-4" />
-                    <span>{item.name}</span>
-                  </Link>
-                );
-              })}
-            </nav>
-
-            <div className="p-3">
-              <button
-                onClick={handleLogout}
-                className="flex items-center gap-3 px-3 py-2.5 rounded-md text-gray-400 hover:text-white hover:bg-[#141414] transition-all w-full text-sm"
-              >
-                <LogOut className="w-4 h-4" />
-                <span>Logout</span>
-              </button>
-            </div>
-          </aside>
-        </div>
-      )}
-
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
+      {/* Main Content Area */}
+      <div className="flex-1 flex flex-col overflow-hidden bg-black">
         {/* Topbar */}
-        <header className="bg-[#0a0a0a] border-b border-[#1a1a1a] px-4 md:px-6 py-3">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3 flex-1">
-              <button
-                onClick={() => setShowMobileMenu(true)}
-                className="md:hidden text-gray-400 hover:text-white"
-              >
-                <Menu className="w-5 h-5" />
-              </button>
+        <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b border-[#1a1a1a] bg-[#0a0a0a]/80 backdrop-blur-md px-6">
+          
+          {/* Mobile Sidebar Trigger */}
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="lg:hidden text-neutral-400 hover:text-white">
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Toggle Sidebar</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-64 p-0 border-[#1a1a1a] bg-[#0a0a0a]">
+              <SidebarContent />
+            </SheetContent>
+          </Sheet>
 
-              <div className="flex-1 max-w-md">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    className="w-full bg-[#141414] text-white text-sm pl-9 pr-4 py-2 rounded-md border border-[#1a1a1a] focus:outline-none focus:border-[#2a2a2a] placeholder:text-gray-600"
-                  />
+          {/* Search */}
+          <div className="flex-1">
+            <div className="relative max-w-md">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-500" />
+              <Input
+                type="search"
+                placeholder="Search resources..."
+                className="w-full bg-[#111111] border-[#1a1a1a] pl-9 text-sm text-white placeholder:text-neutral-500 focus-visible:ring-1 focus-visible:ring-[#22a8e7] focus-visible:ring-offset-0 rounded-lg"
+              />
+            </div>
+          </div>
+
+          {/* Right Actions */}
+          <div className="flex items-center gap-3">
+            <Button variant="ghost" size="icon" className="relative text-neutral-400 hover:text-white rounded-full">
+              <Bell className="h-5 w-5" />
+              <span className="absolute top-2 right-2 h-1.5 w-1.5 rounded-full bg-red-500 ring-2 ring-[#0a0a0a]"></span>
+            </Button>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="relative h-9 w-9 rounded-full select-none">
+                  <Avatar className="h-9 w-9 border border-[#1a1a1a]">
+                    <AvatarFallback className="bg-[#111] text-xs font-medium text-white">AD</AvatarFallback>
+                  </Avatar>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56 bg-[#0a0a0a] border-[#1a1a1a] text-white p-1 rounded-xl">
+                <div className="flex items-center justify-start gap-2 p-2">
+                  <div className="flex flex-col space-y-0.5 leading-none">
+                    <p className="font-medium text-sm">Admin User</p>
+                    <p className="text-xs text-neutral-500">admin@cloudnexus.io</p>
+                  </div>
                 </div>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2 md:gap-4 ml-2 md:ml-8">
-              <button className="relative p-2 text-gray-400 hover:text-white transition-colors">
-                <Bell className="w-5 h-5" />
-                <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-red-500 rounded-full"></span>
-              </button>
-
-              <div className="relative">
-                <button
-                  onClick={() => setShowProfileMenu(!showProfileMenu)}
-                  className="flex items-center gap-2 md:gap-3 hover:bg-[#141414] rounded-md px-1.5 md:px-2 py-1.5 transition-colors"
+                <DropdownMenuSeparator className="bg-[#1a1a1a]" />
+                <DropdownMenuItem className="focus:bg-[#111] focus:text-white cursor-pointer rounded-lg text-sm">
+                  Profile
+                </DropdownMenuItem>
+                <DropdownMenuItem className="focus:bg-[#111] focus:text-white cursor-pointer rounded-lg text-sm">
+                  Settings
+                </DropdownMenuItem>
+                <DropdownMenuSeparator className="bg-[#1a1a1a]" />
+                <DropdownMenuItem 
+                  className="focus:bg-red-500/10 focus:text-red-500 text-red-400 cursor-pointer rounded-lg text-sm"
+                  onClick={handleLogout}
                 >
-                  <div className="w-8 h-8 bg-[#1a1a1a] rounded-full flex items-center justify-center text-white text-sm">
-                    AD
-                  </div>
-                  <div className="text-left hidden sm:block">
-                    <div className="text-sm text-white">Admin User</div>
-                  </div>
-                  <ChevronDown className="w-4 h-4 text-gray-400 hidden sm:block" />
-                </button>
-
-                {showProfileMenu && (
-                  <div className="absolute right-0 mt-2 w-48 bg-[#0a0a0a] border border-[#1a1a1a] rounded-lg shadow-lg py-1 z-50">
-                    <button className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-[#141414]">
-                      Profile
-                    </button>
-                    <button className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-[#141414]">
-                      Settings
-                    </button>
-                    <hr className="my-1 border-[#1a1a1a]" />
-                    <button
-                      onClick={handleLogout}
-                      className="w-full text-left px-4 py-2 text-sm text-red-400 hover:bg-[#141414]"
-                    >
-                      Logout
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
+                  Log out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </header>
 
         {/* Page Content */}
-        <main className="flex-1 overflow-auto bg-black p-4 md:p-6">
+        <main className="flex-1 overflow-auto p-6 lg:p-8">
           {children}
         </main>
       </div>

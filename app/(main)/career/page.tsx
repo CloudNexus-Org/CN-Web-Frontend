@@ -8,6 +8,7 @@ import { Job } from "@/services/jobService";
 import { fetchJobs } from "@/store/slices/jobSlice";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import Link from "next/link";
+import Image from "next/image";
 import { Loader2 } from "lucide-react";
 
 const testimonials = [
@@ -137,10 +138,11 @@ export default function CareersPage() {
                     <p className="text-muted-foreground group-hover:text-white/60 transition-colors">What we believe</p>
                   </div>
                   <div className="aspect-video rounded-lg overflow-hidden bg-muted relative">
-                    <img 
+                    <Image 
                       src="/assets/images/about-premium.png" 
                       alt="About Cloud Nexus" 
                       className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-[0.22, 1, 0.36, 1]" 
+                      fill
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   </div>
@@ -160,10 +162,11 @@ export default function CareersPage() {
                     <p className="text-muted-foreground group-hover:text-white/60 transition-colors">How we work</p>
                   </div>
                   <div className="aspect-video rounded-lg overflow-hidden bg-muted relative">
-                    <img 
+                    <Image 
                       src="/assets/images/philosophy-premium.png" 
                       alt="Our Philosophy" 
                       className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-[0.22, 1, 0.36, 1]" 
+                      fill
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   </div>
@@ -423,7 +426,7 @@ function TestimonialCardStatic({ quote, name, title, image }: { quote: string; n
         <p className="text-sm text-muted-foreground leading-relaxed">{quote}</p>
       </div>
       <div className="flex items-center">
-        <img src={image} alt={name} className="w-10 h-10 rounded-full mr-3 object-cover" />
+        <Image src={image} alt={name} width={40} height={40} className="w-10 h-10 rounded-full mr-3 object-cover" />
         <div>
           <h3 className="text-sm font-medium">{name}</h3>
           <p className="text-xs text-muted-foreground">{title}</p>

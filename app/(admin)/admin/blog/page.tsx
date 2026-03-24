@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { FileText, Calendar, Eye, Edit, Plus, Loader2, ArrowLeft, Upload, Image as ImageIcon, Trash2 } from "lucide-react";
+import Image from "next/image";
 import { BlogPost } from "@/services/blogService";
 import { fetchPosts, removePost, addPost } from "@/store/slices/blogSlice";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
@@ -268,8 +269,8 @@ export default function AdminBlogPage() {
               className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-lg p-4 md:p-5 hover:border-[#2a2a2a] transition-colors flex gap-4"
             >
               {post.coverImageUrl ? (
-                <div className="hidden sm:block w-32 h-24 rounded-md overflow-hidden bg-[#1a1a1a] flex-shrink-0">
-                  <img src={post.coverImageUrl} alt={post.title} className="w-full h-full object-cover" />
+                <div className="hidden sm:block w-32 h-24 rounded-md overflow-hidden bg-[#1a1a1a] flex-shrink-0 relative">
+                  <Image src={post.coverImageUrl} alt={post.title} fill className="w-full h-full object-cover" />
                 </div>
               ) : (
                 <div className="hidden sm:flex w-32 h-24 rounded-md bg-[#1a1a1a] border border-[#2a2a2a] items-center justify-center text-gray-500 flex-shrink-0">
@@ -293,7 +294,7 @@ export default function AdminBlogPage() {
                 <div className="flex flex-wrap items-center gap-3 text-gray-500 text-xs mb-3 md:mb-4">
                   <div className="flex items-center gap-2">
                     {post.authorImageUrl ? (
-                      <img src={post.authorImageUrl} alt={post.author} className="w-5 h-5 rounded-full object-cover" />
+                      <Image src={post.authorImageUrl} alt={post.author} width={20} height={20} className="w-5 h-5 rounded-full object-cover" />
                     ) : (
                       <div className="w-5 h-5 rounded-full bg-[#1a1a1a] flex items-center justify-center">
                         <ImageIcon className="w-3 h-3 text-gray-400" />
