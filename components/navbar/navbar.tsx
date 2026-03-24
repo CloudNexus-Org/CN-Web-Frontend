@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import {
@@ -152,7 +153,7 @@ export function Navbar() {
           onClick={() => setActiveDropdown(null)}
         >
           <div className="relative h-9 w-9 sm:h-10 sm:w-10 transition-all">
-            <img src="/asset/cn-icon.png" alt="Cloud Nexus Logo" className="object-contain" />
+            <Image src="/asset/cn-icon.png" alt="Cloud Nexus Logo" className="object-contain" fill sizes="40px" />
           </div>
           <span className="hidden sm:inline-block text-white">Cloud Nexus</span>
         </Link>
@@ -310,7 +311,7 @@ export function Navbar() {
                   onClick={() => setMobileOpen(false)}
                 >
                   <div className="relative h-8 w-8">
-                    <img src="/asset/cn-icon.png" alt="Cloud Nexus Logo" className="object-contain" />
+                    <Image src="/asset/cn-icon.png" alt="Cloud Nexus Logo" className="object-contain" fill sizes="32px" />
                   </div>
                   <span>Cloud Nexus</span>
                 </Link>

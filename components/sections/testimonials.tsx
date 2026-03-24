@@ -69,7 +69,7 @@ const ReviewCard = ({
         </p>
         <div className="flex items-center gap-4">
           <div className="relative">
-            <img
+            <Image
               src={avatar}
               alt={name}
               width={48}

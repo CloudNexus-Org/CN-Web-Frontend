@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="61df4090-3a0a-49b1-8cc3-9059766c6905" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/CN-Web-V0.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(admin)/admin/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(admin)/admin/blog/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(admin)/admin/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(admin)/admin/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(admin)/admin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(admin)/admin/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/about/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/blog/[postId]/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/blog/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/career/apply/[id]/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/career/job/[id]/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/career/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/company/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/company/philosophy/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/contact/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/data/blog-posts.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/data/jobs.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/help/contact/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/help/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/help/support/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/ai-integration/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/ci-cd-pipelines/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/devops-engineering/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/generative-ai/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/github-actions-automation/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/java-migration/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/spring-boot-development/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/tensorflow-solutions/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/workflow/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build_error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build_error.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build_utf8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/career/ApplyModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/career/ApplyModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/navbar/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/navbar/navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/sections/testimonials.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/sections/testimonials.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend_startup.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend_startup_new.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend_startup_utf8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="3BNY6BMbOYPYbCEV2hFGEHj9Erl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "fixes/talib"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="61df4090-3a0a-49b1-8cc3-9059766c6905" name="Changes" comment="" />
+      <created>1774330819998</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1774330819998</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -1,10 +1,24 @@
 "use client";
 
-import { Briefcase, UserCheck, TrendingUp, FileText, TrendingDown, Clock, Loader2 } from "lucide-react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { Briefcase, UserCheck, TrendingUp, FileText, TrendingDown, Clock, Loader2, ArrowUpRight } from "lucide-react";
+import dynamic from "next/dynamic";
+const LineChart = dynamic(() => import("recharts").then((mod) => mod.LineChart), { ssr: false });
+const Line = dynamic(() => import("recharts").then((mod) => mod.Line), { ssr: false });
+const XAxis = dynamic(() => import("recharts").then((mod) => mod.XAxis), { ssr: false });
+const YAxis = dynamic(() => import("recharts").then((mod) => mod.YAxis), { ssr: false });
+const CartesianGrid = dynamic(() => import("recharts").then((mod) => mod.CartesianGrid), { ssr: false });
+const Tooltip = dynamic(() => import("recharts").then((mod) => mod.Tooltip), { ssr: false });
+const ResponsiveContainer = dynamic(() => import("recharts").then((mod) => mod.ResponsiveContainer), { ssr: false });
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getDashboardStats, DashboardStats } from "@/services/dashboardService";
+
+// Shadcn UI Imports
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 export default function DashboardPage() {
   const [stats, setStats] = useState<DashboardStats | null>(null);
@@ -24,23 +38,32 @@ export default function DashboardPage() {
     fetchStats();
   }, []);
 
-  const getStatusColor = (status: string) => {
+  const getStatusVariant = (status: string) => {
     switch (status) {
       case "New":
-        return "bg-blue-500/10 text-blue-400";
+        return "default"; // blue-ish styling via custom css or outline
       case "Under Review":
-        return "bg-yellow-500/10 text-yellow-400";
+        return "secondary";
       case "Interview Scheduled":
-        return "bg-green-500/10 text-green-400";
+        return "outline"; // customize with border
       default:
-        return "bg-gray-500/10 text-gray-400";
+        return "outline";
     }
   };
 
+  const getStatusStyles = (status: string) => {
+     switch (status) {
+      case "New": return "bg-blue-500/10 text-blue-400 border-none hover:bg-blue-500/20";
+      case "Under Review": return "bg-amber-500/10 text-amber-400 border-none hover:bg-amber-500/20";
+      case "Interview Scheduled": return "bg-emerald-500/10 text-emerald-400 border-none hover:bg-emerald-500/20";
+      default: return "bg-neutral-500/10 text-neutral-400 border-none hover:bg-neutral-500/20";
+     }
+  }
+
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-[60vh]">
-        <Loader2 className="w-8 h-8 text-[#22a8e7] animate-spin" />
+      <div className="flex h-[80vh] items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-[#22a8e7]" />
       </div>
     );
   }
@@ -88,156 +111,146 @@ export default function DashboardPage() {
     : [];
 
   return (
-    <div className="space-y-4 md:space-y-6 max-w-[1400px]">
+    <div className="mx-auto max-w-[1400px] space-y-6 md:space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       {/* Page Header */}
       <div>
-        <h1 className="text-xl md:text-2xl text-white mb-1 font-medium">Dashboard</h1>
-        <p className="text-gray-500 text-xs md:text-sm">
-          Welcome back! Here&apos;s what&apos;s happening with your recruitment.
+        <h1 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">Dashboard</h1>
+        <p className="mt-1 text-sm text-neutral-500">
+          Welcome back! Here&apos;s a summary of your operations.
         </p>
       </div>
 
       {/* Summary Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
         {summaryCards.map((card) => (
-          <Link
-            key={card.title}
-            href={card.href}
-            className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-lg p-4 md:p-5 hover:border-[#22a8e7]/40 transition-all group"
-          >
-            <div className="flex items-start justify-between mb-2 md:mb-3">
-              <div className="p-1.5 md:p-2 bg-[#1a1a1a] rounded-md group-hover:bg-[#22a8e7]/10 transition-colors">
-                <card.icon className="w-3 h-3 md:w-4 md:h-4 text-gray-400 group-hover:text-[#22a8e7] transition-colors" />
-              </div>
-              <div className={`flex items-center gap-1 text-xs ${
-                card.trend === "up" ? "text-green-500" : "text-red-500"
-              }`}>
-                {card.trend === "up" ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
-                <span className="hidden sm:inline">{card.change}</span>
-              </div>
-            </div>
-            <h3 className="text-gray-500 text-xs mb-1">{card.title}</h3>
-            <p className="text-xl md:text-2xl text-white">{card.value}</p>
+          <Link key={card.title} href={card.href} className="focus:outline-none focus:ring-2 focus:ring-[#22a8e7] rounded-xl outline-none">
+            <Card className="h-full bg-[#0a0a0a] border-[#1a1a1a] transition-all duration-200 hover:border-[#22a8e7]/50 hover:bg-[#111] hover:shadow-sm">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium text-neutral-400">
+                  {card.title}
+                </CardTitle>
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#111] border border-[#1a1a1a]">
+                   <card.icon className="h-4 w-4 text-neutral-300 transition-colors group-hover:text-[#22a8e7]" />
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-semibold tracking-tight text-white mb-1.5">{card.value}</div>
+                <div className="flex items-center text-xs">
+                  <span className={`flex items-center ${card.trend === "up" ? "text-emerald-500" : "text-rose-500 font-medium"}`}>
+                    {card.trend === "up" ? <TrendingUp className="mr-1 h-3 w-3" /> : <TrendingDown className="mr-1 h-3 w-3" />}
+                    {card.change}
+                  </span>
+                  <span className="ml-2 text-neutral-500 font-medium">from last month</span>
+                </div>
+              </CardContent>
+            </Card>
           </Link>
         ))}
       </div>
 
-      {/* Chart */}
-      <div className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-lg p-4 md:p-6">
-        <h2 className="text-base md:text-lg text-white mb-4 md:mb-6 font-medium">Applications Per Month</h2>
-        <div className="h-[250px] w-full">
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={chartData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#1a1a1a" />
-              <XAxis dataKey="month" stroke="#666" tick={{ fontSize: 11 }} />
-              <YAxis stroke="#666" tick={{ fontSize: 11 }} />
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: "#0a0a0a",
-                  border: "1px solid #22a8e7",
-                  borderRadius: "6px",
-                  color: "#fff",
-                }}
-              />
-              <Line
-                type="monotone"
-                dataKey="applications"
-                stroke="#22a8e7"
-                strokeWidth={2}
-                dot={{ fill: "#22a8e7", r: 3 }}
-                activeDot={{ r: 5 }}
-              />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
+      {/* Chart and Activity Grid */}
+      <div className="grid gap-6 lg:grid-cols-7 lg:gap-8">
+        
+        {/* Chart Card */}
+        <Card className="col-span-1 lg:col-span-4 bg-[#0a0a0a] border-[#1a1a1a] shadow-sm rounded-xl">
+          <CardHeader>
+            <CardTitle className="text-lg text-white font-medium">Applications Over Time</CardTitle>
+            <CardDescription className="text-neutral-500">Monthly applicant volume for the current year</CardDescription>
+          </CardHeader>
+          <CardContent className="h-[300px] w-full mt-4">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={chartData} margin={{ top: 5, right: 10, left: -20, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#1a1a1a" vertical={false} />
+                <XAxis dataKey="month" stroke="#666" fontSize={12} tickLine={false} axisLine={false} />
+                <YAxis stroke="#666" fontSize={12} tickLine={false} axisLine={false} />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: "#0a0a0a",
+                    border: "1px solid #1a1a1a",
+                    borderRadius: "8px",
+                    color: "#fff",
+                    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)"
+                  }}
+                  itemStyle={{ color: "#22a8e7" }}
+                />
+                <Line
+                  type="monotone"
+                  dataKey="applications"
+                  stroke="#22a8e7"
+                  strokeWidth={2}
+                  dot={{ fill: "#0a0a0a", stroke: "#22a8e7", strokeWidth: 2, r: 4 }}
+                  activeDot={{ r: 6, fill: "#22a8e7" }}
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          </CardContent>
+        </Card>
+
+        {/* Recent Applications Card using Shadcn Table */}
+        <Card className="col-span-1 lg:col-span-3 bg-[#0a0a0a] border-[#1a1a1a] shadow-sm rounded-xl flex flex-col">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0">
+            <div>
+              <CardTitle className="text-lg text-white font-medium">Recent Applications</CardTitle>
+              <CardDescription className="text-neutral-500 mt-1">Latest candidates.</CardDescription>
+            </div>
+            <Link
+              href="/admin/applicants"
+              className="group flex items-center text-sm font-medium text-[#22a8e7] transition-colors hover:text-[#2bc5ff]"
+            >
+              View all
+              <ArrowUpRight className="ml-1 h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
+          </CardHeader>
+          <CardContent className="flex-1 px-0 pt-0">
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow className="border-[#1a1a1a] hover:bg-transparent">
+                    <TableHead className="text-neutral-500 font-medium px-6">Applicant</TableHead>
+                    <TableHead className="text-neutral-500 font-medium">Status</TableHead>
+                    <TableHead className="text-right text-neutral-500 font-medium px-6 whitespace-nowrap">Date</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {stats?.recentApplications.map((app) => (
+                    <TableRow key={app.id} className="border-[#1a1a1a]/50 hover:bg-[#111] transition-colors cursor-pointer group">
+                      <TableCell className="px-6 py-4">
+                        <div className="flex items-center gap-3">
+                          <Avatar className="h-8 w-8 border border-[#1a1a1a]">
+                            <AvatarFallback className="bg-[#111] text-xs font-semibold text-neutral-300">
+                              {app.firstName[0]}{app.lastName[0]}
+                            </AvatarFallback>
+                          </Avatar>
+                          <div className="flex flex-col">
+                            <span className="text-sm font-medium text-neutral-200 group-hover:text-white transition-colors">{app.firstName} {app.lastName}</span>
+                            <span className="text-xs text-neutral-500 truncate max-w-[150px]">{app.job?.title || "N/A"}</span>
+                          </div>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <Badge variant="outline" className={`font-medium select-none ${getStatusStyles(app.status || "New")}`}>
+                          {app.status === "Interview Scheduled" ? "Interview" : app.status}
+                        </Badge>
+                      </TableCell>
+                      <TableCell className="text-right px-6 text-sm text-neutral-500 whitespace-nowrap">
+                        {app.appliedAt ? new Date(app.appliedAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) : "N/A"}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                  {stats?.recentApplications.length === 0 && (
+                    <TableRow className="border-[#1a1a1a] hover:bg-transparent">
+                      <TableCell colSpan={3} className="h-24 text-center text-sm text-neutral-500">
+                        No recent applications found.
+                      </TableCell>
+                    </TableRow>
+                  )}
+                </TableBody>
+              </Table>
+            </div>
+          </CardContent>
+        </Card>
       </div>
 
-      {/* Recent Applications Table */}
-      <div className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-lg overflow-hidden">
-        <div className="p-4 md:p-5 border-b border-[#1a1a1a] flex items-center justify-between">
-          <h2 className="text-base md:text-lg text-white font-medium">Recent Applications</h2>
-          <Link
-            href="/admin/applicants"
-            className="text-[#22a8e7] text-xs hover:underline"
-          >
-            View all →
-          </Link>
-        </div>
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-[#1a1a1a]">
-                <th className="text-left text-xs text-gray-500 font-normal px-4 md:px-5 py-3">ID</th>
-                <th className="text-left text-xs text-gray-500 font-normal px-4 md:px-5 py-3">Applicant</th>
-                <th className="text-left text-xs text-gray-500 font-normal px-4 md:px-5 py-3 hidden md:table-cell">Position</th>
-                <th className="text-left text-xs text-gray-500 font-normal px-4 md:px-5 py-3 hidden lg:table-cell">Date</th>
-                <th className="text-left text-xs text-gray-500 font-normal px-4 md:px-5 py-3">Status</th>
-                <th className="text-left text-xs text-gray-500 font-normal px-4 md:px-5 py-3 hidden sm:table-cell">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {stats?.recentApplications.map((app) => (
-                <tr
-                  key={app.id}
-                  className="border-b border-[#1a1a1a] hover:bg-[#0d0d0d] transition-colors"
-                >
-                  <td className="px-4 md:px-5 py-3 md:py-4">
-                    <span className="text-gray-400 font-mono text-xs">{app.id}</span>
-                  </td>
-                  <td className="px-4 md:px-5 py-3 md:py-4">
-                    <div className="flex items-center gap-2 md:gap-3">
-                      <div className="w-7 h-7 md:w-8 md:h-8 bg-[#1a1a1a] rounded-full flex items-center justify-center text-white text-xs uppercase">
-                        {app.firstName[0]}{app.lastName[0]}
-                      </div>
-                      <span className="text-white text-xs md:text-sm">{app.firstName} {app.lastName}</span>
-                    </div>
-                  </td>
-                  <td className="px-4 md:px-5 py-3 md:py-4 hidden md:table-cell">
-                    <span className="text-gray-400 text-xs md:text-sm">{app.job?.title || "N/A"}</span>
-                  </td>
-                  <td className="px-4 md:px-5 py-3 md:py-4 hidden lg:table-cell">
-                    <div className="flex items-center gap-2 text-gray-500 text-xs md:text-sm">
-                      <Clock className="w-3 h-3" />
-                      {app.appliedAt ? new Date(app.appliedAt).toLocaleDateString() : "N/A"}
-                    </div>
-                  </td>
-                  <td className="px-4 md:px-5 py-3 md:py-4">
-                    <span
-                      className={`inline-flex px-2 md:px-2.5 py-0.5 md:py-1 rounded-full text-xs ${getStatusColor(
-                        app.status || "New"
-                      )}`}
-                    >
-                      <span className="hidden sm:inline">{app.status}</span>
-                      <span className="sm:hidden">
-                        {app.status === "Interview Scheduled"
-                          ? "Interview"
-                          : app.status === "Under Review"
-                          ? "Review"
-                          : app.status}
-                      </span>
-                    </span>
-                  </td>
-                  <td className="px-4 md:px-5 py-3 md:py-4 hidden sm:table-cell">
-                    <Link
-                      href="/admin/applicants"
-                      className="text-gray-400 hover:text-[#22a8e7] text-xs md:text-sm transition-colors"
-                    >
-                      View Details
-                    </Link>
-                  </td>
-                </tr>
-              ))}
-              {stats?.recentApplications.length === 0 && (
-                <tr>
-                  <td colSpan={6} className="text-center py-8 text-gray-500 text-sm">
-                    No recent applications found.
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
-      </div>
     </div>
   );
 }

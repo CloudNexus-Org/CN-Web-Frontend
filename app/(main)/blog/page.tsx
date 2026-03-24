@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { Search, Loader2 } from "lucide-react";
 import { BlogPost } from "@/services/blogService";
@@ -179,9 +180,10 @@ function BlogCard({ post, index }: { post: BlogPost; index: number }) {
       <Link href={`/blog/${post.id}`} className="group block">
         {/* Image with Text Overlay */}
         <div className="relative aspect-[4/3] bg-muted rounded-lg overflow-hidden mb-4">
-          <img
+          <Image
             src={post.coverImageUrl || "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"}
             alt={post.title}
+            fill
             className="w-full h-full object-cover brightness-[0.7] group-hover:brightness-[0.5] group-hover:scale-105 transition-all duration-700"
           />
           
@@ -207,9 +209,11 @@ function BlogCard({ post, index }: { post: BlogPost; index: number }) {
 
         {/* Author & Date */}
         <div className="flex items-center gap-3 px-1">
-          <img
+          <Image
             src={post.authorImageUrl || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop"}
             alt={post.author}
+            width={24}
+            height={24}
             className="w-6 h-6 rounded-full object-cover"
           />
           <div className="flex items-center gap-2 text-xs text-muted-foreground">

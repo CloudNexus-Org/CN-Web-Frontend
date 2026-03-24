@@ -4,6 +4,7 @@ import { use, useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, Loader2 } from "lucide-react";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { getPostById, BlogPost } from "@/services/blogService";
 
 export default function BlogPostPage({ params }: { params: Promise<{ postId: string }> }) {
@@ -84,9 +85,11 @@ export default function BlogPostPage({ params }: { params: Promise<{ postId: str
 
           {/* Meta */}
           <div className="flex items-center gap-4 mb-10 pb-10 border-b border-border/50">
-            <img
+            <Image
               src={post.authorImageUrl || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop"}
               alt={post.author}
+              width={48}
+              height={48}
               className="w-12 h-12 rounded-full object-cover"
             />
             <div>
@@ -113,10 +116,11 @@ export default function BlogPostPage({ params }: { params: Promise<{ postId: str
 
           {/* Featured Image */}
           <AnimatedSection>
-            <div className="aspect-[21/9] bg-muted rounded-lg overflow-hidden mb-12">
-              <img
+            <div className="relative aspect-[21/9] bg-muted rounded-lg overflow-hidden mb-12">
+              <Image
                 src={post.coverImageUrl || "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"}
                 alt={post.title}
+                fill
                 className="w-full h-full object-cover"
               />
             </div>
@@ -182,9 +186,11 @@ export default function BlogPostPage({ params }: { params: Promise<{ postId: str
           <AnimatedSection delay={0.2}>
             <div className="mt-16 pt-8 border-t border-border/50">
               <div className="flex items-center gap-4">
-                <img
+                <Image
                   src={post.authorImageUrl || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop"}
                   alt={post.author}
+                  width={64}
+                  height={64}
                   className="w-16 h-16 rounded-full object-cover"
                 />
                 <div>

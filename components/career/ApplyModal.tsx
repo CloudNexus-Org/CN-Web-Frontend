@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import type { Job } from "@/app/data/jobs";
+import type { Job } from "@/app/(main)/data/jobs";
 
 interface ApplyModalProps {
   isOpen: boolean;
