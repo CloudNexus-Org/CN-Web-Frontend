@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const BACKEND_URL = process.env.INTERNAL_API_URL || process.env.INTERNAL_API_URL_FALLBACK || "http://13.201.109.105:8081/api";
+const BACKEND_URL = process.env.INTERNAL_API_URL || "http://13.201.109.105:8081/api";
 
 async function proxy(req: NextRequest, { params }: { params: Promise<{ path: string[] }> }) {
   const { path } = await params;
