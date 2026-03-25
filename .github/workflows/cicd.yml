@@ -31,5 +31,5 @@ jobs:
             NEXT_PUBLIC_SUPABASE_URL=${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
             NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/cloudnexus-frontend:latest
-            ${{ secrets.DOCKER_USERNAME }}/cloudnexus-frontend:${{ github.sha }}
+            ${{ secrets.DOCKER_USERNAME }}/cloudnexus1-frontend:latest
+            ${{ secrets.DOCKER_USERNAME }}/cloudnexus1-frontend:${{ github.sha }}
