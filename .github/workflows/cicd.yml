@@ -3,13 +3,10 @@ name: Frontend - CI/CD + DevSecOps
 on:
   push:
     branches:
-      - dev
-      - devsecops/*
-      - master
+      - main
   pull_request:
     branches:
-      - dev
-      - master
+      - main
 
 jobs:
   # =========================
@@ -72,10 +69,7 @@ jobs:
   sonarqube:
     runs-on: ubuntu-latest
     needs: build
-    if: |
-      github.ref == 'refs/heads/dev' ||
-      github.ref == 'refs/heads/master' ||
-      startsWith(github.ref, 'refs/heads/devsecops/')
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -155,10 +149,7 @@ jobs:
   snyk:
     runs-on: ubuntu-latest
     needs: sonarqube
-    if: |
-      github.ref == 'refs/heads/dev' ||
-      github.ref == 'refs/heads/master' ||
-      startsWith(github.ref, 'refs/heads/devsecops/')
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -303,10 +294,7 @@ jobs:
   trivy:
     runs-on: ubuntu-latest
     needs: snyk
-    if: |
-      github.ref == 'refs/heads/dev' ||
-      github.ref == 'refs/heads/master' ||
-      startsWith(github.ref, 'refs/heads/devsecops/')
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Download Docker Image Artifact
         uses: actions/download-artifact@v4
@@ -387,10 +375,7 @@ jobs:
   stackhawk:
     runs-on: ubuntu-latest
     needs: trivy
-    if: |
-      github.ref == 'refs/heads/dev' ||
-      github.ref == 'refs/heads/master' ||
-      startsWith(github.ref, 'refs/heads/devsecops/')
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -469,18 +454,7 @@ jobs:
   docker-push:
     runs-on: ubuntu-latest
     needs: [build, sonarqube, snyk, trivy, stackhawk]
-    if: |
-      (
-        (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/master') &&
-        needs.sonarqube.result == 'success'
-      ) ||
-      (
-        startsWith(github.ref, 'refs/heads/devsecops/') &&
-        needs.sonarqube.result == 'success' &&
-        needs.snyk.result == 'success' &&
-        needs.trivy.result == 'success' &&
-        needs.stackhawk.result == 'success'
-      )
+    if: github.ref == 'refs/heads/main' && needs.sonarqube.result == 'success'
     steps:
       - name: Quality Gate Summary
         run: |
@@ -489,11 +463,9 @@ jobs:
           echo "================================================"
           echo "✅ Build: SUCCESS"
           echo "✅ SonarQube: ${{ needs.sonarqube.result }}"
-          if [[ "${{ github.ref }}" == refs/heads/devsecops/* ]]; then
-            echo "✅ Snyk: ${{ needs.snyk.result }}"
-            echo "✅ Trivy: ${{ needs.trivy.result }}"
-            echo "✅ StackHawk: ${{ needs.stackhawk.result }}"
-          fi
+          echo "✅ Snyk: ${{ needs.snyk.result }}"
+          echo "✅ Trivy: ${{ needs.trivy.result }}"
+          echo "✅ StackHawk: ${{ needs.stackhawk.result }}"
           echo "================================================"
           echo "🚀 All quality gates passed! Proceeding with Docker push..."
           echo "================================================"
