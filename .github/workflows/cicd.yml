@@ -101,7 +101,7 @@ jobs:
           echo "Test coverage placeholder - configure Jest/Vitest for actual coverage"
 
       - name: SonarQube Scan
-        uses: sonarqube-quality-gate-action@master
+        uses: sonarsource/sonarqube-quality-gate-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: http://${{ secrets.SONAR_IP }}
