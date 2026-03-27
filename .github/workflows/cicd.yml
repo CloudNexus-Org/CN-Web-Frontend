@@ -97,16 +97,8 @@ jobs:
           # npm run test:coverage || echo "No tests configured"
           echo "Test coverage placeholder - configure Jest/Vitest for actual coverage"
 
-      - name: SonarQube Scan
-        uses: sonarsource/sonarqube-quality-gate-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: http://${{ secrets.SONAR_IP }}
-        with:
-          scanMetadataReportFile: .scannerwork/report-task.txt
-
       - name: SonarQube Scanner
-        uses: sonarsource/sonarqube-scan-action@master
+        uses: sonarsource/sonarqube-scan-action@v2
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: http://${{ secrets.SONAR_IP }}
@@ -118,6 +110,14 @@ jobs:
             -Dsonar.exclusions=node_modules/**,**/*.test.ts,**/*.test.tsx,.next/**,out/**,build/**
             -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+
+      - name: SonarQube Quality Gate
+        uses: sonarsource/sonarqube-quality-gate-action@v1.1.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: http://${{ secrets.SONAR_IP }}
+        with:
+          scanMetadataReportFile: .scannerwork/report-task.txt
 
       - name: Generate SonarQube Summary Report
         if: always()
