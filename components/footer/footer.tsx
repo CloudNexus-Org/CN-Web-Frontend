@@ -12,7 +12,7 @@ export function Footer() {
         <Spline scene="https://prod.spline.design/LVHivbSoUcwO5Bb2/scene.splinecode" />
       </div>
 
-      {/* Spline Watermark Hide overlay - creatively blend it with the pitch black background */}
+      {/* Spline Watermark Hide overlay - creatively blend it with the pitch black background . */}
       <div className="absolute bottom-0 right-0 z-0 w-52 h-20 bg-black pointer-events-none"></div>
       <div className="absolute bottom-20 right-0 z-0 w-52 h-16 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
       <div className="absolute bottom-0 right-52 z-0 w-16 h-20 bg-gradient-to-r from-transparent to-black pointer-events-none"></div>
