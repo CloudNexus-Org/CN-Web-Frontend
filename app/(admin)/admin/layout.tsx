@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
   Briefcase,
@@ -13,10 +13,8 @@ import {
   Search,
   Bell,
   Menu,
-  X,
 } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
 
 // Shadcn UI Imports
 import { Button } from "@/components/ui/button";
@@ -40,72 +38,72 @@ const navigationItems = [
   { name: "Settings", path: "/admin/settings", icon: Settings },
 ];
 
+// Move SidebarContent outside of component to avoid recreation on each render
+const SidebarContent = ({ pathname, handleLogout }: { pathname: string; handleLogout: () => void }) => (
+  <div className="flex flex-col h-full bg-[#0a0a0a]">
+    {/* Logo */}
+    <div className="px-6 py-6 border-b border-[#1a1a1a]">
+      <Image 
+        src="/assets/admin-logo.png" 
+        alt="Cloud Nexus" 
+        width={150} 
+        height={40} 
+        className="w-full h-auto"
+        priority
+      />
+    </div>
+
+    {/* Navigation */}
+    <nav className="flex-1 px-3 py-6 space-y-1 overflow-y-auto">
+      {navigationItems.map((item) => {
+        const isActive = pathname === item.path;
+        return (
+          <Link
+            key={item.path}
+            href={item.path}
+            className={`flex items-center gap-3 px-3 py-2.5 rounded-md transition-all text-sm font-medium ${
+              isActive
+                ? "bg-[#22a8e7]/10 text-[#22a8e7] border-l-2 border-[#22a8e7]"
+                : "text-neutral-400 hover:text-white hover:bg-neutral-900"
+            }`}
+          >
+            <item.icon className="w-4 h-4" />
+            <span>{item.name}</span>
+          </Link>
+        );
+      })}
+    </nav>
+
+    {/* Logout */}
+    <div className="p-4 border-t border-[#1a1a1a]">
+      <Button
+        variant="ghost"
+        className="w-full justify-start text-neutral-400 hover:text-red-400 hover:bg-neutral-900"
+        onClick={handleLogout}
+      >
+        <LogOut className="w-4 h-4 mr-3" />
+        Logout
+      </Button>
+    </div>
+  </div>
+);
+
 export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const router = useRouter();
 
   const handleLogout = () => {
     console.log("Logging out...");
   };
 
-  const SidebarContent = () => (
-    <div className="flex flex-col h-full bg-[#0a0a0a]">
-      {/* Logo */}
-      <div className="px-6 py-6 border-b border-[#1a1a1a]">
-        <Image 
-          src="/assets/admin-logo.png" 
-          alt="Cloud Nexus" 
-          width={150} 
-          height={40} 
-          className="w-full h-auto"
-          priority
-        />
-      </div>
-
-      {/* Navigation */}
-      <nav className="flex-1 px-3 py-6 space-y-1 overflow-y-auto">
-        {navigationItems.map((item) => {
-          const isActive = pathname === item.path;
-          return (
-            <Link
-              key={item.path}
-              href={item.path}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-md transition-all text-sm font-medium ${
-                isActive
-                  ? "bg-[#22a8e7]/10 text-[#22a8e7] border-l-2 border-[#22a8e7]"
-                  : "text-neutral-400 hover:text-white hover:bg-neutral-900"
-              }`}
-            >
-              <item.icon className="w-4 h-4" />
-              <span>{item.name}</span>
-            </Link>
-          );
-        })}
-      </nav>
-
-      {/* Logout */}
-      <div className="p-4 border-t border-[#1a1a1a]">
-        <Button
-          variant="ghost"
-          className="w-full justify-start text-neutral-400 hover:text-red-400 hover:bg-neutral-900"
-          onClick={handleLogout}
-        >
-          <LogOut className="w-4 h-4 mr-3" />
-          Logout
-        </Button>
-      </div>
-    </div>
-  );
-
   return (
     <div className="flex h-screen bg-black text-white selection:bg-[#22a8e7]/30">
       {/* Sidebar - Desktop */}
       <aside className="hidden lg:flex w-64 flex-col border-r border-[#1a1a1a]">
-        <SidebarContent />
+        <SidebarContent pathname={pathname} handleLogout={handleLogout} />
       </aside>
 
       {/* Main Content Area */}
@@ -122,7 +120,7 @@ export default function AdminLayout({
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-64 p-0 border-[#1a1a1a] bg-[#0a0a0a]">
-              <SidebarContent />
+              <SidebarContent pathname={pathname} handleLogout={handleLogout} />
             </SheetContent>
           </Sheet>
 

@@ -34,7 +34,7 @@ jobs:
         run: npm run typecheck
 
       - name: Lint Check
-        run: npm run lint
+        run: npm run lint -- --max-warnings 100
 
       - name: Build Next.js App
         env:
@@ -116,7 +116,7 @@ jobs:
         with:
           args: >
             -Dsonar.projectKey=frontend
-            -Dsonar.projectName=CloudNexus-Frontend
+            -Dsonar.projectName=frontend
             -Dsonar.sources=.
             -Dsonar.exclusions=node_modules/**,**/*.test.ts,**/*.test.tsx,.next/**,out/**,build/**
             -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info
