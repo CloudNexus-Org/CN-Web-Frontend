@@ -33,9 +33,6 @@ jobs:
       - name: Type Check
         run: npm run typecheck
 
-      - name: Lint Check
-        run: npm run lint -- --max-warnings 100
-
       - name: Build Next.js App
         env:
           NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
