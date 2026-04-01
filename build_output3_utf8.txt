@@ -1,0 +1,57 @@
+﻿
+> CN-Web-V0@0.0.1 build
+> next build
+
+Γû▓ Next.js 16.1.7 (Turbopack)
+- Environments: .env
+- Experiments (use with caution):
+  ┬╖ optimizePackageImports
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 16.1s
+  Running TypeScript ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/29) ...
+  Generating static pages using 11 workers (7/29) 
+  Generating static pages using 11 workers (14/29) 
+  Generating static pages using 11 workers (21/29) 
+Γ£ô Generating static pages using 11 workers (29/29) in 4.2s
+  Finalizing page optimization ...
+
+Route (app)
+Γöî Γùï /
+Γö£ Γùï /_not-found
+Γö£ Γùï /about
+Γö£ Γùï /admin
+Γö£ Γùï /admin/applicants
+Γö£ Γùï /admin/blog
+Γö£ Γùï /admin/jobs
+Γö£ Γùï /admin/leads
+Γö£ Γùï /admin/settings
+Γö£ ╞Æ /api/[...path]
+Γö£ Γùï /blog
+Γö£ ╞Æ /blog/[postId]
+Γö£ Γùï /career
+Γö£ ╞Æ /career/apply/[id]
+Γö£ ╞Æ /career/job/[id]
+Γö£ Γùï /company
+Γö£ Γùï /company/philosophy
+Γö£ Γùï /contact
+Γö£ Γùï /help
+Γö£ Γùï /help/contact
+Γö£ Γùï /help/support
+Γö£ Γùï /services
+Γö£ Γùï /services/ai-integration
+Γö£ Γùï /services/ci-cd-pipelines
+Γö£ Γùï /services/devops-engineering
+Γö£ Γùï /services/generative-ai
+Γö£ Γùï /services/github-actions-automation
+Γö£ Γùï /services/java-migration
+Γö£ Γùï /services/spring-boot-development
+Γö£ Γùï /services/tensorflow-solutions
+Γöö Γùï /workflow
+
+
+Γùï  (Static)   prerendered as static content
+╞Æ  (Dynamic)  server-rendered on demand
+

@@ -4,6 +4,9 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ReduxProvider } from "@/store/provider";
 import { cn } from "@/lib/utils";
+import { Geist } from "next/font/google";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: {
@@ -22,7 +25,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className="antialiased"
+      className={cn("antialiased", "font-sans", geist.variable)}
     >
       <body suppressHydrationWarning className={cn("flex min-h-screen flex-col", GeistSans.className)}>
         <ThemeProvider>
