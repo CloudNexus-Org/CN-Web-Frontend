@@ -65,7 +65,7 @@ const ReviewCard = ({
     <Card className="w-[32rem] max-w-full shrink-0 rounded-2xl border-white/10 bg-black p-8 shadow-none transition-colors hover:border-white/20 sm:p-10">
       <div className="flex h-full flex-col justify-between gap-6">
         <p className="text-zinc-400 font-normal leading-relaxed text-sm sm:text-base">
-          "{text}"
+          &ldquo;{text}&rdquo;
         </p>
         <div className="flex items-center gap-4">
           <div className="relative">

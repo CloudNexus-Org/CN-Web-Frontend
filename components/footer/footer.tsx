@@ -1,15 +1,34 @@
-import Spline from '@splinetool/react-spline/next';
+"use client";
+
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { useRef, useState, useEffect } from 'react';
 
+const Spline = dynamic(() => import('@splinetool/react-spline'), {
+  ssr: false,
+  loading: () => null,
+});
 
 export function Footer() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setShouldLoad(true); },
+      { threshold: 0.1, rootMargin: '200px' }
+    );
+    if (containerRef.current) observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <footer className="relative mt-auto border-t border-white/10 bg-black overflow-hidden pt-24 pb-12">
       {/* Background Animation */}
-      <div className="absolute inset-x-0 bottom-0 z-0 pointer-events-none opacity-40 mix-blend-screen h-full max-h-[600px]">
+      <div ref={containerRef} className="absolute inset-x-0 bottom-0 z-0 pointer-events-none opacity-40 mix-blend-screen h-full max-h-[600px]">
         {/* We place the Spline in the background, carefully setting pointer-events-none so it doesn't block links */}
-        <Spline scene="https://prod.spline.design/LVHivbSoUcwO5Bb2/scene.splinecode" />
+        {shouldLoad && <Spline scene="https://prod.spline.design/LVHivbSoUcwO5Bb2/scene.splinecode" />}
       </div>
 
       {/* Spline Watermark Hide overlay - creatively blend it with the pitch black background . */}

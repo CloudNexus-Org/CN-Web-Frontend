@@ -1,6 +1,15 @@
-import Spline from '@splinetool/react-spline';
+"use client";
+
+import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
 import { TypingAnimation } from '../ui/typing-animation';
+
+const Spline = dynamic(() => import('@splinetool/react-spline'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full bg-gradient-to-br from-blue-950/20 to-transparent animate-pulse rounded-lg" />
+  ),
+});
 
 export function HeroSection() {
   return (
@@ -77,8 +86,11 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Background Subtle Gradient */}
-      <div className="absolute top-0 right-0 -z-10 translate-x-1/2 -translate-y-1/2 pointer-events-none blur-3xl opacity-30 w-[800px] h-[800px] rounded-full bg-gradient-to-b from-primary/20 to-transparent" />
+      {/* Background Subtle Gradient — radial-gradient avoids expensive filter: blur() paint passes */}
+      <div
+        className="absolute top-0 right-0 -z-10 translate-x-1/2 -translate-y-1/2 pointer-events-none w-[700px] h-[700px]"
+        style={{ background: 'radial-gradient(circle, oklch(0.55 0.245 262 / 12%) 0%, transparent 70%)' }}
+      />
     </section>
   );
 }
