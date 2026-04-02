@@ -83,14 +83,14 @@ function useDropdown(id: string, setActive: (id: string | null) => void, activeI
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const open = activeId === id;
 
-  const handleEnter = () => {
+  const handleEnter = useCallback(() => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setActive(id);
-  };
+  }, [id, setActive]);
 
-  const handleLeave = () => {
+  const handleLeave = useCallback(() => {
     closeTimer.current = setTimeout(() => setActive(null), 100);
-  };
+  }, [setActive]);
 
   const close = useCallback(() => setActive(null), [setActive]);
 
@@ -116,7 +116,7 @@ export function Navbar() {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setActiveDropdown(null);
     };
-    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("keydown", onKeyDown, { passive: true } as AddEventListenerOptions);
     return () => document.removeEventListener("keydown", onKeyDown);
   }, []);
 
@@ -124,18 +124,21 @@ export function Navbar() {
   const company = useDropdown("company", setActiveDropdown, activeDropdown);
   const help = useDropdown("help", setActiveDropdown, activeDropdown);
 
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+  const isActive = useCallback((href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href)
+    , [pathname]);
 
-  const navLinkClass = (href: string) =>
+  const navLinkClass = useCallback((href: string) =>
     `rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${isActive(href) ? "text-white" : "text-white/60 hover:text-white"
-    }`;
+    }`
+    , [isActive]);
 
-  const dropdownBtnClass = (key: string) =>
+  const dropdownBtnClass = useCallback((key: string) =>
     `flex items-center gap-[3px] rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${activeDropdown === key || isActive(`/${key}`)
       ? "text-white"
       : "text-white/60 hover:text-white"
-    }`;
+    }`
+    , [activeDropdown, isActive]);
 
   return (
     <header
@@ -155,7 +158,7 @@ export function Navbar() {
           <div className="relative h-9 w-9 sm:h-10 sm:w-10 transition-all">
             <Image src="/asset/cn-icon.png" alt="Cloud Nexus Logo" className="object-contain" fill sizes="40px" />
           </div>
-          <span className="hidden sm:inline-block text-white">Cloud Nexus</span>
+          <span className="hidden sm:inline-block text-white">CloudNexus</span>
         </Link>
 
         {/* ── Center nav (desktop) ── */}

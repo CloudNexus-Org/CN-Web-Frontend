@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ReduxProvider } from "@/store/provider";
 import { cn } from "@/lib/utils";
 import { Geist } from "next/font/google";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: {
@@ -29,10 +28,8 @@ export default function RootLayout({
     >
       <body suppressHydrationWarning className={cn("flex min-h-screen flex-col", GeistSans.className)}>
         <ThemeProvider>
-          <ReduxProvider>
-            {/* Main content */}
-            {children}
-          </ReduxProvider>
+          {/* Marketing pages = pure RSC tree, no Redux hydration overhead */}
+          {children}
         </ThemeProvider>
       </body>
     </html>

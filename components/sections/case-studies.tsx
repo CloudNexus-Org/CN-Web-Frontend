@@ -159,21 +159,30 @@ const caseStudies: CaseStudy[] = [
 
 function useCounter(target: number, active: boolean, duration = 1200) {
   const [count, setCount] = useState(0);
+  const startTime = useRef<number | null>(null);
+  const rafId = useRef<number | undefined>(undefined);
+
   useEffect(() => {
     if (!active) { setCount(0); return; }
-    let start = 0;
-    const step = target / (duration / 16);
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(parseFloat(start.toFixed(target % 1 !== 0 ? 2 : 0)));
+
+    startTime.current = null;
+
+    const animate = (timestamp: number) => {
+      if (!startTime.current) startTime.current = timestamp;
+      const elapsed = timestamp - startTime.current;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(parseFloat((eased * target).toFixed(target % 1 !== 0 ? 2 : 0)));
+
+      if (progress < 1) {
+        rafId.current = requestAnimationFrame(animate);
       }
-    }, 16);
-    return () => clearInterval(timer);
+    };
+
+    rafId.current = requestAnimationFrame(animate);
+    return () => { if (rafId.current) cancelAnimationFrame(rafId.current); };
   }, [target, active, duration]);
+
   return count;
 }
 
@@ -268,9 +277,9 @@ export function CaseStudies() {
     <section className="w-full py-20 md:py-28 bg-black relative overflow-hidden">
       {/* Background ambient glow */}
       <div
-        className="absolute pointer-events-none transition-all duration-1000 blur-3xl opacity-[0.06] w-[600px] h-[600px] rounded-full"
+        className="absolute pointer-events-none transition-all duration-1000 w-[600px] h-[600px]"
         style={{
-          background: `radial-gradient(circle, ${study.accentColor}, transparent 70%)`,
+          background: `radial-gradient(circle, ${study.accentColor}10 0%, transparent 70%)`,
           top: "20%",
           right: "-10%",
         }}

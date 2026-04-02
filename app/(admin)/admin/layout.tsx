@@ -1,5 +1,7 @@
 "use client";
 
+import { ReduxProvider } from "@/store/provider";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -100,7 +102,8 @@ export default function AdminLayout({
   };
 
   return (
-    <div className="flex h-screen bg-black text-white selection:bg-[#22a8e7]/30">
+    <ReduxProvider>
+      <div className="flex h-screen bg-black text-white selection:bg-[#22a8e7]/30">
       {/* Sidebar - Desktop */}
       <aside className="hidden lg:flex w-64 flex-col border-r border-[#1a1a1a]">
         <SidebarContent pathname={pathname} handleLogout={handleLogout} />
@@ -182,6 +185,7 @@ export default function AdminLayout({
           {children}
         </main>
       </div>
-    </div>
+      </div>
+    </ReduxProvider>
   );
 }

@@ -57,7 +57,7 @@ export const TechStack: FC = () => {
           <div className="absolute inset-y-0 right-0 w-12 md:w-20 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
           
           <div className="group flex overflow-hidden w-full [--gap:3rem] md:[--gap:4rem] [--duration:20s] gap-[var(--gap)]">
-            {Array(4).fill(0).map((_, i) => (
+            {Array(2).fill(0).map((_, i) => (
               <div
                 key={i}
                 className="flex shrink-0 items-center justify-around gap-[var(--gap)] animate-marquee flex-row group-hover:[animation-play-state:paused]"
