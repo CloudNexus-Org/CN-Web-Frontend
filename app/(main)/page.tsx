@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/sections/hero-section";
 import { TopClients } from "@/components/sections/top-clients";
+import { BuildScaleThrive } from "@/components/sections/build-scale-thrive";
 import { KnownFor } from "@/components/sections/known-for";
 import { TechStack } from "@/components/sections/tech-stack";
 import { Testimonials } from "@/components/sections/testimonials";
@@ -13,9 +14,10 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between bg-black text-white">
+    <main className="flex min-h-screen flex-col items-center justify-between bg-white text-black dark:bg-black dark:text-white">
       <HeroSection />
-      <TopClients />
+      <BuildScaleThrive />
+      {/* <TopClients /> */}
       <KnownFor />
       <TechStack />
       <CaseStudies />

@@ -24,7 +24,7 @@ export function Footer() {
   }, []);
 
   return (
-    <footer className="relative mt-auto border-t border-white/10 bg-black overflow-hidden pt-24 pb-12">
+    <footer className="relative mt-auto border-t border-black/10 bg-white dark:border-white/10 dark:bg-black overflow-hidden pt-24 pb-12">
       {/* Background Animation */}
       <div ref={containerRef} className="absolute inset-x-0 bottom-0 z-0 pointer-events-none opacity-40 mix-blend-screen h-full max-h-[600px]">
         {/* We place the Spline in the background, carefully setting pointer-events-none so it doesn't block links */}
@@ -32,9 +32,9 @@ export function Footer() {
       </div>
 
       {/* Spline Watermark Hide overlay - creatively blend it with the pitch black background . */}
-      <div className="absolute bottom-0 right-0 z-0 w-52 h-20 bg-black pointer-events-none"></div>
-      <div className="absolute bottom-20 right-0 z-0 w-52 h-16 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
-      <div className="absolute bottom-0 right-52 z-0 w-16 h-20 bg-gradient-to-r from-transparent to-black pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 z-0 w-52 h-20 bg-white dark:bg-black pointer-events-none"></div>
+      <div className="absolute bottom-20 right-0 z-0 w-52 h-16 bg-gradient-to-t from-white dark:from-black to-transparent pointer-events-none"></div>
+      <div className="absolute bottom-0 right-52 z-0 w-16 h-20 bg-gradient-to-r from-transparent to-white dark:to-black pointer-events-none"></div>
 
       {/* Large Background Text Effect */}
       <div className="absolute inset-x-0 top-0 z-0 flex justify-center pointer-events-none select-none overflow-hidden">
@@ -58,60 +58,60 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-white mb-5 text-sm">Services</h3>
-            <ul className="space-y-4 text-sm text-neutral-400">
-              <li><Link href="/services/java-migration" className="hover:text-white transition-colors">Java Migration</Link></li>
-              <li><Link href="/services/ai-integration" className="hover:text-white transition-colors">AI Integration</Link></li>
-              <li><Link href="/services/generative-ai" className="hover:text-white transition-colors">Generative AI</Link></li>
-              <li><Link href="/services/spring-boot-development" className="hover:text-white transition-colors">Spring Boot</Link></li>
-              <li><Link href="/services/devops-engineering" className="hover:text-white transition-colors">DevOps Engineering</Link></li>
+            <h3 className="font-semibold text-black dark:text-white mb-5 text-sm">Services</h3>
+            <ul className="space-y-4 text-sm text-neutral-500 dark:text-neutral-400">
+              <li><Link href="/services/java-migration" className="hover:text-black dark:hover:text-white transition-colors">Java Migration</Link></li>
+              <li><Link href="/services/ai-integration" className="hover:text-black dark:hover:text-white transition-colors">AI Integration</Link></li>
+              <li><Link href="/services/generative-ai" className="hover:text-black dark:hover:text-white transition-colors">Generative AI</Link></li>
+              <li><Link href="/services/spring-boot-development" className="hover:text-black dark:hover:text-white transition-colors">Spring Boot</Link></li>
+              <li><Link href="/services/devops-engineering" className="hover:text-black dark:hover:text-white transition-colors">DevOps Engineering</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold text-white mb-5 text-sm">Solutions</h3>
-            <ul className="space-y-4 text-sm text-neutral-400">
-              <li><Link href="#" className="hover:text-white transition-colors">AI Builders</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Enterprise</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Startups</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Agencies</Link></li>
+            <h3 className="font-semibold text-black dark:text-white mb-5 text-sm">Solutions</h3>
+            <ul className="space-y-4 text-sm text-neutral-500 dark:text-neutral-400">
+              <li><Link href="#" className="hover:text-black dark:hover:text-white transition-colors">AI Builders</Link></li>
+              <li><Link href="#" className="hover:text-black dark:hover:text-white transition-colors">Enterprise</Link></li>
+              <li><Link href="#" className="hover:text-black dark:hover:text-white transition-colors">Startups</Link></li>
+              <li><Link href="#" className="hover:text-black dark:hover:text-white transition-colors">Agencies</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold text-white mb-5 text-sm">Resources</h3>
-            <ul className="space-y-4 text-sm text-neutral-400">
-              <li><Link href="#" className="hover:text-white transition-colors">Blog</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Documentation</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">System Status</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Security</Link></li>
+            <h3 className="font-semibold text-black dark:text-white mb-5 text-sm">Resources</h3>
+            <ul className="space-y-4 text-sm text-neutral-500 dark:text-neutral-400">
+              <li><Link href="#" className="hover:text-black dark:hover:text-white transition-colors">Blog</Link></li>
+              <li><Link href="#" className="hover:text-black dark:hover:text-white transition-colors">Documentation</Link></li>
+              <li><Link href="#" className="hover:text-black dark:hover:text-white transition-colors">System Status</Link></li>
+              <li><Link href="#" className="hover:text-black dark:hover:text-white transition-colors">Security</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold text-white mb-5 text-sm">Company</h3>
-            <ul className="space-y-4 text-sm text-neutral-400">
-              <li><Link href="#" className="hover:text-white transition-colors">About</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Careers</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Terms of Service</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Contact Us</Link></li>
+            <h3 className="font-semibold text-black dark:text-white mb-5 text-sm">Company</h3>
+            <ul className="space-y-4 text-sm text-neutral-500 dark:text-neutral-400">
+              <li><Link href="#" className="hover:text-black dark:hover:text-white transition-colors">About</Link></li>
+              <li><Link href="#" className="hover:text-black dark:hover:text-white transition-colors">Careers</Link></li>
+              <li><Link href="#" className="hover:text-black dark:hover:text-white transition-colors">Terms of Service</Link></li>
+              <li><Link href="#" className="hover:text-black dark:hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link href="#" className="hover:text-black dark:hover:text-white transition-colors">Contact Us</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-20 pt-8 border-t border-black/10 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-neutral-500">
             © {new Date().getFullYear()} Cloud Nexus. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <Link href="#" className="text-neutral-500 hover:text-white transition-colors">
+            <Link href="#" className="text-neutral-400 hover:text-black dark:text-neutral-500 dark:hover:text-white transition-colors">
               <span className="sr-only">Twitter</span>
               <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
               </svg>
             </Link>
-            <Link href="#" className="text-neutral-500 hover:text-white transition-colors">
+            <Link href="#" className="text-neutral-400 hover:text-black dark:text-neutral-500 dark:hover:text-white transition-colors">
               <span className="sr-only">GitHub</span>
               <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />

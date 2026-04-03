@@ -40,13 +40,13 @@ function CoffeeIcon(props: any) {
 
 export const TechStack: FC = () => {
   return (
-    <section className="w-full py-8 md:py-10 bg-black overflow-hidden flex flex-col items-center">
+    <section className="w-full py-8 md:py-10 bg-white dark:bg-black overflow-hidden flex flex-col items-center">
       <div className="w-full max-w-7xl px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
         
         {/* Left Side: Title */}
         <div className="flex-shrink-0 w-full md:w-auto text-center md:text-left">
-          <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-[#8b8b8b]">
-            Built with <span className="text-white block sm:inline">modern technology</span>
+          <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-[#999] dark:text-[#8b8b8b]">
+            Built with <span className="text-black dark:text-white block sm:inline">modern technology</span>
           </h2>
         </div>
 
@@ -67,7 +67,7 @@ export const TechStack: FC = () => {
                   return (
                     <div
                       key={j}
-                      className="flex items-center text-[#555] hover:text-[#ededed] transition-colors duration-300 cursor-default"
+                      className="flex items-center text-[#999] hover:text-[#333] dark:text-[#555] dark:hover:text-[#ededed] transition-colors duration-300 cursor-default"
                       title={tech.name}
                     >
                       <Icon className="w-7 h-7 md:w-8 md:h-8 stroke-[1.5]" />
