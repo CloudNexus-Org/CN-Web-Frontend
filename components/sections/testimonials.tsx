@@ -62,7 +62,7 @@ const ReviewCard = ({
   logoColor: string;
 }) => {
   return (
-    <Card className="w-[32rem] max-w-full shrink-0 rounded-2xl border-white/10 bg-black p-8 shadow-none transition-colors hover:border-white/20 sm:p-10">
+    <Card className="w-[32rem] max-w-full shrink-0 rounded-2xl border-black/10 bg-white dark:border-white/10 dark:bg-black p-8 shadow-none transition-colors hover:border-black/20 dark:hover:border-white/20 sm:p-10">
       <div className="flex h-full flex-col justify-between gap-6">
         <p className="text-zinc-400 font-normal leading-relaxed text-sm sm:text-base">
           &ldquo;{text}&rdquo;
@@ -86,8 +86,8 @@ const ReviewCard = ({
             </div>
           </div>
           <div className="flex flex-col">
-            <span className="text-sm font-semibold text-white">{name}</span>
-            <span className="text-sm font-medium text-zinc-500">{title}</span>
+            <span className="text-sm font-semibold text-black dark:text-white">{name}</span>
+            <span className="text-sm font-medium text-zinc-400 dark:text-zinc-500">{title}</span>
           </div>
         </div>
       </div>
@@ -97,7 +97,7 @@ const ReviewCard = ({
 
 export function Testimonials() {
   return (
-    <section className="relative w-full overflow-hidden bg-black py-24 sm:py-12 mb-12">
+    <section className="relative w-full overflow-hidden bg-white dark:bg-black py-24 sm:py-12 mb-12">
       {/* Subtle top gradient line to separate sections if needed */}
       {/* <div className="absolute top-0 inset-x-0 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" /> */}
 
@@ -112,8 +112,8 @@ export function Testimonials() {
           </Marquee>
 
           {/* Gradient overlays for the marquee to fade out edges */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 max-w-xs bg-gradient-to-r from-black to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 max-w-xs bg-gradient-to-l from-black to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 max-w-xs bg-gradient-to-r from-white dark:from-black to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 max-w-xs bg-gradient-to-l from-white dark:from-black to-transparent" />
         </div>
         <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-[#3b82f6]/10 border border-[#3b82f6]/20 w-fit shadow-[0_0_15px_rgba(59,130,246,0.1)]">

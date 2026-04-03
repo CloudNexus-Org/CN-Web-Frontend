@@ -274,7 +274,7 @@ export function CaseStudies() {
   }, []);
 
   return (
-    <section className="w-full py-20 md:py-28 bg-black relative overflow-hidden">
+    <section className="w-full py-20 md:py-28 bg-white dark:bg-black relative overflow-hidden">
       {/* Background ambient glow */}
       <div
         className="absolute pointer-events-none transition-all duration-1000 w-[600px] h-[600px]"

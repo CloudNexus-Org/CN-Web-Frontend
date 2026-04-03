@@ -150,7 +150,7 @@ const services = [
 
 export const KnownFor: FC = () => {
   return (
-    <section className="w-full py-12 bg-black">
+    <section className="w-full py-12 bg-white dark:bg-black">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <div className="flex flex-col gap-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
