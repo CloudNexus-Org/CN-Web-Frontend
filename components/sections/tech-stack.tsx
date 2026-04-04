@@ -1,22 +1,41 @@
-import { FC } from 'react';
-import { Database, Server, Cpu, Cloud, GitBranch, Layers, Zap, Box, Terminal, Code2, Settings } from 'lucide-react';
+import Link from 'next/link';
+import {
+  Database, Server, Cpu, Cloud, GitBranch, Layers, Zap, Box,
+  Terminal, Code2, Settings, Globe, Smartphone, Shield, Braces,
+  BarChart3, Workflow, HardDrive, MonitorSmartphone, Webhook,
+  FileCode2, Container, Flame, CircuitBoard, Binary, ArrowRight
+} from 'lucide-react';
 
 const technologies = [
+  { name: 'React', icon: Code2 },
+  { name: 'Next.js', icon: Globe },
+  { name: 'Node.js', icon: Terminal },
+  { name: 'TypeScript', icon: Braces },
+  { name: 'Python', icon: FileCode2 },
   { name: 'Java', icon: CoffeeIcon },
   { name: 'Spring Boot', icon: Layers },
+  { name: 'Flutter', icon: Smartphone },
+  { name: 'React Native', icon: MonitorSmartphone },
   { name: 'TensorFlow', icon: Cpu },
+  { name: 'PyTorch', icon: Flame },
   { name: 'Docker', icon: Box },
-  { name: 'Kubernetes', icon: Server },
+  { name: 'Kubernetes', icon: Container },
   { name: 'AWS', icon: Cloud },
-  { name: 'GitHub', icon: GitBranch },
-  { name: 'GitHub Actions', icon: Settings },
+  { name: 'Azure', icon: Server },
+  { name: 'GCP', icon: HardDrive },
   { name: 'PostgreSQL', icon: Database },
+  { name: 'MongoDB', icon: CircuitBoard },
   { name: 'Redis', icon: Zap },
-  { name: 'Next.js', icon: Code2 },
-  { name: 'Node.js', icon: Terminal },
+  { name: 'GraphQL', icon: Webhook },
+  { name: 'GitHub Actions', icon: Settings },
+  { name: 'Jenkins', icon: Workflow },
+  { name: 'Git', icon: GitBranch },
+  { name: 'Terraform', icon: Binary },
+  { name: 'Kibana', icon: BarChart3 },
+  { name: 'Cyber Security', icon: Shield },
 ];
 
-function CoffeeIcon(props: any) {
+function CoffeeIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -38,25 +57,22 @@ function CoffeeIcon(props: any) {
   );
 }
 
-export const TechStack: FC = () => {
+export function TechStack() {
   return (
     <section className="w-full py-8 md:py-10 bg-white dark:bg-black overflow-hidden flex flex-col items-center">
       <div className="w-full max-w-7xl px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
-        
-        {/* Left Side: Title */}
+
         <div className="flex-shrink-0 w-full md:w-auto text-center md:text-left">
           <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-[#999] dark:text-[#8b8b8b]">
             Built with <span className="text-black dark:text-white block sm:inline">modern technology</span>
           </h2>
         </div>
 
-        {/* Right Side: Seamless Marquee */}
         <div className="relative w-full flex items-center overflow-hidden flex-1">
-          {/* Mask Gradients for fade out effect on edges */}
-          <div className="absolute inset-y-0 left-0 w-12 md:w-20 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-12 md:w-20 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
-          
-          <div className="group flex overflow-hidden w-full [--gap:3rem] md:[--gap:4rem] [--duration:20s] gap-[var(--gap)]">
+          <div className="absolute inset-y-0 left-0 w-12 md:w-20 bg-gradient-to-r from-white dark:from-black to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-12 md:w-20 bg-gradient-to-l from-white dark:from-black to-transparent z-10 pointer-events-none" />
+
+          <div className="group flex overflow-hidden w-full [--gap:2rem] md:[--gap:2.5rem] [--duration:35s] gap-[var(--gap)]">
             {Array(2).fill(0).map((_, i) => (
               <div
                 key={i}
@@ -67,10 +83,11 @@ export const TechStack: FC = () => {
                   return (
                     <div
                       key={j}
-                      className="flex items-center text-[#999] hover:text-[#333] dark:text-[#555] dark:hover:text-[#ededed] transition-colors duration-300 cursor-default"
+                      className="flex items-center gap-2 text-[#999] hover:text-[#333] dark:text-[#555] dark:hover:text-[#ededed] transition-colors duration-300 cursor-default whitespace-nowrap"
                       title={tech.name}
                     >
-                      <Icon className="w-7 h-7 md:w-8 md:h-8 stroke-[1.5]" />
+                      <Icon className="w-5 h-5 md:w-6 md:h-6 stroke-[1.5] flex-shrink-0" />
+                      <span className="text-xs md:text-sm font-medium">{tech.name}</span>
                     </div>
                   );
                 })}
@@ -80,6 +97,16 @@ export const TechStack: FC = () => {
         </div>
 
       </div>
+
+      <div className="w-full max-w-7xl px-4 md:px-8 flex justify-center mt-6 pb-2">
+        <Link
+          href="/company/about-us"
+          className="group inline-flex items-center gap-2 rounded-full border border-black/[0.08] dark:border-white/[0.08] bg-black/[0.03] dark:bg-white/[0.03] px-6 py-2.5 text-sm font-medium text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:border-black/15 dark:hover:border-white/15 hover:bg-black/[0.05] dark:hover:bg-white/[0.05] transition-all duration-300"
+        >
+          About Us
+          <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+        </Link>
+      </div>
     </section>
   );
-};
+}

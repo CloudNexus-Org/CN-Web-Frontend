@@ -106,8 +106,8 @@ export function Testimonials() {
 
         <div className="relative w-full">
           <Marquee pauseOnHover className="[--duration:50s]">
-            {reviews.map((review, i) => (
-              <ReviewCard key={i} {...review} />
+            {reviews.map((review) => (
+              <ReviewCard key={review.name} {...review} />
             ))}
           </Marquee>
 

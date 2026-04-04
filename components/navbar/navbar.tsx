@@ -33,12 +33,21 @@ const NAV_ITEMS: NavItem[] = [
   {
     label: "Industry",
     children: [
-      { label: "Healthcare", href: "/industry/healthcare", description: "HIPAA-compliant cloud infrastructure" },
-      { label: "Finance & Banking", href: "/industry/finance", description: "Secure fintech solutions" },
-      { label: "E-Commerce", href: "/industry/ecommerce", description: "Scalable retail platforms" },
-      { label: "Education", href: "/industry/education", description: "EdTech & LMS solutions" },
-      { label: "Manufacturing", href: "/industry/manufacturing", description: "IoT & smart factory systems" },
-      { label: "Logistics", href: "/industry/logistics", description: "Supply chain & fleet management" },
+      { label: "Healthcare & Lifesciences", href: "/industry/healthcare-lifesciences", description: "HIPAA-compliant digital health solutions" },
+      { label: "E-Commerce Solutions", href: "/industry/ecommerce-solutions", description: "Scalable online retail platforms" },
+      { label: "Transport & Logistics", href: "/industry/transport-logistics", description: "Fleet & supply chain management" },
+      { label: "Social Networking", href: "/industry/social-networking", description: "Community & social platforms" },
+      { label: "Real Estate", href: "/industry/real-estate", description: "Property tech & listing platforms" },
+      { label: "Education & eLearning", href: "/industry/education-elearning", description: "EdTech & LMS solutions" },
+      { label: "Banking, Finance & Insurance", href: "/industry/banking-finance-insurance", description: "Secure fintech solutions" },
+      { label: "Travel & Hospitality", href: "/industry/travel-hospitality", description: "Booking & travel platforms" },
+      { label: "Enterprise Retail & Manufacturing", href: "/industry/enterprise-retail-manufacturing", description: "IoT & smart factory systems" },
+      { label: "Oil & Gas", href: "/industry/oil-gas", description: "Energy sector digital solutions" },
+      { label: "Media & Entertainment", href: "/industry/media-entertainment", description: "Streaming & content platforms" },
+      { label: "On Demand Delivery", href: "/industry/on-demand-delivery", description: "Delivery & logistics apps" },
+      { label: "Home Service", href: "/industry/home-service", description: "On-demand home service platforms" },
+      { label: "Fintech", href: "/industry/fintech", description: "Financial technology solutions" },
+      { label: "mCommerce", href: "/industry/mcommerce", description: "Mobile commerce platforms" },
     ],
   },
   {
@@ -174,26 +183,53 @@ export function Navbar() {
                 {openDropdown === item.label && item.children && (
                   <div className="absolute left-1/2 top-full pt-2 -translate-x-1/2">
                     <div
-                      className={`rounded-xl border border-black/[0.08] bg-white p-2 shadow-2xl shadow-black/10 backdrop-blur-2xl dark:border-white/[0.08] dark:bg-[#0a0a0a] dark:shadow-black/60 ${
-                        item.children.length > 6 ? "w-[520px] grid grid-cols-2 gap-0.5" : "w-[280px]"
+                      className={`rounded-xl border border-black/[0.08] bg-white shadow-2xl shadow-black/10 backdrop-blur-2xl dark:border-white/[0.08] dark:bg-[#0a0a0a] dark:shadow-black/60 overflow-hidden ${
+                        item.children.length > 10 ? "w-[720px]" : item.children.length > 6 ? "w-[520px]" : "w-[280px]"
                       }`}
                     >
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="group flex flex-col gap-0.5 rounded-lg px-3 py-2.5 transition-colors hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
-                        >
-                          <span className="text-sm font-medium text-black/90 group-hover:text-black dark:text-white/90 dark:group-hover:text-white">
-                            {child.label}
-                          </span>
-                          {child.description && (
-                            <span className="text-xs text-black/40 group-hover:text-black/55 dark:text-white/40 dark:group-hover:text-white/55">
-                              {child.description}
+                      {item.label === "Industry" && (
+                        <>
+                          <Link
+                            href="/our-work"
+                            className="group flex items-center gap-3 mx-2 mt-2 px-4 py-3 rounded-lg bg-black/[0.03] dark:bg-white/[0.04] hover:bg-black/[0.06] dark:hover:bg-white/[0.08] border border-black/[0.06] dark:border-white/[0.06] transition-all"
+                          >
+                            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-black dark:bg-white text-white dark:text-black flex-shrink-0">
+                              <ArrowRight size={16} strokeWidth={2} />
+                            </div>
+                            <div className="flex flex-col">
+                              <span className="text-sm font-semibold text-black dark:text-white">
+                                Our Work
+                              </span>
+                              <span className="text-[11px] text-black/45 dark:text-white/45">
+                                View all projects & case studies
+                              </span>
+                            </div>
+                          </Link>
+                          <div className="mx-4 my-2 h-px bg-black/[0.06] dark:bg-white/[0.06]" />
+                        </>
+                      )}
+                      <div
+                        className={`p-2 ${
+                          item.children.length > 10 ? "grid grid-cols-3 gap-0.5" : item.children.length > 6 ? "grid grid-cols-2 gap-0.5" : ""
+                        }`}
+                      >
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="group flex flex-col gap-0.5 rounded-lg px-3 py-2.5 transition-colors hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
+                          >
+                            <span className="text-sm font-medium text-black/90 group-hover:text-black dark:text-white/90 dark:group-hover:text-white">
+                              {child.label}
                             </span>
-                          )}
-                        </Link>
-                      ))}
+                            {child.description && (
+                              <span className="text-xs text-black/40 group-hover:text-black/55 dark:text-white/40 dark:group-hover:text-white/55">
+                                {child.description}
+                              </span>
+                            )}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}
@@ -270,6 +306,24 @@ export function Navbar() {
 
                 {mobileExpanded === item.label && item.children && (
                   <div className="ml-3 flex flex-col gap-0.5 border-l border-black/[0.06] pl-3 py-1 dark:border-white/[0.06]">
+                    {item.label === "Industry" && (
+                      <>
+                        <Link
+                          href="/our-work"
+                          onClick={() => setMobileOpen(false)}
+                          className="group flex items-center gap-3 rounded-lg px-3 py-2.5 bg-black/[0.03] dark:bg-white/[0.04] border border-black/[0.06] dark:border-white/[0.06] hover:bg-black/[0.06] dark:hover:bg-white/[0.08] transition-colors"
+                        >
+                          <div className="flex h-7 w-7 items-center justify-center rounded-md bg-black dark:bg-white text-white dark:text-black flex-shrink-0">
+                            <ArrowRight size={14} strokeWidth={2} />
+                          </div>
+                          <div className="flex flex-col">
+                            <span className="text-sm font-semibold text-black dark:text-white">Our Work</span>
+                            <span className="text-[10px] text-black/45 dark:text-white/45">All projects & case studies</span>
+                          </div>
+                        </Link>
+                        <div className="mx-2 my-1.5 h-px bg-black/[0.06] dark:bg-white/[0.06]" />
+                      </>
+                    )}
                     {item.children.map((child) => (
                       <Link
                         key={child.href}

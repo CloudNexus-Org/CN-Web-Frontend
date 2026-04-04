@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 export function BuildScaleThrive() {
   return (
     <section className="w-full py-20 md:py-28 bg-white dark:bg-black">
-      <div className="mx-auto max-w-4xl px-6 md:px-8 text-center">
+      <div className="w-full px-6 md:px-10 lg:px-16 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black dark:text-white"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-black dark:text-white whitespace-nowrap"
         >
           Build, Scale, and Thrive with CloudNexus
         </motion.h2>

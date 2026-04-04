@@ -2,7 +2,6 @@
 
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
 import { useRef, useState, useEffect } from 'react';
 
 const Spline = dynamic(() => import('@splinetool/react-spline'), {

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { type FC } from 'react';
 import Link from 'next/link';
 import { Coffee, Bot, Sparkles, Leaf, Wrench, Network, Rocket, GitMerge, ArrowRight, Code2, Activity, Boxes, Settings } from 'lucide-react';
 
@@ -153,6 +153,9 @@ export const KnownFor: FC = () => {
     <section className="w-full py-12 bg-white dark:bg-black">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <div className="flex flex-col gap-12">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black dark:text-white">
+            What We&apos;re Known For
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {services.map((service, i) => {
               const Icon = service.icon;
@@ -189,11 +192,18 @@ export const KnownFor: FC = () => {
         <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-[#3b82f6]/10 border border-[#3b82f6]/20 w-fit shadow-[0_0_15px_rgba(59,130,246,0.1)]">
             <div className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_8px_#3b82f6] animate-pulse" />
-            <span className="text-[13px] font-medium text-[#3b82f6] tracking-wide uppercase">Small Team. Massive Impact.</span>
+            <span className="text-[13px] font-medium text-[#3b82f6] tracking-wide uppercase">Our Services</span>
           </div>
           <p className="text-[#8b8b8b] text-[15px]">
-            Engineering robust, scalable infrastructure for the global stage.
+            We deliver end-to-end solutions across the full spectrum of digital services.
           </p>
+          <Link
+            href="/services"
+            className="text-[13px] font-semibold text-[#3b82f6] hover:underline inline-flex items-center gap-1"
+          >
+            View All Services
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>
