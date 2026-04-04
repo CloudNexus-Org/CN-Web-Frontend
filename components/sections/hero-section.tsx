@@ -4,6 +4,10 @@ import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
 import { TypingAnimation } from '../ui/typing-animation';
 import { Component, type ReactNode, useState, useEffect } from 'react';
+import { useTheme } from 'next-themes';
+
+const SPLINE_DARK = 'https://prod.spline.design/s5qNGeR6oT0MDO0i/scene.splinecode';
+const SPLINE_LIGHT = 'https://prod.spline.design/GKBZHlmODH6AWg9T/scene.splinecode';
 
 const Spline = dynamic(() => import('@splinetool/react-spline'), {
   ssr: false,
@@ -66,6 +70,16 @@ function SafeSpline({ scene, className }: { scene: string; className?: string })
 }
 
 export function HeroSection() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Before mount resolvedTheme is undefined (SSR) — default to dark
+  const splineScene = mounted && resolvedTheme === 'light' ? SPLINE_LIGHT : SPLINE_DARK;
+
   return (
     <section className="relative w-full overflow-hidden py-12">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
@@ -105,7 +119,7 @@ export function HeroSection() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full sm:w-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-1000 fill-mode-both">
-              <Button size="lg" className="rounded-sm text-black bg-white hover:bg-white/80 hover:text-black">
+              <Button size="lg" className="rounded-sm text-white bg-black hover:bg-white/80 hover:text-black">
                 Get Started
               </Button>
               <Button variant="outline" size="lg" className="rounded-sm bg-background/50 backdrop-blur-sm border-border/50 hover:bg-accent/50 text-primary hover:text-primary">
@@ -118,14 +132,17 @@ export function HeroSection() {
           <div className="relative w-full h-[320px] sm:h-[400px] lg:h-[600px] flex items-center justify-center lg:justify-end">
             <div className="absolute inset-0 lg:-right-32 lg:scale-110 pointer-events-none sm:pointer-events-auto">
               <SafeSpline
-                scene="https://prod.spline.design/s5qNGeR6oT0MDO0i/scene.splinecode"
+                key={splineScene}
+                scene={splineScene}
                 className="w-full h-full object-contain"
               />
 
-              <div className="absolute inset-y-0 left-0 w-24 md:w-40 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-black dark:via-black/80 pointer-events-none z-10" />
-              <div className="absolute inset-y-0 right-0 w-24 md:w-40 bg-gradient-to-l from-white via-white/80 to-transparent dark:from-black dark:via-black/80 pointer-events-none z-10" />
-              <div className="absolute inset-x-0 top-0 h-24 md:h-40 bg-gradient-to-b from-white via-white/80 to-transparent dark:from-black dark:via-black/80 pointer-events-none z-10" />
-              <div className="absolute inset-x-0 bottom-0 h-24 md:h-40 bg-gradient-to-t from-white via-white/80 to-transparent dark:from-black dark:via-black/80 pointer-events-none z-10" />
+              <div className="absolute inset-y-0 left-0 w-24 md:w-40 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-black dark:via-black/80 pointer-events-none z-20" />
+              <div className="absolute inset-y-0 right-0 w-24 md:w-40 bg-gradient-to-l from-white via-white/80 to-transparent dark:from-black dark:via-black/80 pointer-events-none z-20" />
+              <div className="absolute inset-x-0 top-0 h-24 md:h-40 bg-gradient-to-b from-white via-white/80 to-transparent dark:from-black dark:via-black/80 pointer-events-none z-20" />
+              <div className="absolute inset-x-0 bottom-0 h-24 md:h-40 bg-gradient-to-t from-white via-white/80 to-transparent dark:from-black dark:via-black/80 pointer-events-none z-20" />
+              {/* Watermark cover — bottom-right corner */}
+              <div className="absolute bottom-0 right-0 w-48 h-16 bg-gradient-to-tl from-white via-white/95 to-transparent dark:from-black dark:via-black/95 pointer-events-none z-30" />
             </div>
           </div>
 

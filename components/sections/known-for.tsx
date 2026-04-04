@@ -1,200 +1,380 @@
-import { FC } from 'react';
+'use client';
+
+import { FC, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import { Coffee, Bot, Sparkles, Leaf, Wrench, Network, Rocket, GitMerge, ArrowRight, Code2, Activity, Boxes, Settings } from 'lucide-react';
+import {
+  ArrowRight, Code2, Smartphone, Globe, Cloud, Palette,
+  Zap, TrendingUp, Brain, Shield, GitMerge, ChevronLeft, ChevronRight
+} from 'lucide-react';
+
+/* ══════════════════ PREMIUM ANIMATED VISUALS ══════════════════ */
+
+/** 1. Custom Software – abstract overlapping isometric planes glowing */
+const CustomSoftwareVisual = () => (
+  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000 overflow-hidden">
+    <div className="absolute right-[-10%] bottom-[-20%] w-64 h-64 rotate-[30deg] skew-x-[20deg] scale-90 group-hover:scale-100 transition-transform duration-1000">
+      <div className="absolute inset-0 border border-[#3b82f6]/20 bg-gradient-to-tr from-[#3b82f6]/5 to-transparent rounded-xl translate-y-8 group-hover:translate-y-0 transition-transform duration-1000 delay-100" />
+      <div className="absolute inset-0 border border-[#8b5cf6]/20 bg-gradient-to-tr from-[#8b5cf6]/5 to-transparent rounded-xl translate-x-8 translate-y-4 group-hover:translate-x-4 transition-transform duration-1000 delay-200 backdrop-blur-sm" />
+      <div className="absolute inset-0 border border-[#ec4899]/10 bg-gradient-to-tl from-[#ec4899]/5 to-transparent rounded-xl translate-x-16 group-hover:translate-x-8 transition-transform duration-1000 delay-300 backdrop-blur-md" />
+    </div>
+  </div>
+);
+
+/** 2. UI/UX Design – smooth morphing glassmorphism blur orbs */
+const UIUXVisual = () => (
+  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000 overflow-hidden">
+    <div className="absolute right-0 bottom-0 w-48 h-48 blur-2xl opacity-40 mix-blend-screen translate-y-4 group-hover:translate-y-0 transition-transform duration-1000">
+      <div className="absolute top-4 left-4 w-24 h-24 bg-[#3b82f6] rounded-full mix-blend-multiply animate-[pulse_4s_ease-in-out_infinite]" />
+      <div className="absolute bottom-4 right-4 w-24 h-24 bg-[#8b5cf6] rounded-full mix-blend-multiply animate-[pulse_4s_ease-in-out_infinite_1s]" />
+      <div className="absolute top-1/2 left-1/2 w-20 h-20 bg-[#ec4899] rounded-full mix-blend-multiply animate-[pulse_4s_ease-in-out_infinite_2s]" />
+    </div>
+  </div>
+);
+
+/** 3. AI, ML & Data Science – central node emitting soft ripple rings */
+const AIMLVisual = () => (
+  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000 overflow-hidden">
+    <div className="absolute -right-8 -bottom-8 w-64 h-64 flex items-center justify-center">
+      <div className="absolute w-2 h-2 bg-[#3b82f6] rounded-full shadow-[0_0_20px_4px_#3b82f6] z-10" />
+      {[1, 2, 3, 4].map((i) => (
+        <div key={i} className="absolute border border-[#3b82f6]/30 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]" style={{ width: `${i * 3}rem`, height: `${i * 3}rem`, animationDelay: `${i * 1}s` }} />
+      ))}
+      {/* Orbiting data points */}
+      <div className="absolute w-full h-full animate-[spin_10s_linear_infinite]">
+        <div className="absolute top-4 left-1/2 w-1.5 h-1.5 bg-[#8b5cf6] rounded-full shadow-[0_0_10px_#8b5cf6]" />
+        <div className="absolute bottom-4 right-1/4 w-1.5 h-1.5 bg-[#ec4899] rounded-full shadow-[0_0_10px_#ec4899]" />
+      </div>
+    </div>
+  </div>
+);
+
+/** 4. Mobile App – glowing minimal frame border trace */
+const MobileVisual = () => (
+  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000 overflow-hidden">
+    <div className="absolute right-4 bottom-[-10%] w-24 h-48 border border-white/5 rounded-3xl overflow-hidden group-hover:-translate-y-4 transition-transform duration-1000 ease-out">
+      {/* Animated gradient tracing the border */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#3b82f6]/0 via-[#3b82f6]/40 to-[#3b82f6]/0 opacity-50 -translate-y-[100%] group-hover:animate-[shimmer_3s_infinite]" />
+      {/* Screen glow */}
+      <div className="absolute inset-2 bg-gradient-to-br from-[#3b82f6]/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 delay-300" />
+      {/* Screen elements */}
+      <div className="absolute top-6 left-4 right-4 h-2 bg-white/5 rounded-full" />
+      <div className="absolute top-10 left-4 right-10 h-2 bg-white/5 rounded-full" />
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-8 h-1 bg-white/10 rounded-full" />
+    </div>
+  </div>
+);
+
+/** 5. Web Development – fanning glassmorphism cards */
+const WebVisual = () => (
+  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000 overflow-hidden">
+    <div className="absolute right-4 bottom-4 w-40 h-28 perspective-1000">
+      <div className="relative w-full h-full transform-style-3d rotate-x-12 rotate-y-[-10deg]">
+        <div className="absolute inset-0 bg-[#111] border border-white/10 rounded-xl translate-z-0 group-hover:translate-x-2 group-hover:-translate-y-2 group-hover:border-[#3b82f6]/30 transition-all duration-700 shadow-2xl" />
+        <div className="absolute inset-0 bg-[#1a1a1a]/80 backdrop-blur-sm border border-white/5 rounded-xl -translate-z-4 group-hover:-translate-x-2 group-hover:translate-y-2 transition-all duration-700 delay-100 shadow-2xl flex flex-col p-3 gap-2">
+          <div className="w-1/3 h-1.5 bg-[#3b82f6]/40 rounded-full" />
+          <div className="w-1/2 h-1.5 bg-white/10 rounded-full" />
+          <div className="w-5/6 h-1.5 bg-white/10 rounded-full" />
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+/** 6. Cloud & SaaS – faint bezier curve network */
+const CloudVisual = () => (
+  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000 overflow-hidden">
+    <svg className="absolute right-[-10%] bottom-[-10%] w-64 h-64 text-[#3b82f6]/20" viewBox="0 0 100 100">
+      <path d="M 20 80 Q 40 50 80 20" fill="none" stroke="currentColor" strokeWidth="0.5" className="custom-dash group-hover:animate-[dash_3s_linear_infinite]" />
+      <path d="M 10 50 Q 50 10 90 60" fill="none" stroke="currentColor" strokeWidth="0.5" className="custom-dash group-hover:animate-[dash_4s_linear_infinite]" />
+      <path d="M 30 90 Q 70 80 80 40" fill="none" stroke="currentColor" strokeWidth="0.5" className="custom-dash group-hover:animate-[dash_5s_linear_infinite]" />
+      <circle cx="20" cy="80" r="1.5" fill="#3b82f6" className="opacity-50 group-hover:opacity-100 group-hover:shadow-[0_0_8px_#3b82f6] transition-all duration-1000" />
+      <circle cx="80" cy="20" r="1.5" fill="#3b82f6" className="opacity-50 group-hover:opacity-100 group-hover:shadow-[0_0_8px_#3b82f6] transition-all duration-1000 delay-100" />
+      <circle cx="10" cy="50" r="1" fill="#8b5cf6" className="opacity-50 group-hover:opacity-100 transition-all duration-1000 delay-200" />
+      <circle cx="90" cy="60" r="1" fill="#ec4899" className="opacity-50 group-hover:opacity-100 transition-all duration-1000 delay-300" />
+      <circle cx="80" cy="40" r="2" fill="white" className="opacity-20 group-hover:opacity-80 transition-all duration-1000 delay-400" />
+    </svg>
+  </div>
+);
+
+/** 7. Digital Transformation – organic geometric morphing (square to circle array) */
+const DigitalTransformVisual = () => (
+  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000 overflow-hidden flex items-end justify-end p-6">
+    <div className="grid grid-cols-4 gap-2 w-24 h-24">
+      {[...Array(16)].map((_, i) => (
+        <div 
+          key={i} 
+          className="bg-white/5 border border-white/10 w-full h-full rounded-[2px] group-hover:rounded-full group-hover:bg-[#3b82f6]/20 group-hover:border-[#3b82f6]/40 transition-all duration-1000 ease-in-out" 
+          style={{ transitionDelay: `${(i % 4 + Math.floor(i / 4)) * 50}ms` }} 
+        />
+      ))}
+    </div>
+  </div>
+);
+
+/** 8. Digital Marketing – elegant overlapping fluid waveforms */
+const DigitalMarketingVisual = () => (
+  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000 overflow-hidden">
+    <svg className="absolute w-[200%] h-32 bottom-[-10%] right-[-20%] text-[#3b82f6]/10 group-hover:text-[#3b82f6]/30 transition-colors duration-1000" viewBox="0 0 200 50" preserveAspectRatio="none">
+      <path d="M 0 50 Q 50 10 100 50 T 200 50 L 200 50 L 0 50 Z" fill="currentColor" className="group-hover:animate-[wave_10s_linear_infinite]" />
+      <path d="M 0 50 Q 50 30 100 50 T 200 50 L 200 50 L 0 50 Z" fill="currentColor" className="text-[#8b5cf6]/10 group-hover:text-[#8b5cf6]/20 transition-colors duration-1000 group-hover:animate-[wave_8s_linear_infinite_reverse]" />
+      <path d="M 0 50 Q 50 40 100 50 T 200 50 L 200 50 L 0 50 Z" fill="currentColor" className="text-[#ec4899]/10 group-hover:text-[#ec4899]/20 transition-colors duration-1000 group-hover:animate-[wave_12s_linear_infinite]" />
+    </svg>
+  </div>
+);
+
+/** 9. Cybersecurity – minimal intersecting rotating arcs */
+const CyberVisual = () => (
+  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000 overflow-hidden">
+    <div className="absolute -right-8 -bottom-8 w-64 h-64 flex items-center justify-center opacity-40 group-hover:opacity-100 transition-opacity duration-1000">
+      <div className="absolute w-32 h-32 border-t-2 border-r-2 border-transparent border-t-[#3b82f6]/50 rounded-full animate-[spin_4s_linear_infinite]" />
+      <div className="absolute w-40 h-40 border-b-2 border-l-2 border-transparent border-b-[#8b5cf6]/50 rounded-full animate-[spin_5s_linear_infinite_reverse]" />
+      <div className="absolute w-48 h-48 border-t-[1px] border-transparent border-t-[#ec4899]/30 rounded-full animate-[spin_7s_linear_infinite]" />
+      <div className="absolute w-2 h-2 bg-white/20 rounded-full shadow-[0_0_15px_rgba(255,255,255,0.5)]" />
+    </div>
+  </div>
+);
+
+/** 10. DevOps – glowing infinite loop path */
+const DevOpsVisual = () => (
+  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000 overflow-hidden">
+    <svg className="absolute right-4 bottom-4 w-48 h-24 text-white/5" viewBox="0 0 100 50">
+      {/* Background path */}
+      <path d="M 25 25 C 10 10, 10 40, 25 25 C 40 10, 60 40, 75 25 C 90 10, 90 40, 75 25 C 60 10, 40 40, 25 25" fill="none" stroke="currentColor" strokeWidth="2" />
+      {/* Animated glowing path */}
+      <path d="M 25 25 C 10 10, 10 40, 25 25 C 40 10, 60 40, 75 25 C 90 10, 90 40, 75 25 C 60 10, 40 40, 25 25" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" className="custom-infinity opacity-0 group-hover:opacity-100 transition-opacity duration-1000 group-hover:animate-[infinity_4s_linear_infinite]" style={{ filter: 'drop-shadow(0 0 4px #3b82f6)' }} />
+    </svg>
+  </div>
+);
+
+/* ══════════════════ SERVICES DATA ══════════════════ */
 
 const services = [
   {
-    title: 'Java Migration',
-    description: 'Modernize legacy Java applications with scalable cloud-ready architectures.',
-    icon: Coffee,
-    Visual: () => (
-      <div className="absolute right-0 bottom-0 top-0 w-1/2 overflow-hidden pointer-events-none flex items-center justify-end pr-8 opacity-40 group-hover:opacity-100 transition-opacity duration-700">
-        <div className="flex items-center gap-4 translate-x-4 group-hover:translate-x-0 transition-transform duration-700 ease-out">
-          <div className="w-16 h-24 bg-[#1a1a1a] border border-[#333] rounded-lg flex items-center justify-center relative z-10">
-            <Coffee className="w-6 h-6 text-[#555] group-hover:text-[#3b82f6] transition-colors duration-500" />
-            <div className="absolute inset-0 bg-transparent group-hover:bg-[#3b82f6]/5 transition-colors duration-500 rounded-lg" />
-          </div>
-          <div className="flex flex-col gap-3">
-            {[0, 1, 2].map((i) => (
-              <div key={i} className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ transitionDelay: `${i * 150}ms` }}>
-                <div className="h-[1px] w-6 bg-gradient-to-r from-transparent to-[#3b82f6]" />
-                <ArrowRight className="w-3 h-3 text-[#3b82f6]" />
-              </div>
-            ))}
-          </div>
-          <div className="flex flex-col gap-3">
-            {[0, 1, 2].map((i) => (
-              <div key={i} className="w-12 h-8 bg-[#1a1a1a] border border-[#333] group-hover:border-[#3b82f6]/50 rounded flex items-center justify-center transition-all duration-500 opacity-50 group-hover:opacity-100" style={{ transitionDelay: `${i * 150}ms` }}>
-                <Boxes className="w-4 h-4 text-[#555] group-hover:text-[#3b82f6]" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    )
+    title: 'Custom Software Development',
+    description: 'End-to-end scalable software engineered to your exact specifications — from architecture to deployment.',
+    icon: Code2,
+    href: '/services/custom-software-development',
+    Visual: CustomSoftwareVisual,
   },
   {
-    title: 'AI Integration',
-    description: 'Embed advanced AI capabilities directly into your existing business workflows.',
-    icon: Bot,
-    Visual: () => (
-      <div className="absolute -right-4 -bottom-4 w-64 h-64 pointer-events-none opacity-30 group-hover:opacity-100 transition-opacity duration-700">
-        <div className="relative w-full h-full flex items-center justify-center">
-          <div className="absolute w-16 h-16 bg-[#1a1a1a] border border-[#333] group-hover:border-[#3b82f6]/50 rounded-full flex items-center justify-center z-10 group-hover:shadow-[0_0_30px_rgba(62,207,142,0.15)] transition-all duration-500">
-            <Bot className="w-6 h-6 text-[#555] group-hover:text-[#3b82f6] group-hover:scale-110 transition-all duration-500" />
-          </div>
-          {[...Array(3)].map((_, i) => (
-            <div key={i} className="absolute border border-[#333] group-hover:border-[#3b82f6]/20 rounded-full transition-colors duration-700" style={{ width: `${8 + i * 4}rem`, height: `${8 + i * 4}rem` }}>
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-[#444] group-hover:bg-[#3b82f6] rounded-full group-hover:shadow-[0_0_10px_#3b82f6] opacity-0 group-hover:opacity-100 transition-all duration-500" style={{ transitionDelay: `${i * 200}ms` }} />
-            </div>
-          ))}
-        </div>
-      </div>
-    )
+    title: 'UI/UX Design',
+    description: 'User-centric design that converts — from wireframes to pixel-perfect interfaces.',
+    icon: Palette,
+    href: '/services/ui-ux-design',
+    Visual: UIUXVisual,
   },
   {
-    title: 'Generative AI',
-    description: 'Harness the power of large language models to automate and create.',
-    icon: Sparkles,
-    Visual: () => (
-      <div className="absolute right-4 bottom-4 pointer-events-none flex items-center justify-center w-32 h-32 opacity-40 group-hover:opacity-100 transition-opacity duration-500">
-        <div className="relative w-full h-full border border-[#333] group-hover:border-[#3b82f6]/30 bg-[#1a1a1a] group-hover:bg-[#3b82f6]/5 rounded-xl transition-colors duration-500 flex flex-col items-center justify-center overflow-hidden">
-          <Sparkles className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 text-[#444] group-hover:text-[#3b82f6] group-hover:scale-110 transition-all duration-500" />
-          <div className="absolute top-4 left-4 w-2 h-2 rounded-full bg-[#444] group-hover:bg-[#3b82f6] transition-colors" />
-          <div className="absolute bottom-4 right-4 w-1.5 h-1.5 rounded-full bg-[#444] group-hover:bg-[#3b82f6] transition-colors" />
-        </div>
-      </div>
-    )
+    title: 'AI, ML & Data Science',
+    description: 'Predictive analytics, NLP, computer vision, and intelligent automation tailored to your data.',
+    icon: Brain,
+    href: '/services/ai-ml-data-science',
+    Visual: AIMLVisual,
   },
   {
-    title: 'Spring Boot Development',
-    description: 'Build robust, production-grade microservices with Spring ecosystem.',
-    icon: Leaf,
-    Visual: () => (
-      <div className="absolute right-6 bottom-4 pointer-events-none opacity-30 group-hover:opacity-100 transition-opacity duration-500">
-        <div className="flex items-end gap-[2px] h-16">
-          {[2, 4, 3, 7, 5, 8].map((h, i) => (
-            <div key={i} className="w-4 bg-[#333] group-hover:bg-[#3b82f6] transition-all duration-500 ease-out rounded-t-[2px]" style={{ height: `${h * 0.4}rem`, transitionDelay: `${i * 75}ms` }} />
-          ))}
-        </div>
-      </div>
-    )
+    title: 'Mobile App Development',
+    description: 'High-performance iOS & Android apps with immersive, platform-native experiences.',
+    icon: Smartphone,
+    href: '/services/mobile-app-development',
+    Visual: MobileVisual,
   },
   {
-    title: 'DevOps Engineering',
-    description: 'Streamline your operations with modern infrastructure as code.',
-    icon: Wrench,
-    Visual: () => (
-      <div className="absolute -right-4 -bottom-4 w-32 h-32 pointer-events-none opacity-20 group-hover:opacity-100 transition-opacity duration-500 overflow-hidden">
-        <Settings className="absolute top-4 left-4 w-12 h-12 text-[#666] group-hover:text-[#3b82f6] group-hover:animate-[spin_4s_linear_infinite] transition-colors" />
-        <Settings className="absolute bottom-2 right-2 w-16 h-16 text-[#444] group-hover:text-[#3b82f6]/60 group-hover:animate-[spin_6s_linear_infinite_reverse] transition-colors" />
-      </div>
-    )
+    title: 'Web Development',
+    description: 'Responsive, lightning-fast web apps built for scale and conversion.',
+    icon: Globe,
+    href: '/services/web-development',
+    Visual: WebVisual,
   },
   {
-    title: 'TensorFlow Solutions',
-    description: 'Develop custom machine learning models tailored to your data.',
-    icon: Network,
-    Visual: () => (
-      <div className="absolute -right-2 -bottom-2 w-36 h-36 pointer-events-none flex items-center justify-center overflow-hidden opacity-40 group-hover:opacity-100 transition-opacity duration-500">
-        <div className="relative w-20 h-20 rotate-12 group-hover:rotate-0 transition-transform duration-700 ease-out">
-          <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-2">
-            {[...Array(9)].map((_, i) => (
-              <div key={i} className="w-full h-full border border-[#333] group-hover:border-[#3b82f6]/40 rounded-sm bg-[#1a1a1a] group-hover:bg-[#3b82f6]/10 transition-colors duration-500" style={{ transitionDelay: `${(i % 3 + Math.floor(i / 3)) * 75}ms` }} />
-            ))}
-          </div>
-        </div>
-      </div>
-    )
+    title: 'Cloud & SaaS Solutions',
+    description: 'Cloud migration, multi-tenant SaaS architecture, and managed infrastructure on AWS, Azure & GCP.',
+    icon: Cloud,
+    href: '/services/cloud-saas-solutions',
+    Visual: CloudVisual,
   },
   {
-    title: 'CI/CD Pipelines',
-    description: 'Accelerate your delivery with automated testing and deployment.',
-    icon: Rocket,
-    Visual: () => (
-      <div className="absolute right-0 bottom-0 top-0 w-2/3 md:w-1/2 pointer-events-none overflow-hidden opacity-30 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center pr-8">
-        <div className="relative w-full h-full flex flex-col items-center justify-center max-w-[200px]">
-          <div className="absolute left-0 w-full h-[1px] bg-[#333] top-1/2" />
-          <div className="flex items-center justify-between w-full z-10">
-            <div className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#444] group-hover:border-[#3b82f6]/60 transition-all duration-500 flex items-center justify-center">
-              <Code2 className="w-4 h-4 text-[#666] group-hover:text-[#3b82f6]" />
-            </div>
-            <div className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#444] group-hover:border-[#3b82f6]/60 transition-all duration-500 delay-150 flex items-center justify-center">
-              <Activity className="w-4 h-4 text-[#666] group-hover:text-[#3b82f6]" />
-            </div>
-            <div className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#444] group-hover:border-[#3b82f6]/60 transition-all duration-500 delay-300 flex items-center justify-center group-hover:shadow-[0_0_15px_rgba(62,207,142,0.2)]">
-              <Rocket className="w-4 h-4 text-[#666] group-hover:text-[#3b82f6] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500" />
-            </div>
-          </div>
-        </div>
-      </div>
-    )
+    title: 'Digital Transformation',
+    description: 'Modernizing legacy systems with cloud-native, microservices-driven architectures.',
+    icon: Zap,
+    href: '/services/digital-transformation',
+    Visual: DigitalTransformVisual,
   },
   {
-    title: 'GitHub Actions Automation',
-    description: 'Automate your entire software lifecycle right from your repository.',
+    title: 'Digital Marketing',
+    description: 'SEO, paid media, social campaigns, and analytics-driven growth strategies.',
+    icon: TrendingUp,
+    href: '/services/digital-marketing',
+    Visual: DigitalMarketingVisual,
+  },
+  {
+    title: 'Cybersecurity & Compliance',
+    description: 'Advanced audits, penetration testing, and compliance frameworks (SOC2, HIPAA, GDPR).',
+    icon: Shield,
+    href: '/services/cybersecurity-compliance',
+    Visual: CyberVisual,
+  },
+  {
+    title: 'DevOps & Cloud Automation',
+    description: 'CI/CD pipelines, containerization, IaC, and automated delivery for faster, reliable releases.',
     icon: GitMerge,
-    Visual: () => (
-      <div className="absolute right-12 bottom-0 top-0 pointer-events-none opacity-30 group-hover:opacity-100 transition-opacity duration-500 flex items-center">
-        <div className="flex flex-col items-center gap-0 relative h-32 w-24">
-          <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-[#333] group-hover:bg-[#3b82f6]/40 transition-colors duration-500" />
-          <div className="absolute left-4 top-10 w-12 h-12 border-b-2 border-r-2 border-[#333] group-hover:border-[#3b82f6] rounded-br-xl transition-colors duration-500 delay-100" />
-
-          <div className="absolute left-[11px] top-6 w-[10px] h-[10px] rounded-full bg-[#444] group-hover:bg-[#3b82f6] group-hover:shadow-[0_0_10px_#3b82f6] z-10 transition-all duration-500 delay-200" />
-          <div className="absolute left-[59px] top-[84px] w-[10px] h-[10px] rounded-full bg-[#444] group-hover:bg-[#3b82f6] group-hover:shadow-[0_0_10px_#3b82f6] z-10 transition-all duration-500 delay-300" />
-        </div>
-      </div>
-    )
+    href: '/services/devops-cloud-automation',
+    Visual: DevOpsVisual,
   },
 ];
 
+/* ══════════════════ SECTION ══════════════════ */
+
 export const KnownFor: FC = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = useCallback((direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const scrollAmount = window.innerWidth < 768 ? 320 : 416; // rough card width + gap
+      scrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  }, []);
+
   return (
-    <section className="w-full py-12 bg-white dark:bg-black">
-      <div className="mx-auto max-w-7xl px-6 md:px-8">
-        <div className="flex flex-col gap-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <section className="w-full py-16 md:py-24 bg-white dark:bg-black relative overflow-hidden group/section">
+      {/* Optional global ambient glow in background */}
+      {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-3/4 bg-[#3b82f6]/5 blur-[120px] rounded-full pointer-events-none" /> */}
+
+      <div className="relative mx-auto max-w-7xl px-6 md:px-8">
+
+        {/* Header */}
+        <div className="flex flex-col gap-4 mb-12 relative z-10 w-fit">
+          <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-[#ededed] max-w-2xl leading-[1.1]">
+            Build the Future with{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b8b8b] to-[#444]">Intelligent Software</span>
+          </h2>
+          <p className="text-[16px] text-[#8b8b8b] max-w-2xl leading-relaxed mt-2 font-light">
+            We fuse engineering excellence with AI to build digital solutions that are scalable, secure, and ready for tomorrow.
+          </p>
+        </div>
+
+        {/* Single Row Slider Wrapper */}
+        <div className="relative z-10 group/slider">
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={() => scroll('left')}
+            className="absolute left-[-1.5rem] md:left-[-2rem] top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-[#111] border border-white/10 text-white shadow-2xl opacity-0 transition-all duration-300 hover:bg-[#1a1a1a] hover:scale-110 hover:border-[#3b82f6]/50 group-hover/section:opacity-100 hidden sm:flex"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
+          </button>
+
+          <button
+            onClick={() => scroll('right')}
+            className="absolute right-[-1.5rem] md:right-[-2rem] top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-[#111] border border-white/10 text-white shadow-2xl opacity-0 transition-all duration-300 hover:bg-[#1a1a1a] hover:scale-110 hover:border-[#3b82f6]/50 group-hover/section:opacity-100 hidden sm:flex"
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
+          </button>
+
+          {/* Scrollable Container */}
+          <div
+            ref={scrollRef}
+            className="flex overflow-x-auto gap-4 snap-x snap-mandatory scrollbar-hide pb-8 -mx-6 px-6 md:-mx-8 md:px-8"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
             {services.map((service, i) => {
               const Icon = service.icon;
-              const isLarge = i === 0 || i === 1 || i === 6 || i === 7;
-
               return (
                 <Link
                   key={i}
-                  href={`/services/${service.title.toLowerCase().replace(/\//g, '-').replace(/ /g, '-')}`}
-                  className={`group relative flex flex-col items-start bg-[#121212] border border-[#2e2e2e] hover:border-[#3b82f6]/50 hover:bg-[#161616] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(59,130,246,0.12)] transition-all duration-500 rounded-2xl p-8 overflow-hidden cursor-pointer min-h-[20rem] md:min-h-[22rem] ${isLarge ? 'lg:col-span-2' : 'lg:col-span-1'}`}
+                  href={service.href}
+                  className={`shrink-0 snap-start w-[85vw] sm:w-[340px] lg:w-[400px] group relative flex flex-col items-start bg-[#0a0a0a] border border-white/5 hover:border-white/10 hover:bg-[#111] hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#3b82f6]/5 transition-all duration-700 ease-out rounded-2xl p-7 overflow-hidden cursor-pointer min-h-[18rem] md:min-h-[20rem]`}
                 >
-                  {service.Visual && <service.Visual />}
+                  {/* Subtle base gradient inside card to match Apple/Linear aesthetic */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-                  <div className="relative z-10 mb-6 flex h-12 w-12 items-center justify-center rounded-lg border border-[#2e2e2e] bg-[#1a1a1a] text-[#ededed] group-hover:text-[#3b82f6] group-hover:border-[#3b82f6]/30 transition-colors duration-500">
-                    <Icon className="w-6 h-6 stroke-[1.5]" />
-                  </div>
+                  {/* Animated visual component */}
+                  <service.Visual />
 
-                  <h3 className="relative z-10 text-xl font-medium text-[#ededed] mb-3 tracking-tight">
-                    {service.title}
-                  </h3>
+                  {/* Content layer above visual */}
+                  <div className="relative z-10 flex flex-col h-full pointer-events-none w-full">
+                    {/* Icon */}
+                    <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-[#161616] text-[#ededed] group-hover:text-[#3b82f6] group-hover:border-[#3b82f6]/30 group-hover:bg-[#1a1a1a] transition-all duration-500 shadow-sm">
+                      <Icon className="w-5 h-5 stroke-[1.5]" />
+                    </div>
 
-                  <p className="relative z-10 text-[15px] text-[#8b8b8b] leading-relaxed mb-6 flex-1 max-w-full lg:max-w-[80%]">
-                    {service.description}
-                  </p>
+                    {/* Title */}
+                    <h3 className="text-lg font-medium text-[#ededed] mb-2 tracking-tight leading-snug group-hover:text-white transition-colors duration-300">
+                      {service.title}
+                    </h3>
 
-                  <div className="relative z-10 mt-auto flex items-center text-[#3b82f6] text-sm font-medium opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                    Explore <ArrowRight className="w-4 h-4 ml-1" />
+                    {/* Description */}
+                    <p className="text-[14px] text-[#8b8b8b] group-hover:text-[#a1a1a1] leading-relaxed flex-1 w-[90%] transition-colors duration-300 font-light">
+                      {service.description}
+                    </p>
+
+                    {/* CTA */}
+                    <div className="mt-5 flex items-center text-[#3b82f6] text-[13px] font-medium opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]">
+                      Explore Service <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                    </div>
                   </div>
                 </Link>
               );
             })}
           </div>
         </div>
-        <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
+
+        {/* Bottom Note */}
+        <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-4">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-[#3b82f6]/10 border border-[#3b82f6]/20 w-fit shadow-[0_0_15px_rgba(59,130,246,0.1)]">
             <div className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_8px_#3b82f6] animate-pulse" />
             <span className="text-[13px] font-medium text-[#3b82f6] tracking-wide uppercase">Small Team. Massive Impact.</span>
           </div>
           <p className="text-[#8b8b8b] text-[15px]">
-            Engineering robust, scalable infrastructure for the global stage.
+            Engineering robust, scalable solutions for the global stage.
           </p>
         </div>
+
+        {/* CSS for custom abstract animations and hiding scrollbar */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            .scrollbar-hide::-webkit-scrollbar {
+              display: none;
+            }
+            @keyframes dash {
+              0% { stroke-dasharray: 1, 150; stroke-dashoffset: 0; }
+              50% { stroke-dasharray: 90, 150; stroke-dashoffset: -35; }
+              100% { stroke-dasharray: 90, 150; stroke-dashoffset: -124; }
+            }
+            .custom-dash {
+              stroke-dasharray: 4, 12;
+            }
+            @keyframes shimmer {
+              0% { transform: translateY(-100%); }
+              100% { transform: translateY(200%); }
+            }
+            @keyframes wave {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            @keyframes infinity {
+              0% { stroke-dasharray: 0, 300; stroke-dashoffset: 0; }
+              50% { stroke-dasharray: 100, 300; stroke-dashoffset: -100; }
+              100% { stroke-dasharray: 0, 300; stroke-dashoffset: -300; }
+            }
+            .custom-infinity {
+              stroke-dasharray: 300, 300;
+              stroke-dashoffset: 300;
+            }
+            .perspective-1000 {
+              perspective: 1000px;
+            }
+            .transform-style-3d {
+              transform-style: preserve-3d;
+            }
+            .translate-z-0 { transform: translateZ(0); }
+            .-translate-z-4 { transform: translateZ(-1rem); }
+          `
+        }} />
+
       </div>
     </section>
   );

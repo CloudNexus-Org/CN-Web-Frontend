@@ -116,8 +116,8 @@ export function Navbar() {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "border-b border-black/[0.08] bg-white/95 shadow-lg shadow-black/5 backdrop-blur-2xl dark:border-white/[0.10] dark:bg-black/98 dark:shadow-black/40"
-          : "border-b border-black/[0.04] bg-white/90 backdrop-blur-xl dark:border-white/[0.06] dark:bg-black/95"
+          ? "border-b border-black/[0.08] bg-white shadow-lg shadow-black/5 backdrop-blur-2xl dark:border-white/[0.10] dark:bg-black/98 dark:shadow-black/40"
+          : "border-b border-black/[0.04] bg-white backdrop-blur-xl dark:border-white/[0.06] dark:bg-black/95"
       }`}
     >
       <div className="mx-auto flex h-[58px] max-w-7xl items-center justify-between px-4 lg:px-8">
