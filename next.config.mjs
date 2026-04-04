@@ -22,9 +22,7 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: [
       'lucide-react',
-      'recharts',
       'framer-motion',
-      '@splinetool/react-spline'
     ],
   },
 };

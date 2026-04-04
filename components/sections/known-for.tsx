@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useRef, useCallback } from 'react';
+import { type FC, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import {
   ArrowRight, Code2, Smartphone, Globe, Cloud, Palette,
@@ -226,7 +226,7 @@ const services = [
 export const KnownFor: FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const scroll = useCallback((direction: 'left' | 'right') => {
+  const scroll = useCallback ((direction: 'left' | 'right') => {
     if (scrollRef.current) {
       const scrollAmount = window.innerWidth < 768 ? 320 : 416; // rough card width + gap
       scrollRef.current.scrollBy({
@@ -237,49 +237,13 @@ export const KnownFor: FC = () => {
   }, []);
 
   return (
-    <section className="w-full py-16 md:py-24 bg-white dark:bg-black relative overflow-hidden group/section">
-      {/* Optional global ambient glow in background */}
-      {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-3/4 bg-[#3b82f6]/5 blur-[120px] rounded-full pointer-events-none" /> */}
-
-      <div className="relative mx-auto max-w-7xl px-6 md:px-8">
-
-        {/* Header */}
-        <div className="flex flex-col gap-4 mb-12 relative z-10 w-fit">
-          <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-[#ededed] max-w-2xl leading-[1.1]">
-            Build the Future with{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b8b8b] to-[#444]">Intelligent Software</span>
+    <section className="w-full py-12 bg-white dark:bg-black">
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
+        <div className="flex flex-col gap-12">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black dark:text-white">
+            What We&apos;re Known For
           </h2>
-          <p className="text-[16px] text-[#8b8b8b] max-w-2xl leading-relaxed mt-2 font-light">
-            We fuse engineering excellence with AI to build digital solutions that are scalable, secure, and ready for tomorrow.
-          </p>
-        </div>
-
-        {/* Single Row Slider Wrapper */}
-        <div className="relative z-10 group/slider">
-
-          {/* Navigation Arrows */}
-          <button
-            onClick={() => scroll('left')}
-            className="absolute left-[-1.5rem] md:left-[-2rem] top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-[#111] border border-white/10 text-white shadow-2xl opacity-0 transition-all duration-300 hover:bg-[#1a1a1a] hover:scale-110 hover:border-[#3b82f6]/50 group-hover/section:opacity-100 hidden sm:flex"
-            aria-label="Scroll left"
-          >
-            <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
-          </button>
-
-          <button
-            onClick={() => scroll('right')}
-            className="absolute right-[-1.5rem] md:right-[-2rem] top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-[#111] border border-white/10 text-white shadow-2xl opacity-0 transition-all duration-300 hover:bg-[#1a1a1a] hover:scale-110 hover:border-[#3b82f6]/50 group-hover/section:opacity-100 hidden sm:flex"
-            aria-label="Scroll right"
-          >
-            <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
-          </button>
-
-          {/* Scrollable Container */}
-          <div
-            ref={scrollRef}
-            className="flex overflow-x-auto gap-4 snap-x snap-mandatory scrollbar-hide pb-8 -mx-6 px-6 md:-mx-8 md:px-8"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {services.map((service, i) => {
               const Icon = service.icon;
               return (
@@ -326,11 +290,18 @@ export const KnownFor: FC = () => {
         <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-4">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-[#3b82f6]/10 border border-[#3b82f6]/20 w-fit shadow-[0_0_15px_rgba(59,130,246,0.1)]">
             <div className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_8px_#3b82f6] animate-pulse" />
-            <span className="text-[13px] font-medium text-[#3b82f6] tracking-wide uppercase">Small Team. Massive Impact.</span>
+            <span className="text-[13px] font-medium text-[#3b82f6] tracking-wide uppercase">Our Services</span>
           </div>
           <p className="text-[#8b8b8b] text-[15px]">
-            Engineering robust, scalable solutions for the global stage.
+            We deliver end-to-end solutions across the full spectrum of digital services.
           </p>
+          <Link
+            href="/services"
+            className="text-[13px] font-semibold text-[#3b82f6] hover:underline inline-flex items-center gap-1"
+          >
+            View All Services
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
         {/* CSS for custom abstract animations and hiding scrollbar */}

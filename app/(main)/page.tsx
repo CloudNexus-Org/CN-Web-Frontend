@@ -1,11 +1,22 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/sections/hero-section";
-import { TopClients } from "@/components/sections/top-clients";
 import { BuildScaleThrive } from "@/components/sections/build-scale-thrive";
 import { KnownFor } from "@/components/sections/known-for";
 
+import { TechStack } from "@/components/sections/tech-stack";
 import { Testimonials } from "@/components/sections/testimonials";
-import { CaseStudies } from "@/components/sections/case-studies";
+import { WhyCloudNexus } from "@/components/sections/why-cloudnexus";
+import { FreeConsultation } from "@/components/sections/free-consultation";
+import { FAQs } from "@/components/sections/faqs";
+
+const CaseStudies = dynamic(
+  () => import("@/components/sections/case-studies").then((m) => m.CaseStudies),
+);
+
+const StatsGlobe = dynamic(
+  () => import("@/components/sections/stats-globe").then((m) => m.StatsGlobe),
+);
 
 export const metadata: Metadata = {
   title: "Build Powerful Digital Products",
@@ -17,11 +28,14 @@ export default function HomePage() {
     <main className="flex min-h-screen flex-col items-center justify-between bg-white text-black dark:bg-black dark:text-white">
       <HeroSection />
       <BuildScaleThrive />
-      {/* <TopClients /> */}
       <KnownFor />
-
       <CaseStudies />
+      <WhyCloudNexus />
+      <StatsGlobe />
+      <TechStack />
       <Testimonials />
+      <FreeConsultation />
+      <FAQs />
     </main>
   );
 }

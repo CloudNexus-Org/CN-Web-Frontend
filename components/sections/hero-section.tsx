@@ -48,23 +48,41 @@ class SplineErrorBoundary extends Component<
 }
 
 function SafeSpline({ scene, className }: { scene: string; className?: string }) {
-  const [webglSupported, setWebglSupported] = useState(true);
+  const [supported, setSupported] = useState(true);
+  const [loadError, setLoadError] = useState(false);
 
   useEffect(() => {
     try {
       const canvas = document.createElement('canvas');
       const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
-      if (!gl) setWebglSupported(false);
+      if (!gl) setSupported(false);
     } catch {
-      setWebglSupported(false);
+      setSupported(false);
     }
   }, []);
 
-  if (!webglSupported) return <SplineFallback />;
+  useEffect(() => {
+    if (!supported) return;
+
+    const handleRejection = (e: PromiseRejectionEvent) => {
+      const msg = e.reason?.message;
+      if (msg && (msg.includes('spline') || msg.includes('scene.splinecode'))) {
+        setLoadError(true);
+        e.preventDefault();
+      }
+    };
+    window.addEventListener('unhandledrejection', handleRejection);
+    return () => window.removeEventListener('unhandledrejection', handleRejection);
+  }, [supported]);
+
+  if (!supported || loadError) return <SplineFallback />;
 
   return (
     <SplineErrorBoundary>
-      <Spline scene={scene} className={className} />
+      <Spline
+        scene={scene}
+        className={className}
+      />
     </SplineErrorBoundary>
   );
 }
