@@ -1,43 +1,16 @@
 "use client";
 
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { useRef, useState, useEffect } from 'react';
-
-const Spline = dynamic(() => import('@splinetool/react-spline'), {
-  ssr: false,
-  loading: () => null,
-});
+import { MapPin, Phone } from 'lucide-react';
 
 export function Footer() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [shouldLoad, setShouldLoad] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setShouldLoad(true); },
-      { threshold: 0.1, rootMargin: '200px' }
-    );
-    if (containerRef.current) observer.observe(containerRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <footer className="relative mt-auto border-t border-black/10 bg-white dark:border-white/10 dark:bg-black overflow-hidden pt-24 pb-12">
-      {/* Background Animation */}
-      <div ref={containerRef} className="absolute inset-x-0 bottom-0 z-0 pointer-events-none opacity-40 mix-blend-screen h-full max-h-[600px]">
-        {/* We place the Spline in the background, carefully setting pointer-events-none so it doesn't block links */}
-        {shouldLoad && <Spline scene="https://prod.spline.design/LVHivbSoUcwO5Bb2/scene.splinecode" />}
-      </div>
-
-      {/* Spline Watermark Hide overlay - creatively blend it with the pitch black background . */}
-      <div className="absolute bottom-0 right-0 z-0 w-52 h-20 bg-white dark:bg-black pointer-events-none"></div>
-      <div className="absolute bottom-20 right-0 z-0 w-52 h-16 bg-gradient-to-t from-white dark:from-black to-transparent pointer-events-none"></div>
-      <div className="absolute bottom-0 right-52 z-0 w-16 h-20 bg-gradient-to-r from-transparent to-white dark:to-black pointer-events-none"></div>
+      {/* Background Animation Removed */}
 
       {/* Large Background Text Effect */}
       <div className="absolute inset-x-0 top-0 z-0 flex justify-center pointer-events-none select-none overflow-hidden">
-        <span className="text-[18vw] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/[0.08] to-transparent leading-none whitespace-nowrap translate-y-[-15%]">
+        <span className="text-[18vw] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-black/[0.03] dark:from-white/[0.08] to-transparent leading-none whitespace-nowrap translate-y-[-15%]">
           Cloud Nexus
         </span>
       </div>
@@ -99,7 +72,52 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 pt-8 border-t border-black/10 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        {/* Office Locations */}
+        <div className="mt-20 pt-8 border-t border-black/10 dark:border-white/10 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h4 className="text-xs font-semibold text-neutral-400 mb-4 tracking-wider uppercase">Hyderabad Office</h4>
+            <div className="space-y-3">
+              <div className="flex gap-3 text-sm text-neutral-500 dark:text-neutral-400">
+                <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
+                <p>Hitech City, Hyderabad<br/>Telangana, India</p>
+              </div>
+              <div className="flex gap-3 text-sm text-neutral-500 dark:text-neutral-400">
+                <Phone className="w-4 h-4 shrink-0" />
+                <p>+91 000 000 0000</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-xs font-semibold text-neutral-400 mb-4 tracking-wider uppercase">Bhopal Office</h4>
+            <div className="space-y-3">
+              <div className="flex gap-3 text-sm text-neutral-500 dark:text-neutral-400">
+                <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
+                <p>MP Nagar, Bhopal<br/>Madhya Pradesh, India</p>
+              </div>
+              <div className="flex gap-3 text-sm text-neutral-500 dark:text-neutral-400">
+                <Phone className="w-4 h-4 shrink-0" />
+                <p>+91 000 000 0000</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-xs font-semibold text-neutral-400 mb-4 tracking-wider uppercase">Bengaluru Office</h4>
+            <div className="space-y-3">
+              <div className="flex gap-3 text-sm text-neutral-500 dark:text-neutral-400">
+                <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
+                <p>Indiranagar, Bengaluru<br/>Karnataka, India</p>
+              </div>
+              <div className="flex gap-3 text-sm text-neutral-500 dark:text-neutral-400">
+                <Phone className="w-4 h-4 shrink-0" />
+                <p>+91 000 000 0000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 pt-8 border-t border-black/10 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-neutral-500">
             © {new Date().getFullYear()} Cloud Nexus. All rights reserved.
           </p>

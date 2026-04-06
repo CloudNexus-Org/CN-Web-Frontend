@@ -203,7 +203,7 @@ export default function EnterpriseRetailManufacturingPage() {
             <div className="flex items-center gap-2">{projects.map((p) => <button key={p.id} onClick={() => setActive(p.id)} className="transition-all duration-300" style={{ width: p.id === active ? "24px" : "8px", height: "8px", borderRadius: "9999px", backgroundColor: p.id === active ? study.accentColor : "#2e2e2e" }} />)}</div>
             <span className="text-[12px] text-muted-foreground">{projects.findIndex((p) => p.id === active) + 1} / {projects.length} projects</span>
           </div>
-          <div className="flex justify-center mt-14 pb-20"><Link href="/our-work"><Button size="lg" className="rounded-lg bg-white text-black hover:bg-white/90 px-8 font-semibold">View All Projects<ArrowRight size={16} className="ml-2" /></Button></Link></div>
+          <div className="flex justify-center mt-14 pb-20"><Link href="/our-work"><Button size="lg" className="rounded-lg bg-white text-black hover:bg-white/90 px-8 font-semibold dark:bg-black dark:text-white">View All Projects<ArrowRight size={16} className="ml-2" /></Button></Link></div>
         </div>
       </div>
     </section>

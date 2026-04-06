@@ -99,7 +99,7 @@ export default function MobileAppDevelopmentPage() {
           <h2 className="text-3xl font-bold mb-4">Ready to Build Your App?</h2>
           <p className="text-black/50 dark:text-white/50 mb-8 max-w-lg mx-auto">Let&apos;s turn your app idea into a polished product that users love.</p>
           <Link href="/resources/free-consultation">
-            <Button size="lg" className="rounded-lg bg-blue-600 text-white hover:bg-blue-700 px-8">
+            <Button size="lg" className="rounded-lg bg-blue-600 text-foreground hover:bg-blue-700 px-8">
               Book a Free Consultation <ArrowRight size={16} className="ml-2" />
             </Button>
           </Link>

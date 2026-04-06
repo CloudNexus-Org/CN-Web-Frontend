@@ -82,7 +82,7 @@ export default function UIUXDesignPage() {
         <div className="py-20 border-t border-black/[0.06] dark:border-white/[0.06] text-center">
           <h2 className="text-3xl font-bold mb-4">Design That Converts</h2>
           <p className="text-black/50 dark:text-white/50 mb-8 max-w-lg mx-auto">Let&apos;s create an experience your users will love and your business will benefit from.</p>
-          <Link href="/resources/free-consultation"><Button size="lg" className="rounded-lg bg-blue-600 text-white hover:bg-blue-700 px-8">Book a Free Consultation <ArrowRight size={16} className="ml-2" /></Button></Link>
+          <Link href="/resources/free-consultation"><Button size="lg" className="rounded-lg bg-blue-600 text-foreground hover:bg-blue-700 px-8">Book a Free Consultation <ArrowRight size={16} className="ml-2" /></Button></Link>
         </div>
       </div>
     </section>

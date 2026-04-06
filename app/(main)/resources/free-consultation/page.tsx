@@ -125,7 +125,7 @@ export default function FreeConsultationPage() {
                     className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-blue-500 transition-colors resize-none dark:border-white/[0.1] dark:bg-white/[0.02]"
                   />
                 </div>
-                <Button type="submit" size="lg" className="w-full bg-blue-600 text-white hover:bg-blue-700 rounded-lg">
+                <Button type="submit" size="lg" className="w-full bg-blue-600 text-foreground hover:bg-blue-700 rounded-lg">
                   Book Free Consultation
                 </Button>
               </form>

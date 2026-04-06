@@ -364,7 +364,7 @@ export default function RealEstatePage() {
 
           <div className="flex justify-center mt-14 pb-20">
             <Link href="/our-work">
-              <Button size="lg" className="rounded-lg bg-white text-black hover:bg-white/90 px-8 font-semibold">
+              <Button size="lg" className="rounded-lg bg-white text-black hover:bg-white/90 px-8 font-semibold dark:bg-black dark:text-white">
                 View All Projects
                 <ArrowRight size={16} className="ml-2" />
               </Button>

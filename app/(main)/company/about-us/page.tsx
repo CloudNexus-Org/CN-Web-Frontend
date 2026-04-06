@@ -132,7 +132,7 @@ export default function AboutUsPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.35 }}
-            className="flex items-center gap-8 mt-8 pt-8 border-t border-black/[0.06] dark:border-[#1e1e1e]"
+            className="flex items-center gap-8 mt-8 pt-8 border-t border-black/[0.06] dark:border-[#1e1e1e] dark:border-white/[0.06]"
           >
             {stats.map((stat) => (
               <div key={stat.label} className="flex flex-col">
@@ -181,7 +181,7 @@ export default function AboutUsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.15 }}
-              className="relative rounded-2xl bg-[#121212] border border-[#2e2e2e] p-8 md:p-10 overflow-hidden"
+              className="relative rounded-2xl bg-[#121212] border border-border p-8 md:p-10 overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-48 h-48 bg-[#3b82f6]/[0.06] rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/3" />
               <div className="relative z-10 flex flex-col gap-1">
@@ -200,7 +200,7 @@ export default function AboutUsPage() {
                       <span className="text-[13px] font-bold text-[#3b82f6] tabular-nums">
                         {m.year}
                       </span>
-                      <p className="text-[13px] text-[#8b8b8b] leading-relaxed mt-0.5">
+                      <p className="text-[13px] text-muted-foreground leading-relaxed mt-0.5">
                         {m.event}
                       </p>
                     </div>
@@ -213,7 +213,7 @@ export default function AboutUsPage() {
       </div>
 
       {/* Values */}
-      <div className="w-full py-16 md:py-24 px-6 md:px-8 border-t border-black/[0.06] dark:border-[#1e1e1e]">
+      <div className="w-full py-16 md:py-24 px-6 md:px-8 border-t border-black/[0.06] dark:border-[#1e1e1e] dark:border-white/[0.06]">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
             <div>
@@ -249,18 +249,18 @@ export default function AboutUsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.1 + index * 0.08 }}
-                className="group relative rounded-2xl bg-[#121212] border border-[#2e2e2e] hover:border-[#3b82f6]/50 hover:bg-[#161616] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)] transition-all duration-500 p-8 overflow-hidden"
+                className="group relative rounded-2xl bg-[#121212] border border-border hover:border-[#3b82f6]/50 hover:bg-[#161616] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)] transition-all duration-500 p-8 overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#3b82f6]/[0.03] rounded-full blur-2xl pointer-events-none -translate-y-1/2 translate-x-1/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 <div className="relative z-10">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-[#2e2e2e] bg-[#1a1a1a] text-[#ededed] group-hover:text-[#3b82f6] group-hover:border-[#3b82f6]/30 transition-colors duration-500">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-card text-[#ededed] group-hover:text-[#3b82f6] group-hover:border-[#3b82f6]/30 transition-colors duration-500">
                     <value.Icon className="w-6 h-6 stroke-[1.5]" />
                   </div>
                   <h3 className="text-lg font-medium text-[#ededed] mb-2 tracking-tight">
                     {value.title}
                   </h3>
-                  <p className="text-[14px] text-[#8b8b8b] leading-relaxed">
+                  <p className="text-[14px] text-muted-foreground leading-relaxed">
                     {value.description}
                   </p>
                 </div>
@@ -271,7 +271,7 @@ export default function AboutUsPage() {
       </div>
 
       {/* Team Pillars */}
-      <div className="w-full py-16 md:py-24 px-6 md:px-8 border-t border-black/[0.06] dark:border-[#1e1e1e]">
+      <div className="w-full py-16 md:py-24 px-6 md:px-8 border-t border-black/[0.06] dark:border-[#1e1e1e] dark:border-white/[0.06]">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-6 mb-14">
             <motion.div
@@ -314,21 +314,21 @@ export default function AboutUsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
-                className="group relative rounded-2xl bg-[#121212] border border-[#2e2e2e] hover:border-[#3b82f6]/50 hover:bg-[#161616] transition-all duration-500 p-8 md:p-10 overflow-hidden"
+                className="group relative rounded-2xl bg-[#121212] border border-border hover:border-[#3b82f6]/50 hover:bg-[#161616] transition-all duration-500 p-8 md:p-10 overflow-hidden"
               >
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#3b82f6]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 <div className="relative z-10">
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl border border-[#2e2e2e] bg-[#1a1a1a] text-[#ededed] group-hover:text-[#3b82f6] group-hover:border-[#3b82f6]/30 transition-colors duration-500">
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-card text-[#ededed] group-hover:text-[#3b82f6] group-hover:border-[#3b82f6]/30 transition-colors duration-500">
                     <leader.Icon className="w-7 h-7 stroke-[1.5]" />
                   </div>
-                  <p className="text-[11px] font-semibold text-[#555] uppercase tracking-widest mb-2">
+                  <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-widest mb-2">
                     {leader.name}
                   </p>
                   <h3 className="text-xl font-semibold text-[#ededed] mb-3 tracking-tight">
                     {leader.title}
                   </h3>
-                  <p className="text-[14px] text-[#8b8b8b] leading-relaxed">
+                  <p className="text-[14px] text-muted-foreground leading-relaxed">
                     {leader.description}
                   </p>
                 </div>
@@ -339,7 +339,7 @@ export default function AboutUsPage() {
       </div>
 
       {/* CTA */}
-      <div className="w-full py-16 md:py-24 px-6 md:px-8 border-t border-black/[0.06] dark:border-[#1e1e1e]">
+      <div className="w-full py-16 md:py-24 px-6 md:px-8 border-t border-black/[0.06] dark:border-[#1e1e1e] dark:border-white/[0.06]">
         <div className="mx-auto max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -353,7 +353,7 @@ export default function AboutUsPage() {
 
             <div className="relative px-8 py-12 md:px-14 md:py-16 text-center">
               <Award className="w-10 h-10 text-[#3b82f6] mx-auto mb-6" strokeWidth={1.5} />
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white dark:text-black leading-tight mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground dark:text-black leading-tight mb-4">
                 Ready to Build Your
                 <br className="hidden sm:block" />
                 Dream Team?

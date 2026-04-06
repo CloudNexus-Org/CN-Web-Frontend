@@ -239,11 +239,32 @@ export const KnownFor: FC = () => {
   return (
     <section className="w-full py-12 bg-white dark:bg-black">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        <div className="flex flex-col gap-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black dark:text-white">
-            What We&apos;re Known For
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="flex flex-col gap-8 md:gap-12">
+          <div className="flex items-center justify-between">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black dark:text-white">
+              What We&apos;re Known For
+            </h2>
+            <div className="hidden md:flex items-center gap-3">
+              <button
+                onClick={() => scroll('left')}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 text-black dark:text-white transition-all"
+                aria-label="Scroll left"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => scroll('right')}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 text-black dark:text-white transition-all"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+          <div 
+            ref={scrollRef}
+            className="flex w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-4 pb-4 -mx-6 px-6 md:-mx-8 md:px-8"
+          >
             {services.map((service, i) => {
               const Icon = service.icon;
               return (
