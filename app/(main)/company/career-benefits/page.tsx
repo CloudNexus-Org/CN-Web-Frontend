@@ -30,7 +30,7 @@ export default function CareerBenefitsPage() {
             return (
               <motion.div key={benefit.title} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.05 }} className="rounded-2xl border border-black/[0.08] bg-black/[0.02] p-6 dark:border-white/[0.08] dark:bg-white/[0.02]">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-black/[0.08] bg-black/[0.03] dark:border-white/[0.08] dark:bg-white/[0.03] mb-4">
-                  <Icon className="w-6 h-6 text-blue-500" />
+                  <Icon className="w-6 h-6 text-[#215B97]" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
                 <p className="text-sm text-black/45 dark:text-white/45 leading-relaxed">{benefit.text}</p>

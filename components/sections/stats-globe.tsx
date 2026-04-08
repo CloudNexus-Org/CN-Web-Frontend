@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: "527", suffix: "+", label: "successful IT projects delivered" },
-  { value: "10", suffix: "+ yrs", label: "of proven expertise in scaling businesses" },
+  { value: "200", suffix: "+", label: "successful IT projects delivered" },
+  { value: "5", suffix: "+ yrs", label: "of proven expertise in scaling businesses" },
   { value: "90", suffix: "%", label: "reduction in hiring timelines" },
   { value: "<1", suffix: "%", label: "candidate drop-off ratio for contract roles" },
   { value: "8.5", suffix: "/10", label: "NPS Score" },
@@ -88,7 +88,7 @@ export function StatsGlobe() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4 md:gap-5">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}

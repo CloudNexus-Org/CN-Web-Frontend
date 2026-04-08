@@ -186,7 +186,7 @@ export const projects: Project[] = [
   {
     id: "fleettrack-logistics",
     tag: "Fleet Management",
-    tagColor: "bg-blue-500/15 text-blue-400 border-blue-500/30",
+    tagColor: "bg-[#215B97]/15 text-[#4a7db8] border-[#215B97]/30",
     company: "FleetTrack",
     industry: "Transport & Logistics",
     industrySlug: "transport-logistics",
@@ -206,8 +206,8 @@ export const projects: Project[] = [
       { phase: "Route Optimization", detail: "AI-based routing engine with traffic data" },
       { phase: "Predictive Maintenance", detail: "ML models for breakdown prediction" },
     ],
-    gradient: "from-blue-600/10 via-transparent to-transparent",
-    accentColor: "#3b82f6",
+    gradient: "from-[#1a4a7a]/10 via-transparent to-transparent",
+    accentColor: "#215B97",
   },
   {
     id: "shipwise-supply",
@@ -398,7 +398,7 @@ export const projects: Project[] = [
   {
     id: "finapp-ai",
     tag: "AI-Powered Finance",
-    tagColor: "bg-blue-500/15 text-blue-400 border-blue-500/30",
+    tagColor: "bg-[#215B97]/15 text-[#4a7db8] border-[#215B97]/30",
     company: "FinSmart",
     industry: "Banking, Finance & Insurance",
     industrySlug: "banking-finance-insurance",
@@ -418,8 +418,8 @@ export const projects: Project[] = [
       { phase: "Payment Integration", detail: "Digital wallets, payment gateways" },
       { phase: "Launch & Monitor", detail: "Cross-platform release, fraud monitoring" },
     ],
-    gradient: "from-blue-600/10 via-transparent to-transparent",
-    accentColor: "#3b82f6",
+    gradient: "from-[#1a4a7a]/10 via-transparent to-transparent",
+    accentColor: "#215B97",
   },
   {
     id: "insuretech-claims",

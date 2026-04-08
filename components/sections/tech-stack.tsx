@@ -1,61 +1,36 @@
 import Link from 'next/link';
-import {
-  Database, Server, Cpu, Cloud, GitBranch, Layers, Zap, Box,
-  Terminal, Code2, Settings, Globe, Smartphone, Shield, Braces,
-  BarChart3, Workflow, HardDrive, MonitorSmartphone, Webhook,
-  FileCode2, Container, Flame, CircuitBoard, Binary, ArrowRight
-} from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight, Shield } from 'lucide-react';
+
+const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons';
 
 const technologies = [
-  { name: 'React', icon: Code2 },
-  { name: 'Next.js', icon: Globe },
-  { name: 'Node.js', icon: Terminal },
-  { name: 'TypeScript', icon: Braces },
-  { name: 'Python', icon: FileCode2 },
-  { name: 'Java', icon: CoffeeIcon },
-  { name: 'Spring Boot', icon: Layers },
-  { name: 'Flutter', icon: Smartphone },
-  { name: 'React Native', icon: MonitorSmartphone },
-  { name: 'TensorFlow', icon: Cpu },
-  { name: 'PyTorch', icon: Flame },
-  { name: 'Docker', icon: Box },
-  { name: 'Kubernetes', icon: Container },
-  { name: 'AWS', icon: Cloud },
-  { name: 'Azure', icon: Server },
-  { name: 'GCP', icon: HardDrive },
-  { name: 'PostgreSQL', icon: Database },
-  { name: 'MongoDB', icon: CircuitBoard },
-  { name: 'Redis', icon: Zap },
-  { name: 'GraphQL', icon: Webhook },
-  { name: 'GitHub Actions', icon: Settings },
-  { name: 'Jenkins', icon: Workflow },
-  { name: 'Git', icon: GitBranch },
-  { name: 'Terraform', icon: Binary },
-  { name: 'Kibana', icon: BarChart3 },
-  { name: 'Cyber Security', icon: Shield },
+  { name: 'React', logo: `${DEVICON}/react/react-original.svg` },
+  { name: 'Next.js', logo: `${DEVICON}/nextjs/nextjs-original.svg` },
+  { name: 'Node.js', logo: `${DEVICON}/nodejs/nodejs-original.svg` },
+  { name: 'TypeScript', logo: `${DEVICON}/typescript/typescript-original.svg` },
+  { name: 'Python', logo: `${DEVICON}/python/python-original.svg` },
+  { name: 'Java', logo: `${DEVICON}/java/java-original.svg` },
+  { name: 'Spring', logo: `${DEVICON}/spring/spring-original.svg` },
+  { name: 'Flutter', logo: `${DEVICON}/flutter/flutter-original.svg` },
+  { name: 'React Native', logo: `${DEVICON}/react/react-original.svg` },
+  { name: 'TensorFlow', logo: `${DEVICON}/tensorflow/tensorflow-original.svg` },
+  { name: 'PyTorch', logo: `${DEVICON}/pytorch/pytorch-original.svg` },
+  { name: 'Docker', logo: `${DEVICON}/docker/docker-original.svg` },
+  { name: 'Kubernetes', logo: `${DEVICON}/kubernetes/kubernetes-original.svg` },
+  { name: 'AWS', logo: `${DEVICON}/amazonwebservices/amazonwebservices-plain-wordmark.svg` },
+  { name: 'Azure', logo: `${DEVICON}/azure/azure-original.svg` },
+  { name: 'GCP', logo: `${DEVICON}/googlecloud/googlecloud-original.svg` },
+  { name: 'PostgreSQL', logo: `${DEVICON}/postgresql/postgresql-original.svg` },
+  { name: 'MongoDB', logo: `${DEVICON}/mongodb/mongodb-original.svg` },
+  { name: 'Redis', logo: `${DEVICON}/redis/redis-original.svg` },
+  { name: 'GraphQL', logo: `${DEVICON}/graphql/graphql-plain.svg` },
+  { name: 'GitHub Actions', logo: `${DEVICON}/githubactions/githubactions-original.svg` },
+  { name: 'Jenkins', logo: `${DEVICON}/jenkins/jenkins-original.svg` },
+  { name: 'Git', logo: `${DEVICON}/git/git-original.svg` },
+  { name: 'Terraform', logo: `${DEVICON}/terraform/terraform-original.svg` },
+  { name: 'Kibana', logo: `${DEVICON}/kibana/kibana-original.svg` },
 ];
-
-function CoffeeIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M17 8h1a4 4 0 1 1 0 8h-1" />
-      <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" />
-      <line x1="9" x2="9" y1="2" y2="4" />
-      <line x1="15" x2="15" y1="2" y2="4" />
-    </svg>
-  );
-}
 
 export function TechStack() {
   return (
@@ -80,19 +55,23 @@ export function TechStack() {
                   key={i}
                   className="flex shrink-0 items-center justify-around gap-[var(--gap)] min-w-full group-hover:[animation-play-state:paused] animate-[marquee_var(--duration)_linear_infinite]"
                 >
-                  {technologies.map((tech, j) => {
-                    const Icon = tech.icon;
-                    return (
-                      <div
-                        key={j}
-                        className="flex items-center gap-2 text-[#999] hover:text-[#333] dark:text-[#555] dark:hover:text-[#ededed] transition-colors duration-300 cursor-default whitespace-nowrap"
-                        title={tech.name}
-                      >
-                        <Icon className="w-5 h-5 md:w-6 md:h-6 stroke-[1.5] flex-shrink-0" />
-                        <span className="text-xs md:text-sm font-medium">{tech.name}</span>
-                      </div>
-                    );
-                  })}
+                  {technologies.map((tech, j) => (
+                    <div
+                      key={j}
+                      className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity duration-300 cursor-default whitespace-nowrap"
+                      title={tech.name}
+                    >
+                      <Image
+                        src={tech.logo}
+                        alt={tech.name}
+                        width={24}
+                        height={24}
+                        className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0 object-contain"
+                        unoptimized
+                      />
+                      <span className="text-xs md:text-sm font-medium text-black/60 dark:text-white/50">{tech.name}</span>
+                    </div>
+                  ))}
                 </div>
               ))}
             </div>
@@ -100,13 +79,13 @@ export function TechStack() {
         </div>
 
         {/* Bottom Note & CTA */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pt-2">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 pt-2">
           <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-[#3b82f6]/10 border border-[#3b82f6]/20 w-fit shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_8px_#3b82f6] animate-pulse" />
-              <span className="text-[13px] font-medium text-[#3b82f6] tracking-wide uppercase">Small Team. Massive Impact.</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-[#215B97]/10 border border-[#215B97]/20 w-fit shadow-[0_0_15px_rgba(59,130,246,0.1)]">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#215B97] shadow-[0_0_8px_#215B97] animate-pulse" />
+              <span className="text-[13px] font-medium text-[#215B97] tracking-wide uppercase">Small Team. Massive Impact.</span>
             </div>
-            <p className="text-[#8b8b8b] text-[15px]">
+            <p className="text-[#8b8b8b] text-[15px] font-medium">
               Engineering robust, scalable infrastructure for the global stage.
             </p>
           </div>

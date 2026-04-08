@@ -82,12 +82,12 @@ export default function BlogPage() {
               <Link href="#">
                 <div className="group h-full rounded-2xl border border-black/[0.08] bg-black/[0.02] p-6 transition-all duration-300 hover:border-black/[0.15] hover:bg-black/[0.05] dark:border-white/[0.08] dark:bg-white/[0.02] dark:hover:border-white/[0.15] dark:hover:bg-white/[0.05] flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-500 border border-blue-500/20">
+                    <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-[#215B97]/10 text-[#215B97] border border-[#215B97]/20">
                       {blog.category}
                     </span>
                     <span className="text-xs text-black/40 dark:text-white/40">{blog.readTime}</span>
                   </div>
-                  <h3 className="text-lg font-semibold leading-snug mb-3 group-hover:text-blue-500 transition-colors">
+                  <h3 className="text-lg font-semibold leading-snug mb-3 group-hover:text-[#215B97] transition-colors">
                     {blog.title}
                   </h3>
                   <p className="text-sm text-black/45 dark:text-white/45 leading-relaxed flex-1">

@@ -35,7 +35,7 @@ const projects: Project[] = [
   {
     id: "fleettrack",
     tag: "Fleet Management",
-    tagColor: "bg-blue-500/15 text-blue-400 border-blue-500/30",
+    tagColor: "bg-[#215B97]/15 text-[#4a7db8] border-[#215B97]/30",
     company: "FleetTrack",
     industry: "Transport & Logistics",
     headline: "IoT-powered fleet management system reducing fuel costs by 25% across 2000+ vehicles.",
@@ -44,7 +44,7 @@ const projects: Project[] = [
     solution:
       "GPS + IoT sensor integration for real-time fleet tracking. AI-based route optimization engine. Predictive maintenance alerts reducing breakdowns by 40%.",
     duration: "90 days",
-    accentColor: "#3b82f6",
+    accentColor: "#215B97",
     metrics: [
       { value: 25, suffix: "%", label: "Fuel cost reduction" },
       { value: 2000, suffix: "+", label: "Vehicles tracked" },
@@ -158,7 +158,7 @@ function TimelineStepComp({
       </div>
       <div className="pb-5">
         <p className="text-[13px] font-semibold text-foreground mb-0.5">{step.phase}</p>
-        <p className="text-[12px] text-muted-foreground leading-relaxed">{step.detail}</p>
+        <p className="text-[12px] font-medium text-muted-foreground leading-relaxed">{step.detail}</p>
       </div>
     </div>
   );
@@ -211,14 +211,14 @@ export default function TransportLogisticsPage() {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h2 className="text-2xl font-semibold mb-4">Revolutionizing Transport & Logistics</h2>
-              <p className="text-[15px] text-muted-foreground leading-relaxed">
+              <p className="text-[15px] font-medium text-muted-foreground leading-relaxed">
                 We build intelligent fleet management and supply chain platforms that give businesses complete
                 visibility over their operations. Using IoT sensors, AI-powered route optimization, and predictive
                 maintenance, we help reduce costs and improve delivery performance.
               </p>
             </div>
             <div>
-              <p className="text-[15px] text-muted-foreground leading-relaxed mb-6">
+              <p className="text-[15px] font-medium text-muted-foreground leading-relaxed mb-6">
                 Our logistics solutions integrate GPS tracking, real-time geofencing, automated documentation (OCR), and
                 vendor management into unified platforms. We help companies track thousands of vehicles, optimize routes
                 in real-time, and predict equipment failures before they happen.
@@ -293,11 +293,11 @@ export default function TransportLogisticsPage() {
                 <div className="grid sm:grid-cols-2 gap-6 mb-8">
                   <div className="flex flex-col gap-2">
                     <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-widest">The Challenge</span>
-                    <p className="text-[14px] text-muted-foreground leading-relaxed">{study.challenge}</p>
+                    <p className="text-[14px] font-medium text-muted-foreground leading-relaxed">{study.challenge}</p>
                   </div>
                   <div className="flex flex-col gap-2">
                     <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-widest">Our Approach</span>
-                    <p className="text-[14px] text-muted-foreground leading-relaxed">{study.solution}</p>
+                    <p className="text-[14px] font-medium text-muted-foreground leading-relaxed">{study.solution}</p>
                   </div>
                 </div>
                 <div ref={metricsRef} className="flex flex-wrap gap-8 pt-8 border-t border-border">
@@ -330,7 +330,7 @@ export default function TransportLogisticsPage() {
                   className="mt-auto p-4 rounded-xl border transition-all duration-500"
                   style={{ borderColor: `${study.accentColor}30`, background: `${study.accentColor}08` }}
                 >
-                  <p className="text-[12px] text-muted-foreground leading-relaxed mb-3">
+                  <p className="text-[12px] font-medium text-muted-foreground leading-relaxed mb-3">
                     Every engagement starts with a no-commitment discovery call.
                   </p>
                   <button className="inline-flex items-center gap-1 text-[12px] font-semibold text-foreground hover:gap-2 transition-all duration-200">

@@ -100,10 +100,10 @@ export default function AboutUsPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#3b82f6]/10 border border-[#3b82f6]/20 mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#215B97]/10 border border-[#215B97]/20 mb-6"
           >
-            <div className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_8px_#3b82f6] animate-pulse" />
-            <span className="text-[13px] font-medium text-[#3b82f6] tracking-wide uppercase">About Us</span>
+            <div className="w-1.5 h-1.5 rounded-full bg-[#215B97] shadow-[0_0_8px_#215B97] animate-pulse" />
+            <span className="text-[13px] font-medium text-[#215B97] tracking-wide uppercase">About Us</span>
           </motion.div>
 
           <motion.h1
@@ -121,7 +121,7 @@ export default function AboutUsPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-base md:text-lg text-black/50 dark:text-[#8b8b8b] max-w-2xl leading-relaxed"
+            className="text-base md:text-lg text-black/50 dark:text-[#8b8b8b] max-w-2xl leading-relaxed font-medium"
           >
             For over a decade, CloudNexus has been the bridge between ambitious
             enterprises and exceptional engineering talent — delivering scalable
@@ -154,7 +154,7 @@ export default function AboutUsPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <span className="inline-block text-[11px] font-semibold text-[#3b82f6] uppercase tracking-[0.2em] mb-4">
+              <span className="inline-block text-[11px] font-semibold text-[#215B97] uppercase tracking-[0.2em] mb-4">
                 Our Mission
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
@@ -162,14 +162,14 @@ export default function AboutUsPage() {
                 <br className="hidden sm:block" />
                 to Hire Smarter
               </h2>
-              <p className="text-[15px] text-black/50 dark:text-[#8b8b8b] leading-relaxed mb-6">
+              <p className="text-[15px] text-black/50 dark:text-[#8b8b8b] leading-relaxed font-medium mb-6">
                 We exist to eliminate the friction between great companies and
                 great talent. By combining deep industry expertise with
                 AI-powered matching, we&apos;ve redefined how enterprises build
                 engineering teams — faster, more precisely, and at a fraction
                 of the traditional cost.
               </p>
-              <p className="text-[15px] text-black/50 dark:text-[#8b8b8b] leading-relaxed">
+              <p className="text-[15px] text-black/50 dark:text-[#8b8b8b] leading-relaxed font-medium">
                 From Y Combinator startups to Fortune 500 giants like Adani and
                 Apollo Hospitals, our clients trust us because we deliver
                 measurable results with radical transparency.
@@ -183,7 +183,7 @@ export default function AboutUsPage() {
               transition={{ duration: 0.5, delay: 0.15 }}
               className="relative rounded-2xl bg-[#121212] border border-border p-8 md:p-10 overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-48 h-48 bg-[#3b82f6]/[0.06] rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/3" />
+              <div className="absolute top-0 right-0 w-48 h-48 bg-[#215B97]/[0.06] rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/3" />
               <div className="relative z-10 flex flex-col gap-1">
                 {milestones.map((m, i) => (
                   <div
@@ -191,16 +191,16 @@ export default function AboutUsPage() {
                     className="flex gap-4 py-3 group"
                   >
                     <div className="flex flex-col items-center gap-0 pt-1 flex-shrink-0">
-                      <div className="w-2 h-2 rounded-full bg-[#3b82f6] shadow-[0_0_8px_rgba(59,130,246,0.4)]" />
+                      <div className="w-2 h-2 rounded-full bg-[#215B97] shadow-[0_0_8px_rgba(59,130,246,0.4)]" />
                       {i < milestones.length - 1 && (
-                        <div className="w-px flex-1 mt-1 min-h-[1.5rem] bg-[#3b82f6]/20" />
+                        <div className="w-px flex-1 mt-1 min-h-[1.5rem] bg-[#215B97]/20" />
                       )}
                     </div>
                     <div className="pb-1">
-                      <span className="text-[13px] font-bold text-[#3b82f6] tabular-nums">
+                      <span className="text-[13px] font-bold text-[#215B97] tabular-nums">
                         {m.year}
                       </span>
-                      <p className="text-[13px] text-muted-foreground leading-relaxed mt-0.5">
+                      <p className="text-[13px] text-muted-foreground leading-relaxed font-medium mt-0.5">
                         {m.event}
                       </p>
                     </div>
@@ -222,10 +222,10 @@ export default function AboutUsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4 }}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#3b82f6]/10 border border-[#3b82f6]/20 w-fit mb-4"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#215B97]/10 border border-[#215B97]/20 w-fit mb-4"
               >
-                <div className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_8px_#3b82f6] animate-pulse" />
-                <span className="text-[13px] font-medium text-[#3b82f6] tracking-wide uppercase">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#215B97] shadow-[0_0_8px_#215B97] animate-pulse" />
+                <span className="text-[13px] font-medium text-[#215B97] tracking-wide uppercase">
                   Our Values
                 </span>
               </motion.div>
@@ -249,18 +249,18 @@ export default function AboutUsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.1 + index * 0.08 }}
-                className="group relative rounded-2xl bg-[#121212] border border-border hover:border-[#3b82f6]/50 hover:bg-[#161616] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)] transition-all duration-500 p-8 overflow-hidden"
+                className="group relative rounded-2xl bg-[#121212] border border-border hover:border-[#215B97]/50 hover:bg-[#161616] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)] transition-all duration-500 p-8 overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#3b82f6]/[0.03] rounded-full blur-2xl pointer-events-none -translate-y-1/2 translate-x-1/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#215B97]/[0.03] rounded-full blur-2xl pointer-events-none -translate-y-1/2 translate-x-1/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 <div className="relative z-10">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-card text-[#ededed] group-hover:text-[#3b82f6] group-hover:border-[#3b82f6]/30 transition-colors duration-500">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-card text-[#ededed] group-hover:text-[#215B97] group-hover:border-[#215B97]/30 transition-colors duration-500">
                     <value.Icon className="w-6 h-6 stroke-[1.5]" />
                   </div>
                   <h3 className="text-lg font-medium text-[#ededed] mb-2 tracking-tight">
                     {value.title}
                   </h3>
-                  <p className="text-[14px] text-muted-foreground leading-relaxed">
+                  <p className="text-[14px] text-muted-foreground leading-relaxed font-medium">
                     {value.description}
                   </p>
                 </div>
@@ -279,10 +279,10 @@ export default function AboutUsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#3b82f6]/10 border border-[#3b82f6]/20 w-fit"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#215B97]/10 border border-[#215B97]/20 w-fit"
             >
-              <div className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_8px_#3b82f6] animate-pulse" />
-              <span className="text-[13px] font-medium text-[#3b82f6] tracking-wide uppercase">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#215B97] shadow-[0_0_8px_#215B97] animate-pulse" />
+              <span className="text-[13px] font-medium text-[#215B97] tracking-wide uppercase">
                 Our Team
               </span>
             </motion.div>
@@ -300,7 +300,7 @@ export default function AboutUsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-sm md:text-base text-black/50 dark:text-[#8b8b8b] leading-relaxed max-w-2xl"
+              className="text-sm md:text-base text-black/50 dark:text-[#8b8b8b] leading-relaxed font-medium max-w-2xl"
             >
               A diverse team of operators, engineers, and strategists united by one goal — helping enterprises build world-class teams.
             </motion.p>
@@ -314,12 +314,12 @@ export default function AboutUsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
-                className="group relative rounded-2xl bg-[#121212] border border-border hover:border-[#3b82f6]/50 hover:bg-[#161616] transition-all duration-500 p-8 md:p-10 overflow-hidden"
+                className="group relative rounded-2xl bg-[#121212] border border-border hover:border-[#215B97]/50 hover:bg-[#161616] transition-all duration-500 p-8 md:p-10 overflow-hidden"
               >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#3b82f6]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#215B97]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 <div className="relative z-10">
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-card text-[#ededed] group-hover:text-[#3b82f6] group-hover:border-[#3b82f6]/30 transition-colors duration-500">
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-card text-[#ededed] group-hover:text-[#215B97] group-hover:border-[#215B97]/30 transition-colors duration-500">
                     <leader.Icon className="w-7 h-7 stroke-[1.5]" />
                   </div>
                   <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-widest mb-2">
@@ -328,7 +328,7 @@ export default function AboutUsPage() {
                   <h3 className="text-xl font-semibold text-[#ededed] mb-3 tracking-tight">
                     {leader.title}
                   </h3>
-                  <p className="text-[14px] text-muted-foreground leading-relaxed">
+                  <p className="text-[14px] text-muted-foreground leading-relaxed font-medium">
                     {leader.description}
                   </p>
                 </div>
@@ -348,17 +348,17 @@ export default function AboutUsPage() {
             transition={{ duration: 0.5 }}
             className="relative overflow-hidden rounded-2xl border border-black/[0.08] dark:border-white/[0.08] bg-gradient-to-br from-black via-black to-zinc-900 dark:from-white dark:via-white dark:to-zinc-100"
           >
-            <div className="absolute top-0 right-0 w-80 h-80 bg-[#3b82f6]/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/3" />
-            <div className="absolute bottom-0 left-0 w-60 h-60 bg-blue-500/10 rounded-full blur-3xl pointer-events-none translate-y-1/2 -translate-x-1/3" />
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#215B97]/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/3" />
+            <div className="absolute bottom-0 left-0 w-60 h-60 bg-[#215B97]/10 rounded-full blur-3xl pointer-events-none translate-y-1/2 -translate-x-1/3" />
 
             <div className="relative px-8 py-12 md:px-14 md:py-16 text-center">
-              <Award className="w-10 h-10 text-[#3b82f6] mx-auto mb-6" strokeWidth={1.5} />
+              <Award className="w-10 h-10 text-[#215B97] mx-auto mb-6" strokeWidth={1.5} />
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground dark:text-black leading-tight mb-4">
                 Ready to Build Your
                 <br className="hidden sm:block" />
                 Dream Team?
               </h2>
-              <p className="text-sm md:text-base text-white/50 dark:text-black/50 leading-relaxed max-w-lg mx-auto mb-8">
+              <p className="text-sm md:text-base text-white/50 dark:text-black/50 leading-relaxed font-medium max-w-lg mx-auto mb-8">
                 Whether you need a single engineer or a full delivery squad,
                 we&apos;ll match you with the right talent — fast.
               </p>

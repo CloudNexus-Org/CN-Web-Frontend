@@ -158,7 +158,7 @@ function TimelineStepComp({
       </div>
       <div className="pb-5">
         <p className="text-[13px] font-semibold text-foreground mb-0.5">{step.phase}</p>
-        <p className="text-[12px] text-muted-foreground leading-relaxed">{step.detail}</p>
+        <p className="text-[12px] font-medium text-muted-foreground leading-relaxed">{step.detail}</p>
       </div>
     </div>
   );
@@ -211,14 +211,14 @@ export default function SocialNetworkingPage() {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h2 className="text-2xl font-semibold mb-4">Building Communities at Scale</h2>
-              <p className="text-[15px] text-muted-foreground leading-relaxed">
+              <p className="text-[15px] font-medium text-muted-foreground leading-relaxed">
                 We create social and community platforms that support real-time messaging, content feeds, and video
                 collaboration for millions of users. Our architectures are designed for low-latency communication, viral
                 content handling, and end-to-end security.
               </p>
             </div>
             <div>
-              <p className="text-[15px] text-muted-foreground leading-relaxed mb-6">
+              <p className="text-[15px] font-medium text-muted-foreground leading-relaxed mb-6">
                 From WebSocket-based messaging to WebRTC video conferencing, AI content moderation, and cross-platform
                 apps (Web, Desktop, iOS, Android), we build the infrastructure that powers modern social experiences. Our
                 platforms scale from startup to millions of concurrent users.
@@ -293,11 +293,11 @@ export default function SocialNetworkingPage() {
                 <div className="grid sm:grid-cols-2 gap-6 mb-8">
                   <div className="flex flex-col gap-2">
                     <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-widest">The Challenge</span>
-                    <p className="text-[14px] text-muted-foreground leading-relaxed">{study.challenge}</p>
+                    <p className="text-[14px] font-medium text-muted-foreground leading-relaxed">{study.challenge}</p>
                   </div>
                   <div className="flex flex-col gap-2">
                     <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-widest">Our Approach</span>
-                    <p className="text-[14px] text-muted-foreground leading-relaxed">{study.solution}</p>
+                    <p className="text-[14px] font-medium text-muted-foreground leading-relaxed">{study.solution}</p>
                   </div>
                 </div>
                 <div ref={metricsRef} className="flex flex-wrap gap-8 pt-8 border-t border-border">
@@ -330,7 +330,7 @@ export default function SocialNetworkingPage() {
                   className="mt-auto p-4 rounded-xl border transition-all duration-500"
                   style={{ borderColor: `${study.accentColor}30`, background: `${study.accentColor}08` }}
                 >
-                  <p className="text-[12px] text-muted-foreground leading-relaxed mb-3">
+                  <p className="text-[12px] font-medium text-muted-foreground leading-relaxed mb-3">
                     Every engagement starts with a no-commitment discovery call.
                   </p>
                   <button className="inline-flex items-center gap-1 text-[12px] font-semibold text-foreground hover:gap-2 transition-all duration-200">

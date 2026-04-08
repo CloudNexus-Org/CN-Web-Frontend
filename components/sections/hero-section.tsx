@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { TypingAnimation } from '../ui/typing-animation';
 import { Component, type ReactNode, useState, useEffect } from 'react';
@@ -20,9 +21,9 @@ function SplineFallback() {
   return (
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative w-64 h-64">
-        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/20 via-indigo-500/10 to-transparent animate-pulse" />
-        <div className="absolute inset-8 rounded-full bg-gradient-to-tr from-blue-600/15 via-transparent to-indigo-500/10 animate-pulse delay-300" />
-        <div className="absolute inset-16 rounded-full bg-gradient-to-br from-blue-500/10 to-transparent animate-pulse delay-700" />
+        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#215B97]/20 via-indigo-500/10 to-transparent animate-pulse" />
+        <div className="absolute inset-8 rounded-full bg-gradient-to-tr from-[#1a4a7a]/15 via-transparent to-indigo-500/10 animate-pulse delay-300" />
+        <div className="absolute inset-16 rounded-full bg-gradient-to-br from-[#215B97]/10 to-transparent animate-pulse delay-700" />
       </div>
     </div>
   );
@@ -99,8 +100,8 @@ export function HeroSection() {
   const splineScene = mounted && resolvedTheme === 'light' ? SPLINE_LIGHT : SPLINE_DARK;
 
   return (
-    <section className="relative w-full overflow-hidden py-12">
-      <div className="mx-auto max-w-7xl px-6 md:px-8">
+    <section className="relative w-full overflow-hidden py-8 sm:py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
           {/* Left Side (Content) */}
@@ -108,13 +109,13 @@ export function HeroSection() {
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground leading-[1.15] md:leading-[1.15] lg:leading-[1.15]">
-              <span className="block animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150 fill-mode-both whitespace-nowrap text-[8.5vw] sm:text-5xl lg:text-6xl pb-1 md:pb-2">
+              <span className="block animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150 fill-mode-both text-[7vw] sm:text-5xl lg:text-6xl pb-1 md:pb-2 whitespace-nowrap">
                 Pioneering Innovation.
               </span>
-              <span className="flex flex-wrap justify-center lg:justify-start gap-x-3 text-muted-foreground/90 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-both text-[8.5vw] sm:text-5xl lg:text-6xl">
-                <span>with Smart</span>
+              <span className="flex flex-wrap justify-center lg:justify-start gap-x-3 text-muted-foreground/90 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-both text-[7.5vw] sm:text-5xl lg:text-6xl">
+                <span className="text-[#215B97]">with Smart</span>
                 <span
-                  className="text-foreground pb-1 glitch-text"
+                  className="text-[#215B97] pb-1 glitch-text"
                   data-text="Solutions."
                 >
                   Solutions.
@@ -124,12 +125,12 @@ export function HeroSection() {
 
             {/* Description */}
             <div className="relative max-w-xl mx-auto lg:mx-0 w-full flex flex-col items-center lg:items-start">
-              <span className="invisible text-center lg:text-left text-base md:text-lg leading-relaxed select-none pointer-events-none">
+              <span className="invisible text-center lg:text-left text-base md:text-lg font-medium leading-relaxed select-none pointer-events-none">
                 Building the digital infrastructure of tomorrow with precision and scale.
               </span>
               <TypingAnimation
                 delay={700}
-                className="absolute inset-x-0 top-0 text-center lg:text-left text-base md:text-lg text-muted-foreground leading-relaxed"
+                className="absolute inset-x-0 top-0 text-center lg:text-left text-base md:text-lg font-medium text-muted-foreground leading-relaxed"
               >
                 Building the digital infrastructure of tomorrow with precision and scale.
               </TypingAnimation>
@@ -137,12 +138,16 @@ export function HeroSection() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full sm:w-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-1000 fill-mode-both">
-              <Button size="lg" className="rounded-sm text-white bg-black hover:bg-white/80 hover:text-black">
-                Get Started
-              </Button>
-              <Button variant="outline" size="lg" className="rounded-sm bg-background/50 backdrop-blur-sm border-border/50 hover:bg-accent/50 text-primary hover:text-primary">
-                Explore Services
-              </Button>
+              <Link href="/resources/free-consultation">
+                <Button size="lg" className="w-full sm:w-auto rounded-sm bg-black text-white hover:bg-black/80 dark:bg-white dark:text-black dark:hover:bg-white/80">
+                  Join Now
+                </Button>
+              </Link>
+              <Link href="/services">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-sm bg-background/50 backdrop-blur-sm border-border/50 hover:bg-accent/50 text-primary hover:text-primary">
+                  Explore Services
+                </Button>
+              </Link>
             </div>
           </div>
 

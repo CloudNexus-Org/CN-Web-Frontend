@@ -71,7 +71,7 @@ export default function SupportPage() {
                 className="group rounded-2xl border border-black/[0.08] bg-black/[0.02] p-6 transition-all duration-300 hover:border-black/[0.15] hover:bg-black/[0.05] dark:border-white/[0.08] dark:bg-white/[0.02] dark:hover:border-white/[0.15] dark:hover:bg-white/[0.05]"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-black/[0.08] bg-black/[0.03] dark:border-white/[0.08] dark:bg-white/[0.03] mb-4">
-                  <Icon className="w-6 h-6 text-blue-500" />
+                  <Icon className="w-6 h-6 text-[#215B97]" />
                 </div>
                 <h3 className="text-lg font-semibold">{option.title}</h3>
                 <p className="mt-2 text-sm text-black/45 dark:text-white/45 leading-relaxed">

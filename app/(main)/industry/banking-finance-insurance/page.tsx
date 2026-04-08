@@ -19,14 +19,14 @@ const projects: Project[] = [
   {
     id: "finsmart",
     tag: "AI-Powered Finance",
-    tagColor: "bg-blue-500/15 text-blue-400 border-blue-500/30",
+    tagColor: "bg-[#215B97]/15 text-[#4a7db8] border-[#215B97]/30",
     company: "FinSmart",
     industry: "Banking & Finance",
     headline: "AI-powered financial management app with fraud detection and smart budgeting.",
     challenge: "Secure handling of sensitive financial data. Building accurate AI models for fraud detection.",
     solution: "Cross-platform app with bank-grade encryption, biometric auth. ML algorithms for spending analysis and anomaly detection. Seamless digital wallet integration.",
     duration: "80 days",
-    accentColor: "#3b82f6",
+    accentColor: "#215B97",
     metrics: [
       { value: 95, suffix: "%", label: "Fraud detection rate" },
       { value: 40, suffix: "%", label: "Better money mgmt" },
@@ -105,7 +105,7 @@ function TimelineStepComp({ step, index, active, accentColor }: { step: Timeline
       </div>
       <div className="pb-5">
         <p className="text-[13px] font-semibold text-foreground mb-0.5">{step.phase}</p>
-        <p className="text-[12px] text-muted-foreground leading-relaxed">{step.detail}</p>
+        <p className="text-[12px] font-medium text-muted-foreground leading-relaxed">{step.detail}</p>
       </div>
     </div>
   );
@@ -136,12 +136,12 @@ export default function BankingFinanceInsurancePage() {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h2 className="text-2xl font-semibold mb-4">Securing Financial Futures</h2>
-              <p className="text-[15px] text-muted-foreground leading-relaxed">
+              <p className="text-[15px] font-medium text-muted-foreground leading-relaxed">
                 We develop fintech solutions with bank-grade security, AI-powered fraud detection, and automated claims processing. Our platforms handle sensitive financial data with PCI-DSS compliance, biometric authentication, and end-to-end encryption.
               </p>
             </div>
             <div>
-              <p className="text-[15px] text-muted-foreground leading-relaxed mb-6">
+              <p className="text-[15px] font-medium text-muted-foreground leading-relaxed mb-6">
                 From AI-driven spending analysis and anomaly detection to OCR-powered document processing and automated insurance workflows, we help financial institutions modernize operations, reduce risk, and serve customers faster.
               </p>
               <div className="grid grid-cols-3 gap-4">
@@ -183,8 +183,8 @@ export default function BankingFinanceInsurancePage() {
                 </div>
                 <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-foreground leading-tight mb-6 max-w-[520px]">{study.headline}</h3>
                 <div className="grid sm:grid-cols-2 gap-6 mb-8">
-                  <div className="flex flex-col gap-2"><span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-widest">The Challenge</span><p className="text-[14px] text-muted-foreground leading-relaxed">{study.challenge}</p></div>
-                  <div className="flex flex-col gap-2"><span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-widest">Our Approach</span><p className="text-[14px] text-muted-foreground leading-relaxed">{study.solution}</p></div>
+                  <div className="flex flex-col gap-2"><span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-widest">The Challenge</span><p className="text-[14px] font-medium text-muted-foreground leading-relaxed">{study.challenge}</p></div>
+                  <div className="flex flex-col gap-2"><span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-widest">Our Approach</span><p className="text-[14px] font-medium text-muted-foreground leading-relaxed">{study.solution}</p></div>
                 </div>
                 <div ref={metricsRef} className="flex flex-wrap gap-8 pt-8 border-t border-border">{study.metrics.map((m, i) => <MetricCounter key={i} {...m} active={metricsVisible} />)}</div>
                 <div className="mt-8"><Link href="/our-work" className="group inline-flex items-center gap-1.5 text-[13px] font-medium transition-all duration-300" style={{ color: study.accentColor }}>View full case study<ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" /></Link></div>
@@ -193,7 +193,7 @@ export default function BankingFinanceInsurancePage() {
                 <div className="flex items-center gap-2 mb-8"><TrendingUp className="w-4 h-4 text-muted-foreground" /><span className="text-[12px] font-semibold text-muted-foreground uppercase tracking-widest">Engagement Timeline</span></div>
                 <div className="flex flex-col">{study.timeline.map((step, i) => <TimelineStepComp key={i} step={step} index={i} active={metricsVisible} accentColor={study.accentColor} />)}</div>
                 <div className="mt-auto p-4 rounded-xl border transition-all duration-500" style={{ borderColor: `${study.accentColor}30`, background: `${study.accentColor}08` }}>
-                  <p className="text-[12px] text-muted-foreground leading-relaxed mb-3">Every engagement starts with a no-commitment discovery call.</p>
+                  <p className="text-[12px] font-medium text-muted-foreground leading-relaxed mb-3">Every engagement starts with a no-commitment discovery call.</p>
                   <button className="inline-flex items-center gap-1 text-[12px] font-semibold text-foreground hover:gap-2 transition-all duration-200">Start a conversation <ChevronRight className="w-3.5 h-3.5" /></button>
                 </div>
               </div>

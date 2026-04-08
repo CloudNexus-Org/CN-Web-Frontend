@@ -58,8 +58,8 @@ export default function FreeConsultationPage() {
                   key={i}
                   className="flex items-start gap-4 rounded-2xl border border-black/[0.08] bg-black/[0.02] p-5 dark:border-white/[0.08] dark:bg-white/[0.02]"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10 shrink-0">
-                    <Icon className="w-5 h-5 text-blue-500" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#215B97]/10 shrink-0">
+                    <Icon className="w-5 h-5 text-[#215B97]" />
                   </div>
                   <p className="text-sm text-black/60 dark:text-white/60 leading-relaxed pt-2">
                     {benefit.text}
@@ -91,14 +91,14 @@ export default function FreeConsultationPage() {
                     <input
                       type="text"
                       required
-                      className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-blue-500 transition-colors dark:border-white/[0.1] dark:bg-white/[0.02]"
+                      className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-[#215B97] transition-colors dark:border-white/[0.1] dark:bg-white/[0.02]"
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">Company</label>
                     <input
                       type="text"
-                      className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-blue-500 transition-colors dark:border-white/[0.1] dark:bg-white/[0.02]"
+                      className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-[#215B97] transition-colors dark:border-white/[0.1] dark:bg-white/[0.02]"
                     />
                   </div>
                 </div>
@@ -107,14 +107,14 @@ export default function FreeConsultationPage() {
                   <input
                     type="email"
                     required
-                    className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-blue-500 transition-colors dark:border-white/[0.1] dark:bg-white/[0.02]"
+                    className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-[#215B97] transition-colors dark:border-white/[0.1] dark:bg-white/[0.02]"
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">Phone</label>
                   <input
                     type="tel"
-                    className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-blue-500 transition-colors dark:border-white/[0.1] dark:bg-white/[0.02]"
+                    className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-[#215B97] transition-colors dark:border-white/[0.1] dark:bg-white/[0.02]"
                   />
                 </div>
                 <div>
@@ -122,10 +122,10 @@ export default function FreeConsultationPage() {
                   <textarea
                     rows={4}
                     required
-                    className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-blue-500 transition-colors resize-none dark:border-white/[0.1] dark:bg-white/[0.02]"
+                    className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-[#215B97] transition-colors resize-none dark:border-white/[0.1] dark:bg-white/[0.02]"
                   />
                 </div>
-                <Button type="submit" size="lg" className="w-full bg-blue-600 text-foreground hover:bg-blue-700 rounded-lg">
+                <Button type="submit" size="lg" className="w-full bg-[#1a4a7a] text-white hover:bg-[#163d66] rounded-lg">
                   Book Free Consultation
                 </Button>
               </form>

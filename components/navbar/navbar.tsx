@@ -17,6 +17,7 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   {
     label: "Services",
+    href: "/services",
     children: [
       { label: "Custom Software Development", href: "/services/custom-software-development", description: "End-to-end scalable software" },
       { label: "Mobile App Development", href: "/services/mobile-app-development", description: "iOS & Android applications" },
@@ -32,6 +33,7 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     label: "Industry",
+    href: "/industry",
     children: [
       { label: "Healthcare & Lifesciences", href: "/industry/healthcare-lifesciences", description: "HIPAA-compliant digital health solutions" },
       { label: "E-Commerce Solutions", href: "/industry/ecommerce-solutions", description: "Scalable online retail platforms" },
@@ -133,18 +135,19 @@ export function Navbar() {
         {/* ── Logo ── */}
         <Link
           href="/"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="flex items-center gap-2 text-base font-semibold tracking-tight text-black dark:text-white"
         >
-          <div className="relative h-9 w-9 sm:h-10 sm:w-10 transition-all">
+          <div className="relative h-10 w-48 sm:h-11 sm:w-52 transition-all">
             <Image
-              src="/asset/cn-icon.png"
+              src="/asset/cn-logo.png"
               alt="Cloud Nexus Logo"
-              className="object-contain"
+              className="object-contain dark:invert dark:hue-rotate-180"
               fill
-              sizes="40px"
+              sizes="176px"
+              priority
             />
           </div>
-          <span className="hidden sm:inline-block text-black dark:text-white">CloudNexus</span>
         </Link>
 
         {/* ── Desktop nav ── */}
@@ -157,27 +160,36 @@ export function Navbar() {
                 onMouseEnter={() => handleMouseEnter(item.label)}
                 onMouseLeave={handleMouseLeave}
               >
-                <button
+                <div
                   className={`flex items-center gap-1 rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
                     openDropdown === item.label
                       ? "text-black dark:text-white"
                       : "text-black/60 hover:text-black dark:text-white/60 dark:hover:text-white"
                   }`}
-                  onClick={() =>
-                    setOpenDropdown(
-                      openDropdown === item.label ? null : item.label
-                    )
-                  }
                   aria-expanded={openDropdown === item.label}
                 >
-                  {item.label}
-                  <ChevronDown
-                    size={14}
-                    className={`transition-transform duration-200 ${
-                      openDropdown === item.label ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
+                  {item.href ? (
+                    <Link href={item.href} className="hover:text-black dark:hover:text-white transition-colors">
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <button onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}>
+                      {item.label}
+                    </button>
+                  )}
+                  <button
+                    onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
+                    className="p-0.5"
+                    aria-label={`Toggle ${item.label} menu`}
+                  >
+                    <ChevronDown
+                      size={14}
+                      className={`transition-transform duration-200 ${
+                        openDropdown === item.label ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                </div>
 
                 {/* Dropdown panel */}
                 {openDropdown === item.label && item.children && (
@@ -243,7 +255,7 @@ export function Navbar() {
           {mounted && (
             <button
               onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-              className="flex items-center justify-center h-9 w-9 rounded-lg text-white/60 transition-colors hover:bg-white/[0.06] hover:text-white dark:text-white/60 dark:hover:text-white"
+              className="flex items-center justify-center h-9 w-9 rounded-lg text-black/60 hover:bg-black/[0.06] hover:text-black dark:text-white/60 dark:hover:bg-white/[0.06] dark:hover:text-white transition-colors"
               aria-label="Toggle theme"
             >
               {resolvedTheme === "dark" ? (
@@ -255,8 +267,8 @@ export function Navbar() {
           )}
 
           <div className="hidden lg:block">
-            <Link href="#contact">
-              <Button size="sm" className="bg-black text-white dark:bg-white dark:text-black rounded-sm">
+            <Link href="/resources/free-consultation">
+              <Button size="sm" className="bg-black text-white dark:bg-white dark:text-black rounded-sm hover:bg-black/80 dark:hover:bg-white/80">
               Join Now
                 <ArrowRight
                   size={14}
@@ -348,8 +360,8 @@ export function Navbar() {
           </nav>
 
           <div className="px-5 pt-2 pb-6 border-t border-black/[0.06] dark:border-white/[0.06]">
-            <Link href="#contact" onClick={() => setMobileOpen(false)}>
-              <Button className="w-full rounded-sm bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-0 hover:from-blue-500 hover:to-indigo-500 shadow-lg shadow-blue-900/30">
+            <Link href="/resources/free-consultation" onClick={() => setMobileOpen(false)}>
+              <Button className="w-full rounded-sm bg-black text-white dark:bg-white dark:text-black hover:bg-black/80 dark:hover:bg-white/80">
                 Get Started
                 <ArrowRight size={14} className="ml-2" />
               </Button>

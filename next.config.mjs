@@ -16,6 +16,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'uqlyhicgvqawiiixuumy.supabase.co',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.jsdelivr.net',
       }
     ],
   },

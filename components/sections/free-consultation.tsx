@@ -24,9 +24,9 @@ export function FreeConsultation() {
           className="relative overflow-hidden rounded-2xl border border-black/[0.08] dark:border-white/[0.08] bg-gradient-to-br from-black via-black to-zinc-900 dark:from-white dark:via-white dark:to-zinc-100"
         >
           <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/3" />
-          <div className="absolute bottom-0 left-0 w-60 h-60 bg-blue-500/10 rounded-full blur-3xl pointer-events-none translate-y-1/2 -translate-x-1/3" />
+          <div className="absolute bottom-0 left-0 w-60 h-60 bg-[#215B97]/10 rounded-full blur-3xl pointer-events-none translate-y-1/2 -translate-x-1/3" />
 
-          <div className="relative px-8 py-12 md:px-14 md:py-16 flex flex-col md:flex-row items-center gap-10 md:gap-14">
+          <div className="relative px-5 py-10 sm:px-8 sm:py-12 md:px-14 md:py-16 flex flex-col md:flex-row items-center gap-8 sm:gap-10 md:gap-14">
             <div className="flex-1 text-center md:text-left">
               <span className="inline-block text-[11px] font-semibold text-indigo-400 dark:text-indigo-600 uppercase tracking-[0.2em] mb-4">
                 Free Consultation

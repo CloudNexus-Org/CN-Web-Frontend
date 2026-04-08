@@ -29,11 +29,11 @@ export default function ProcessMethodologyPage() {
           return (
             <motion.div key={step.title} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4, delay: i * 0.08 }} className="flex items-start gap-5 rounded-2xl border border-black/[0.08] bg-black/[0.02] p-6 dark:border-white/[0.08] dark:bg-white/[0.02]">
               <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-black/[0.08] bg-black/[0.03] dark:border-white/[0.08] dark:bg-white/[0.03] shrink-0">
-                <Icon className="w-6 h-6 text-blue-500" />
+                <Icon className="w-6 h-6 text-[#215B97]" />
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-1">
-                  <span className="text-blue-500 mr-2">{i + 1}.</span>{step.title}
+                  <span className="text-[#215B97] mr-2">{i + 1}.</span>{step.title}
                 </h3>
                 <p className="text-sm text-black/45 dark:text-white/45 leading-relaxed">{step.text}</p>
               </div>

@@ -5,6 +5,7 @@ import { BuildScaleThrive } from "@/components/sections/build-scale-thrive";
 import { KnownFor } from "@/components/sections/known-for";
 
 import { TechStack } from "@/components/sections/tech-stack";
+import { TopClients } from "@/components/sections/top-clients";
 import { Testimonials } from "@/components/sections/testimonials";
 import { WhyCloudNexus } from "@/components/sections/why-cloudnexus";
 import { FreeConsultation } from "@/components/sections/free-consultation";
@@ -33,6 +34,7 @@ export default function HomePage() {
       <WhyCloudNexus />
       <StatsGlobe />
       <TechStack />
+      <TopClients />
       <Testimonials />
       <FreeConsultation />
       <FAQs />

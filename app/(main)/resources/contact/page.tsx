@@ -56,7 +56,7 @@ export default function ContactPage() {
                     <input
                       type="text"
                       required
-                      className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-blue-500 transition-colors dark:border-white/[0.1] dark:bg-white/[0.02]"
+                      className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-[#215B97] transition-colors dark:border-white/[0.1] dark:bg-white/[0.02]"
                     />
                   </div>
                   <div>
@@ -64,7 +64,7 @@ export default function ContactPage() {
                     <input
                       type="text"
                       required
-                      className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-blue-500 transition-colors dark:border-white/[0.1] dark:bg-white/[0.02]"
+                      className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-[#215B97] transition-colors dark:border-white/[0.1] dark:bg-white/[0.02]"
                     />
                   </div>
                 </div>
@@ -73,7 +73,7 @@ export default function ContactPage() {
                   <input
                     type="email"
                     required
-                    className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-blue-500 transition-colors dark:border-white/[0.1] dark:bg-white/[0.02]"
+                    className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-[#215B97] transition-colors dark:border-white/[0.1] dark:bg-white/[0.02]"
                   />
                 </div>
                 <div>
@@ -81,7 +81,7 @@ export default function ContactPage() {
                   <input
                     type="text"
                     required
-                    className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-blue-500 transition-colors dark:border-white/[0.1] dark:bg-white/[0.02]"
+                    className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-[#215B97] transition-colors dark:border-white/[0.1] dark:bg-white/[0.02]"
                   />
                 </div>
                 <div>
@@ -89,10 +89,10 @@ export default function ContactPage() {
                   <textarea
                     rows={5}
                     required
-                    className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-blue-500 transition-colors resize-none dark:border-white/[0.1] dark:bg-white/[0.02]"
+                    className="w-full rounded-lg border border-black/[0.1] bg-black/[0.02] px-4 py-3 text-sm outline-none focus:border-[#215B97] transition-colors resize-none dark:border-white/[0.1] dark:bg-white/[0.02]"
                   />
                 </div>
-                <Button type="submit" size="lg" className="w-full bg-blue-600 text-foreground hover:bg-blue-700 rounded-lg">
+                <Button type="submit" size="lg" className="w-full bg-black text-white hover:bg-black/80 dark:bg-white dark:text-black dark:hover:bg-white/80 rounded-lg">
                   Send Message
                 </Button>
               </form>
@@ -108,7 +108,7 @@ export default function ContactPage() {
             <div className="rounded-2xl border border-black/[0.08] bg-black/[0.02] p-8 dark:border-white/[0.08] dark:bg-white/[0.02]">
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-black/[0.08] bg-black/[0.03] dark:border-white/[0.08] dark:bg-white/[0.03]">
-                  <Mail className="w-5 h-5 text-blue-500" />
+                  <Mail className="w-5 h-5 text-[#215B97]" />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Email</h3>
@@ -120,7 +120,7 @@ export default function ContactPage() {
             <div className="rounded-2xl border border-black/[0.08] bg-black/[0.02] p-8 dark:border-white/[0.08] dark:bg-white/[0.02]">
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-black/[0.08] bg-black/[0.03] dark:border-white/[0.08] dark:bg-white/[0.03]">
-                  <Phone className="w-5 h-5 text-blue-500" />
+                  <Phone className="w-5 h-5 text-[#215B97]" />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Phone</h3>
@@ -132,7 +132,7 @@ export default function ContactPage() {
             <div className="rounded-2xl border border-black/[0.08] bg-black/[0.02] p-8 dark:border-white/[0.08] dark:bg-white/[0.02]">
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-black/[0.08] bg-black/[0.03] dark:border-white/[0.08] dark:bg-white/[0.03]">
-                  <MapPin className="w-5 h-5 text-blue-500" />
+                  <MapPin className="w-5 h-5 text-[#215B97]" />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Office</h3>

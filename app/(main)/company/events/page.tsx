@@ -26,7 +26,7 @@ export default function EventsPage() {
         {events.map((event, i) => (
           <motion.div key={event.title} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.05 }} className="rounded-2xl border border-black/[0.08] bg-black/[0.02] p-6 dark:border-white/[0.08] dark:bg-white/[0.02]">
             <div className="flex items-center gap-3 mb-3">
-              <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-500 border border-blue-500/20">{event.type}</span>
+              <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-[#215B97]/10 text-[#215B97] border border-[#215B97]/20">{event.type}</span>
             </div>
             <h3 className="text-lg font-semibold mb-3">{event.title}</h3>
             <div className="flex flex-wrap items-center gap-4 text-sm text-black/45 dark:text-white/45">

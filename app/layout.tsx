@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { NavigationLoader } from "@/components/navigation-loader";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function RootLayout({
     >
       <body suppressHydrationWarning className={cn("flex min-h-screen flex-col", GeistSans.className)}>
         <ThemeProvider>
+          <NavigationLoader />
           {children}
         </ThemeProvider>
       </body>

@@ -109,7 +109,7 @@ const caseStudies: CaseStudy[] = [
   {
     id: "fintech",
     tag: "AI-Powered Finance",
-    tagColor: "bg-blue-500/15 text-blue-400 border-blue-500/30",
+    tagColor: "bg-[#215B97]/15 text-[#4a7db8] border-[#215B97]/30",
     company: "FinTech",
     industry: "Financial Technology",
     headline: "AI-powered financial management app with fraud detection and smart budgeting.",
@@ -130,8 +130,8 @@ const caseStudies: CaseStudy[] = [
       { phase: "Payment Integration", detail: "Digital wallets, payment gateways, and transaction management" },
       { phase: "Launch & Monitor", detail: "Cross-platform release with real-time fraud monitoring" },
     ],
-    gradient: "from-blue-600/10 via-transparent to-transparent",
-    accentColor: "#3b82f6",
+    gradient: "from-[#1a4a7a]/10 via-transparent to-transparent",
+    accentColor: "#215B97",
   },
   {
     id: "analytics",
@@ -218,7 +218,7 @@ const recentWork: CaseStudy[] = [
   {
     id: "fleettrack",
     tag: "Fleet Management",
-    tagColor: "bg-blue-500/15 text-blue-400 border-blue-500/30",
+    tagColor: "bg-[#215B97]/15 text-[#4a7db8] border-[#215B97]/30",
     company: "FleetTrack",
     industry: "Transport & Logistics",
     headline: "IoT-powered fleet management system reducing fuel costs by 25% across 2000+ vehicles.",
@@ -237,8 +237,8 @@ const recentWork: CaseStudy[] = [
       { phase: "Route Optimization", detail: "AI-based routing engine with traffic data" },
       { phase: "Predictive Maintenance", detail: "ML models for breakdown prediction" },
     ],
-    gradient: "from-blue-600/10 via-transparent to-transparent",
-    accentColor: "#3b82f6",
+    gradient: "from-[#1a4a7a]/10 via-transparent to-transparent",
+    accentColor: "#215B97",
   },
   {
     id: "factoryiq",
@@ -354,9 +354,9 @@ const MetricCounter = memo(function MetricCounter({ value, suffix, label, active
   const count = useCounter(value, active);
   return (
     <div className="flex flex-col gap-1">
-      <span className="text-3xl lg:text-4xl font-bold text-white tabular-nums">
+      <span className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tabular-nums">
         {value % 1 !== 0 ? count.toFixed(2) : Math.round(count)}
-        <span className="text-lg font-medium text-[#3b82f6]">{suffix}</span>
+        <span className="text-lg font-medium text-[#215B97]">{suffix}</span>
       </span>
       <span className="text-[13px] text-[#8b8b8b] leading-tight">{label}</span>
     </div>
@@ -403,7 +403,7 @@ const TimelineStep = memo(function TimelineStep({
       </div>
       <div className="pb-5">
         <p className="text-[13px] font-semibold text-[#ededed] mb-0.5">{step.phase}</p>
-        <p className="text-[12px] text-[#666] leading-relaxed">{step.detail}</p>
+        <p className="text-[12px] text-[#666] leading-relaxed font-medium">{step.detail}</p>
       </div>
     </div>
   );
@@ -455,31 +455,31 @@ export function CaseStudies() {
 
         {/* Section Header */}
         <div className="mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#3b82f6]/10 border border-[#3b82f6]/20 w-fit mb-5">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_8px_#3b82f6] animate-pulse" />
-            <span className="text-[13px] font-medium text-[#3b82f6] tracking-wide uppercase">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#215B97]/10 border border-[#215B97]/20 w-fit mb-5">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#215B97] shadow-[0_0_8px_#215B97] animate-pulse" />
+            <span className="text-[13px] font-medium text-[#215B97] tracking-wide uppercase">
               Portfolio
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black dark:text-white mb-3">
             Case Studies & Our Recent Work
           </h2>
-          <p className="text-base text-black/50 dark:text-[#8b8b8b] max-w-2xl">
+          <p className="text-base text-black/50 dark:text-[#8b8b8b] max-w-2xl font-medium">
             Real solutions delivered for real businesses.
           </p>
         </div>
 
         {/* Tab Selector */}
-        <div className="flex flex-wrap gap-2 mb-10">
+        <div className="flex gap-2 mb-4 sm:mb-10 overflow-x-auto pb-2 scrollbar-hide sm:flex-wrap sm:overflow-x-visible sm:pb-0">
           {allEntries.map((c) => {
             const isActive = c.id === active;
             return (
               <button
                 key={c.id}
                 onClick={() => handleSetActive(c.id)}
-                className={`group flex items-center gap-2 px-4 py-2 rounded-xl border text-sm font-medium transition-all duration-300 ${isActive
-                  ? "border-transparent text-white shadow-[0_0_12px_rgba(59,130,246,0.1)]"
-                  : "bg-transparent border-[#2e2e2e] text-[#8b8b8b] hover:border-[#444] hover:text-[#ccc]"
+                className={`group flex items-center gap-2 px-4 py-2 rounded-xl border text-sm font-medium transition-all duration-300 shrink-0 sm:shrink ${isActive
+                  ? "border-transparent text-black dark:text-white shadow-[0_0_12px_rgba(59,130,246,0.1)]"
+                  : "bg-transparent border-black/15 dark:border-[#2e2e2e] text-black/50 dark:text-[#8b8b8b] hover:border-black/30 dark:hover:border-[#444] hover:text-black dark:hover:text-[#ccc]"
                   }`}
                 style={isActive ? { backgroundColor: `${c.accentColor}15`, borderColor: `${c.accentColor}40` } : {}}
               >
@@ -499,15 +499,37 @@ export function CaseStudies() {
           })}
         </div>
 
+        {/* Mobile: navigation dots just below tabs */}
+        <div className="flex lg:hidden items-center justify-between mb-6">
+          <div className="flex items-center gap-1.5">
+            {allEntries.map((c) => (
+              <button
+                key={c.id}
+                onClick={() => handleSetActive(c.id)}
+                className="transition-all duration-300"
+                style={{
+                  width: c.id === active ? "20px" : "6px",
+                  height: "6px",
+                  borderRadius: "9999px",
+                  backgroundColor: c.id === active ? study.accentColor : "#2e2e2e",
+                }}
+              />
+            ))}
+          </div>
+          <span className="text-[12px] text-[#555]">
+            {allEntries.findIndex((c) => c.id === active) + 1} / {allEntries.length}
+          </span>
+        </div>
+
         {/* Main Card */}
         <Card className="bg-[#0d0d0d] border-[#1e1e1e] rounded-2xl overflow-hidden shadow-2xl p-0">
           <div className="grid lg:grid-cols-[1fr_360px] min-h-[480px]">
 
             {/* Left — Story */}
-            <div className={`relative p-8 md:p-10 lg:p-12 overflow-hidden`}>
+            <div className={`relative p-5 sm:p-8 md:p-10 lg:p-12 overflow-hidden`}>
 
               {/* Top row: badges */}
-              <div className="flex flex-wrap items-center gap-2 mb-8">
+              <div className="flex flex-wrap items-center gap-2 mb-6 sm:mb-8">
                 <Badge
                   className={`text-[11px] font-medium px-2.5 py-0.5 rounded-md border ${study.tagColor}`}
                 >
@@ -523,7 +545,7 @@ export function CaseStudies() {
               </div>
 
               {/* Headline */}
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-white leading-tight mb-6 max-w-[520px]">
+              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-white leading-tight mb-4 sm:mb-6 max-w-[520px]">
                 {study.headline}
               </h3>
 
@@ -533,13 +555,13 @@ export function CaseStudies() {
                   <span className="text-[11px] font-semibold text-[#555] uppercase tracking-widest">
                     The Challenge
                   </span>
-                  <p className="text-[14px] text-[#8b8b8b] leading-relaxed">{study.challenge}</p>
+                  <p className="text-[14px] text-[#8b8b8b] leading-relaxed font-medium">{study.challenge}</p>
                 </div>
                 <div className="flex flex-col gap-2">
                   <span className="text-[11px] font-semibold text-[#555] uppercase tracking-widest">
                     Our Approach
                   </span>
-                  <p className="text-[14px] text-[#8b8b8b] leading-relaxed">{study.solution}</p>
+                  <p className="text-[14px] text-[#8b8b8b] leading-relaxed font-medium">{study.solution}</p>
                 </div>
               </div>
 
@@ -572,7 +594,7 @@ export function CaseStudies() {
             </div>
 
             {/* Right — Timeline */}
-            <div className="border-t lg:border-t-0 lg:border-l border-[#1e1e1e] p-8 md:p-10 flex flex-col gap-0">
+            <div className="border-t lg:border-t-0 lg:border-l border-[#1e1e1e] p-5 sm:p-8 md:p-10 flex flex-col gap-0">
               <div className="flex items-center gap-2 mb-8">
                 <TrendingUp className="w-4 h-4 text-[#555]" />
                 <span className="text-[12px] font-semibold text-[#555] uppercase tracking-widest">
@@ -597,7 +619,7 @@ export function CaseStudies() {
                 className="mt-auto p-4 rounded-xl border transition-all duration-500"
                 style={{ borderColor: `${study.accentColor}30`, background: `${study.accentColor}08` }}
               >
-                <p className="text-[12px] text-[#666] leading-relaxed mb-3">
+                <p className="text-[12px] text-[#666] leading-relaxed mb-3 font-medium">
                   Every engagement starts with a no-commitment discovery call.
                 </p>
                 <button className="inline-flex items-center gap-1 text-[12px] font-semibold text-white hover:gap-2 transition-all duration-200">
@@ -609,8 +631,8 @@ export function CaseStudies() {
           </div>
         </Card>
 
-        {/* Bottom Row: navigation dots + label */}
-        <div className="flex items-center justify-between mt-8">
+        {/* Desktop: navigation dots below the card */}
+        <div className="hidden lg:flex items-center justify-between mt-8">
           <div className="flex items-center gap-2">
             {allEntries.map((c) => (
               <button

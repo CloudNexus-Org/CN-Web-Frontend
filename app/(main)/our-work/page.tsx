@@ -44,7 +44,7 @@ const MetricCounter = memo(function MetricCounter({ value, suffix, label, active
     <div className="flex flex-col gap-1">
       <span className="text-3xl lg:text-4xl font-bold text-foreground tabular-nums">
         {value % 1 !== 0 ? count.toFixed(2) : Math.round(count)}
-        <span className="text-lg font-medium text-[#3b82f6]">{suffix}</span>
+        <span className="text-lg font-medium text-[#215B97]">{suffix}</span>
       </span>
       <span className="text-[13px] text-muted-foreground leading-tight">{label}</span>
     </div>
@@ -73,22 +73,22 @@ const TimelineStepComp = memo(function TimelineStepComp({
     >
       <div className="flex flex-col items-center gap-0 pt-1">
         <div
-          className="w-2 h-2 rounded-full flex-shrink-0 transition-colors duration-500"
-          style={{ backgroundColor: active ? accentColor : "#333" }}
+          className={`w-2 h-2 rounded-full flex-shrink-0 transition-colors duration-500 ${!active ? "bg-black/20 dark:bg-white/20" : ""}`}
+          style={active ? { backgroundColor: accentColor } : {}}
         />
         {index < 3 && (
           <div
-            className="w-px flex-1 mt-1 min-h-[2rem] transition-colors duration-700"
+            className={`w-px flex-1 mt-1 min-h-[2rem] transition-colors duration-700 ${!active ? "bg-black/10 dark:bg-white/10" : ""}`}
             style={{
-              backgroundColor: active ? `${accentColor}40` : "#222",
+              ...(active ? { backgroundColor: `${accentColor}40` } : {}),
               transitionDelay: `${index * 120 + 300}ms`,
             }}
           />
         )}
       </div>
       <div className="pb-5">
-        <p className="text-[13px] font-semibold text-[#ededed] mb-0.5">{step.phase}</p>
-        <p className="text-[12px] text-muted-foreground leading-relaxed">{step.detail}</p>
+        <p className="text-[13px] font-semibold text-foreground mb-0.5">{step.phase}</p>
+        <p className="text-[12px] text-muted-foreground leading-relaxed font-medium">{step.detail}</p>
       </div>
     </div>
   );
@@ -156,14 +156,14 @@ export default function OurWorkPage() {
           style={{ background: "radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%)" }}
         />
         <div className="mx-auto max-w-7xl relative">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#3b82f6]/10 border border-[#3b82f6]/20 mb-6">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_8px_#3b82f6] animate-pulse" />
-            <span className="text-[13px] font-medium text-[#3b82f6] tracking-wide uppercase">Portfolio</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#215B97]/10 border border-[#215B97]/20 mb-6">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#215B97] shadow-[0_0_8px_#215B97] animate-pulse" />
+            <span className="text-[13px] font-medium text-[#215B97] tracking-wide uppercase">Portfolio</span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-5">
             Our Work
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed font-medium">
             Real projects, real impact. Explore how we&apos;ve helped businesses across industries build scalable digital solutions.
           </p>
           <div className="flex items-center gap-8 mt-8 pt-8 border-t border-border">
@@ -197,11 +197,11 @@ export default function OurWorkPage() {
                 <button
                   key={ind.slug}
                   onClick={() => handleIndustryClick(ind.slug)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-lg border text-[13px] font-medium transition-all duration-300 whitespace-nowrap flex-shrink-0 ${ isActive ? "bg-white/[0.06] border-white/20 text-white" : "bg-transparent border-border text-muted-foreground hover:border-[#444] hover:text-[#aaa]" }`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-lg border text-[13px] font-medium transition-all duration-300 whitespace-nowrap flex-shrink-0 ${ isActive ? "bg-black/[0.06] dark:bg-white/[0.06] border-black/20 dark:border-white/20 text-black dark:text-white" : "bg-transparent border-border text-muted-foreground hover:border-black/30 dark:hover:border-[#444] hover:text-black dark:hover:text-[#aaa]" }`}
                 >
                   <ind.Icon className="w-3.5 h-3.5" />
                   {ind.label}
-                  <span className={`text-[11px] px-1.5 py-0.5 rounded-md ${isActive ? "bg-white/10 text-white/70" : "bg-white/[0.03] text-[#555]"}`}>
+                  <span className={`text-[11px] px-1.5 py-0.5 rounded-md ${isActive ? "bg-black/10 dark:bg-white/10 text-black/70 dark:text-white/70" : "bg-black/[0.03] dark:bg-white/[0.03] text-black/40 dark:text-[#555]"}`}>
                     {count}
                   </span>
                 </button>
@@ -221,7 +221,7 @@ export default function OurWorkPage() {
                 <button
                   key={p.id}
                   onClick={() => handleProjectClick(p.id)}
-                  className={`group flex items-center gap-2 px-4 py-2.5 rounded-lg border text-[13px] font-medium transition-all duration-300 whitespace-nowrap flex-shrink-0 ${ isActive ? "border-transparent text-white" : "bg-transparent border-border text-muted-foreground hover:border-[#444] hover:text-[#ccc]" }`}
+                  className={`group flex items-center gap-2 px-4 py-2.5 rounded-lg border text-[13px] font-medium transition-all duration-300 whitespace-nowrap flex-shrink-0 ${ isActive ? "border-transparent text-black dark:text-white" : "bg-transparent border-border text-muted-foreground hover:border-black/30 dark:hover:border-[#444] hover:text-black dark:hover:text-[#ccc]" }`}
                   style={isActive ? { backgroundColor: `${p.accentColor}15`, borderColor: `${p.accentColor}40` } : {}}
                 >
                   <p.Icon
@@ -264,11 +264,11 @@ export default function OurWorkPage() {
                 <div className="grid sm:grid-cols-2 gap-6 mb-8">
                   <div className="flex flex-col gap-2">
                     <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-widest">The Challenge</span>
-                    <p className="text-[14px] text-muted-foreground leading-relaxed">{study.challenge}</p>
+                    <p className="text-[14px] text-muted-foreground leading-relaxed font-medium">{study.challenge}</p>
                   </div>
                   <div className="flex flex-col gap-2">
                     <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-widest">Our Approach</span>
-                    <p className="text-[14px] text-muted-foreground leading-relaxed">{study.solution}</p>
+                    <p className="text-[14px] text-muted-foreground leading-relaxed font-medium">{study.solution}</p>
                   </div>
                 </div>
 
@@ -313,7 +313,7 @@ export default function OurWorkPage() {
                   className="mt-auto p-4 rounded-xl border transition-all duration-500"
                   style={{ borderColor: `${study.accentColor}30`, background: `${study.accentColor}08` }}
                 >
-                  <p className="text-[12px] text-muted-foreground leading-relaxed mb-3">
+                  <p className="text-[12px] text-muted-foreground leading-relaxed font-medium mb-3">
                     Every engagement starts with a no-commitment discovery call.
                   </p>
                   <button className="inline-flex items-center gap-1 text-[12px] font-semibold text-foreground hover:gap-2 transition-all duration-200">
@@ -331,12 +331,12 @@ export default function OurWorkPage() {
                 <button
                   key={p.id}
                   onClick={() => handleProjectClick(p.id)}
-                  className="transition-all duration-300"
+                  className={`transition-all duration-300 ${p.id !== activeProject ? "bg-black/20 dark:bg-white/20" : ""}`}
                   style={{
                     width: p.id === activeProject ? "24px" : "8px",
                     height: "8px",
                     borderRadius: "9999px",
-                    backgroundColor: p.id === activeProject ? study.accentColor : "#2e2e2e",
+                    ...(p.id === activeProject ? { backgroundColor: study.accentColor } : {}),
                   }}
                 />
               ))}

@@ -66,10 +66,10 @@ export function WhyCloudNexus() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#3b82f6]/10 border border-[#3b82f6]/20 w-fit"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#215B97]/10 border border-[#215B97]/20 w-fit"
             >
-              <div className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_8px_#3b82f6] animate-pulse" />
-              <span className="text-[13px] font-medium text-[#3b82f6] tracking-wide uppercase">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#215B97] shadow-[0_0_8px_#215B97] animate-pulse" />
+              <span className="text-[13px] font-medium text-[#215B97] tracking-wide uppercase">
                 Why CloudNexus
               </span>
             </motion.div>
@@ -91,7 +91,7 @@ export function WhyCloudNexus() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="max-w-xl text-sm md:text-base text-black/50 dark:text-white/50 leading-relaxed"
+              className="max-w-xl text-sm md:text-base text-black/50 dark:text-white/50 leading-relaxed font-medium"
             >
               For over a decade, CloudNexus has helped enterprises hire smarter,
               scale seamlessly, and reduce costs.
@@ -106,7 +106,7 @@ export function WhyCloudNexus() {
           >
             <Link
               href="/company/about-us"
-              className="group inline-flex items-center gap-2 text-[13px] font-semibold text-[#3b82f6] hover:underline"
+              className="group inline-flex items-center gap-2 text-[13px] font-semibold text-[#215B97] hover:underline"
             >
               Learn more about us
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
@@ -122,23 +122,23 @@ export function WhyCloudNexus() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.1 + index * 0.08 }}
-              className="group relative rounded-2xl bg-[#121212] border border-[#2e2e2e] hover:border-[#3b82f6]/50 hover:bg-[#161616] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)] transition-all duration-500 p-8 overflow-hidden"
+              className="group relative rounded-2xl bg-[#121212] border border-[#2e2e2e] hover:border-[#215B97]/50 hover:bg-[#161616] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)] transition-all duration-500 p-6 sm:p-8 overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#3b82f6]/[0.03] rounded-full blur-2xl pointer-events-none -translate-y-1/2 translate-x-1/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#215B97]/[0.03] rounded-full blur-2xl pointer-events-none -translate-y-1/2 translate-x-1/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative z-10">
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-[#2e2e2e] bg-[#1a1a1a] text-[#ededed] group-hover:text-[#3b82f6] group-hover:border-[#3b82f6]/30 transition-colors duration-500">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-[#2e2e2e] bg-[#1a1a1a] text-[#ededed] group-hover:text-[#215B97] group-hover:border-[#215B97]/30 transition-colors duration-500">
                   <feature.Icon className="w-6 h-6 stroke-[1.5]" />
                 </div>
 
                 <h3 className="text-lg font-medium text-[#ededed] mb-2 tracking-tight">
                   {feature.title}
                 </h3>
-                <p className="text-[14px] text-[#8b8b8b] leading-relaxed mb-6">
+                <p className="text-[14px] text-[#8b8b8b] leading-relaxed mb-6 font-medium">
                   {feature.description}
                 </p>
 
-                <div className="pt-4 border-t border-[#2e2e2e] group-hover:border-[#3b82f6]/20 transition-colors duration-500">
+                <div className="pt-4 border-t border-[#2e2e2e] group-hover:border-[#215B97]/20 transition-colors duration-500">
                   <span className="text-2xl font-bold text-white tabular-nums">
                     {feature.stat}
                   </span>

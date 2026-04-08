@@ -5,7 +5,7 @@ import { MapPin, Phone } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="relative mt-auto border-t border-black/10 bg-white dark:border-white/10 dark:bg-black overflow-hidden pt-24 pb-12">
+    <footer className="relative mt-auto border-t border-black/10 bg-white dark:border-white/10 dark:bg-black overflow-hidden pt-12 sm:pt-24 pb-8 sm:pb-12">
       {/* Background Animation Removed */}
 
       {/* Large Background Text Effect */}
@@ -16,14 +16,14 @@ export function Footer() {
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10 lg:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 sm:gap-10 lg:gap-8">
           <div className="col-span-2 lg:col-span-2">
             {/* <Link href="/" className="text-2xl font-bold tracking-tighter text-white flex items-center gap-2">
               <div className="relative h-9 w-9 sm:h-10 sm:w-10 transition-all">
                 <img src="/asset/cn-icon.png" alt="Cloud Nexus Logo" className="object-contain" />
               </div>
             </Link> */}
-            <p className="mt-30 text-sm leading-relaxed text-transparent bg-clip-text bg-gradient-to-b from-neutral-400 to-neutral-700 max-w-sm">
+            <p className="mt-4 text-sm leading-relaxed text-transparent bg-clip-text bg-gradient-to-b from-neutral-400 to-neutral-700 max-w-sm">
               We design and build scalable digital solutions including web applications,
               cloud infrastructure, data platforms, and modern software systems.
             </p>
@@ -73,7 +73,7 @@ export function Footer() {
         </div>
 
         {/* Office Locations */}
-        <div className="mt-20 pt-8 border-t border-black/10 dark:border-white/10 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="mt-12 sm:mt-20 pt-8 border-t border-black/10 dark:border-white/10 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h4 className="text-xs font-semibold text-neutral-400 mb-4 tracking-wider uppercase">Hyderabad Office</h4>
             <div className="space-y-3">
@@ -93,11 +93,11 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex gap-3 text-sm text-neutral-500 dark:text-neutral-400">
                 <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
-                <p>MP Nagar, Bhopal<br/>Madhya Pradesh, India</p>
+                <p>Plot No 20, Kusturi Arched, Barrai<br/>Bhopal, Madhya Pradesh 462042, India</p>
               </div>
               <div className="flex gap-3 text-sm text-neutral-500 dark:text-neutral-400">
                 <Phone className="w-4 h-4 shrink-0" />
-                <p>+91 000 000 0000</p>
+                <p>+91 87938 30447</p>
               </div>
             </div>
           </div>
@@ -107,11 +107,11 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex gap-3 text-sm text-neutral-500 dark:text-neutral-400">
                 <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
-                <p>Indiranagar, Bengaluru<br/>Karnataka, India</p>
+                <p>2nd Stage, BTM Layout<br/>Bengaluru, Karnataka 560076, India</p>
               </div>
               <div className="flex gap-3 text-sm text-neutral-500 dark:text-neutral-400">
                 <Phone className="w-4 h-4 shrink-0" />
-                <p>+91 000 000 0000</p>
+                <p>+91 87938 30447</p>
               </div>
             </div>
           </div>
