@@ -466,6 +466,9 @@ export default function OverviewPage() {
                     </div>
                     <h3 className="text-sm font-bold tracking-tight mb-1.5 group-hover:text-[#4EB3E8] transition-colors duration-300">{item.title}</h3>
                     <p className="text-xs text-black/45 dark:text-white/40 leading-relaxed line-clamp-3">{item.desc}</p>
+                    <div className="mt-3 flex items-center gap-1 text-xs font-semibold text-[#4EB3E8] opacity-0 group-hover:opacity-100 translate-x-0 group-hover:translate-x-1 transition-all duration-300">
+                      {t("overview.services.learnMore", "Learn More")} <ArrowRight className="w-3.5 h-3.5" />
+                    </div>
                   </motion.div>
                 </Link>
               );
