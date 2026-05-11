@@ -20,6 +20,7 @@ interface NavChild {
 }
 
 interface NavItem {
+  id?: string;
   label: string;
   href?: string;
   children?: NavChild[];
@@ -27,6 +28,7 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   {
+    id: "services",
     label: "Services",
     href: "/services",
     children: [
@@ -48,6 +50,7 @@ const NAV_ITEMS: NavItem[] = [
     ],
   },
   {
+    id: "industry",
     label: "Industry",
     href: "/industry",
     children: [
@@ -69,6 +72,7 @@ const NAV_ITEMS: NavItem[] = [
     ],
   },
   {
+    id: "resources",
     label: "Resources",
     href: "/resources",
     children: [
@@ -80,6 +84,7 @@ const NAV_ITEMS: NavItem[] = [
     ],
   },
   {
+    id: "company",
     label: "Company",
     href: "/company",
     children: [
@@ -96,17 +101,17 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 const NAV_LABEL_KEYS: Record<string, string> = {
-  Services: "nav.services",
-  Industry: "nav.industry",
-  Resources: "nav.resources",
-  Company: "nav.company",
+  services: "nav.services",
+  industry: "nav.industry",
+  resources: "nav.resources",
+  company: "nav.company",
 };
 
 export function Navbar() {
   const pathname = usePathname();
   const { t } = useTranslation();
   const translatedNavItems = useTranslatedData(NAV_ITEMS);
-  const tNav = (label: string) => t(NAV_LABEL_KEYS[label] ?? label, label);
+  const tNav = (item: NavItem) => t(NAV_LABEL_KEYS[item.id ?? ""] ?? item.label, item.label);
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -203,51 +208,51 @@ export function Navbar() {
           <ul className="flex items-center gap-1" role="list">
             {translatedNavItems.map((item) => (
               <li
-                key={item.label}
+                key={item.id}
                 className="relative"
-                onMouseEnter={() => handleMouseEnter(item.label)}
+                onMouseEnter={() => handleMouseEnter(item.id!)}
                 onMouseLeave={handleMouseLeave}
               >
                 <div
                   className={`flex items-center gap-1 rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
-                    openDropdown === item.label
+                    openDropdown === item.id
                       ? "text-black dark:text-white"
                       : "text-black/60 hover:text-black dark:text-white/60 dark:hover:text-white"
                   }`}
-                  aria-expanded={openDropdown === item.label}
+                  aria-expanded={openDropdown === item.id}
                 >
                   {item.href ? (
                     <Link href={item.href} className="hover:text-black dark:hover:text-white transition-colors">
-                      {tNav(item.label)}
+                      {tNav(item)}
                     </Link>
                   ) : (
-                    <button onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}>
-                      {tNav(item.label)}
+                    <button onClick={() => setOpenDropdown(openDropdown === item.id ? null : item.id!)}>
+                      {tNav(item)}
                     </button>
                   )}
                   <button
-                    onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
+                    onClick={() => setOpenDropdown(openDropdown === item.id ? null : item.id!)}
                     className="p-0.5"
-                    aria-label={`Toggle ${item.label} menu`}
+                    aria-label={`Toggle ${item.id} menu`}
                   >
                     <ChevronDown
                       size={14}
                       className={`transition-transform duration-200 ${
-                        openDropdown === item.label ? "rotate-180" : ""
+                        openDropdown === item.id ? "rotate-180" : ""
                       }`}
                     />
                   </button>
                 </div>
 
                 {/* Dropdown panel */}
-                {openDropdown === item.label && item.children && (
+                {openDropdown === item.id && item.children && (
                   <div className="absolute left-1/2 top-full pt-2 -translate-x-1/2">
                     <div
                       className={`rounded-xl border border-black/[0.08] bg-white shadow-2xl shadow-black/10 backdrop-blur-2xl dark:border-white/[0.08] dark:bg-[#0a0a0a] dark:shadow-black/60 overflow-hidden ${
                         item.children.length > 10 ? "w-[720px]" : item.children.length > 6 ? "w-[520px]" : "w-[280px]"
                       }`}
                     >
-                      {item.label === "Industry" && (
+                      {item.id === "industry" && (
                         <>
                           <Link
                             href="/our-work"
@@ -361,28 +366,28 @@ export function Navbar() {
         <div className="lg:hidden border-t border-black/[0.06] bg-white max-h-[calc(100dvh-58px)] overflow-y-auto dark:border-white/[0.06] dark:bg-[#080808]">
           <nav className="flex flex-col gap-0.5 px-3 py-4">
             {translatedNavItems.map((item) => (
-              <div key={item.label}>
+              <div key={item.id}>
                 <button
                   onClick={() =>
                     setMobileExpanded(
-                      mobileExpanded === item.label ? null : item.label
+                      mobileExpanded === item.id ? null : item.id!
                     )
                   }
                   className="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium text-black/60 transition-colors hover:bg-black/[0.04] hover:text-black dark:text-white/60 dark:hover:bg-white/[0.04] dark:hover:text-white"
-                  aria-expanded={mobileExpanded === item.label}
+                  aria-expanded={mobileExpanded === item.id}
                 >
-                  {tNav(item.label)}
+                  {tNav(item)}
                   <ChevronDown
                     size={16}
                     className={`transition-transform duration-200 ${
-                      mobileExpanded === item.label ? "rotate-180" : ""
+                      mobileExpanded === item.id ? "rotate-180" : ""
                     }`}
                   />
                 </button>
 
-                {mobileExpanded === item.label && item.children && (
+                {mobileExpanded === item.id && item.children && (
                   <div className="ml-3 flex flex-col gap-0.5 border-l border-black/[0.06] pl-3 py-1 dark:border-white/[0.06]">
-                    {item.label === "Industry" && (
+                    {item.id === "industry" && (
                       <>
                         <Link
                           href="/our-work"

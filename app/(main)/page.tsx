@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between bg-white text-black dark:bg-black dark:text-white">
+    <main className="relative flex min-h-screen flex-col items-center justify-between bg-white text-black dark:bg-black dark:text-white">
       <HomeSplashWrapper />
       <HeroSection />
       <BuildScaleThrive />
