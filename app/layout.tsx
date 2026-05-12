@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
+import { GeistSans } from "@/lib/fonts/geist-sans";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NavigationLoader } from "@/components/navigation-loader";
