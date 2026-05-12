@@ -30,12 +30,86 @@ jobs:
       - name: Type Check
         run: npm run typecheck
 
-      - name: Build Next.js App
-        env:
-          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
-          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
-        run: npm run build
+      - name: CI checks completed
+        run: echo "Install and typecheck completed successfully"
 
-      - name: Build Success
-        run: echo "Build completed successfully"
+  # =========================
+  # 🐳 DOCKER → Docker Hub + Trivy scan
+  # =========================
+  # Repository → Settings → Secrets and variables → Actions:
+  #   DOCKERHUB_USERNAME — Docker Hub username (required to push; if missing, CI still builds + Trivy locally)
+  #   DOCKERHUB_TOKEN    — Access Token (read & write), required with username to push
+  #   NEXT_PUBLIC_API_URL — API URL for Docker build-arg (exact name; not NEXT_PUBLIC_API_URI)
+  # Optional → Variables: DOCKERHUB_REPO (default: cn-web-frontend)
+  docker:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Resolve Docker image name
+        id: image
+        env:
+          DH_USER: ${{ secrets.DOCKERHUB_USERNAME }}
+          DH_REPO: ${{ vars.DOCKERHUB_REPO }}
+        run: |
+          REPO="${DH_REPO:-cn-web-frontend}"
+          if [ -n "$DH_USER" ]; then
+            echo "full=${DH_USER}/${REPO}" >> "$GITHUB_OUTPUT"
+            echo "can_push=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "full=cn-web-ci/${REPO}" >> "$GITHUB_OUTPUT"
+            echo "can_push=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::DOCKERHUB_USERNAME secret is empty — build and Trivy use a local tag only. Add DOCKERHUB_USERNAME (and DOCKERHUB_TOKEN) on this repo to push to Docker Hub."
+          fi
+
+      - name: Explain Docker Hub push (read this if push is skipped)
+        run: |
+          echo "=== Docker / Trivy behaviour ==="
+          echo "Trivy table = report of known CVEs in the image layers (often Alpine/base). It is NOT the same as 'build failed' when exit-code is 0."
+          echo "Docker Hub push runs ONLY when: push to main + DOCKERHUB_USERNAME set + DOCKERHUB_TOKEN set."
+          echo "Pull requests: build + scan only — login/push steps are skipped by design."
+          echo "can_push=${{ steps.image.outputs.can_push }} | event=${{ github.event_name }} | ref=${{ github.ref }}"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image (load locally for Trivy + push)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          load: true
+          push: false
+          tags: |
+            ${{ steps.image.outputs.full }}:latest
+            ${{ steps.image.outputs.full }}:${{ github.sha }}
+          build-args: |
+            NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Run Trivy vulnerability scanner on image
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: image
+          image-ref: ${{ steps.image.outputs.full }}:${{ github.sha }}
+          scanners: vuln
+          severity: CRITICAL,HIGH,MEDIUM
+          format: table
+          exit-code: "0"
+
+      - name: Log in to Docker Hub
+        if: steps.image.outputs.can_push == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Push image to Docker Hub
+        if: steps.image.outputs.can_push == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          docker push "${{ steps.image.outputs.full }}:${{ github.sha }}"
+          docker push "${{ steps.image.outputs.full }}:latest"
