@@ -14,23 +14,32 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const prevPathname = useRef(pathname);
   const [navigating, setNavigating] = useState(false);
 
-  useEffect(() => {
+  useEffect(() => {  
+    
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      touchMultiplier: 2,
+      duration: isTouchDevice ? 1.2 : 1.8,
+      easing: (t) => 1 - Math.pow(1 - t, 5),
+      smoothWheel: true,
+      wheelMultiplier: 0.78,
+      touchMultiplier: isTouchDevice ? 1.0 : 1.1,
       infinite: false,
     });
 
     lenisRef.current = lenis;
+    let rafId = 0;
 
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
       lenisRef.current = null;
     };
