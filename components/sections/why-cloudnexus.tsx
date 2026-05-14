@@ -153,7 +153,7 @@ const features = [
     Icon: Award,
     title: "Proven Project Delivery",
     description: "From CHORUS (healthcare platform for Google) to CartFlow's AI-powered e-commerce engine — we ship production-grade products on schedule.",
-    stat: "200+",
+    stat: "100",
     statLabel: "Projects Delivered",
     Visual: AwardVisual,
   },

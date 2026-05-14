@@ -420,7 +420,10 @@ export function CaseStudies() {
   const [metricsVisible, setMetricsVisible] = useState(false);
   const metricsRef = useRef<HTMLDivElement>(null);
 
-  const study = useMemo(() => allEntries.find((c) => c.id === active)!, [active]);
+  const study = useMemo(
+    () => allEntries.find((c) => c.id === active) ?? allEntries[0],
+    [allEntries, active],
+  );
 
   const handleSetActive = useCallback((id: string) => setActive(id), []);
 
