@@ -219,9 +219,10 @@ export function HeroSection() {
             </h1>
 
             {/* Description */}
-            <div className="relative max-w-xl mx-auto lg:mx-0 w-full flex flex-col items-center lg:items-start">
+            <div className="relative max-w-xl mx-auto lg:mx-0 w-full flex flex-col items-center lg:items-start pb-2 sm:pb-4 min-h-[96px] sm:min-h-[80px]">
               <span className="invisible text-center lg:text-left text-base md:text-lg font-medium leading-relaxed select-none pointer-events-none">
               {t("hero.description")}
+              <span className="inline-block">|</span>
               </span>
               <TypingAnimation
                 delay={700}

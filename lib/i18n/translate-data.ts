@@ -9,6 +9,7 @@ type Listener = (dict: TranslationDict) => void;
 const pageTranslationsCache: Record<string, TranslationDict> = {};
 const loadingPromises: Record<string, Promise<TranslationDict>> = {};
 const listeners: Record<string, Set<Listener>> = {};
+const normalizedDictCache = new WeakMap<TranslationDict, Map<string, string>>();
 
 const localePageModules: Record<string, () => Promise<{ default: TranslationDict }>> = {
   hi: () => import("./locales/pages/hi.json"),
@@ -31,8 +32,36 @@ function loadLocale(locale: string): Promise<TranslationDict> {
   return loadingPromises[locale];
 }
 
+function normalizeText(value: string): string {
+  return value
+    .replace(/[\r\n\t]+/g, " ")
+    .replace(/[\u2018\u2019]/g, "'")
+    .replace(/[\u201C\u201D]/g, '"')
+    .replace(/[\u2013\u2014\u2212]/g, "-")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function getNormalizedDict(dict: TranslationDict): Map<string, string> {
+  const cached = normalizedDictCache.get(dict);
+  if (cached) return cached;
+
+  const normalized = new Map<string, string>();
+  for (const [key, value] of Object.entries(dict)) {
+    const normalizedKey = normalizeText(key);
+    if (!normalized.has(normalizedKey)) normalized.set(normalizedKey, value);
+  }
+  normalizedDictCache.set(dict, normalized);
+  return normalized;
+}
+
 function translateString(str: string, dict: TranslationDict): string {
-  return dict[str] ?? str;
+  const direct = dict[str];
+  if (direct) return direct;
+
+  const normalized = getNormalizedDict(dict);
+  const normalizedKey = normalizeText(str);
+  return normalized.get(normalizedKey) ?? str;
 }
 
 function isPlainObject(o: unknown): o is Record<string, unknown> {
