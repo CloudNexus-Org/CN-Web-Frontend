@@ -127,7 +127,8 @@ export function TypingAnimation({
 
       timeout = setTimeout(() => {
         const currentWord = wordsToAnimate[currentWordIndex] || ""
-        const graphemes = Array.from(currentWord)
+        const segmenter = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
+        const graphemes = Array.from(segmenter.segment(currentWord)).map(s => s.segment)
 
         switch (phase) {
           case "typing":
@@ -187,9 +188,10 @@ export function TypingAnimation({
     delay,
   ])
 
+  const segmenterOuter = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
   const currentWordGraphemes = Array.from(
-    wordsToAnimate[currentWordIndex] || ""
-  )
+    segmenterOuter.segment(wordsToAnimate[currentWordIndex] || "")
+  ).map(s => s.segment)
   const isComplete =
     !loop &&
     currentWordIndex === wordsToAnimate.length - 1 &&

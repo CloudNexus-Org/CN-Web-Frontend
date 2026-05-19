@@ -72,7 +72,17 @@ export default function JobDetailPage() {
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files?.[0]) setApplyForm((prev) => ({ ...prev, resume: e.target.files![0] }));
+    const file = e.target.files?.[0];
+    if (file) {
+      if (file.size > 2 * 1024 * 1024) {
+        setApplyError(t("careerPost.fileSizeError", "File size must be less than 2MB."));
+        setApplyForm((prev) => ({ ...prev, resume: null }));
+        e.target.value = "";
+        return;
+      }
+      setApplyError("");
+      setApplyForm((prev) => ({ ...prev, resume: file }));
+    }
   };
 
   const handleApplySubmit = async (e: React.FormEvent) => {
