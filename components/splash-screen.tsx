@@ -14,11 +14,20 @@ export function SplashScreen() {
   }, []);
 
   useEffect(() => {
-    if (!videoRef.current) return;
+    const fallbackTimer = setTimeout(() => {
+      handleVideoEnd();
+    }, 4000);
+
+    if (!videoRef.current) {
+      return () => clearTimeout(fallbackTimer);
+    }
+    
     videoRef.current.playbackRate = 2.5;
     videoRef.current.play().catch(() => {
       handleVideoEnd();
     });
+
+    return () => clearTimeout(fallbackTimer);
   }, [handleVideoEnd]);
 
   return (
