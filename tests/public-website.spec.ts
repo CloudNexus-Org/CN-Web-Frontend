@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, type Route } from "@playwright/test";
 import fs from "fs";
 import path from "path";
 
@@ -106,7 +106,7 @@ test.describe("Cloud Nexus Public Website E2E Tests", () => {
     await expect(page).toHaveURL(/.*\/resources\/contact/);
 
     // Mock API response to avoid actual db pollution
-    await page.route("**/contacts", async (route) => {
+    await page.route("**/contacts", async (route: Route) => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
@@ -129,7 +129,7 @@ test.describe("Cloud Nexus Public Website E2E Tests", () => {
 
   test("6. Career Job Details and Application Resume Size Validation", async ({ page }) => {
     // Navigate to Career page
-    await page.route("**/job-listings", async (route) => {
+    await page.route("**/job-listings", async (route: Route) => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
@@ -153,7 +153,7 @@ test.describe("Cloud Nexus Public Website E2E Tests", () => {
     await page.goto("/resources/career");
     
     // Mock detailed job api request
-    await page.route("**/job-listings/frontend-engineer", async (route) => {
+    await page.route("**/job-listings/frontend-engineer", async (route: Route) => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
@@ -207,7 +207,7 @@ test.describe("Cloud Nexus Public Website E2E Tests", () => {
     await expect(page.locator("text=File size must be less than 2MB.")).not.toBeVisible();
 
     // Intercept submit application
-    await page.route("**/applications", async (route) => {
+    await page.route("**/applications", async (route: Route) => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
@@ -230,7 +230,7 @@ test.describe("Cloud Nexus Public Website E2E Tests", () => {
   });
 
   test("8. Blog Page Listings and Detailed Navigation", async ({ page }) => {
-    await page.route("**/blogs", async (route) => {
+    await page.route("**/blogs", async (route: Route) => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
@@ -255,7 +255,7 @@ test.describe("Cloud Nexus Public Website E2E Tests", () => {
     const blogTitle = page.locator("text=Future of Cloud Computing").first();
     await expect(blogTitle).toBeVisible();
 
-    await page.route("**/blogs/future-of-cloud-computing", async (route) => {
+    await page.route("**/blogs/future-of-cloud-computing", async (route: Route) => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",

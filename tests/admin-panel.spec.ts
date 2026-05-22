@@ -1,11 +1,11 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, type Page, type Route } from "@playwright/test";
 
 const ADMIN_EMAIL = "princesulekhiya2004@gmail.com";
 const ADMIN_PASSWORD = "princesulekhiya2004@gmail.com";
 const ADMIN_DEV_CODE = "123456";
 
-async function mockAdminAuthFlow(page: Parameters<typeof test>[0]["page"]) {
-  await page.route("**/auth/admin/login", async (route) => {
+async function mockAdminAuthFlow(page: Page) {
+  await page.route("**/auth/admin/login", async (route: Route) => {
     if (route.request().method() !== "POST") {
       await route.continue();
       return;
@@ -24,7 +24,7 @@ async function mockAdminAuthFlow(page: Parameters<typeof test>[0]["page"]) {
     });
   });
 
-  await page.route("**/auth/admin/verify-2fa", async (route) => {
+  await page.route("**/auth/admin/verify-2fa", async (route: Route) => {
     if (route.request().method() !== "POST") {
       await route.continue();
       return;
@@ -45,7 +45,7 @@ async function mockAdminAuthFlow(page: Parameters<typeof test>[0]["page"]) {
     });
   });
 
-  await page.route("**/auth/admin/me", async (route) => {
+  await page.route("**/auth/admin/me", async (route: Route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -144,7 +144,7 @@ test.describe("Cloud Nexus Admin Panel E2E Tests", () => {
     await page.waitForURL(/.*\/admin/);
 
     // 2. View and Expand Contact Queries
-    await page.route("**/admin/contacts**", async (route) => {
+    await page.route("**/admin/contacts**", async (route: Route) => {
       if (route.request().resourceType() === "document") {
         await route.continue();
         return;
@@ -179,7 +179,7 @@ test.describe("Cloud Nexus Admin Panel E2E Tests", () => {
     await expect(page.locator("text=Need a custom dashboard built.")).toBeVisible();
 
     // 3. View and Approve Applications
-    await page.route("**/admin/applications**", async (route) => {
+    await page.route("**/admin/applications**", async (route: Route) => {
       if (route.request().resourceType() === "document") {
         await route.continue();
         return;
@@ -214,7 +214,7 @@ test.describe("Cloud Nexus Admin Panel E2E Tests", () => {
     await expect(page.locator("text=John Candidate")).toBeVisible();
     await expect(page.locator("text=PENDING")).toBeVisible();
 
-    await page.route("**/admin/applications/app-1/approve", async (route) => {
+    await page.route("**/admin/applications/app-1/approve", async (route: Route) => {
       if (route.request().resourceType() === "document") {
         await route.continue();
         return;
@@ -248,7 +248,7 @@ test.describe("Cloud Nexus Admin Panel E2E Tests", () => {
     await expect(page.locator('span:has-text("Approved")')).toBeVisible();
 
     // 4. Manage Jobs (CRUD)
-    await page.route("**/admin/job-postings**", async (route) => {
+    await page.route("**/admin/job-postings**", async (route: Route) => {
       if (route.request().resourceType() === "document") {
         await route.continue();
         return;
@@ -286,7 +286,7 @@ test.describe("Cloud Nexus Admin Panel E2E Tests", () => {
     await page.fill('input[name="title"]', "Designer");
     await page.fill('input[name="department"]', "Design");
 
-    await page.route("**/admin/job-postings**", async (route) => {
+    await page.route("**/admin/job-postings**", async (route: Route) => {
       if (route.request().resourceType() === "document") {
         await route.continue();
         return;
@@ -310,7 +310,7 @@ test.describe("Cloud Nexus Admin Panel E2E Tests", () => {
     await expect(page).toHaveURL(/.*\/admin\/jobs/);
 
     // 5. Manage Blogs (CRUD)
-    await page.route("**/admin/blogs**", async (route) => {
+    await page.route("**/admin/blogs**", async (route: Route) => {
       if (route.request().resourceType() === "document") {
         await route.continue();
         return;
@@ -347,7 +347,7 @@ test.describe("Cloud Nexus Admin Panel E2E Tests", () => {
     await page.fill('textarea[name="excerpt"]', "Modern tech trends.");
     await page.fill('textarea[name="content"]', "Content of tech trends.");
 
-    await page.route("**/admin/blogs**", async (route) => {
+    await page.route("**/admin/blogs**", async (route: Route) => {
       if (route.request().resourceType() === "document") {
         await route.continue();
         return;
