@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, MessageSquare, Clock, Shield } from "lucide-react";
 import { useTranslation } from "@/lib/i18n/context";
 
@@ -61,6 +62,39 @@ export function FreeConsultation() {
 
           <div className="relative px-5 py-10 sm:px-8 sm:py-12 md:px-14 md:py-16 flex flex-col md:flex-row items-center gap-8 sm:gap-10 md:gap-14">
             <div className="flex-1 text-center md:text-left">
+              <div
+                 className={`mb-8 transition-all duration-600 delay-200 ${
+                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                   }`}
+                       >
+               {/* Light Theme Logo */}
+                  <Image
+               src="/asset/cn-logo.png"
+                     alt="Cloud Nexus"
+                     width={260}
+                    height={65}
+                     priority
+                    className="block dark:hidden mx-auto md:mx-0"
+                     style={{
+                    width: "260px",
+                    height: "auto",
+                     }}
+                      />
+
+                {/* Dark Theme Logo */}
+                     <Image
+                    src="/assets/admin-logo.png"
+                    alt="Cloud Nexus"
+                    width={260}
+                     height={65}
+                    priority
+                    className="hidden dark:block mx-auto md:mx-0"
+                       style={{
+                     width: "260px",
+                     height: "auto",
+                            }}
+                            />
+                        </div>
               <h2
                 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[#4EB3E8] leading-tight mb-4 transition-all duration-600 delay-300 ${
                   visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"

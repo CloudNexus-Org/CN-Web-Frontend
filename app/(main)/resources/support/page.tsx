@@ -62,7 +62,7 @@ function TypingPlaceholder() {
 }
 
 /* ═══════ HERO SECTION ═══════ */
-const quickLinks: { icon: LucideIcon; label: string; desc: string }[] = [
+const quickLinks: { icon: React.ComponentType<React.SVGProps<SVGSVGElement>>; label: string; desc: string }[] = [
   { icon: MessageCircle, label: "Live Chat", desc: "Instant help" },
   { icon: BookOpen, label: "Docs", desc: "Guides & API" },
   { icon: HelpCircle, label: "FAQs", desc: "Quick answers" },
@@ -258,10 +258,10 @@ function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
 const supportChannels = [
   {
     icon: MessageCircle,
-    title: "Live Chat",
-    description: "Connect with our support specialists instantly. Average response time under 30 seconds during business hours.",
+    title: "Chat",
+    description: "Connect with our support specialists instantly. Average response time under 3 hours during business hours.",
     action: "Start Chat",
-    href: "#",
+    href: "https://wa.me/918793830447?text=Hi%20CloudNexus!%20I'm%20interested%20in%20your%20services.%20Please%20share%20more%20information.",
     badge: "Fastest",
   },
   {

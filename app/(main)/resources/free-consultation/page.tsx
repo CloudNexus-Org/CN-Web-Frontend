@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight, Clock, Shield, Target, Rocket, MessageSquare, Phone, Mail,
@@ -11,46 +12,82 @@ import {
 import { useTranslatedData } from "@/lib/i18n/translate-data";
 import { useTranslation } from "@/lib/i18n/context";
 
-const CALENDLY_URL = "https://calendly.com/princesulekhiya2004/30min";
+const CALENDLY_URL = "https://calendly.com/pushprajgurjar358/30min";
 
+// function CalendlyEmbed() {
+//   const containerRef = useRef<HTMLDivElement>(null);
+
+//   useEffect(() => {
+//     const script = document.createElement("script");
+//     script.src = "https://assets.calendly.com/assets/external/widget.js";
+//     script.async = true;
+//     document.head.appendChild(script);
+//     return () => { script.remove(); };
+//   }, []);
+
+//   return (
+//     <div
+//       ref={containerRef}
+//       className="calendly-inline-widget rounded-2xl overflow-hidden"
+//       data-url={`${CALENDLY_URL}?hide_gdpr_banner=1&background_color=0a0a0a&text_color=ffffff&primary_color=4EB3E8`}
+//       style={{ width: "100%", minWidth: 400, height: 600 }}
+//     />
+//   );
+// }
 function CalendlyEmbed() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.src =
+      "https://assets.calendly.com/assets/external/widget.js";
     script.async = true;
+
     document.head.appendChild(script);
-    return () => { script.remove(); };
+
+    return () => {
+      script.remove();
+    };
   }, []);
 
   return (
     <div
-      ref={containerRef}
-      className="calendly-inline-widget rounded-2xl overflow-hidden"
-      data-url={`${CALENDLY_URL}?hide_gdpr_banner=1&background_color=0a0a0a&text_color=ffffff&primary_color=4EB3E8`}
-      style={{ minWidth: 320, height: 660 }}
+      className="calendly-inline-widget"
+      data-url={CALENDLY_URL}
+      style={{
+        width: "100%",
+        minWidth: "600px",
+        height: "700px",
+      }}
     />
   );
 }
+// function CalendlyEmbedLight() {
+//   useEffect(() => {
+//     const script = document.createElement("script");
 
-function CalendlyEmbedLight() {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
-    script.async = true;
-    document.head.appendChild(script);
-    return () => { script.remove(); };
-  }, []);
+//     script.src =
+//       "https://assets.calendly.com/assets/external/widget.js";
 
-  return (
-    <div
-      className="calendly-inline-widget rounded-2xl overflow-hidden"
-      data-url={`${CALENDLY_URL}?hide_gdpr_banner=1&background_color=f8f9fa&text_color=1a1a1a&primary_color=4EB3E8`}
-      style={{ minWidth: 320, height: 660 }}
-    />
-  );
-}
+//     script.async = true;
+
+//     document.head.appendChild(script);
+
+//     return () => {
+//       script.remove();
+//     };
+//   }, []);
+
+//   return (
+//     <div
+//       className="calendly-inline-widget"
+//       data-url={`${CALENDLY_URL}`}
+//       style={{
+//         width: "100%",
+//         minWidth: "400px",
+//         height: "600px",
+//       }}
+//     />
+//   );
+// }
 
 /* ═══════ ANIMATED COUNTER ═══════ */
 function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
@@ -128,96 +165,20 @@ export default function FreeConsultationPage() {
     <section className="min-h-screen bg-white text-black dark:bg-black dark:text-white">
 
       {/* ═══════ HERO ═══════ */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <motion.div
-            animate={{ scale: [1, 1.12, 1], opacity: [0.06, 0.09, 0.06] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-[#4EB3E8] rounded-full blur-[120px]"
-          />
-          <motion.div
-            animate={{ scale: [1, 1.08, 1], opacity: [0.04, 0.06, 0.04] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            className="absolute -bottom-32 -left-32 w-[400px] h-[400px] bg-[#4EB3E8] rounded-full blur-[100px]"
-          />
-        </div>
-
-        {/* Dot pattern */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.04]">
-          <svg className="w-full h-full">
-            <defs>
-              <pattern id="fc-dots" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
-                <circle cx="2" cy="2" r="1" fill="currentColor" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#fc-dots)" />
-          </svg>
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-6 pt-28 pb-16">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left - Content */}
-            <div>
-              <motion.h1
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.15]"
-              >
-                {t("freeConsult.hero.title", "Let's Build Your")}{" "}
-                <span className="text-[#4EB3E8]">{t("freeConsult.hero.titleHighlight", "Vision Together")}</span>
-              </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="mt-5 text-base md:text-lg text-black/50 dark:text-white/50 leading-relaxed max-w-lg"
-              >
-                {t("freeConsult.hero.description", "Book a free 30-minute strategy session with our senior architects. Get a custom roadmap, technology recommendations, and a transparent project estimate  -  zero obligation.")}
-              </motion.p>
-
-              {/* Trust badges */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="mt-8 flex flex-wrap gap-4"
-              >
-                {[
-                  { icon: Shield, label: t("freeConsult.hero.ndaProtected", "NDA Protected") },
-                  { icon: Clock, label: t("freeConsult.hero.thirtyMinSession", "30 Min Session") },
-                  { icon: Award, label: t("freeConsult.hero.seniorArchitects", "Senior Architects") },
-                ].map(({ icon: Icon, label }) => (
-                  <div key={label} className="flex items-center gap-2 text-xs font-semibold text-black/40 dark:text-white/35">
-                    <Icon className="w-4 h-4 text-[#4EB3E8]" strokeWidth={1.5} />
-                    {label}
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-
-            {/* Right - Calendly Embed */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="rounded-2xl overflow-hidden border border-black/[0.06] dark:border-white/[0.06]"
-            >
-              <div className="flex items-center gap-3 px-6 py-4 bg-[#f8f9fa] dark:bg-white/[0.03] border-b border-black/[0.06] dark:border-white/[0.06]">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#4EB3E8]/10 border border-[#4EB3E8]/20">
-                  <CalendarCheck className="w-4 h-4 text-[#4EB3E8]" />
-                </div>
-                <div>
-                  <h3 className="text-sm font-bold tracking-tight">{t("freeConsult.calendly.title", "Select a Date & Time")}</h3>
-                  <p className="text-[11px] text-black/40 dark:text-white/40">{t("freeConsult.calendly.subtitle", "30 min • Free consultation")}</p>
-                </div>
-              </div>
-              {isDark ? <CalendlyEmbed /> : <CalendlyEmbedLight />}
-            </motion.div>
-          </div>
-        </div>
-      </div>
+ <div className="relative mx-auto max-w-7xl px-6 py-10">
+  <div className="flex justify-center">
+    <motion.div
+      className="
+      w-full
+      max-w-6xl
+      rounded-2xl
+      overflow-hidden
+      "
+    >
+      <CalendlyEmbed />
+    </motion.div>
+  </div>
+</div>
 
       {/* ═══════ STATS ═══════ */}
       <div className="border-y border-black/[0.05] dark:border-white/[0.05]">
@@ -246,6 +207,7 @@ export default function FreeConsultationPage() {
 
       {/* ═══════ WHAT YOU GET ═══════ */}
       <div className="mx-auto max-w-7xl px-6 py-20">
+
         <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}

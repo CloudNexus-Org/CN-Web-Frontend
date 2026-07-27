@@ -1,20 +1,20 @@
-import type { Metadata } from "next";
-import dynamic from "next/dynamic";
-import { HeroSection } from "@/components/sections/hero-section";
-import { BuildScaleThrive } from "@/components/sections/build-scale-thrive";
-import { KnownFor } from "@/components/sections/known-for";
+import type { Metadata } from "next"
+import dynamic from "next/dynamic"
+import { HeroSection } from "@/components/sections/hero-section"
+import { BuildScaleThrive } from "@/components/sections/build-scale-thrive"
+import { KnownFor } from "@/components/sections/known-for"
 
-import { TechStack } from "@/components/sections/tech-stack";
-import { TopClients } from "@/components/sections/top-clients";
-import { Testimonials } from "@/components/sections/testimonials";
-import { WhyCloudNexus } from "@/components/sections/why-cloudnexus";
-import { FreeConsultation } from "@/components/sections/free-consultation";
-import { FAQs } from "@/components/sections/faqs";
-import { HomeSplashWrapper } from "@/components/home-splash-wrapper";
+import { TechStack } from "@/components/sections/tech-stack"
+import { TopClients } from "@/components/sections/top-clients"
+import { Testimonials } from "@/components/sections/testimonials"
+import { WhyCloudNexus } from "@/components/sections/why-cloudnexus"
+import { FreeConsultation } from "@/components/sections/free-consultation"
+import { FAQs } from "@/components/sections/faqs"
+import { HomeSplashWrapper } from "@/components/home-splash-wrapper"
 
-const CaseStudies = dynamic(
-  () => import("@/components/sections/case-studies").then((m) => m.CaseStudies),
-);
+const CaseStudies = dynamic(() =>
+  import("@/components/sections/case-studies").then((m) => m.CaseStudies)
+)
 
 export const metadata: Metadata = {
   title: "Cloud Nexus - Custom Software Development & IT Solutions Company",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
       "Cloud Nexus is a leading software development company offering custom software, mobile apps, cloud solutions & AI/ML services from Bhopal, India.",
     url: "https://cloudnexus.in/",
   },
-};
+}
 
 export default function HomePage() {
   return (
@@ -39,12 +39,11 @@ export default function HomePage() {
       <CaseStudies />
       <WhyCloudNexus />
 
-
       <TechStack />
       <TopClients />
       <Testimonials />
       <FreeConsultation />
       <FAQs />
     </main>
-  );
+  )
 }

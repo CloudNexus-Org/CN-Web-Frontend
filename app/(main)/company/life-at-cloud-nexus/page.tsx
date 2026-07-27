@@ -60,6 +60,34 @@ const emptyCollage = (): [string, string, string, string, string] => ["", "", ""
 
 const eventsByYear: Record<YearKey, CultureEvent[]> = {
   "2026": [
+//pool party images
+          {
+      id: "26-poolParty",
+      title: "Pool Party 2026",
+      excerpt:
+        "Dive into fun and make unforgettable memories at our Pool Party. Enjoy a refreshing atmosphere, great music, delicious food, and exciting moments with friends and family. Whether you're relaxing by the pool or joining the celebrations, it's the perfect way to unwind and have a splash of joy.",
+      collageSrcs: [
+        "/images/poolParty/poolparty1.png",
+        "/images/poolParty/poolparty2.png",
+        "/images/poolParty/poolparty3.png",
+        "/images/poolParty/poolparty4.png",
+        "/images/poolParty/poolparty5.png",
+      ],
+    },
+
+        {
+      id: "26-plantation-drive",
+      title: "Plantation Drive 2026",
+      excerpt:
+        "We believe in nurturing nature alongside our community. Our plantation initiatives are dedicated to creating a greener and healthier environment through sustainable practices and responsible stewardship. Every tree we plant represents our commitment to environmental conservation, biodiversity, and a better future for generations to come.",
+      collageSrcs: [
+        "/images/plantationDrive/planataion2.png",
+        "/images/plantationDrive/plantation1.png",
+        "/images/plantationDrive/plantation3.png",
+        "/images/plantationDrive/planatation4.png",
+        "/images/plantationDrive/planataion5.png",
+      ],
+    },
     {
       id: "26-cricket",
       title: "Cricket League CCL'26",
@@ -164,6 +192,19 @@ const eventsByYear: Record<YearKey, CultureEvent[]> = {
         "/images/inauguration-2025/image-2.jpeg",
         "/images/inauguration-2025/image-3.jpeg",
         "/images/inauguration-2025/image-4.jpeg",
+      ],
+    },
+    {
+      id: "25-kitchen-staff",
+      title: "Our Kitchen Staff",
+      excerpt:
+        "Behind every delicious meal is a team of passionate and dedicated professionals. Our kitchen staff is committed to maintaining the highest standards of quality, hygiene, and taste. With care, creativity, and attention to detail, they work tirelessly to ensure that every dish served is fresh, flavorful, and memorable.",
+      collageSrcs: [
+        "/images/staff/group.png",
+        "/images/staff/group2.png",
+        "/images/staff/staff.png",
+        "/images/staff/group3.png",
+        "/images/staff/group1.png",
       ],
     },
   ],
@@ -349,7 +390,7 @@ const cultureHeroGallery = {
     "/images/fun-friday-dev-team/team-photo.png",
     "/images/cricket-photos/image-22.jpeg",
   ] as [string, string],
-  pillarMid: "/images/diwali-2025/IMG-20251018-WA0160.jpg",
+   pillarMid: "/images/diwali-2025/IMG-20251018-WA0160.jpg",
   pillarRight: "/images/inauguration-2025/image.jpeg",
 };
 

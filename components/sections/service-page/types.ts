@@ -1,7 +1,7 @@
-import type { LucideIcon } from "lucide-react";
+import type { LucideProps } from "lucide-react";
 
 export interface ServiceOffering {
-  icon: LucideIcon;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   title: string;
   description: string;
   features: string[];
@@ -20,7 +20,7 @@ export interface ProcessStep {
   step: string;
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
 
 export interface TechItem {
@@ -40,7 +40,7 @@ export interface Stat {
 }
 
 export interface WhyChooseItem {
-  icon: LucideIcon;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   title: string;
   description: string;
 }

@@ -91,9 +91,9 @@ export function Footer() {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
         {/* Description */}
-        <p className="text-[13px] leading-relaxed text-neutral-400 dark:text-neutral-500 max-w-md mb-8">
+        {/* <p className="text-[13px] leading-relaxed text-neutral-400 dark:text-neutral-500 max-w-md mb-8">
           {t("footer.description")}
-        </p>
+        </p> */}
 
         {/* Links Grid - 3 columns on mobile, 6 on desktop */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-x-4 sm:gap-x-6 gap-y-6 lg:gap-x-8">
