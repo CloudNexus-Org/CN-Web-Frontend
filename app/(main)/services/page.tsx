@@ -55,7 +55,7 @@ interface Sublink {
 }
 
 interface Service {
-  icon: LucideIcon;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   title: string;
   description: string;
   href: string;
@@ -65,7 +65,7 @@ interface Service {
 
 interface ServiceCategory {
   id: string;
-  icon: LucideIcon;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   title: string;
   subtitle: string;
   services: Service[];

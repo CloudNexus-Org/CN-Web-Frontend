@@ -581,7 +581,7 @@ export default function OverviewPage() {
             <span>{t("overview.offices.titleHighlight", "Offices")}</span>
           </h2>
           <p className="mt-4 text-base text-black/45 dark:text-white/45 max-w-xl mx-auto">
-            {t("overview.offices.description", "Strategically located across Rajasthan, India  -  delivering world-class IT solutions from our development centers.")}
+            {t("overview.offices.description", "Strategically located acrossIndia  -  delivering world-class IT solutions from our development centers.")}
           </p>
         </motion.div>
 

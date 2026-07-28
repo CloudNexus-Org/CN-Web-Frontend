@@ -8,6 +8,7 @@ import {
   TrendingUp,
   ChevronRight,
   Clock,
+  Link,
 } from "lucide-react";
 import { projects, industries, type Metric, type TimelineStep } from "./data";
 import { useTranslatedData } from "@/lib/i18n/translate-data";
@@ -317,9 +318,16 @@ export default function OurWorkPage() {
                   <p className="text-[12px] text-muted-foreground leading-relaxed font-medium mb-3">
                     {t("ourWork.discoveryCall", "Every engagement starts with a no-commitment discovery call.")}
                   </p>
-                  <button className="inline-flex items-center gap-1 text-[12px] font-semibold text-foreground hover:gap-2 transition-all duration-200">
+                  {/* <button className="inline-flex items-center gap-1 text-[12px] font-semibold text-foreground hover:gap-2 transition-all duration-200">
                     {t("ourWork.startConversation", "Start a conversation")} <ChevronRight className="w-3.5 h-3.5" />
-                  </button>
+                  </button> */}
+                   <button
+  onClick={() => window.location.assign("/resources/contact")}
+  className="inline-flex items-center gap-1 text-[12px] font-semibold text-foreground hover:gap-2 transition-all duration-200"
+>
+  {t("ourWork.startConversation", "Start a conversation")}
+  <ChevronRight className="w-3.5 h-3.5" />
+</button>
                 </div>
               </div>
             </div>

@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { ArrowRight, Menu, X, ChevronDown, Sun, Moon, Smartphone, Globe, Code2, Users, Boxes, Palette, Zap, ShoppingBag, Cloud, Megaphone, Settings, Rocket, ServerCog, Layout, Monitor, HeartPulse, Truck, Share2, Building2, GraduationCap, Landmark, Plane, Factory, Droplets, Film, PackageCheck, Wrench, Wallet, ShoppingCart, LifeBuoy, Mail, BookOpen, Briefcase, CalendarCheck, Eye, Heart, UserCircle, Calendar, Info, GitBranch, Server, Gift } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/navbar/language-switcher";
@@ -16,7 +15,7 @@ interface NavChild {
   label: string;
   href: string;
   description?: string;
-  icon?: LucideIcon;
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
 
 interface NavItem {

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import type { LucideIcon } from "lucide-react";
+
+type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
 export interface Metric {
   value: number;
@@ -51,7 +52,7 @@ export interface IndustryIntroProps {
 }
 
 export interface ServiceCardItem {
-  icon: LucideIcon;
+  icon: IconComponent;
   title: string;
   description: string;
 }
@@ -80,7 +81,7 @@ export interface ProcessStepItem {
   step: string;
   title: string;
   description: string;
-  icon?: LucideIcon;
+  icon?: IconComponent;
   highlights?: string[];
 }
 
@@ -92,7 +93,7 @@ export interface IndustryProcessProps {
 }
 
 export interface WhyChooseItem {
-  icon: LucideIcon;
+  icon: IconComponent;
   title: string;
   description: string;
 }
@@ -107,7 +108,7 @@ export interface IndustryWhyChooseProps {
 export interface TechItem {
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon: IconComponent;
 }
 
 export interface IndustryTechProps {
@@ -129,7 +130,7 @@ export interface IndustryCTAProps {
 }
 
 export interface IndustryListItem {
-  icon: LucideIcon;
+  icon: IconComponent;
   title: string;
   description: string;
   href: string;

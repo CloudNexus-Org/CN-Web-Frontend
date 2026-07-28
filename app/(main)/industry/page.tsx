@@ -26,10 +26,9 @@ import {
   Smartphone,
 
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 
 interface Industry {
-  icon: LucideIcon;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   title: string;
   tagline: string;
   description: string;

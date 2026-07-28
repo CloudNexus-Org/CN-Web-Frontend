@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   compress: true,
   poweredByHeader: false,
+  devIndicators: false,
   async headers() {
     return [
       {
@@ -51,6 +52,8 @@ const nextConfig = {
     optimizePackageImports: [
       'lucide-react',
       'framer-motion',
+      'react-icons',
+      '@splinetool/react-spline',
     ],
   },
 };
