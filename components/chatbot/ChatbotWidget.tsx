@@ -178,43 +178,25 @@ function SourcesCollapsible({ labels }: { labels: string[] }) {
   )
 }
 
-// ─── Custom launcher icon (Intercom-style smiling message bubble) ────────────
+// ─── Custom launcher icon with hover transition ─────────────────────────────
 
 function LauncherIcon() {
   return (
     <svg
-      width="32"
-      height="32"
-      viewBox="0 0 32 32"
+      width="28"
+      height="28"
+      viewBox="0 0 24 24"
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-label="Message bubble icon"
+      className="h-7 w-7 text-white"
     >
-      {/* Message bubble */}
       <path
-        fill="#FFFFFF"
-        d="
-          M8 5
-          H24
-          C25.7 5 27 6.3 27 8
-          V20
-          C27 21.7 25.7 23 24 23
-          H16
-          L12 27
-          L12.8 23
-          H8
-          C6.3 23 5 21.7 5 20
-          V8
-          C5 6.3 6.3 5 8 5
-          Z
-        "
-      />
-
-      {/* Smile */}
-      <path
-        d="M11.5 16.3C13 17.8 19 17.8 20.5 16.3"
-        stroke="#222222"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        fill="none"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19.6317 3.36824C17.4751 1.21158 14.55 0 11.5001 0H11.4933C9.67722 0.00105467 7.88724 0.432158 6.26986 1.25808C4.65249 2.08401 3.25371 3.28128 2.18806 4.7518C1.1224 6.22232 0.420163 7.92431 0.138831 9.71844C-0.142502 11.5126 0.00506924 13.3478 0.569469 15.0739C1.13387 16.8 2.09905 18.3679 3.38599 19.6493C4.67292 20.9306 6.24502 21.889 7.97359 22.4458C9.70215 23.0027 11.538 23.1423 13.3309 22.8532C15.1238 22.564 16.8227 21.8544 18.2886 20.7823L20.6828 23.1765C20.8728 23.3654 21.1145 23.494 21.3774 23.546C21.6403 23.5979 21.9126 23.571 22.1603 23.4686C22.4079 23.3662 22.6197 23.1929 22.7691 22.9705C22.9186 22.748 22.9989 22.4863 23 22.2184V11.4999C23 8.44997 21.7884 5.52489 19.6317 3.36824ZM11.4932 19.2403C13.7855 19.2403 15.9306 18.2776 17.2307 16.6921L17.2352 16.6739C17.3001 16.5943 17.3486 16.5028 17.3781 16.4045C17.4075 16.3062 17.4174 16.203 17.4069 16.1008C17.3965 15.9987 17.3661 15.8997 17.3174 15.8093C17.2687 15.7189 17.2027 15.6391 17.1231 15.5742C17.0436 15.5094 16.952 15.4608 16.8537 15.4314C16.7553 15.4019 16.6522 15.3921 16.55 15.4025C16.4479 15.4129 16.3489 15.4433 16.2585 15.492C16.1681 15.5407 16.0883 15.6068 16.0234 15.6864C15.0132 16.9208 13.3121 17.6593 11.4932 17.6593C9.67433 17.6593 7.98456 16.9277 6.97659 15.7C6.91217 15.6185 6.83216 15.5507 6.74123 15.5005C6.6503 15.4503 6.55028 15.4188 6.44702 15.4077C6.34376 15.3966 6.23932 15.4062 6.13981 15.436C6.04031 15.4657 5.94774 15.515 5.8675 15.581C5.78726 15.6469 5.72098 15.7281 5.67251 15.82C5.62404 15.9118 5.59436 16.0124 5.58522 16.1159C5.57607 16.2193 5.58764 16.3236 5.61924 16.4225C5.65085 16.5215 5.70186 16.6131 5.76929 16.6921C7.07172 18.2776 9.20092 19.2403 11.4932 19.2403Z"
+        fill="currentColor"
       />
     </svg>
   )
@@ -273,23 +255,7 @@ function MessageBubble({
       transition={{ duration: 0.22, ease: "easeOut" }}
       className={`flex items-end gap-2.5 ${isUser ? "flex-row-reverse" : "flex-row"} max-w-full ${isUser ? "self-end" : "self-start"}`}
     >
-      {/* {showAvatar ? (
-        <div
-          className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center shadow-sm ${
-            isUser
-              ? "bg-slate-700 dark:bg-white/20"
-              : "bg-gradient-to-br from-blue-500 to-indigo-600"
-          }`}
-        >
-          {isUser ? (
-            <User className="w-3.5 h-3.5 text-white" strokeWidth={1.75} />
-          ) : (
-            <AiAvatarIcon size={14} />
-          )}
-        </div>
-      ) : (
-        <div className="w-7 flex-shrink-0" aria-hidden />
-      )} */}
+      
 
       <div
         className={`flex flex-col gap-1 ${
@@ -819,35 +785,47 @@ export function ChatbotWidget() {
       <div className="fixed right-7 bottom-4 z-50">
         <AnimatePresence>
           {!isOpen && (
-            <motion.button
-              key="fab"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0, opacity: 0 }}
-              whileHover={{ scale: 1.07 }}
-              whileTap={{ scale: 0.92 }}
-              transition={{ type: "spring", stiffness: 320, damping: 20 }}
-              onClick={() => setIsOpen(true)}
-              className="relative flex h-11 w-11 items-center justify-center rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2"
-              style={{
-                backgroundColor: "#4EB3E8",
-                boxShadow:
-                  "0 10px 30px -8px rgba(60,150,200,0.55), 0 2px 8px rgba(0,0,0,0.08)",
-              }}
-              aria-label="Open chat assistant"
-            >
-              <span className="flex items-center justify-center">
-                <LauncherIcon />
-              </span>
-              {/* Unread indicator */}
-              {hasUnread && (
-                <motion.span
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  className="absolute top-0.5 right-0.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-red-500 dark:border-[#0a0a0a]"
-                />
-              )}
-            </motion.button>
+          <motion.button
+  key="fab"
+  initial={{ scale: 0, opacity: 0 }}
+  animate={{ scale: 1, opacity: 1 }}
+  exit={{ scale: 0, opacity: 0 }}
+  whileHover={{ scale: 1.07 }}
+  whileTap={{ scale: 0.92 }}
+  transition={{
+    type: "spring",
+    stiffness: 320,
+    damping: 20,
+  }}
+  onClick={() => setIsOpen(true)}
+  className="
+    relative
+    flex h-11 w-11
+    items-center justify-center
+    rounded-full
+    bg-[#4488FF]
+    text-white
+    focus:outline-none
+    focus-visible:ring-2
+    focus-visible:ring-[#4488FF]
+    focus-visible:ring-offset-2
+  "
+  style={{
+    boxShadow:
+      "0 8px 22px rgba(68,136,255,0.38), 0 3px 8px rgba(0,0,0,0.12)",
+  }}
+  aria-label="Open chat dialog"
+>
+  <LauncherIcon />
+
+  {/* {hasUnread && (
+    <motion.span
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
+      className="absolute -top-0.5 -right-0.5 h-4 w-4 rounded-full border-2 border-white bg-red-500 dark:border-[#0a0a0a]"
+    />
+  )} */}
+</motion.button>
           )}
         </AnimatePresence>
 
