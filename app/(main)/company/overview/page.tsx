@@ -4,12 +4,10 @@ import { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import {
-  ArrowRight, Target, Eye, Rocket, Users, Shield, Zap, Globe,
-  BrainCircuit, Handshake, Award, Building2, ChevronRight,
-  Code2, Layers, HeartHandshake, Lightbulb, Clock, CheckCircle2,
-  MapPin, BarChart3, Smartphone, Boxes, Layout, Palette,
-  ShoppingBag, Cloud, Megaphone, Settings, ServerCog, Monitor, Phone,
-  Sprout, Leaf, TreePine, Sun,
+  ArrowRight, Eye, Rocket, Users, Shield, Zap, Globe,
+  BrainCircuit, Award, Building2, Code2, Layers,
+  HeartHandshake, Lightbulb, CheckCircle2, MapPin, BarChart3,
+  Phone, Sprout, Leaf, TreePine, Sun,
 } from "lucide-react";
 import { useTranslatedData } from "@/lib/i18n/translate-data";
 import { useTranslation } from "@/lib/i18n/context";
@@ -53,24 +51,6 @@ const whyCloudNexus = [
   { icon: Globe, title: "Expert Team & Global Experience", desc: "Our team of seasoned IT consultants, engineers, and strategists brings extensive experience in helping businesses worldwide navigate complex technological landscapes." },
   { icon: BarChart3, title: "Business-Centric Results", desc: "We don't just implement technology  -  we align it with your business objectives, ensuring measurable improvements in efficiency, productivity, and profitability." },
   { icon: CheckCircle2, title: "End-to-End Support", desc: "From initial consultation to deployment and ongoing support, we are committed to providing seamless, 24/7 assistance, ensuring smooth and uninterrupted IT operations." },
-];
-
-const offerings = [
-  { icon: Smartphone, title: "Mobile App Development", desc: "Native and cross-platform iOS & Android apps built for performance, scalability, and exceptional user experience.", href: "/services/mobile-app-development" },
-  { icon: Globe, title: "Web Development", desc: "Responsive, fast, and SEO-optimized web applications using modern frameworks like Next.js, React, and Node.js.", href: "/services/web-development" },
-  { icon: Code2, title: "Software Development", desc: "Full-cycle custom software solutions from architecture design to deployment, tailored to your business needs.", href: "/services/software-development" },
-  { icon: Users, title: "Hire Dedicated Developers", desc: "Pre-vetted engineers in 48 hours  -  full-stack, mobile, AI/ML, DevOps, and QA specialists on flexible engagement models.", href: "/services/hire-dedicated-developers" },
-  { icon: Boxes, title: "Product Engineering", desc: "End-to-end product development from ideation to market-ready launch with continuous iteration and optimization.", href: "/services/product-engineering" },
-  { icon: Layout, title: "WordPress Development", desc: "Custom themes, plugins, and enterprise WordPress solutions with performance optimization and security hardening.", href: "/services/wordpress-development" },
-  { icon: Palette, title: "UI/UX Design", desc: "User-centric design solutions with research-driven wireframes, prototypes, and pixel-perfect interfaces.", href: "/services/ui-ux-design" },
-  { icon: Zap, title: "Digital Transformation", desc: "Modernize legacy systems, digitize operations, and build data-driven workflows that accelerate business growth.", href: "/services/digital-transformation" },
-  { icon: ShoppingBag, title: "E-Commerce Development", desc: "Scalable online store platforms with payment integrations, inventory management, and conversion optimization.", href: "/services/ecommerce-development" },
-  { icon: Cloud, title: "SaaS Development", desc: "Multi-tenant SaaS products with subscription management, analytics dashboards, and enterprise-grade security.", href: "/services/saas-development" },
-  { icon: Megaphone, title: "Digital Marketing", desc: "SEO, social media marketing, PPC campaigns, and content strategies that drive traffic, leads, and revenue.", href: "/services/digital-marketing" },
-  { icon: Settings, title: "Technology Consulting", desc: "Strategic technology advisory, architecture reviews, and roadmaps aligned with your business objectives.", href: "/services/technology-consulting" },
-  { icon: Rocket, title: "MVP Development", desc: "Rapid prototyping and MVP launches to validate your idea, attract investors, and enter the market faster.", href: "/services/mvp-development" },
-  { icon: ServerCog, title: "Cloud Services", desc: "AWS, Azure & GCP solutions  -  cloud migration, multi-cloud architecture, CI/CD pipelines, and infrastructure automation.", href: "/services/cloud-services" },
-  { icon: Monitor, title: "IT Consulting", desc: "Infrastructure planning, IT strategy, and technology audits to optimize your IT ecosystem for long-term success.", href: "/services/it-consulting" },
 ];
 
 const locations = [
@@ -224,12 +204,9 @@ function VisionMissionSection({ missionPoints: mp }: { missionPoints: typeof mis
     </div>
   );
 }
-
-/* ═══════ PAGE ═══════ */
 export default function OverviewPage() {
   const translatedStats = useTranslatedData(stats);
   const translatedWhyCloudNexus = useTranslatedData(whyCloudNexus);
-  const translatedOfferings = useTranslatedData(offerings);
   const translatedLocations = useTranslatedData(locations);
   const translatedMissionPoints = useTranslatedData(missionPoints);
   const { t } = useTranslation();
@@ -429,53 +406,6 @@ export default function OverviewPage() {
 
       {/* ═══════ MISSION & VISION ═══════ */}
       <VisionMissionSection missionPoints={translatedMissionPoints} />
-
-      {/* ═══════ OUR SERVICES ═══════ */}
-      <div className="border-y border-black/[0.05] dark:border-white/[0.05]">
-        <div className="mx-auto max-w-7xl px-6 py-20">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-              <span className="text-[#4EB3E8]">{t("overview.services.title", "Our")}</span>{" "}
-              <span>{t("overview.services.titleHighlight", "Services")}</span>
-            </h2>
-            <p className="mt-4 text-base text-black/45 dark:text-white/45 max-w-xl mx-auto">
-              {t("overview.services.description", "End-to-end technology capabilities tailored to your business stage and growth ambitions.")}
-            </p>
-          </motion.div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-            {translatedOfferings.map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <Link key={item.title} href={item.href}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.04 * i }}
-                    className="group h-full rounded-2xl p-5 bg-[#f8f9fa] dark:bg-white/[0.02] border border-black/[0.05] dark:border-white/[0.05] hover:border-[#4EB3E8]/20 hover:-translate-y-1 hover:shadow-lg transition-all duration-400 cursor-pointer"
-                  >
-                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[#4EB3E8]/8 border border-[#4EB3E8]/12 group-hover:bg-[#4EB3E8] group-hover:border-[#4EB3E8] transition-all duration-300">
-                      <Icon className="w-5 h-5 text-[#4EB3E8] group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
-                    </div>
-                    <h3 className="text-sm font-bold tracking-tight mb-1.5 group-hover:text-[#4EB3E8] transition-colors duration-300">{item.title}</h3>
-                    <p className="text-xs text-black/45 dark:text-white/40 leading-relaxed line-clamp-3">{item.desc}</p>
-                    <div className="mt-3 flex items-center gap-1 text-xs font-semibold text-[#4EB3E8] opacity-0 group-hover:opacity-100 translate-x-0 group-hover:translate-x-1 transition-all duration-300">
-                      {t("overview.services.learnMore", "Learn More")} <ArrowRight className="w-3.5 h-3.5" />
-                    </div>
-                  </motion.div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </div>
 
       {/* ═══════ WHY CLOUDNEXUS ═══════ */}
       <div className="mx-auto max-w-7xl px-6 py-20">

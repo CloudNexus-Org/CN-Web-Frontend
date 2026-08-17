@@ -130,7 +130,7 @@ export default function ContactPage() {
     }
   };
 
-  const inputCls = "w-full rounded-xl border border-black/[0.08] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.03] px-4 py-3 text-sm outline-none focus:border-[#4EB3E8] focus:ring-1 focus:ring-[#4EB3E8]/20 transition-all duration-200 placeholder:text-black/30 dark:placeholder:text-white/25";
+  const inputCls = "w-full rounded-xl border border-black/[0.08] dark:border-white/[0.08] bg-white dark:bg-white/[0.04] px-4 py-3 text-sm outline-none focus:border-[#4EB3E8] focus:ring-1 focus:ring-[#4EB3E8]/20 transition-all duration-200 placeholder:text-black/30 dark:placeholder:text-white/25";
 
   return (
     <section className="min-h-screen bg-white text-black dark:bg-black dark:text-white">
@@ -210,7 +210,7 @@ export default function ContactPage() {
                 </Button>
               </motion.div>
             ) : (
-              <div className="rounded-2xl border border-black/[0.05] dark:border-white/[0.05] bg-[#fafafa] dark:bg-white/[0.01] p-8">
+              <div className="rounded-2xl border border-black/[0.06] dark:border-white/[0.06] bg-[#f8f9fa] dark:bg-[#0c1322] p-8">
                 <div className="flex items-center gap-3 mb-8">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#4EB3E8]/10 border border-[#4EB3E8]/20">
                     <MessageSquare className="w-5 h-5 text-[#4EB3E8]" strokeWidth={1.5} />

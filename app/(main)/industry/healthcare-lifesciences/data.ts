@@ -22,6 +22,7 @@ export const heroProps: IndustryHeroProps = {
 };
 
 export const introProps: IndustryIntroProps = {
+  accentColor: "#10b981",
   heading: "Transforming Healthcare with Technology",
   descriptionLeft: "We build HIPAA-compliant digital health solutions that connect patients, providers, and medical devices. From electronic health records to real-time patient monitoring, our healthcare technology solutions are designed for security, scalability, and regulatory compliance.",
   descriptionRight: "Our team has deep expertise in healthcare interoperability standards (HL7 FHIR, DICOM), medical device integration via BLE and IoT, and building secure architectures that meet the strictest compliance requirements including HIPAA, HITRUST, and SOC 2.",
@@ -30,7 +31,6 @@ export const introProps: IndustryIntroProps = {
     { value: "100%", label: "HIPAA compliance rate" },
     { value: "99.9%", label: "System uptime" },
   ],
-  accentColor: "#10b981",
 };
 
 export const servicesProps: IndustryServicesProps = {
@@ -347,14 +347,14 @@ export const projects: Project[] = [
   {
     id: "medicore-ehr",
     tag: "EHR System",
-    tagColor: "bg-teal-500/15 text-teal-400 border-teal-500/30",
+    tagColor: "bg-[#10b981]/15 text-[#10b981] border-[#10b981]/30",
     company: "MediCore",
     industry: "Healthcare",
     headline: "HIPAA-compliant electronic health records system for 500+ healthcare providers.",
     challenge: "Legacy paper-based records causing delays. Strict HIPAA compliance requirements. Integration with existing hospital systems.",
     solution: "Cloud-native EHR with end-to-end encryption, audit logging, and role-based access. Seamless HL7 FHIR integration with lab systems and pharmacies.",
     duration: "90 days",
-    accentColor: "#14b8a6",
+    accentColor: "#10b981",
     metrics: [
       { value: 500, suffix: "+", label: "Providers onboarded" },
       { value: 100, suffix: "%", label: "HIPAA compliance" },

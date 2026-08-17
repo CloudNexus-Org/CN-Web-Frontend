@@ -22,6 +22,7 @@ export const heroProps: IndustryHeroProps = {
 };
 
 export const introProps: IndustryIntroProps = {
+  accentColor: "#a855f7",
   heading: "Mobile Commerce Revolution",
   descriptionLeft: "We build mobile-first commerce apps and QR-based payment solutions that make buying and selling seamless on smartphones. Our mCommerce platforms feature AR try-on experiences, one-tap checkout, and universal QR payment systems serving millions of users and merchants.",
   descriptionRight: "From camera-integrated AR product visualization and biometric-authenticated express payments to merchant self-onboarding in under 5 minutes and offline transaction support for rural areas, we help businesses capture the mobile commerce opportunity.",
@@ -319,21 +320,22 @@ export const productShowcaseProps: ProductShowcaseProps = {
 export const ctaProps: IndustryCTAProps = {
   headingTop: "Have a mCommerce",
   headingBottom: "Project in Mind?",
-  description: "Let\u0027s discuss how we can build the right solution for your mcommerce needs.",
+  description: "Let's discuss how we can build the right solution for your mcommerce needs.",
+  accentColor: "#a855f7",
 };
 
 export const projects: Project[] = [
   {
     id: "mshop",
     tag: "Mobile Commerce",
-    tagColor: "bg-pink-500/15 text-pink-400 border-pink-500/30",
+    tagColor: "bg-[#a855f7]/15 text-[#a855f7] border-[#a855f7]/30",
     company: "mShop",
     industry: "mCommerce",
     headline: "Mobile-first commerce app with AR try-on and one-tap checkout serving 2M+ users.",
     challenge: "High cart abandonment on mobile. Lack of product visualization for fashion/beauty. Complex checkout flows on small screens.",
     solution: "AR-powered virtual try-on for products. One-tap checkout with saved payment methods. AI-personalized home feed with push notifications.",
     duration: "75 days",
-    accentColor: "#ec4899",
+    accentColor: "#a855f7",
     metrics: [
       { value: 2, suffix: "M+", label: "Active users" },
       { value: 55, suffix: "%", label: "Less abandonment" },
@@ -349,14 +351,14 @@ export const projects: Project[] = [
   {
     id: "scanpay",
     tag: "Scan & Pay",
-    tagColor: "bg-rose-500/15 text-rose-400 border-rose-500/30",
+    tagColor: "bg-[#a855f7]/15 text-[#a855f7] border-[#a855f7]/30",
     company: "ScanPay",
     industry: "mCommerce",
     headline: "QR-based mobile payment app enabling contactless commerce for 100K+ merchants.",
     challenge: "Fragmented payment ecosystem. Merchant onboarding complexity. Offline payment support in rural areas.",
     solution: "Universal QR code supporting all major wallets. 5-minute merchant self-onboarding. Offline transaction support with sync-when-connected.",
     duration: "55 days",
-    accentColor: "#f43f5e",
+    accentColor: "#a855f7",
     metrics: [
       { value: 100, suffix: "K+", label: "Merchants" },
       { value: 5, suffix: " min", label: "Onboarding time" },

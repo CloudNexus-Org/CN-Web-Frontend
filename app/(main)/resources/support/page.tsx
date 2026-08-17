@@ -62,14 +62,7 @@ function TypingPlaceholder() {
 }
 
 /* ═══════ HERO SECTION ═══════ */
-const quickLinks: { icon: React.ComponentType<React.SVGProps<SVGSVGElement>>; label: string; desc: string }[] = [
-  { icon: MessageCircle, label: "Live Chat", desc: "Instant help" },
-  { icon: BookOpen, label: "Docs", desc: "Guides & API" },
-  { icon: HelpCircle, label: "FAQs", desc: "Quick answers" },
-  { icon: Phone, label: "Call Us", desc: "Talk to expert" },
-];
-
-function HeroSection({ searchQuery, setSearchQuery, quickLinks: ql }: { searchQuery: string; setSearchQuery: (v: string) => void; quickLinks: typeof quickLinks }) {
+function HeroSection({ searchQuery, setSearchQuery }: { searchQuery: string; setSearchQuery: (v: string) => void }) {
   const [focusedSearch, setFocusedSearch] = useState(false);
   const { t } = useTranslation();
 
@@ -201,29 +194,6 @@ function HeroSection({ searchQuery, setSearchQuery, quickLinks: ql }: { searchQu
             </button>
           ))}
         </motion.div>
-
-        {/* Quick Action Cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-2xl mx-auto"
-        >
-          {ql.map(({ icon: Icon, label, desc }, i) => (
-            <motion.button
-              key={label}
-              whileHover={{ y: -4 }}
-              whileTap={{ scale: 0.97 }}
-              className="group flex flex-col items-center gap-2 p-4 rounded-2xl bg-[#f8f9fa] dark:bg-white/[0.02] border border-black/[0.05] dark:border-white/[0.05] hover:border-[#4EB3E8]/20 hover:shadow-lg hover:shadow-[#4EB3E8]/[0.04] transition-all duration-300"
-            >
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#4EB3E8]/[0.06] border border-[#4EB3E8]/10 group-hover:bg-[#4EB3E8]/12 group-hover:border-[#4EB3E8]/25 transition-all duration-300">
-                <Icon className="w-5 h-5 text-[#4EB3E8]" strokeWidth={1.5} />
-              </div>
-              <span className="text-xs font-bold tracking-tight group-hover:text-[#4EB3E8] transition-colors duration-300">{label}</span>
-              <span className="text-[10px] text-black/35 dark:text-white/30 font-medium">{desc}</span>
-            </motion.button>
-          ))}
-        </motion.div>
       </div>
     </div>
   );
@@ -316,7 +286,6 @@ const priorityToInterest: Record<string, string> = {
 export default function SupportPage() {
   const [openFaq, setOpenFaq] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
-  const translatedQuickLinks = useTranslatedData(quickLinks);
   const translatedSupportChannels = useTranslatedData(supportChannels);
   const translatedSelfServiceOptions = useTranslatedData(selfServiceOptions);
   const translatedFaqs = useTranslatedData(faqs);
@@ -363,7 +332,7 @@ export default function SupportPage() {
     <section className="min-h-screen bg-white text-black dark:bg-black dark:text-white">
 
       {/* ═══════ HERO ═══════ */}
-      <HeroSection searchQuery={searchQuery} setSearchQuery={setSearchQuery} quickLinks={translatedQuickLinks} />
+      <HeroSection searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 
       {/* ═══════ SLA STATS ═══════ */}
       <div className="mx-auto max-w-7xl px-6 pb-16">

@@ -22,6 +22,7 @@ export const heroProps: IndustryHeroProps = {
 };
 
 export const introProps: IndustryIntroProps = {
+  accentColor: "#f97316",
   heading: "Elevating Travel Experiences",
   descriptionLeft: "We build travel booking platforms and hotel management systems that handle millions of bookings with AI-powered dynamic pricing, multi-supplier inventory aggregation, and seamless guest experiences from search to checkout.",
   descriptionRight: "Our hospitality solutions include property management systems, digital check-in with mobile keys, revenue management across OTA channels, and staff coordination tools. We help hotels and travel companies maximize revenue while delivering exceptional guest experiences.",
@@ -319,21 +320,22 @@ export const productShowcaseProps: ProductShowcaseProps = {
 export const ctaProps: IndustryCTAProps = {
   headingTop: "Have a Travel & Hospitality",
   headingBottom: "Project in Mind?",
-  description: "Let\u0027s discuss how we can build the right solution for your travel & hospitality needs.",
+  description: "Let's discuss how we can build the right solution for your travel & hospitality needs.",
+  accentColor: "#f97316",
 };
 
 export const projects: Project[] = [
   {
     id: "bookwise",
     tag: "Booking Platform",
-    tagColor: "bg-sky-500/15 text-sky-400 border-sky-500/30",
+    tagColor: "bg-[#f97316]/15 text-[#f97316] border-[#f97316]/30",
     company: "BookWise",
     industry: "Travel & Hospitality",
     headline: "AI-powered travel booking platform with dynamic pricing serving 1M+ bookings annually.",
     challenge: "Aggregating inventory from 200+ suppliers. Dynamic pricing in real-time. Handling peak load during holiday seasons.",
     solution: "Multi-source inventory aggregation with smart caching. ML-based dynamic pricing engine. Auto-scaling infrastructure handling 10x traffic spikes.",
     duration: "90 days",
-    accentColor: "#0ea5e9",
+    accentColor: "#f97316",
     metrics: [
       { value: 1, suffix: "M+", label: "Annual bookings" },
       { value: 200, suffix: "+", label: "Supplier integrations" },
@@ -349,14 +351,14 @@ export const projects: Project[] = [
   {
     id: "hotelops",
     tag: "Hotel Management",
-    tagColor: "bg-teal-500/15 text-teal-400 border-teal-500/30",
+    tagColor: "bg-[#f97316]/15 text-[#f97316] border-[#f97316]/30",
     company: "HotelOps",
     industry: "Travel & Hospitality",
     headline: "Smart hotel management system automating operations across 150+ properties.",
     challenge: "Manual check-in/check-out processes. Revenue management across multiple channels. Staff coordination across shifts.",
     solution: "Digital check-in with mobile keys. AI revenue management optimizing room pricing. Staff management with shift scheduling and task tracking.",
     duration: "70 days",
-    accentColor: "#14b8a6",
+    accentColor: "#f97316",
     metrics: [
       { value: 150, suffix: "+", label: "Properties managed" },
       { value: 20, suffix: "%", label: "Revenue increase" },

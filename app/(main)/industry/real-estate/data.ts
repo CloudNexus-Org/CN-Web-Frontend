@@ -18,10 +18,11 @@ export const heroProps: IndustryHeroProps = {
   subtitle: "Digitizing Property Experiences",
   description: "Personalized property buying & selling experiences with tech-smart tailored services including virtual tours, CRM integration, and property analytics.",
   heroImage: "/images/stock/stock-5ff1ee1b1e.jpg",
-  accentColor: "#06b6d4",
+  accentColor: "#10E760",
 };
 
 export const introProps: IndustryIntroProps = {
+  accentColor: "#10E760",
   heading: "Digitizing Real Estate",
   descriptionLeft: "We build property technology platforms that automate valuations, enable virtual tours, and streamline property management. Our AI-powered solutions help real estate companies list, manage, and transact properties faster and more efficiently.",
   descriptionRight: "Our PropTech solutions include AI-based property valuation engines, 360° virtual tour integrations, automated tenant screening, digital lease signing, and centralized maintenance management systems. We help property managers go fully digital with zero paperwork.",
@@ -52,7 +53,7 @@ export const servicesProps: IndustryServicesProps = {
     { icon: BarChart3, title: "Property Analytics", description: "Market analysis dashboards with pricing trends, neighborhood insights, and ROI projections." },
     { icon: Home, title: "Tenant Management", description: "Comprehensive tenant and lease management portals with payment automation." },
   ],
-  accentColor: "#06b6d4",
+  accentColor: "#10E760",
 };
 
 export const solutionsProps: IndustrySolutionsProps = {
@@ -79,7 +80,7 @@ export const solutionsProps: IndustrySolutionsProps = {
       features: ["Space planning", "Lease negotiation tools", "Occupancy analytics", "Asset valuation", "Portfolio management"],
     },
   ],
-  accentColor: "#06b6d4",
+  accentColor: "#10E760",
 };
 
 export const processProps: IndustryProcessProps = {
@@ -159,7 +160,7 @@ export const processProps: IndustryProcessProps = {
       ],
     },
   ],
-  accentColor: "#06b6d4",
+  accentColor: "#10E760",
 };
 export const whyChooseProps: IndustryWhyChooseProps = {
   heading: "Why Choose Us",
@@ -170,7 +171,7 @@ export const whyChooseProps: IndustryWhyChooseProps = {
     { icon: ShieldCheck, title: "Transaction Security", description: "Secure payment processing and document management for property transactions." },
     { icon: HeartHandshake, title: "Full-Cycle Support", description: "From listing to closing, we support the entire real estate journey digitally." },
   ],
-  accentColor: "#06b6d4",
+  accentColor: "#10E760",
 };
 
 export const techProps: IndustryTechProps = {
@@ -183,7 +184,7 @@ export const techProps: IndustryTechProps = {
     { icon: Database, title: "Big Data Insights", description: "Market trend analysis with predictive analytics for investment decisions." },
     { icon: Cpu, title: "IoT Smart Buildings", description: "Connected building systems for energy management and smart home integration." },
   ],
-  accentColor: "#06b6d4",
+  accentColor: "#10E760",
 };
 
 export const expertiseProps: ExpertiseAccordionProps = {
@@ -215,11 +216,11 @@ export const expertiseProps: ExpertiseAccordionProps = {
       description: "We build industry-specific CRM platforms with automated lead scoring, drip campaigns, and showing scheduling. Our systems integrate with MLS feeds, property portals, and marketing automation tools for end-to-end agent productivity."
     }
   ],
-  accentColor: "#06b6d4"
+  accentColor: "#10E760"
 };
 
 export const productShowcaseProps: ProductShowcaseProps = {
-  accentColor: "#06b6d4",
+  accentColor: "#10E760",
   heading: "Real Estate Products for Every Market Participant",
   subtitle: "From property portals and brokerage platforms to facility management and smart building solutions — we digitize the entire real estate lifecycle.",
   products: [
@@ -319,14 +320,15 @@ export const productShowcaseProps: ProductShowcaseProps = {
 export const ctaProps: IndustryCTAProps = {
   headingTop: "Have a Real Estate",
   headingBottom: "Project in Mind?",
-  description: "Let\u0027s discuss how we can build the right solution for your real estate needs.",
+  description: "Let's discuss how we can build the right solution for your real estate needs.",
+  accentColor: "#10E760",
 };
 
 export const projects: Project[] = [
   {
     id: "propview",
     tag: "PropTech Platform",
-    tagColor: "bg-amber-500/15 text-amber-400 border-amber-500/30",
+    tagColor: "bg-[#10E760]/15 text-[#10E760] border-[#10E760]/30",
     company: "PropView",
     industry: "Real Estate",
     headline: "AI-powered property listing platform with virtual tours and smart valuation.",
@@ -335,7 +337,7 @@ export const projects: Project[] = [
     solution:
       "Unified listing aggregation with AI-based property valuation. 360° virtual tour integration. Smart search with neighborhood analytics.",
     duration: "70 days",
-    accentColor: "#f59e0b",
+    accentColor: "#10E760",
     metrics: [
       { value: 45, suffix: "%", label: "Faster valuations" },
       { value: 25, suffix: "K+", label: "Listings managed" },
@@ -351,7 +353,7 @@ export const projects: Project[] = [
   {
     id: "rentease",
     tag: "Property Management",
-    tagColor: "bg-orange-500/15 text-orange-400 border-orange-500/30",
+    tagColor: "bg-[#10E760]/15 text-[#10E760] border-[#10E760]/30",
     company: "RentEase",
     industry: "Real Estate",
     headline: "Automated property management platform handling 15K+ rental units with zero paperwork.",
@@ -360,7 +362,7 @@ export const projects: Project[] = [
     solution:
       "Automated rent collection with ACH/card payments. Digital lease signing. AI-based tenant screening and maintenance ticketing system.",
     duration: "55 days",
-    accentColor: "#f97316",
+    accentColor: "#10E760",
     metrics: [
       { value: 15, suffix: "K+", label: "Units managed" },
       { value: 95, suffix: "%", label: "On-time rent" },

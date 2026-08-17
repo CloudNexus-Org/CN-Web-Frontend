@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 type SplashLoaderContentProps = {
@@ -20,9 +20,33 @@ export function SplashLoaderContent({
 }: SplashLoaderContentProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  const [shouldShowVideo, setShouldShowVideo] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    if (mode !== "video") return;
+
+    const hasSeenSplash = sessionStorage.getItem("hasSeenSplash");
+    if (hasSeenSplash) {
+      setShouldShowVideo(false);
+      if (onVideoEnd) {
+        onVideoEnd();
+      }
+    } else {
+      sessionStorage.setItem("hasSeenSplash", "true");
+      setShouldShowVideo(true);
+    }
+  }, [mode, onVideoEnd]);
+
+  const handleVideoEnd = () => {
+    sessionStorage.setItem("hasSeenSplash", "true");
+    if (onVideoEnd) {
+      onVideoEnd();
+    }
+  };
+
   useEffect(() => {
     const el = videoRef.current;
-    if (!el || mode !== "video") return;
+    if (!el || mode !== "video" || !shouldShowVideo) return;
 
     if (!active) {
       el.pause();
@@ -32,10 +56,12 @@ export function SplashLoaderContent({
     el.muted = true;
     el.playbackRate = 1.8;
     el.currentTime = 0;
-    void el.play().catch(() => {});
-  }, [active, mode]);
+    void el.play().catch(() => { });
+  }, [active, mode, shouldShowVideo]);
 
   if (mode === "video") {
+    if (shouldShowVideo === null || !shouldShowVideo) return null;
+
     return (
       <div
         className={cn(
@@ -54,7 +80,7 @@ export function SplashLoaderContent({
             disablePictureInPicture
             controlsList="nodownload noplaybackrate"
             aria-label="Cloud Nexus loading animation"
-            onEnded={onVideoEnd}
+            onEnded={handleVideoEnd}
           >
             <source src="/loader/cloud-nexus-splash.mp4" type="video/mp4" />
           </video>
@@ -84,4 +110,4 @@ export function SplashLoaderContent({
       ) : null}
     </div>
   );
-}
+}

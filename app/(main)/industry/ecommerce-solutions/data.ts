@@ -22,6 +22,7 @@ export const heroProps: IndustryHeroProps = {
 };
 
 export const introProps: IndustryIntroProps = {
+  accentColor: "#8b5cf6",
   heading: "Powering E-Commerce at Scale",
   descriptionLeft: "We design and build high-performance e-commerce platforms that drive conversions and revenue growth. From headless commerce architectures to AI-powered product recommendations, our solutions handle millions of transactions with sub-second response times.",
   descriptionRight: "Our e-commerce expertise spans multi-vendor marketplaces, payment gateway integrations, inventory management systems, and personalization engines. We leverage technologies like Next.js, Node.js, Redis, and TensorFlow to deliver seamless shopping experiences across all channels.",
@@ -284,14 +285,15 @@ export const productShowcaseProps: ProductShowcaseProps = {
 export const ctaProps: IndustryCTAProps = {
   headingTop: "Have a E-Commerce Solutions",
   headingBottom: "Project in Mind?",
-  description: "Let\u0027s discuss how we can build the right solution for your e-commerce solutions needs.",
+  description: "Let's discuss how we can build the right solution for your e-commerce solutions needs.",
+  accentColor: "#8b5cf6",
 };
 
 export const projects: Project[] = [
   {
     id: "cartflow-ecom",
     tag: "Headless Commerce",
-    tagColor: "bg-violet-500/15 text-violet-400 border-violet-500/30",
+    tagColor: "bg-[#8b5cf6]/15 text-[#8b5cf6] border-[#8b5cf6]/30",
     company: "CartFlow",
     industry: "E-Commerce",
     headline: "AI-powered headless commerce platform driving 38% increase in average order value.",
@@ -316,7 +318,7 @@ export const projects: Project[] = [
   {
     id: "shopnest-marketplace",
     tag: "Multi-Vendor Marketplace",
-    tagColor: "bg-purple-500/15 text-purple-400 border-purple-500/30",
+    tagColor: "bg-[#8b5cf6]/15 text-[#8b5cf6] border-[#8b5cf6]/30",
     company: "ShopNest",
     industry: "E-Commerce",
     headline: "Scalable multi-vendor marketplace supporting 10K+ sellers with real-time inventory.",
@@ -325,7 +327,7 @@ export const projects: Project[] = [
     solution:
       "Microservices-based marketplace with event-driven inventory management. Automated payment splitting with Stripe Connect and real-time order tracking.",
     duration: "75 days",
-    accentColor: "#a855f7",
+    accentColor: "#8b5cf6",
     metrics: [
       { value: 10, suffix: "K+", label: "Active sellers" },
       { value: 99.5, suffix: "%", label: "Order accuracy" },

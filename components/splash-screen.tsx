@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function SplashScreen() {
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -14,6 +14,20 @@ export function SplashScreen() {
   }, []);
 
   useEffect(() => {
+    // Check if splash screen has already been shown in this browser session
+    const hasSeenSplash = sessionStorage.getItem("hasSeenSplash");
+    if (hasSeenSplash) {
+      return;
+    }
+
+    // Mark splash screen as shown for this session
+    sessionStorage.setItem("hasSeenSplash", "true");
+    setShowSplash(true);
+  }, []);
+
+  useEffect(() => {
+    if (!showSplash) return;
+
     const fallbackTimer = setTimeout(() => {
       handleVideoEnd();
     }, 4000);
@@ -21,14 +35,16 @@ export function SplashScreen() {
     if (!videoRef.current) {
       return () => clearTimeout(fallbackTimer);
     }
-    
+
     videoRef.current.playbackRate = 2.5;
     videoRef.current.play().catch(() => {
       handleVideoEnd();
     });
 
     return () => clearTimeout(fallbackTimer);
-  }, [handleVideoEnd]);
+  }, [showSplash, handleVideoEnd]);
+
+  if (!showSplash) return null;
 
   return (
     <AnimatePresence>
@@ -53,3 +69,4 @@ export function SplashScreen() {
     </AnimatePresence>
   );
 }
+

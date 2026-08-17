@@ -22,6 +22,7 @@ export const heroProps: IndustryHeroProps = {
 };
 
 export const introProps: IndustryIntroProps = {
+  accentColor: "#3b82f6",
   heading: "Building Communities at Scale",
   descriptionLeft: "We create social and community platforms that support real-time messaging, content feeds, and video collaboration for millions of users. Our architectures are designed for low-latency communication, viral content handling, and end-to-end security.",
   descriptionRight: "From WebSocket-based messaging to WebRTC video conferencing, AI content moderation, and cross-platform apps (Web, Desktop, iOS, Android), we build the infrastructure that powers modern social experiences. Our platforms scale from startup to millions of concurrent users.",
@@ -319,14 +320,15 @@ export const productShowcaseProps: ProductShowcaseProps = {
 export const ctaProps: IndustryCTAProps = {
   headingTop: "Have a Social Networking",
   headingBottom: "Project in Mind?",
-  description: "Let\u0027s discuss how we can build the right solution for your social networking needs.",
+  description: "Let's discuss how we can build the right solution for your social networking needs.",
+  accentColor: "#3b82f6",
 };
 
 export const projects: Project[] = [
   {
     id: "connecthub",
     tag: "Community Platform",
-    tagColor: "bg-pink-500/15 text-pink-400 border-pink-500/30",
+    tagColor: "bg-[#3b82f6]/15 text-[#3b82f6] border-[#3b82f6]/30",
     company: "ConnectHub",
     industry: "Social Networking",
     headline: "Community platform scaling to 500K users with real-time messaging and content feeds.",
@@ -335,7 +337,7 @@ export const projects: Project[] = [
     solution:
       "WebSocket-based real-time messaging with Redis pub/sub. AI content moderation pipeline. Auto-scaling infrastructure on AWS with CDN distribution.",
     duration: "75 days",
-    accentColor: "#ec4899",
+    accentColor: "#3b82f6",
     metrics: [
       { value: 500, suffix: "K", label: "Active users" },
       { value: 15, suffix: "ms", label: "Message latency" },
@@ -351,7 +353,7 @@ export const projects: Project[] = [
   {
     id: "teamspace",
     tag: "Collaboration Tool",
-    tagColor: "bg-rose-500/15 text-rose-400 border-rose-500/30",
+    tagColor: "bg-[#3b82f6]/15 text-[#3b82f6] border-[#3b82f6]/30",
     company: "TeamSpace",
     industry: "Social Networking",
     headline: "Enterprise collaboration platform with video calls, channels, and file sharing for 50K+ teams.",
@@ -360,7 +362,7 @@ export const projects: Project[] = [
     solution:
       "WebRTC-based video with selective forwarding unit. E2E encrypted messaging. Electron desktop app + React Native mobile apps.",
     duration: "100 days",
-    accentColor: "#f43f5e",
+    accentColor: "#3b82f6",
     metrics: [
       { value: 50, suffix: "K+", label: "Teams onboarded" },
       { value: 100, suffix: "%", label: "E2E encrypted" },

@@ -22,6 +22,7 @@ export const heroProps: IndustryHeroProps = {
 };
 
 export const introProps: IndustryIntroProps = {
+  accentColor: "#4EB3E8",
   heading: "Securing Financial Futures",
   descriptionLeft: "We develop fintech solutions with bank-grade security, AI-powered fraud detection, and automated claims processing. Our platforms handle sensitive financial data with PCI-DSS compliance, biometric authentication, and end-to-end encryption.",
   descriptionRight: "From AI-driven spending analysis and anomaly detection to OCR-powered document processing and automated insurance workflows, we help financial institutions modernize operations, reduce risk, and serve customers faster.",
@@ -319,14 +320,15 @@ export const productShowcaseProps: ProductShowcaseProps = {
 export const ctaProps: IndustryCTAProps = {
   headingTop: "Have a Banking, Finance & Insurance",
   headingBottom: "Project in Mind?",
-  description: "Let\u0027s discuss how we can build the right solution for your banking, finance & insurance needs.",
+  description: "Let's discuss how we can build the right solution for your banking, finance & insurance needs.",
+  accentColor: "#4EB3E8",
 };
 
 export const projects: Project[] = [
   {
     id: "finsmart",
     tag: "AI-Powered Finance",
-    tagColor: "bg-[#4EB3E8]/15 text-[#4a7db8] border-[#4EB3E8]/30",
+    tagColor: "bg-[#4EB3E8]/15 text-[#4EB3E8] border-[#4EB3E8]/30",
     company: "FinSmart",
     industry: "Banking & Finance",
     headline: "AI-powered financial management app with fraud detection and smart budgeting.",
@@ -349,14 +351,14 @@ export const projects: Project[] = [
   {
     id: "claimfast",
     tag: "InsurTech",
-    tagColor: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
+    tagColor: "bg-[#4EB3E8]/15 text-[#4EB3E8] border-[#4EB3E8]/30",
     company: "ClaimFast",
     industry: "Insurance",
     headline: "Automated insurance claims processing reducing settlement time from 30 days to 48 hours.",
     challenge: "Manual claims processing causing month-long delays. Document verification bottlenecks. Fraudulent claims costing millions.",
     solution: "AI-powered document extraction with OCR. Automated fraud scoring with ML. Digital-first claims journey with real-time status tracking.",
     duration: "65 days",
-    accentColor: "#10b981",
+    accentColor: "#4EB3E8",
     metrics: [
       { value: 97, suffix: "%", label: "Processing automated" },
       { value: 48, suffix: " hrs", label: "Avg settlement" },

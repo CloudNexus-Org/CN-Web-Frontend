@@ -43,8 +43,6 @@ import { Marquee } from "@/components/ui/marquee";
  * middle & right = full-height portraits  -  URLs in `cultureHeroGallery`.
  * ═══════ */
 
-type YearKey = "2026" | "2025";
-
 type CultureEvent = {
   id: string;
   title: string;
@@ -52,18 +50,15 @@ type CultureEvent = {
   collageSrcs: [string, string, string, string, string];
 };
 
-const YEARS: YearKey[] = ["2026", "2025"];
-
 const MOMENTS_PAGE_SIZE = 3;
 
 const emptyCollage = (): [string, string, string, string, string] => ["", "", "", "", ""];
 
-const eventsByYear: Record<YearKey, CultureEvent[]> = {
-  "2026": [
+const cultureEvents: CultureEvent[] = [
 //pool party images
           {
       id: "26-poolParty",
-      title: "Pool Party 2026",
+      title: "Pool Party",
       excerpt:
         "Dive into fun and make unforgettable memories at our Pool Party. Enjoy a refreshing atmosphere, great music, delicious food, and exciting moments with friends and family. Whether you're relaxing by the pool or joining the celebrations, it's the perfect way to unwind and have a splash of joy.",
       collageSrcs: [
@@ -77,7 +72,7 @@ const eventsByYear: Record<YearKey, CultureEvent[]> = {
 
         {
       id: "26-plantation-drive",
-      title: "Plantation Drive 2026",
+      title: "Plantation Drive",
       excerpt:
         "We believe in nurturing nature alongside our community. Our plantation initiatives are dedicated to creating a greener and healthier environment through sustainable practices and responsible stewardship. Every tree we plant represents our commitment to environmental conservation, biodiversity, and a better future for generations to come.",
       collageSrcs: [
@@ -90,7 +85,7 @@ const eventsByYear: Record<YearKey, CultureEvent[]> = {
     },
     {
       id: "26-cricket",
-      title: "Cricket League CCL'26",
+      title: "Cricket League CCL",
       excerpt:
         "Season two of Cloud Nexus cricket  -  bigger teams, louder cheers, and sixes that echoed across the ground. When the stumps fell, the only thing standing was team spirit.",
       collageSrcs: [
@@ -116,7 +111,7 @@ const eventsByYear: Record<YearKey, CultureEvent[]> = {
     },
     {
       id: "26-hyderabad",
-      title: "Hyderabad Team Trip 2026",
+      title: "Hyderabad Team Trip",
       excerpt:
         "The whole crew hit Hyderabad  -  biryani runs, late-night talks, sightseeing adventures, and the kind of bonding that no Zoom call can replicate. Work hard, travel harder.",
       collageSrcs: [
@@ -129,7 +124,7 @@ const eventsByYear: Record<YearKey, CultureEvent[]> = {
     },
     {
       id: "26-independence-day",
-      title: "Independence Day 2026",
+      title: "Independence Day",
       excerpt:
         "Tricolour pride, patriotic vibes, and the Cloud Nexus team coming together to celebrate the spirit of freedom. A day of unity, gratitude, and national pride.",
       collageSrcs: [
@@ -140,75 +135,7 @@ const eventsByYear: Record<YearKey, CultureEvent[]> = {
         "/images/indipendent-day2026/image-33.jpeg",
       ],
     },
-  ],
-  "2025": [
-    {
-      id: "25-christmas",
-      title: "Merry Christmas 2025",
-      excerpt:
-        "Santa hats, secret gifts, and the whole Cloud Nexus crew spreading holiday cheer. Our first Christmas celebration  -  carols, cake, and memories that warmed up the entire office.",
-      collageSrcs: [
-        "/images/merry-christmas/image-27.jpeg",
-        "/images/merry-christmas/image-28.jpeg",
-        "/images/merry-christmas/image-29.jpeg",
-        "/images/merry-christmas/image-30.jpeg",
-        "/images/merry-christmas/image-31.jpeg",
-      ],
-    },
-    {
-      id: "25-diwali",
-      title: "Diwali Celebration 2025",
-      excerpt:
-        "Our first Diwali as a company  -  tambola cheers, traditional outfits, rangoli, and that unmistakable Cloud Nexus buzz when everyone forgets their titles and celebrates as one crew.",
-      collageSrcs: [
-        "/images/diwali-2025/IMG-20251018-WA0160.jpg",
-        "/images/diwali-2025/IMG_3573.jpg",
-        "/images/diwali-2025/IMG_3583.jpg",
-        "/images/diwali-2025/IMG_3480.jpg",
-        "/images/diwali-2025/IMG_3467.jpg",
-      ],
-    },
-    {
-      id: "25-hackathon",
-      title: "Hackathon 2025",
-      excerpt:
-        "Our first-ever hackathon  -  48 hours of non-stop coding, wild ideas, midnight pizza, and prototypes that proved Cloud Nexus engineers don't just build products, they dream them into existence.",
-      collageSrcs: [
-        "/images/hackthon-2025/image-21.jpeg",
-        "/images/hackthon-2025/image-18.jpeg",
-        "/images/hackthon-2025/image-19.jpeg",
-        "/images/hackthon-2025/image-20.jpeg",
-        "/images/hackthon-2025/image-21.jpeg",
-      ],
-    },
-    {
-      id: "25-founding",
-      title: "Cloud Nexus is Born  -  Jan 2025",
-      excerpt:
-        "The day it all began. A small room, a whiteboard full of ambition, and a founding team that believed technology should solve real problems. Cloud Nexus officially launched on 19th January 2025.",
-      collageSrcs: [
-        "/images/inauguration-2025/image.jpeg",
-        "/images/inauguration-2025/image-1.jpeg",
-        "/images/inauguration-2025/image-2.jpeg",
-        "/images/inauguration-2025/image-3.jpeg",
-        "/images/inauguration-2025/image-4.jpeg",
-      ],
-    },
-    {
-      id: "25-kitchen-staff",
-      title: "Our Kitchen Staff",
-      excerpt:
-        "Behind every delicious meal is a team of passionate and dedicated professionals. Our kitchen staff is committed to maintaining the highest standards of quality, hygiene, and taste. With care, creativity, and attention to detail, they work tirelessly to ensure that every dish served is fresh, flavorful, and memorable.",
-      collageSrcs: [
-        "/images/staff/group.png",
-        "/images/staff/group2.png",
-        "/images/staff/staff.png",
-        "/images/staff/group3.png",
-        "/images/staff/group1.png",
-      ],
-    },
-  ],
-};
+];
 
 const purposeValues = [
   {
@@ -517,13 +444,12 @@ function CultureHeroGallery() {
 
 export default function LifeAtCloudNexusPage() {
   const { t } = useTranslation();
-  const translatedEventsByYear = useTranslatedData(eventsByYear);
+  const translatedCultureEvents = useTranslatedData(cultureEvents);
   const translatedPurposeValues = useTranslatedData(purposeValues);
   const translatedDiversityAtCloudNexus = useTranslatedData(diversityAtCloudNexus);
   const translatedJoinPerks = useTranslatedData(joinPerks);
   const translatedEverydayPerks = useTranslatedData(everydayPerks);
 
-  const [year, setYear] = useState<YearKey>("2026");
   const [momentPage, setMomentPage] = useState(0);
   const [purposeIndex, setPurposeIndex] = useState(0);
   const [gallery, setGallery] = useState<{ title: string; photos: string[] } | null>(null);
@@ -549,15 +475,14 @@ export default function LifeAtCloudNexusPage() {
     return () => window.removeEventListener("keydown", onKey);
   }, [gallery, closeGallery]);
 
-  const yearEvents = translatedEventsByYear[year];
-  const momentPageCount = Math.max(1, Math.ceil(yearEvents.length / MOMENTS_PAGE_SIZE));
+  const momentPageCount = Math.max(1, Math.ceil(translatedCultureEvents.length / MOMENTS_PAGE_SIZE));
 
   useEffect(() => {
     setMomentPage((p) => Math.min(p, momentPageCount - 1));
-  }, [year, momentPageCount]);
+  }, [momentPageCount]);
 
   const momentPageSafe = Math.min(momentPage, momentPageCount - 1);
-  const pagedEvents = yearEvents.slice(
+  const pagedEvents = translatedCultureEvents.slice(
     momentPageSafe * MOMENTS_PAGE_SIZE,
     momentPageSafe * MOMENTS_PAGE_SIZE + MOMENTS_PAGE_SIZE
   );
@@ -640,7 +565,7 @@ export default function LifeAtCloudNexusPage() {
       <div className="relative w-full bg-white px-6 pt-16 pb-20 md:px-8 md:pt-20 md:pb-24 dark:bg-zinc-950">
         <div className="mx-auto max-w-7xl">
           {/* Header row */}
-          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 lg:gap-12 mb-10">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-12 mb-10">
             <div>
               <motion.h2
                 initial={{ opacity: 0, y: 12 }}
@@ -658,45 +583,17 @@ export default function LifeAtCloudNexusPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: 0.08 }}
-              className="max-w-md text-[15px] font-medium leading-relaxed text-black/50 dark:text-white/45 lg:pt-12"
+              className="max-w-md text-[15px] font-medium leading-relaxed text-black/50 dark:text-white/45"
             >
               {t("life.moments.description", "Laughter and joyful chatter echoed with the melody of music. See how we're building success together, one team, one dream at Cloud Nexus.")}
             </motion.p>
-          </div>
-
-          {/* Year tabs */}
-          <div className="flex flex-wrap gap-2 mb-10">
-            {YEARS.map((y) => {
-              const active = year === y;
-              return (
-                <button
-                  key={y}
-                  type="button"
-                  onClick={() => { setYear(y); setMomentPage(0); }}
-                  className={`relative rounded-full px-6 py-2.5 text-sm font-bold transition-all duration-300 ${
-                    active
-                      ? "text-white shadow-lg"
-                      : "border border-black/[0.08] dark:border-white/[0.08] bg-white dark:bg-white/[0.03] text-black/50 dark:text-white/40 hover:text-black dark:hover:text-white hover:border-[#4EB3E8]/30"
-                  }`}
-                >
-                  <span className="relative z-10">{y}</span>
-                  {active && (
-                    <motion.span
-                      layoutId="year-pill"
-                      className="absolute inset-0 rounded-full bg-[#4EB3E8] shadow-[0_4px_20px_rgba(78,179,232,0.35)]"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
-                  )}
-                </button>
-              );
-            })}
           </div>
 
           {/* Event cards with mosaic */}
           <div className="min-h-[200px]">
             <AnimatePresence mode="wait">
               <motion.div
-                key={`${year}-${momentPageSafe}`}
+                key={momentPageSafe}
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
@@ -730,9 +627,6 @@ export default function LifeAtCloudNexusPage() {
                                 </div>
                               ))}
                             </div>
-                          </div>
-                          <div className="absolute top-3 right-3 z-10">
-                            <span className="text-[9px] font-black tracking-widest px-2.5 py-1 rounded-md bg-black/50 text-white shadow-lg backdrop-blur-md">{year}</span>
                           </div>
                         </div>
                       );
@@ -798,11 +692,8 @@ export default function LifeAtCloudNexusPage() {
       </div>
 
       {/* Driven by Purpose  -  premium interactive cards */}
-      <div className="relative w-full overflow-hidden text-white">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(165deg,#07040f_0%,#1a0a28_28%,#12081c_55%,#08051a_100%)]" />
-        <div aria-hidden className="pointer-events-none absolute inset-0 opacity-90 mix-blend-screen" style={{ backgroundImage: "radial-gradient(ellipse 90% 70% at 10% -10%, rgba(192,38,211,0.45), transparent 52%), radial-gradient(ellipse 80% 60% at 95% 15%, rgba(236,72,153,0.28), transparent 48%), radial-gradient(ellipse 70% 50% at 50% 100%, rgba(78,179,232,0.18), transparent 55%), radial-gradient(ellipse 50% 40% at 70% 60%, rgba(88,28,135,0.35), transparent 50%)" }} />
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_85%_65%_at_50%_50%,transparent_0%,rgba(0,0,0,0.35)_100%)]" />
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_0%,rgba(78,179,232,0.12),transparent_70%)]" />
+      <div className="relative w-full overflow-hidden bg-white text-black dark:bg-zinc-950 dark:text-white border-y border-black/[0.06] dark:border-white/[0.06]">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(78,179,232,0.08),transparent_70%)] dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(78,179,232,0.12),transparent_70%)]" />
 
         <div className="relative mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20 md:px-10 md:py-24">
           <motion.h2
@@ -820,7 +711,7 @@ export default function LifeAtCloudNexusPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.08 }}
-            className="mx-auto mt-4 max-w-xl text-center text-[15px] font-medium leading-relaxed text-white/50"
+            className="mx-auto mt-4 max-w-xl text-center text-[15px] font-medium leading-relaxed text-black/50 dark:text-white/50"
           >
             {t("life.purpose.description", "The five pillars that guide everything we build, ship, and stand for.")}
           </motion.p>
@@ -841,18 +732,18 @@ export default function LifeAtCloudNexusPage() {
                   whileTap={{ scale: 0.97 }}
                   className={`relative flex flex-col items-center gap-3 rounded-2xl border p-5 sm:p-6 transition-all duration-300 backdrop-blur-sm ${
                     active
-                      ? "border-white/20 bg-white/[0.08] shadow-[0_0_40px_rgba(78,179,232,0.2)]"
-                      : "border-white/[0.06] bg-white/[0.03] hover:border-white/15 hover:bg-white/[0.06]"
+                      ? "border-black/10 dark:border-white/20 bg-white dark:bg-white/[0.08] shadow-lg dark:shadow-[0_0_40px_rgba(78,179,232,0.2)]"
+                      : "border-black/[0.06] dark:border-white/[0.06] bg-[#f8f9fa] dark:bg-white/[0.03] hover:border-black/15 dark:hover:border-white/15 hover:bg-white dark:hover:bg-white/[0.06]"
                   }`}
                 >
                   {active && <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl" style={{ background: `linear-gradient(90deg, transparent, ${c}, transparent)` }} />}
                   <div
-                    className={`flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 ${active ? "scale-110" : ""}`}
-                    style={{ backgroundColor: active ? `${c}20` : "rgba(255,255,255,0.05)" }}
+                    className={`flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 ${active ? "scale-110" : "bg-black/[0.04] dark:bg-white/[0.05]"}`}
+                    style={{ backgroundColor: active ? `${c}20` : undefined }}
                   >
-                    <ValIcon className="h-5 w-5 transition-colors duration-300" style={{ color: active ? c : "rgba(255,255,255,0.5)" }} strokeWidth={1.5} />
+                    <ValIcon className="h-5 w-5 transition-colors duration-300 text-black/50 dark:text-white/50" style={{ color: active ? c : undefined }} strokeWidth={1.5} />
                   </div>
-                  <span className={`text-xs font-bold tracking-wide transition-colors duration-300 ${active ? "text-white" : "text-white/45"}`}>
+                  <span className={`text-xs font-bold tracking-wide transition-colors duration-300 ${active ? "text-black dark:text-white" : "text-black/50 dark:text-white/45"}`}>
                     {v.title}
                   </span>
                   {active && (
@@ -880,20 +771,20 @@ export default function LifeAtCloudNexusPage() {
                 const colors = ["#4EB3E8", "#a78bfa", "#f59e0b", "#10b981", "#ec4899"];
                 const activeColor = colors[purposeIndex % colors.length];
                 return (
-                  <div className="mx-auto max-w-3xl rounded-2xl border border-white/[0.08] bg-white/[0.04] p-8 sm:p-10 md:p-12 backdrop-blur-sm">
+                  <div className="mx-auto max-w-3xl rounded-2xl border border-black/[0.08] dark:border-white/[0.08] bg-[#f8f9fa] dark:bg-white/[0.04] p-8 sm:p-10 md:p-12 backdrop-blur-sm shadow-sm dark:shadow-none">
                     <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start sm:gap-8">
                       <motion.div
                         initial={{ scale: 0.85, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ type: "spring", stiffness: 380, damping: 22 }}
-                        className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-white/10 sm:h-20 sm:w-20"
+                        className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-black/10 dark:border-white/10 sm:h-20 sm:w-20"
                         style={{ backgroundColor: `${activeColor}15`, boxShadow: `0 0 50px ${activeColor}25` }}
                       >
                         <PurposeIcon className="h-8 w-8 sm:h-9 sm:w-9" style={{ color: activeColor }} strokeWidth={1.2} />
                       </motion.div>
                       <div className="text-center sm:text-left">
                         <h3 className="text-xl font-bold tracking-tight sm:text-2xl">{translatedPurposeValues[purposeIndex].title}</h3>
-                        <p className="mt-3 text-[14px] font-normal leading-[1.75] text-white/70 sm:text-[15px]">
+                        <p className="mt-3 text-[14px] font-normal leading-[1.75] text-black/70 dark:text-white/70 sm:text-[15px]">
                           {translatedPurposeValues[purposeIndex].description}
                         </p>
                       </div>
@@ -907,9 +798,9 @@ export default function LifeAtCloudNexusPage() {
                           type="button"
                           onClick={() => setPurposeIndex(i)}
                           className={`h-1 rounded-full transition-all duration-500 ${
-                            i === purposeIndex ? "flex-[3] opacity-100" : "flex-1 opacity-30 hover:opacity-60"
+                            i === purposeIndex ? "flex-[3] opacity-100" : "flex-1 opacity-30 hover:opacity-60 bg-black/30 dark:bg-white/40"
                           }`}
-                          style={{ backgroundColor: i === purposeIndex ? activeColor : "rgba(255,255,255,0.4)" }}
+                          style={{ backgroundColor: i === purposeIndex ? activeColor : undefined }}
                         />
                       ))}
                     </div>

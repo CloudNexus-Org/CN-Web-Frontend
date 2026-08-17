@@ -18,26 +18,27 @@ export const heroProps: IndustryHeroProps = {
   subtitle: "Creating Digital Experiences",
   description: "Streaming platforms, content management systems, and digital media distribution solutions with DRM protection, analytics, and global content delivery.",
   heroImage: "/images/stock/stock-fa7d8a7ee1.jpg",
-  accentColor: "#dc2626",
+  accentColor: "#E50914",
 };
 
 export const introProps: IndustryIntroProps = {
+  accentColor: "#E50914",
   heading: "Streaming & Content Innovation",
   descriptionLeft: "We build OTT streaming platforms, podcast hosting solutions, and content management systems that deliver media to millions of users worldwide. Our architectures handle adaptive bitrate streaming, DRM protection, and real-time viewer analytics at scale.",
   descriptionRight: "From multi-CDN delivery strategies and Widevine/FairPlay DRM integration to AI-powered content recommendations and sponsorship marketplaces, we help media companies monetize content and engage audiences across every screen.",
   highlights: [
-      {
-          "value": "2M+",
-          "label": "Concurrent viewers"
-      },
-      {
-          "value": "5000+",
-          "label": "Content creators"
-      },
-      {
-          "value": "99.5%",
-          "label": "Stream uptime"
-      }
+    {
+      "value": "2M+",
+      "label": "Concurrent viewers"
+    },
+    {
+      "value": "5000+",
+      "label": "Content creators"
+    },
+    {
+      "value": "99.5%",
+      "label": "Stream uptime"
+    }
   ],
 };
 
@@ -319,21 +320,22 @@ export const productShowcaseProps: ProductShowcaseProps = {
 export const ctaProps: IndustryCTAProps = {
   headingTop: "Have a Media & Entertainment",
   headingBottom: "Project in Mind?",
-  description: "Let\u0027s discuss how we can build the right solution for your media & entertainment needs.",
+  description: "Let's discuss how we can build the right solution for your media & entertainment needs.",
+  accentColor: "#dc2626",
 };
 
 export const projects: Project[] = [
   {
     id: "streamvault",
     tag: "OTT Platform",
-    tagColor: "bg-fuchsia-500/15 text-fuchsia-400 border-fuchsia-500/30",
+    tagColor: "bg-[#dc2626]/15 text-[#dc2626] border-[#dc2626]/30",
     company: "StreamVault",
     industry: "Media & Entertainment",
     headline: "OTT streaming platform with adaptive bitrate serving 2M+ concurrent viewers.",
     challenge: "Buffering issues during peak viewership. Content delivery across geographies. DRM protection for premium content.",
     solution: "ABR streaming with multi-CDN strategy. AI-driven content recommendations. Widevine/FairPlay DRM integration. Real-time viewer analytics.",
     duration: "100 days",
-    accentColor: "#d946ef",
+    accentColor: "#dc2626",
     metrics: [
       { value: 2, suffix: "M+", label: "Concurrent viewers" },
       { value: 99.5, suffix: "%", label: "Stream uptime" },
@@ -349,14 +351,14 @@ export const projects: Project[] = [
   {
     id: "podcastpro",
     tag: "Audio Platform",
-    tagColor: "bg-violet-500/15 text-violet-400 border-violet-500/30",
+    tagColor: "bg-[#dc2626]/15 text-[#dc2626] border-[#dc2626]/30",
     company: "PodcastPro",
     industry: "Media & Entertainment",
     headline: "Podcast hosting and analytics platform used by 5000+ creators with AI transcription.",
     challenge: "No affordable hosting with detailed analytics. Manual transcription processes. Monetization tools for independent creators.",
     solution: "Scalable audio hosting with per-episode analytics. AI-powered transcription and chapter markers. Built-in sponsorship marketplace for creators.",
     duration: "60 days",
-    accentColor: "#8b5cf6",
+    accentColor: "#dc2626",
     metrics: [
       { value: 5000, suffix: "+", label: "Creators" },
       { value: 98, suffix: "%", label: "Transcription accuracy" },

@@ -22,6 +22,7 @@ export const heroProps: IndustryHeroProps = {
 };
 
 export const introProps: IndustryIntroProps = {
+  accentColor: "#6366f1",
   heading: "Financial Technology at Scale",
   descriptionLeft: "We build payment infrastructure and investment platforms that process billions in transactions with 99.99% uptime. From multi-acquirer payment gateways to robo-advisory platforms with AI portfolio optimization, our fintech solutions are built for security, compliance, and performance.",
   descriptionRight: "Our expertise includes PCI-DSS Level 1 certified payment systems, smart routing with fallback logic, AI-driven portfolio rebalancing, automated tax-loss harvesting, and multi-jurisdiction regulatory compliance engines that serve global financial markets.",
@@ -319,14 +320,15 @@ export const productShowcaseProps: ProductShowcaseProps = {
 export const ctaProps: IndustryCTAProps = {
   headingTop: "Have a Fintech",
   headingBottom: "Project in Mind?",
-  description: "Let\u0027s discuss how we can build the right solution for your fintech needs.",
+  description: "Let's discuss how we can build the right solution for your fintech needs.",
+  accentColor: "#6366f1",
 };
 
 export const projects: Project[] = [
   {
     id: "paybridge",
     tag: "Payment Gateway",
-    tagColor: "bg-indigo-500/15 text-indigo-400 border-indigo-500/30",
+    tagColor: "bg-[#6366f1]/15 text-[#6366f1] border-[#6366f1]/30",
     company: "PayBridge",
     industry: "Fintech",
     headline: "Unified payment gateway processing $500M+ annually with 99.99% uptime.",
@@ -349,14 +351,14 @@ export const projects: Project[] = [
   {
     id: "wealthwise",
     tag: "Investment Platform",
-    tagColor: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
+    tagColor: "bg-[#6366f1]/15 text-[#6366f1] border-[#6366f1]/30",
     company: "WealthWise",
     industry: "Fintech",
     headline: "Robo-advisory investment platform managing $200M+ AUM with AI portfolio optimization.",
     challenge: "Automated portfolio rebalancing at scale. Regulatory compliance across jurisdictions. Tax-loss harvesting complexity.",
     solution: "AI-driven portfolio allocation with risk profiling. Automated tax-loss harvesting. Multi-jurisdiction regulatory compliance engine.",
     duration: "90 days",
-    accentColor: "#10b981",
+    accentColor: "#6366f1",
     metrics: [
       { value: 200, suffix: "M+", label: "AUM ($)" },
       { value: 12, suffix: "%", label: "Avg annual return" },

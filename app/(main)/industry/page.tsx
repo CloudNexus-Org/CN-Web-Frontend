@@ -131,7 +131,7 @@ const industries: Industry[] = [
       "Property valuation analytics",
       "Tenant management portals",
     ],
-    accentColor: "#06b6d4",
+    accentColor: "#10E760",
     image: "/images/stock/stock-5ff1ee1b1e.jpg",
     services: ["Listing Portals", "Virtual Tours", "Property CRM", "Management Apps"],
   },

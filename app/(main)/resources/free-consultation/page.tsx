@@ -12,7 +12,7 @@ import {
 import { useTranslatedData } from "@/lib/i18n/translate-data";
 import { useTranslation } from "@/lib/i18n/context";
 
-const CALENDLY_URL = "https://calendly.com/pushprajgurjar358/30min";
+const CALENDLY_URL = "https://calendly.com/ritika-pankar-cloudnexus/30min";
 
 // function CalendlyEmbed() {
 //   const containerRef = useRef<HTMLDivElement>(null);

@@ -194,7 +194,12 @@ export function CaseStudiesSection({
                   <div className="relative">
                     <div className="flex flex-wrap items-center gap-2 mb-8">
                       <Badge
-                        className={`text-[11px] font-medium px-2.5 py-0.5 rounded-md border ${study.tagColor}`}
+                        className={`text-[11px] font-medium px-2.5 py-0.5 rounded-md border ${study.tagColor || ""}`}
+                        style={{
+                          backgroundColor: `${study.accentColor}15`,
+                          color: study.accentColor,
+                          borderColor: `${study.accentColor}30`,
+                        }}
                       >
                         {study.tag}
                       </Badge>

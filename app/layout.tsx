@@ -33,6 +33,11 @@ export const metadata: Metadata = {
   creator: "Cloud Nexus Technologies",
   publisher: "Cloud Nexus Technologies",
   metadataBase: new URL("https://cloudnexus.in"),
+  icons: {
+    icon: "/asset/cn-logo.png",
+    shortcut: "/asset/cn-logo.png",
+    apple: "/asset/cn-logo.png",
+  },
   alternates: {
     canonical: "/",
   },
