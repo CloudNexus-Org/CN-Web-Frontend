@@ -69,7 +69,7 @@ const officesData = [
       "Cafeteria and recreational zones for team wellbeing",
     ],
     stats: [
-      { value: 90, suffix: "+", label: "Team Members" },
+      { value: 200, suffix: "+", label: "Team Members" },
       { value: 5000, suffix: " sq ft", label: "Office Space" },
       { value: 24, suffix: "/7", label: "Operations" },
     ],
@@ -535,7 +535,7 @@ export default function InfrastructurePage() {
               </Link>
             </div>
             <p className="mt-6 text-xs text-black/30 dark:text-white/25">
-              work@cloudnexus.in &middot; +91 87938 30447
+              work@cloudnexus.in &middot; +91 9201004208
             </p>
           </div>
         </motion.div>

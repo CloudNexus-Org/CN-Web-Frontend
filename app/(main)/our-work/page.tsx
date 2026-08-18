@@ -311,24 +311,23 @@ export default function OurWorkPage() {
                   ))}
                 </div>
 
-                <div
-                  className="mt-auto p-4 rounded-xl border transition-all duration-500"
+                <a
+                  href={`https://wa.me/918793830447?text=${encodeURIComponent(
+                    "Hi CloudNexus! I'm interested in starting a conversation about a discovery call."
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto p-4 rounded-xl border transition-all duration-500 block group cursor-pointer hover:opacity-90"
                   style={{ borderColor: `${study.accentColor}30`, background: `${study.accentColor}08` }}
                 >
                   <p className="text-[12px] text-muted-foreground leading-relaxed font-medium mb-3">
                     {t("ourWork.discoveryCall", "Every engagement starts with a no-commitment discovery call.")}
                   </p>
-                  {/* <button className="inline-flex items-center gap-1 text-[12px] font-semibold text-foreground hover:gap-2 transition-all duration-200">
-                    {t("ourWork.startConversation", "Start a conversation")} <ChevronRight className="w-3.5 h-3.5" />
-                  </button> */}
-                   <button
-  onClick={() => window.location.assign("/resources/contact")}
-  className="inline-flex items-center gap-1 text-[12px] font-semibold text-foreground hover:gap-2 transition-all duration-200"
->
-  {t("ourWork.startConversation", "Start a conversation")}
-  <ChevronRight className="w-3.5 h-3.5" />
-</button>
-                </div>
+                  <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-foreground group-hover:gap-2 transition-all duration-200">
+                    {t("ourWork.startConversation", "Start a conversation")}
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </span>
+                </a>
               </div>
             </div>
           </Card>

@@ -257,9 +257,9 @@ export function IndustryWhyChooseSection({
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           {[
-            { value: 350, suffix: "+", label: "Projects Delivered" },
+            { value: 100, suffix: "+", label: "Projects Delivered" },
             { value: 98, suffix: "%", label: "Client Retention" },
-            { value: 90, suffix: "+", label: "Expert Engineers" },
+            { value: 200, suffix: "+", label: "Expert Engineers" },
             { value: 15, suffix: "+", label: "Industries Served" },
           ].map((stat, i) => (
             <div

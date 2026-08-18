@@ -84,7 +84,7 @@ export function Footer() {
 
       {/* Large Background Text Effect */}
       <div className="absolute inset-x-0 top-0 z-0 flex justify-center pointer-events-none select-none overflow-hidden">
-        <span className="text-[18vw] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-black/[0.03] dark:from-white/[0.08] to-transparent leading-none whitespace-nowrap translate-y-[-15%]">
+        <span className="text-[18vw] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-black/[0.08] dark:from-white/[0.06] to-transparent leading-none whitespace-nowrap translate-y-[-15%]">
           Cloud Nexus
         </span>
       </div>
@@ -136,7 +136,7 @@ export function Footer() {
             <div>
               <span className="font-medium text-black dark:text-white">{t("footer.office.hyd", "Hyderabad")}</span>
               <p>{t("footer.office.hydAddr", "Hitech City, Hyderabad, Telangana, India")}</p>
-              <p className="flex items-center gap-1 mt-1"><Phone className="w-3 h-3" />+91 87938 30447</p>
+              <p className="flex items-center gap-1 mt-1"><Phone className="w-3 h-3" />+91 9201004208</p>
             </div>
           </div>
           <div className="flex gap-2 text-[13px] text-neutral-500 dark:text-neutral-400">
@@ -144,7 +144,7 @@ export function Footer() {
             <div>
               <span className="font-medium text-black dark:text-white">{t("footer.office.bpl", "Bhopal")}</span>
               <p>{t("footer.office.bplAddr", "Plot No 20, Kusturi Arched, Barrai, Bhopal, MP 462042, India")}</p>
-              <p className="flex items-center gap-1 mt-1"><Phone className="w-3 h-3" />+91 87938 30447</p>
+              <p className="flex items-center gap-1 mt-1"><Phone className="w-3 h-3" />+91 9201004208</p>
             </div>
           </div>
           <div className="flex gap-2 text-[13px] text-neutral-500 dark:text-neutral-400">
@@ -152,15 +152,17 @@ export function Footer() {
             <div>
               <span className="font-medium text-black dark:text-white">{t("footer.office.blr", "Bengaluru")}</span>
               <p>{t("footer.office.blrAddr", "2nd Stage, BTM Layout, Bengaluru, Karnataka 560076, India")}</p>
-              <p className="flex items-center gap-1 mt-1"><Phone className="w-3 h-3" />+91 87938 30447</p>
+              <p className="flex items-center gap-1 mt-1"><Phone className="w-3 h-3" />+91 9201004208</p>
             </div>
           </div>
         </div>
 
         <div className="mt-6 pt-5 border-t border-black/10 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-neutral-500">
-            © {new Date().getFullYear()} Cloud Nexus. {t("footer.copyright")}
-          </p>
+          <Link href="/admin/login" className="hover:opacity-80 transition-opacity">
+            <p className="text-sm text-neutral-500">
+              © {new Date().getFullYear()} Cloud Nexus. {t("footer.copyright")}
+            </p>
+          </Link>
           <div className="flex space-x-4">
             <Link
               href="https://www.linkedin.com/company/cloudnexusorg/posts/?feedView=all"
@@ -185,7 +187,7 @@ export function Footer() {
             </Link>
           </div>
         </div>
-      </div>
-    </footer>
+      </div> 
+    </footer> 
   );
 }

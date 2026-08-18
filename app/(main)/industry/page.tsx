@@ -329,7 +329,7 @@ const industries: Industry[] = [
 
 const stats = [
   { value: "15+", label: "Industries Served", color: "#4EB3E8" },
-  { value: "200+", label: "Projects Delivered", color: "#10b981" },
+  { value: "100+", label: "Projects Delivered", color: "#10b981" },
   { value: "10+", label: "Global Clients", color: "#8b5cf6" },
   { value: "98%", label: "Client Satisfaction", color: "#f59e0b" },
 ];

@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Shield, Loader2, AlertCircle, Mail, Lock, KeyRound, Eye, EyeOff, ArrowRight, Fingerprint } from "lucide-react";
+import { Shield, Loader2, AlertCircle, Mail, Lock, Eye, EyeOff, ArrowRight } from "lucide-react";
+// import { Fingerprint, KeyRound } from "lucide-react"; // 2FA icons — commented out
 import Link from "next/link";
 import Image from "next/image";
 import { useAdminAuth } from "@/lib/admin-auth-context";
@@ -20,16 +21,17 @@ function FloatingParticle({ delay, x, y, size }: { delay: number; x: number; y: 
 }
 
 export default function AdminLoginPage() {
-  const { login, verify2FA } = useAdminAuth();
+  const { login } = useAdminAuth();
+  // const { login, verify2FA } = useAdminAuth(); // 2FA — commented out
   const router = useRouter();
 
-  const [step, setStep] = useState<"credentials" | "otp">("credentials");
+  // const [step, setStep] = useState<"credentials" | "otp">("credentials"); // 2FA step — commented out
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [challengeId, setChallengeId] = useState("");
-  const [otpCode, setOtpCode] = useState("");
-  const [devCode, setDevCode] = useState("");
+  // const [challengeId, setChallengeId] = useState(""); // 2FA — commented out
+  // const [otpCode, setOtpCode] = useState(""); // 2FA — commented out
+  // const [devCode, setDevCode] = useState(""); // 2FA — commented out
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [mounted, setMounted] = useState(false);
@@ -41,10 +43,8 @@ export default function AdminLoginPage() {
     setLoading(true);
     setError("");
     try {
-      const res = await login(email, password);
-      setChallengeId(res.challengeId);
-      if (res.devCode) setDevCode(res.devCode);
-      setStep("otp");
+      await login(email, password);
+      router.replace("/admin");
     } catch (err: unknown) {
       const msg = err && typeof err === "object" && "response" in err
         ? (err as { response?: { data?: { error?: string } } }).response?.data?.error
@@ -55,22 +55,24 @@ export default function AdminLoginPage() {
     }
   };
 
-  const handleVerify = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-    try {
-      await verify2FA(challengeId, otpCode);
-      router.replace("/admin");
-    } catch (err: unknown) {
-      const msg = err && typeof err === "object" && "response" in err
-        ? (err as { response?: { data?: { error?: string } } }).response?.data?.error
-        : undefined;
-      setError(msg || "Invalid OTP code. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  // ── 2FA verify handler — commented out ──────────────────────────────────────
+  // const handleVerify = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   setError("");
+  //   try {
+  //     await verify2FA(challengeId, otpCode);
+  //     router.replace("/admin");
+  //   } catch (err: unknown) {
+  //     const msg = err && typeof err === "object" && "response" in err
+  //       ? (err as { response?: { data?: { error?: string } } }).response?.data?.error
+  //       : undefined;
+  //     setError(msg || "Invalid OTP code. Please try again.");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+  // ────────────────────────────────────────────────────────────────────────────
 
   const inputCls = "w-full rounded-xl border border-black/[0.08] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] px-4 py-3.5 pl-12 text-sm outline-none focus:border-[#4EB3E8] focus:ring-2 focus:ring-[#4EB3E8]/15 transition-all duration-300 placeholder:text-black/30 dark:placeholder:text-white/25";
 
@@ -158,19 +160,12 @@ export default function AdminLoginPage() {
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 rounded-xl bg-[#4EB3E8]/10 flex items-center justify-center">
-                {step === "credentials" ? (
-                  <Shield className="w-5 h-5 text-[#4EB3E8]" />
-                ) : (
-                  <Fingerprint className="w-5 h-5 text-[#4EB3E8]" />
-                )}
+                <Shield className="w-5 h-5 text-[#4EB3E8]" />
+                {/* 2FA icon removed — was conditionally showing Fingerprint */}
               </div>
               <div>
-                <h1 className="text-xl font-bold tracking-tight">
-                  {step === "credentials" ? "Welcome back" : "Verification"}
-                </h1>
-                <p className="text-xs text-black/40 dark:text-white/35">
-                  {step === "credentials" ? "Sign in to your admin account" : "Enter the code to continue"}
-                </p>
+                <h1 className="text-xl font-bold tracking-tight">Welcome back</h1>
+                <p className="text-xs text-black/40 dark:text-white/35">Sign in to your admin account</p>
               </div>
             </div>
           </div>
@@ -189,134 +184,117 @@ export default function AdminLoginPage() {
             )}
           </AnimatePresence>
 
-          <AnimatePresence mode="wait">
-            {step === "credentials" ? (
-              <motion.form
-                key="credentials"
-                onSubmit={handleLogin}
-                className="space-y-5"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div>
-                  <label className="block text-xs font-semibold mb-2 text-black/60 dark:text-white/50">Email Address</label>
-                  <div className="relative group">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20 dark:text-white/20 group-focus-within:text-[#4EB3E8] transition-colors" />
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="admin@cloudnexus.com" className={inputCls} />
-                  </div>
-                </div>
+          {/* Credentials form only — OTP step commented out */}
+          <motion.form
+            onSubmit={handleLogin}
+            className="space-y-5"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div>
+              <label className="block text-xs font-semibold mb-2 text-black/60 dark:text-white/50">Email Address</label>
+              <div className="relative group">
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20 dark:text-white/20 group-focus-within:text-[#4EB3E8] transition-colors" />
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="admin@cloudnexus.com" className={inputCls} />
+              </div>
+            </div>
 
-                <div>
-                  <label className="block text-xs font-semibold mb-2 text-black/60 dark:text-white/50">Password</label>
-                  <div className="relative group">
-                    <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20 dark:text-white/20 group-focus-within:text-[#4EB3E8] transition-colors" />
-                    <input
-                      type={showPassword ? "text" : "password"}
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                      placeholder="Enter your password"
-                      className={`${inputCls} pr-12`}
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-black/20 dark:text-white/20 hover:text-black/50 dark:hover:text-white/50 transition-colors"
-                    >
-                      {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                    </button>
-                  </div>
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#4EB3E8] hover:bg-[#3da0d5] text-white text-sm font-semibold transition-all duration-300 disabled:opacity-60 shadow-lg shadow-[#4EB3E8]/20 hover:shadow-xl hover:shadow-[#4EB3E8]/30 hover:-translate-y-0.5 active:translate-y-0"
-                >
-                  {loading ? (
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                  ) : (
-                    <>Sign In <ArrowRight className="w-4 h-4" /></>
-                  )}
-                </button>
-
-                <div className="relative my-6">
-                  <div className="absolute inset-0 flex items-center">
-                    <div className="w-full border-t border-black/[0.06] dark:border-white/[0.06]" />
-                  </div>
-                  <div className="relative flex justify-center text-[10px] uppercase tracking-widest">
-                    <span className="bg-[#fafafa] dark:bg-[#050505] px-3 text-black/25 dark:text-white/20 font-semibold">or</span>
-                  </div>
-                </div>
-
-                <p className="text-center text-xs text-black/35 dark:text-white/30">
-                  Don&apos;t have an account?{" "}
-                  <Link href="/admin/signup" className="text-[#4EB3E8] font-semibold hover:underline">Create one</Link>
-                </p>
-              </motion.form>
-            ) : (
-              <motion.form
-                key="otp"
-                onSubmit={handleVerify}
-                className="space-y-5"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="text-center mb-4 p-4 rounded-xl bg-[#4EB3E8]/[0.04] border border-[#4EB3E8]/10">
-                  <p className="text-xs text-black/50 dark:text-white/40">
-                    A 6-digit code was sent to
-                  </p>
-                  <p className="text-sm font-semibold text-black/80 dark:text-white/70 mt-0.5">{email}</p>
-                  {devCode && (
-                    <div className="mt-3 text-xs text-amber-600 dark:text-amber-400 bg-amber-500/5 border border-amber-500/20 rounded-lg px-3 py-2 inline-block">
-                      Dev code: <span className="font-mono font-bold text-sm">{devCode}</span>
-                    </div>
-                  )}
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold mb-2 text-black/60 dark:text-white/50">Verification Code</label>
-                  <div className="relative group">
-                    <KeyRound className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20 dark:text-white/20 group-focus-within:text-[#4EB3E8] transition-colors" />
-                    <input
-                      type="text"
-                      value={otpCode}
-                      onChange={(e) => setOtpCode(e.target.value.replace(/\D/g, "").slice(0, 6))}
-                      required
-                      placeholder="000000"
-                      maxLength={6}
-                      autoFocus
-                      className={`${inputCls} text-center tracking-[0.4em] font-mono text-lg`}
-                    />
-                  </div>
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={loading || otpCode.length < 6}
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#4EB3E8] hover:bg-[#3da0d5] text-white text-sm font-semibold transition-all duration-300 disabled:opacity-60 shadow-lg shadow-[#4EB3E8]/20 hover:shadow-xl hover:shadow-[#4EB3E8]/30 hover:-translate-y-0.5 active:translate-y-0"
-                >
-                  {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <>Verify & Sign In <ArrowRight className="w-4 h-4" /></>}
-                </button>
-
+            <div>
+              <label className="block text-xs font-semibold mb-2 text-black/60 dark:text-white/50">Password</label>
+              <div className="relative group">
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20 dark:text-white/20 group-focus-within:text-[#4EB3E8] transition-colors" />
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  placeholder="Enter your password"
+                  className={`${inputCls} pr-12`}
+                />
                 <button
                   type="button"
-                  onClick={() => { setStep("credentials"); setError(""); }}
-                  className="w-full text-xs text-black/35 dark:text-white/30 hover:text-[#4EB3E8] transition-colors text-center py-2"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-black/20 dark:text-white/20 hover:text-black/50 dark:hover:text-white/50 transition-colors"
                 >
-                  ← Back to login
+                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
-              </motion.form>
-            )}
-          </AnimatePresence>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#4EB3E8] hover:bg-[#3da0d5] text-white text-sm font-semibold transition-all duration-300 disabled:opacity-60 shadow-lg shadow-[#4EB3E8]/20 hover:shadow-xl hover:shadow-[#4EB3E8]/30 hover:-translate-y-0.5 active:translate-y-0"
+            >
+              {loading ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                <>Sign In <ArrowRight className="w-4 h-4" /></>
+              )}
+            </button>
+          </motion.form>
+
+          {/* ── 2FA / OTP step — commented out ─────────────────────────────────────
+          <motion.form
+            key="otp"
+            onSubmit={handleVerify}
+            className="space-y-5"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="text-center mb-4 p-4 rounded-xl bg-[#4EB3E8]/[0.04] border border-[#4EB3E8]/10">
+              <p className="text-xs text-black/50 dark:text-white/40">
+                A 6-digit code was sent to
+              </p>
+              <p className="text-sm font-semibold text-black/80 dark:text-white/70 mt-0.5">{email}</p>
+              {devCode && (
+                <div className="mt-3 text-xs text-amber-600 dark:text-amber-400 bg-amber-500/5 border border-amber-500/20 rounded-lg px-3 py-2 inline-block">
+                  Dev code: <span className="font-mono font-bold text-sm">{devCode}</span>
+                </div>
+              )}
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold mb-2 text-black/60 dark:text-white/50">Verification Code</label>
+              <div className="relative group">
+                <KeyRound className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20 dark:text-white/20 group-focus-within:text-[#4EB3E8] transition-colors" />
+                <input
+                  type="text"
+                  value={otpCode}
+                  onChange={(e) => setOtpCode(e.target.value.replace(/\D/g, "").slice(0, 6))}
+                  required
+                  placeholder="000000"
+                  maxLength={6}
+                  autoFocus
+                  className={`${inputCls} text-center tracking-[0.4em] font-mono text-lg`}
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading || otpCode.length < 6}
+              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#4EB3E8] hover:bg-[#3da0d5] text-white text-sm font-semibold transition-all duration-300 disabled:opacity-60 shadow-lg shadow-[#4EB3E8]/20 hover:shadow-xl hover:shadow-[#4EB3E8]/30 hover:-translate-y-0.5 active:translate-y-0"
+            >
+              {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <>Verify & Sign In <ArrowRight className="w-4 h-4" /></>}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => { setStep("credentials"); setError(""); }}
+              className="w-full text-xs text-black/35 dark:text-white/30 hover:text-[#4EB3E8] transition-colors text-center py-2"
+            >
+              ← Back to login
+            </button>
+          </motion.form>
+          ── end 2FA step ────────────────────────────────────────────────────── */}
 
           <div className="mt-8 text-center text-[10px] text-black/20 dark:text-white/15 space-x-4">
-            <span>Protected by 2FA</span>
-            <span>·</span>
+            {/* <span>Protected by 2FA</span>
+            <span>·</span> */}
             <span>256-bit encryption</span>
             <span>·</span>
             <span>SOC 2 compliant</span>

@@ -304,140 +304,140 @@ const ITConsultVisual = () => (
 const services = [
   {
     title: 'Mobile App Development',
-    description: 'High-performance iOS & Android apps with immersive, platform-native experiences.',
+    description: 'High-performance iOS & Android apps crafted with platform-native SDKs, smooth animations, offline support, and seamless third-party integrations — built to delight users and drive retention.',
     icon: Smartphone,
     href: '/services/mobile-app-development',
     Visual: MobileVisual,
   },
   {
     title: 'Web Development',
-    description: 'Responsive, lightning-fast web apps built for scale and conversion.',
+    description: 'Responsive, lightning-fast web applications engineered with modern frameworks, optimized Core Web Vitals, SEO-ready architecture, and pixel-perfect UIs built for scale, performance, and maximum conversion.',
     icon: Globe,
     href: '/services/web-development',
     Visual: WebVisual,
   },
   {
     title: 'Software Development',
-    description: 'Full-cycle custom software solutions  -  enterprise apps, API development, and complex system integrations.',
+    description: 'Full-cycle custom software solutions spanning enterprise applications, RESTful & GraphQL API development, microservices architecture, legacy system modernization, and robust third-party system integrations.',
     icon: Monitor,
     href: '/services/software-development',
     Visual: SoftwareDevVisual,
   },
   {
     title: 'Hire Dedicated Developers',
-    description: 'Scale your team on demand with pre-vetted senior engineers  -  flexible hiring from contributors to full pods.',
+    description: 'Scale your engineering team on demand with pre-vetted senior developers, architects, and QA specialists — flexible engagement models from individual contributors to fully managed offshore pods, with transparent reporting and zero ramp-up friction.',
     icon: UsersRound,
     href: '/services/hire-dedicated-developers',
     Visual: HireDevsVisual,
   },
   {
     title: 'Product Engineering',
-    description: 'End-to-end product development from ideation and prototyping to market launch and scaling.',
+    description: 'End-to-end product development from ideation, UX research, and rapid prototyping to agile engineering, QA, market launch, and post-launch scaling — turning bold ideas into battle-tested, revenue-generating products.',
     icon: Package,
     href: '/services/product-engineering',
     Visual: ProductEngVisual,
   },
   {
     title: 'WordPress Development',
-    description: 'Custom themes, plugins, WooCommerce stores, and headless WordPress for content-driven businesses.',
+    description: 'Custom themes, bespoke plugin development, high-converting WooCommerce stores, headless WordPress with REST/GraphQL APIs, and performance-tuned CMS solutions tailored for content-driven businesses and growing brands.',
     icon: Blocks,
     href: '/services/wordpress-development',
     Visual: WordPressVisual,
   },
   {
     title: 'UI/UX Design',
-    description: 'User-centric design that converts  -  from wireframes to pixel-perfect interfaces.',
+    description: 'User-centric design that converts — from discovery workshops, journey mapping, and wireframes to interactive prototypes, design systems, and pixel-perfect interfaces that balance aesthetics with intuitive, accessible usability.',
     icon: Palette,
     href: '/services/ui-ux-design',
     Visual: UIUXVisual,
   },
   {
     title: 'Digital Transformation',
-    description: 'Modernizing legacy systems with cloud-native, microservices-driven architectures.',
+    description: 'Modernizing legacy systems and business processes through cloud-native architectures, microservices adoption, intelligent automation, and data-driven decision making — accelerating agility and competitive advantage across your entire organization.',
     icon: Zap,
     href: '/services/digital-transformation',
     Visual: DigitalTransformVisual,
   },
   {
     title: 'E-Commerce Development',
-    description: 'Scalable online stores with payment gateways, inventory management, and headless commerce solutions.',
+    description: 'Scalable, conversion-optimized online stores featuring multi-gateway payment processing, real-time inventory management, personalized shopping experiences, omni-channel integrations, and headless commerce architectures on Shopify, Magento, or custom stacks.',
     icon: ShoppingBag,
     href: '/services/ecommerce-development',
     Visual: EcommerceVisual,
   },
   {
     title: 'SaaS Development',
-    description: 'Multi-tenant SaaS platforms with subscription billing, role-based access, and cloud-native architecture.',
+    description: 'Multi-tenant SaaS platforms built with subscription billing engines, granular role-based access control, usage analytics, white-labeling support, and cloud-native auto-scaling architecture — designed to grow from startup to enterprise without re-platforming.',
     icon: CloudCog,
     href: '/services/saas-development',
     Visual: SaaSVisual,
   },
   {
     title: 'Digital Marketing',
-    description: 'SEO, paid media, social campaigns, and analytics-driven growth strategies.',
+    description: 'Full-funnel digital marketing covering technical SEO, PPC & paid media, social media campaigns, content marketing, conversion rate optimization, and analytics-driven growth strategies that measurably improve visibility, leads, and ROI.',
     icon: TrendingUp,
     href: '/services/digital-marketing',
     Visual: DigitalMarketingVisual,
   },
   {
     title: 'Technology Consulting',
-    description: 'Strategic tech advisory, architecture reviews, and digital roadmap planning for your business.',
+    description: 'Strategic technology advisory covering architecture reviews, tech stack selection, vendor evaluation, security posture assessments, and tailored digital roadmap planning — empowering your leadership team to make informed, future-proof technology decisions.',
     icon: Settings,
     href: '/services/technology-consulting',
     Visual: TechConsultVisual,
   },
   {
     title: 'MVP Development',
-    description: 'Rapid prototyping and lean methodology to validate ideas fast  -  concept to launch-ready MVP in weeks.',
+    description: 'Rapid prototyping using lean and agile methodologies to validate your core assumptions fast — from concept definition and UX wireframing to a fully functional, investor-ready MVP deployed in weeks, not months.',
     icon: Boxes,
     href: '/services/mvp-development',
     Visual: MVPVisual,
   },
   {
     title: 'Cloud Services',
-    description: 'Cloud migration, infrastructure management, and multi-cloud strategy on AWS, Azure & GCP.',
+    description: 'End-to-end cloud services including lift-and-shift migrations, cloud-native re-architecture, cost optimization, disaster recovery planning, and managed multi-cloud infrastructure across AWS, Microsoft Azure, and Google Cloud Platform.',
     icon: Cloud,
     href: '/services/cloud-services',
     Visual: CloudServicesVisual,
   },
   {
     title: 'IT Consulting',
-    description: 'IT infrastructure planning, system integration, and strategic advisory to optimize tech operations.',
+    description: 'Comprehensive IT consulting spanning infrastructure planning, network architecture, system integration, ERP & CRM advisory, vendor management, and ongoing strategic guidance to reduce operational costs and maximize your technology investments.',
     icon: ServerCog,
     href: '/services/it-consulting',
     Visual: ITConsultVisual,
   },
   {
     title: 'Custom Software Development',
-    description: 'End-to-end scalable software engineered to your exact specifications  -  from architecture to deployment.',
+    description: 'End-to-end bespoke software engineered precisely to your business requirements — from system architecture design, agile development sprints, and rigorous QA testing to CI/CD deployment, post-launch support, and long-term maintainability.',
     icon: Code2,
     href: '/services/custom-software-development',
     Visual: CustomSoftwareVisual,
   },
   {
     title: 'AI, ML & Data Science',
-    description: 'Predictive analytics, NLP, computer vision, and intelligent automation tailored to your data.',
+    description: 'Custom AI & ML solutions including predictive analytics, natural language processing, computer vision, recommendation engines, and intelligent process automation — transforming your raw data into actionable insights and competitive differentiation.',
     icon: Brain,
     href: '/services/ai-ml-data-science',
     Visual: AIMLVisual,
   },
   {
     title: 'Cloud & SaaS Solutions',
-    description: 'Cloud migration, multi-tenant SaaS architecture, and managed infrastructure on AWS, Azure & GCP.',
+    description: 'Comprehensive cloud migration strategies, multi-tenant SaaS platform architecture, serverless computing, container orchestration with Kubernetes, and fully managed infrastructure on AWS, Azure & GCP — ensuring high availability, scalability, and cost efficiency.',
     icon: Cloud,
     href: '/services/cloud-saas-solutions',
     Visual: CloudVisual,
   },
   {
     title: 'Cybersecurity & Compliance',
-    description: 'Advanced audits, penetration testing, and compliance frameworks (SOC2, HIPAA, GDPR).',
+    description: 'Comprehensive security services including advanced vulnerability assessments, penetration testing, threat intelligence, zero-trust architecture implementation, incident response planning, and full compliance readiness for SOC2, HIPAA, GDPR, and ISO 27001 frameworks.',
     icon: Shield,
     href: '/services/cybersecurity-compliance',
     Visual: CyberVisual,
   },
   {
     title: 'DevOps & Cloud Automation',
-    description: 'CI/CD pipelines, containerization, IaC, and automated delivery for faster, reliable releases.',
+    description: 'End-to-end DevOps transformation covering CI/CD pipeline design, Docker & Kubernetes containerization, Infrastructure as Code with Terraform & Ansible, automated testing, monitoring, and GitOps workflows — enabling faster, more reliable, and repeatable software releases.',
     icon: GitMerge,
     href: '/services/devops-cloud-automation',
     Visual: DevOpsVisual,
@@ -490,12 +490,12 @@ export const KnownFor: FC = () => {
     <section ref={sectionRef} className="relative w-full py-12 bg-white dark:bg-black overflow-hidden">
       <motion.div style={{ y: orbY }} className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#4EB3E8]/[0.03] rounded-full blur-[120px] pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-6 md:px-8">
-        {/* Carousel within max-w-7xl container */}
-        <div className="relative group/carousel overflow-hidden">
+        {/* Carousel wrapper — NOT overflow-hidden so buttons aren't clipped */}
+        <div className="relative group/carousel">
           {/* Left arrow */}
           <button
             onClick={() => scroll('left')}
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full outline-none border border-gray-200 dark:border-white/10 bg-white dark:bg-[#111] text-gray-700 dark:text-white shadow-md hover:bg-gray-100 hover:border-gray-300 hover:text-black dark:hover:bg-white/10 dark:hover:border-white/20 active:bg-gray-200 dark:active:bg-white/15 focus-visible:ring-2 focus-visible:ring-[#006ea3] transition-all hover:scale-105 active:scale-95"
+            className="hidden md:flex absolute -left-12 top-1/2 -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full outline-none border border-gray-200 dark:border-white/10 bg-white dark:bg-[#111] text-gray-700 dark:text-white shadow-md hover:bg-gray-100 hover:border-gray-300 hover:text-black dark:hover:bg-white/10 dark:hover:border-white/20 active:bg-gray-200 dark:active:bg-white/15 focus-visible:ring-2 focus-visible:ring-[#006ea3] transition-all hover:scale-105 active:scale-95"
             aria-label="Scroll left"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -504,12 +504,13 @@ export const KnownFor: FC = () => {
           {/* Right arrow */}
           <button
             onClick={() => scroll('right')}
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full outline-none border border-gray-200 dark:border-white/10 bg-white dark:bg-[#111] text-gray-700 dark:text-white shadow-md hover:bg-gray-100 hover:border-gray-300 hover:text-black dark:hover:bg-white/10 dark:hover:border-white/20 active:bg-gray-200 dark:active:bg-white/15 focus-visible:ring-2 focus-visible:ring-[#006ea3] transition-all hover:scale-105 active:scale-95"
+            className="hidden md:flex absolute -right-12 top-1/2 -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full outline-none border border-gray-200 dark:border-white/10 bg-white dark:bg-[#111] text-gray-700 dark:text-white shadow-md hover:bg-gray-100 hover:border-gray-300 hover:text-black dark:hover:bg-white/10 dark:hover:border-white/20 active:bg-gray-200 dark:active:bg-white/15 focus-visible:ring-2 focus-visible:ring-[#006ea3] transition-all hover:scale-105 active:scale-95"
             aria-label="Scroll right"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
 
+          {/* Scrollable track */}
           <div
             ref={scrollRef}
             className="flex w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-4 pb-4 scroll-pl-0"
@@ -526,7 +527,7 @@ export const KnownFor: FC = () => {
 
                   <service.Visual />
 
-                  <div className="relative z-10 flex flex-col h-full pointer-events-none w-full p-6 sm:p-7">
+                  <div className="relative z-10 flex flex-col h-full pointer-events-none w-[70%] p-6 sm:p-7">
                     <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-[#006ea3]/20 dark:border-white/10 bg-white dark:bg-[#161616] text-[#006ea3] dark:text-[#ededed] group-hover:text-[#006ea3] group-hover:border-[#006ea3]/30 group-hover:bg-white dark:group-hover:bg-[#1a1a1a] transition-all duration-500 shadow-sm">
                       <Icon className="w-5 h-5 stroke-[1.5]" />
                     </div>

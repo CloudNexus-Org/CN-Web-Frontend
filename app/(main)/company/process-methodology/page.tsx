@@ -579,7 +579,7 @@ export default function ProcessMethodologyPage() {
                   <Mail className="w-4 h-4" /> {t("processMethodology.cta.contactUs", "Contact Us")}
                 </Link>
               </div>
-              <p className="mt-5 text-xs text-black/30 dark:text-white/25">work@cloudnexus.in &middot; +91 87938 30447</p>
+              <p className="mt-5 text-xs text-black/30 dark:text-white/25">work@cloudnexus.in &middot; +91 9201004208</p>
             </div>
           </motion.div>
         </div>

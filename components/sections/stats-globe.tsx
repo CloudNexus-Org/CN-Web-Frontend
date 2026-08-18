@@ -64,7 +64,7 @@ export function StatsGlobe() {
   const stats = [
     { value: "100", suffix: "+", label: t("hero.stat.projects", "successful IT projects delivered") },
     { value: "10", suffix: "+ yrs", label: t("hero.stat.expertise", "of proven expertise in scaling businesses") },
-    { value: "90", suffix: "%", label: t("hero.stat.hiring", "reduction in hiring timelines") },
+    { value: "200", suffix: "+", label: t("hero.stat.hiring", "talented team members") },
   ];
   return (
     <section className="w-full relative bg-white dark:bg-black py-20 md:py-28 overflow-hidden">

@@ -3,31 +3,40 @@ import { ENDPOINTS } from "../endpoints";
 
 /* ═══════ AUTH ═══════ */
 
-export interface AdminLoginResponse {
-  challengeId: string;
-  expiresAt: string;
-  message: string;
-  delivery: "email" | "dev";
-  devCode?: string;
-}
+// 2FA response types — commented out (SMTP/2FA disabled)
+// export interface AdminLoginResponse {
+//   challengeId: string;
+//   expiresAt: string;
+//   message: string;
+//   delivery: "email" | "dev";
+//   devCode?: string;
+// }
 
-export interface AdminVerify2FAResponse {
+// Direct login response (no 2FA)
+export interface AdminLoginResponse {
   token: string;
   user: { id: string; email: string; name: string; role: string };
 }
+
+// export interface AdminVerify2FAResponse {
+//   token: string;
+//   user: { id: string; email: string; name: string; role: string };
+// }
+export type AdminVerify2FAResponse = AdminLoginResponse; // alias kept for type compat
 
 export async function adminLogin(email: string, password: string): Promise<AdminLoginResponse> {
   const res = await apiClient.post(ENDPOINTS.AUTH.ADMIN_LOGIN, { email, password });
   return res.data;
 }
 
-export async function adminVerify2FA(challengeId: string, code: string): Promise<AdminVerify2FAResponse> {
-  const res = await apiClient.post(ENDPOINTS.AUTH.ADMIN_VERIFY_2FA, { challengeId, code });
-  if (res.data.token && typeof window !== "undefined") {
-    localStorage.setItem("admin_token", res.data.token);
-  }
-  return res.data;
-}
+// 2FA verify — commented out (SMTP/2FA disabled)
+// export async function adminVerify2FA(challengeId: string, code: string): Promise<AdminVerify2FAResponse> {
+//   const res = await apiClient.post(ENDPOINTS.AUTH.ADMIN_VERIFY_2FA, { challengeId, code });
+//   if (res.data.token && typeof window !== "undefined") {
+//     localStorage.setItem("admin_token", res.data.token);
+//   }
+//   return res.data;
+// }
 
 export async function getAdminProfile() {
   const res = await apiClient.get(ENDPOINTS.AUTH.ADMIN_ME);

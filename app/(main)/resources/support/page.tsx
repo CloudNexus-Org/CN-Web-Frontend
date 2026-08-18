@@ -6,7 +6,7 @@ import Link from "next/link";
 import {
   MessageCircle, Mail, Phone, FileText, HelpCircle, Clock,
   Headphones, ArrowRight, ChevronDown, Shield, Zap, Globe,
-  CheckCircle2, Send, Search, LifeBuoy, BookOpen, Video,
+  CheckCircle2, Send, LifeBuoy, BookOpen, Video,
   Loader2, AlertCircle,
   type LucideIcon,
 } from "lucide-react";
@@ -14,56 +14,10 @@ import { submitSupportForm } from "@/lib/api/services/contact.service";
 import { useTranslatedData } from "@/lib/i18n/translate-data";
 import { useTranslation } from "@/lib/i18n/context";
 
-/* ═══════ TYPING ANIMATION ═══════ */
-const typingPhrasesData = [
-  "How do I integrate the API?",
-  "What are the SLA guarantees?",
-  "How to reset my password?",
-  "Billing and invoice questions",
-  "Deployment best practices",
-];
 
-function TypingPlaceholder() {
-  const translatedPhrases = useTranslatedData(typingPhrasesData);
-  const [phraseIdx, setPhraseIdx] = useState(0);
-  const [charIdx, setCharIdx] = useState(0);
-  const [deleting, setDeleting] = useState(false);
-
-  useEffect(() => {
-    const phrase = translatedPhrases[phraseIdx];
-    let timeout: NodeJS.Timeout;
-
-    if (!deleting && charIdx < phrase.length) {
-      timeout = setTimeout(() => setCharIdx((c) => c + 1), 55);
-    } else if (!deleting && charIdx === phrase.length) {
-      timeout = setTimeout(() => setDeleting(true), 2000);
-    } else if (deleting && charIdx > 0) {
-      timeout = setTimeout(() => setCharIdx((c) => c - 1), 30);
-    } else if (deleting && charIdx === 0) {
-      setDeleting(false);
-      setPhraseIdx((p) => (p + 1) % translatedPhrases.length);
-    }
-
-    return () => clearTimeout(timeout);
-  }, [charIdx, deleting, phraseIdx, translatedPhrases]);
-
-  const text = translatedPhrases[phraseIdx].slice(0, charIdx);
-
-  return (
-    <span className="text-black/25 dark:text-white/25">
-      {text}
-      <motion.span
-        animate={{ opacity: [1, 0] }}
-        transition={{ duration: 0.6, repeat: Infinity, repeatType: "reverse" }}
-        className="inline-block w-[2px] h-4 bg-[#4EB3E8] ml-0.5 align-middle"
-      />
-    </span>
-  );
-}
 
 /* ═══════ HERO SECTION ═══════ */
-function HeroSection({ searchQuery, setSearchQuery }: { searchQuery: string; setSearchQuery: (v: string) => void }) {
-  const [focusedSearch, setFocusedSearch] = useState(false);
+function HeroSection() {
   const { t } = useTranslation();
 
   return (
@@ -148,52 +102,7 @@ function HeroSection({ searchQuery, setSearchQuery }: { searchQuery: string; set
           {t("support.hero.description", "Our dedicated support team is here to ensure your success. Whether you need instant help or in-depth guidance, choose the channel that works best for you.")}
         </motion.p>
 
-        {/* Animated Search Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className={`mt-8 max-w-xl mx-auto relative transition-all duration-500 ${focusedSearch ? "scale-[1.02]" : ""}`}
-        >
-          <Search className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors duration-300 ${focusedSearch ? "text-[#4EB3E8]" : "text-black/30 dark:text-white/30"}`} />
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onFocus={() => setFocusedSearch(true)}
-            onBlur={() => setFocusedSearch(false)}
-            className="w-full pl-12 pr-4 py-4 rounded-2xl bg-[#f5f5f5] dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/[0.08] text-sm font-medium focus:outline-none focus:border-[#4EB3E8]/40 focus:ring-2 focus:ring-[#4EB3E8]/10 focus:shadow-lg focus:shadow-[#4EB3E8]/[0.06] transition-all duration-300"
-          />
-          {!searchQuery && !focusedSearch && (
-            <div className="absolute left-12 top-1/2 -translate-y-1/2 text-sm font-medium pointer-events-none">
-              <TypingPlaceholder />
-            </div>
-          )}
-        </motion.div>
 
-        {/* Quick Access Pills */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-5 flex flex-wrap justify-center gap-2"
-        >
-          {[
-            { key: "support.hero.gettingStarted", fallback: "Getting Started" },
-            { key: "support.hero.accountIssues", fallback: "Account Issues" },
-            { key: "support.hero.billing", fallback: "Billing" },
-            { key: "support.hero.apiDocs", fallback: "API Docs" },
-            { key: "support.hero.integrations", fallback: "Integrations" },
-          ].map(({ key, fallback }) => (
-            <button
-              key={key}
-              onClick={() => setSearchQuery(fallback)}
-              className="px-4 py-2 rounded-full text-xs font-semibold border border-black/[0.06] dark:border-white/[0.06] text-black/50 dark:text-white/40 hover:border-[#4EB3E8]/30 hover:text-[#4EB3E8] hover:bg-[#4EB3E8]/[0.04] transition-all duration-300"
-            >
-              {t(key, fallback)}
-            </button>
-          ))}
-        </motion.div>
       </div>
     </div>
   );
@@ -247,7 +156,7 @@ const supportChannels = [
     title: "Phone Support",
     description: "Speak directly with a senior engineer for urgent production issues. Available 24/7 for enterprise clients.",
     action: "Call Now",
-    href: "tel:+918793830447",
+    href: "tel:+919201004208",
     badge: "Priority",
   },
 ];
@@ -285,7 +194,6 @@ const priorityToInterest: Record<string, string> = {
 
 export default function SupportPage() {
   const [openFaq, setOpenFaq] = useState(0);
-  const [searchQuery, setSearchQuery] = useState("");
   const translatedSupportChannels = useTranslatedData(supportChannels);
   const translatedSelfServiceOptions = useTranslatedData(selfServiceOptions);
   const translatedFaqs = useTranslatedData(faqs);
@@ -324,15 +232,13 @@ export default function SupportPage() {
       setSupportLoading(false);
     }
   };
-  const filteredFaqs = searchQuery
-    ? translatedFaqs.filter((f) => f.q.toLowerCase().includes(searchQuery.toLowerCase()) || f.a.toLowerCase().includes(searchQuery.toLowerCase()))
-    : translatedFaqs;
+
 
   return (
     <section className="min-h-screen bg-white text-black dark:bg-black dark:text-white">
 
       {/* ═══════ HERO ═══════ */}
-      <HeroSection searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <HeroSection />
 
       {/* ═══════ SLA STATS ═══════ */}
       <div className="mx-auto max-w-7xl px-6 pb-16">
@@ -495,7 +401,7 @@ export default function SupportPage() {
         <div className="grid lg:grid-cols-5 gap-10 items-start">
           {/* FAQ Accordion */}
           <div className="lg:col-span-3 space-y-3">
-            {filteredFaqs.map((faq, i) => {
+            {translatedFaqs.map((faq, i) => {
               const isOpen = openFaq === i;
               return (
                 <motion.div

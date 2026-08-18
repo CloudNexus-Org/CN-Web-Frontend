@@ -545,7 +545,7 @@ export default function LifeAtCloudNexusPage() {
             className="mt-14 grid grid-cols-2 gap-6 sm:flex sm:items-center sm:gap-8 md:gap-12"
           >
             {[
-              { value: "90+", label: t("life.stats.teamMembers", "Team Members") },
+              { value: "200+", label: t("life.stats.teamMembers", "Team Members") },
               { value: "5", label: t("life.stats.dayWorkWeek", "Day Work Week") },
               { value: "15+", label: t("life.stats.countriesServed", "Countries Served") },
               { value: "40%+", label: t("life.stats.womenInTech", "Women in Tech") },
@@ -1063,7 +1063,7 @@ export default function LifeAtCloudNexusPage() {
                 </Link>
               </div>
               <p className="mt-5 text-xs text-black/30 dark:text-white/25">
-                work@cloudnexus.in &middot; +91 87938 30447
+                work@cloudnexus.in &middot; +91 9201004208
               </p>
             </div>
           </motion.div>

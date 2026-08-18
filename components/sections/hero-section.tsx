@@ -122,7 +122,7 @@ function HeroStats() {
   const statsData = [
     { target: 100, suffix: "+", label: t("hero.stat.projects"), delay: 0 },
     { target: 10, suffix: `+ ${t("hero.stat.yrs", "yrs")}`, label: t("hero.stat.expertise"), delay: 200 },
-    { target: 90, suffix: "+", label: t("hero.stat.hiring"), delay: 400 },
+    { target: 200, suffix: "+", label: t("hero.stat.hiring"), delay: 400 },
   ];
   const [visible, setVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -140,7 +140,7 @@ function HeroStats() {
 
   const count1 = useAnimatedCount(100, visible, 0);
   const count2 = useAnimatedCount(10, visible, 200);
-  const count3 = useAnimatedCount(90, visible, 400);
+  const count3 = useAnimatedCount(200, visible, 400);
   const counts = [count1, count2, count3];
 
   return (
@@ -203,11 +203,11 @@ export function HeroSection() {
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left gap-8 relative z-10 w-full">
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground leading-[1.15] md:leading-[1.15] lg:leading-[1.15]">
-              <span className="block animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150 fill-mode-both text-[7vw] sm:text-5xl lg:text-6xl pb-1 md:pb-2 whitespace-nowrap">
+            <h1 className="text-6xl sm:text-7xl lg:text-8xl font-light tracking-tight text-foreground leading-[1.15] md:leading-[1.15] lg:leading-[1.15]">
+              <span className="block animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150 fill-mode-both text-[8vw] sm:text-6xl lg:text-7xl pb-1 md:pb-2 whitespace-nowrap">
                 {t("hero.title1")}
               </span>
-              <span className="flex flex-wrap justify-center lg:justify-start gap-x-3 text-muted-foreground/90 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-both text-[7.5vw] sm:text-5xl lg:text-6xl">
+              <span className="flex flex-wrap justify-center lg:justify-start gap-x-3 text-muted-foreground/90 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-both text-[8.5vw] sm:text-6xl lg:text-7xl">
                 <span className="text-[#4EB3E8]">{t("hero.title2")}</span>
                 <span
                   className="text-[#4EB3E8] pb-1 glitch-text"
@@ -219,10 +219,10 @@ export function HeroSection() {
             </h1>
 
             {/* Description */}
-            <div className="relative max-w-xl mx-auto lg:mx-0 w-full flex flex-col items-center lg:items-start pb-2 sm:pb-4 min-h-[96px] sm:min-h-[80px]">
+            {/* <div className="relative max-w-xl mx-auto lg:mx-0 w-full flex flex-col items-center lg:items-start pb-2 sm:pb-4 min-h-[96px] sm:min-h-[80px]">
               <span className="invisible text-center lg:text-left text-base md:text-lg font-medium leading-relaxed select-none pointer-events-none">
-              {t("hero.description")}
-              <span className="inline-block">|</span>
+                {t("hero.description")}
+                <span className="inline-block">|</span>
               </span>
               <TypingAnimation
                 delay={700}
@@ -231,7 +231,7 @@ export function HeroSection() {
               >
                 {t("hero.description")}
               </TypingAnimation>
-            </div>
+            </div> */}
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full sm:w-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-1000 fill-mode-both">

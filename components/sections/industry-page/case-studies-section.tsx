@@ -330,8 +330,13 @@ export function CaseStudiesSection({
                     ))}
                   </div>
 
-                  <div
-                    className="mt-auto p-5 rounded-xl border transition-all duration-500"
+                  <a
+                    href={`https://wa.me/918793830447?text=${encodeURIComponent(
+                      "Hi CloudNexus! I'm interested in starting a conversation about a discovery call."
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto p-5 rounded-xl border transition-all duration-500 block group cursor-pointer hover:opacity-90"
                     style={{
                       borderColor: `${study.accentColor}20`,
                       background: `${study.accentColor}06`,
@@ -341,14 +346,14 @@ export function CaseStudiesSection({
                       Every engagement starts with a no-commitment discovery
                       call.
                     </p>
-                    <button
-                      className="inline-flex items-center gap-1 text-[12px] font-bold hover:gap-2 transition-all duration-200"
+                    <span
+                      className="inline-flex items-center gap-1 text-[12px] font-bold group-hover:gap-2 transition-all duration-200"
                       style={{ color: study.accentColor }}
                     >
                       Start a conversation{" "}
                       <ChevronRight className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
+                    </span>
+                  </a>
                 </div>
               </div>
             </Card>

@@ -29,7 +29,7 @@ export default function CareerPage() {
   const [selectedDept, setSelectedDept] = useState("");
 
   const stats = useTranslatedData([
-    { value: "50+", label: "Team Members" },
+    { value: "200+", label: "Team Members" },
     { value: "100+", label: "Projects Delivered" },
     { value: "4.8", label: "Glassdoor Rating", icon: Star },
   ]);

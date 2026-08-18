@@ -2,7 +2,7 @@
 
 import { FaWhatsapp } from "react-icons/fa";
 
-const PHONE_NUMBER = "918793830447";
+const PHONE_NUMBER = "+91 92010 04208";
 
 const DEFAULT_MESSAGE =
   "Hi CloudNexus! I'm interested in your services. Please share more information.";

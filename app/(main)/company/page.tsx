@@ -37,8 +37,8 @@ function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
 }
 
 const stats = [
-  { value: 1, suffix: "+", label: "Years of Excellence", icon: Award },
-  { value: 50, suffix: "+", label: "Projects Delivered", icon: Rocket },
+  { value: 10, suffix: "+", label: "Years of Excellence", icon: Award },
+  { value: 100, suffix: "+", label: "Projects Delivered", icon: Rocket },
   { value: 15, suffix: "+", label: "Industries Served", icon: Globe },
   { value: 98, suffix: "%", label: "Client Satisfaction", icon: ShieldCheck },
 ];
@@ -352,7 +352,7 @@ export default function CompanyPage() {
                   <Mail className="w-4 h-4" /> {t("companyHub.cta.contactUs", "Contact Us")}
                 </Link>
               </div>
-              <p className="mt-5 text-xs text-black/30 dark:text-white/25">work@cloudnexus.in &middot; +91 87938 30447</p>
+              <p className="mt-5 text-xs text-black/30 dark:text-white/25">work@cloudnexus.in &middot; +91 9201004208</p>
             </div>
           </motion.div>
         </div>

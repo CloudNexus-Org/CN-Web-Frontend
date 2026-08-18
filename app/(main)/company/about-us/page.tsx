@@ -39,16 +39,16 @@ const highlights = [
   { icon: Clock, title: "Established 19 Jan 2025", desc: "Founded on 19th January 2025, delivering cutting-edge IT solutions from day one.", color: "#4EB3E8" },
   { icon: MapPin, title: "Located in India", desc: "Headquartered in India with offices in Hyderabad, Bhopal & Bengaluru.", color: "#10b981" },
   { icon: ShieldCheck, title: "Quality Driven", desc: "Delivering enterprise-grade, secure, and scalable software solutions.", color: "#8b5cf6" },
-  { icon: Rocket, title: "200+ Projects", desc: "Successfully delivered across 15+ industries worldwide.", color: "#f59e0b" },
+  { icon: Rocket, title: "100+ Projects", desc: "Successfully delivered across 15+ industries worldwide.", color: "#f59e0b" },
   { icon: Target, title: "Startup & Enterprise", desc: "Tailored support for startups, SMEs, and enterprise clients.", color: "#ef4444" },
   { icon: Award, title: "Award-Winning Team", desc: "Building robust, scalable, and innovative digital products.", color: "#06b6d4" },
 ];
 
 const aboutStats = [
-  { value: 1, suffix: "+", label: "Year in the Market" },
-  { value: 90, suffix: "+", label: "In-house Engineers" },
+  { value: 10, suffix: "+", label: "Years in the Market" },
+  { value: 200, suffix: "+", label: "In-house Engineers" },
   { value: 20, suffix: "+", label: "Senior-level Developers" },
-  { value: 200, suffix: "+", label: "Successful Projects" },
+  { value: 100, suffix: "+", label: "Successful Projects" },
 ];
 
 const values = [
@@ -77,9 +77,9 @@ const reasons = [
 ];
 
 const offices = [
-  { city: "Hyderabad", state: "Telangana", address: "Hitech City, Hyderabad, Telangana, India", phone: "+91 87938 30447", type: "Development Center" },
-  { city: "Bhopal", state: "Madhya Pradesh", address: "Plot No 20, Kusturi Arched, Barrai, Bhopal, MP 462042", phone: "+91 87938 30447", type: "Headquarters" },
-  { city: "Bengaluru", state: "Karnataka", address: "2nd Stage, BTM Layout, Bengaluru, Karnataka 560076", phone: "+91 87938 30447", type: "Technology Hub" },
+  { city: "Hyderabad", state: "Telangana", address: "Hitech City, Hyderabad, Telangana, India", phone: "+91 9201004208", type: "Development Center" },
+  { city: "Bhopal", state: "Madhya Pradesh", address: "Plot No 20, Kusturi Arched, Barrai, Bhopal, MP 462042", phone: "+91 9201004208", type: "Headquarters" },
+  { city: "Bengaluru", state: "Karnataka", address: "2nd Stage, BTM Layout, Bengaluru, Karnataka 560076", phone: "+91 9201004208", type: "Technology Hub" },
 ];
 
 function DonutChart({ workforce: wf }: { workforce: typeof workforce }) {
@@ -398,7 +398,7 @@ export default function AboutUsPage() {
 
             <div className="flex flex-wrap gap-3">
               {[
-                { val: "90+", label: t("aboutUs.workforce.statTeam", "Team Members"), color: "#4EB3E8" },
+                { val: "200+", label: t("aboutUs.workforce.statTeam", "Team Members"), color: "#4EB3E8" },
                 { val: "15+", label: t("aboutUs.workforce.statIndustries", "Industries"), color: "#10b981" },
                 { val: "24/7", label: t("aboutUs.workforce.statSupport", "Support"), color: "#8b5cf6" },
               ].map((s) => (
@@ -436,7 +436,7 @@ export default function AboutUsPage() {
 
                 <div className="absolute bottom-0 left-0 right-0 p-6 space-y-2.5">
                   {[
-                    { num: "200+", label: t("aboutUs.reasons.statProjects", "Projects Delivered") },
+                    { num: "100+", label: t("aboutUs.reasons.statProjects", "Projects Delivered") },
                     { num: "98%", label: t("aboutUs.reasons.statSatisfaction", "Client Satisfaction") },
                     { num: "24/7", label: t("aboutUs.reasons.statSupport", "Support Available") },
                   ].map((s, i) => (
@@ -536,7 +536,7 @@ export default function AboutUsPage() {
                 </Link>
               </div>
 
-              <p className="mt-5 text-xs text-black/30 dark:text-white/25">work@cloudnexus.in &middot; +91 87938 30447</p>
+              <p className="mt-5 text-xs text-black/30 dark:text-white/25">work@cloudnexus.in &middot; +91 9201004208</p>
             </div>
           </motion.div>
         </div>

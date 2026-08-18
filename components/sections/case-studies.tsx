@@ -616,17 +616,22 @@ export function CaseStudies() {
               </div>
 
               {/* Bottom CTA card */}
-              <div
-                className="mt-auto p-4 rounded-xl border transition-all duration-500"
+              <a
+                href={`https://wa.me/918793830447?text=${encodeURIComponent(
+                  "Hi CloudNexus! I'm interested in starting a conversation about a discovery call."
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto p-4 rounded-xl border transition-all duration-500 block group cursor-pointer hover:opacity-90"
                 style={{ borderColor: `${study.accentColor}30`, background: `${study.accentColor}08` }}
               >
                 <p className="text-[12px] text-black/40 dark:text-[#666] leading-relaxed mb-3 font-medium">
                   {t("caseStudies.discoveryCallDesc", "Every engagement starts with a no-commitment discovery call.")}
                 </p>
-                <button className="inline-flex items-center gap-1 text-[12px] font-semibold text-black dark:text-white hover:gap-2 transition-all duration-200">
+                <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-black dark:text-white group-hover:gap-2 transition-all duration-200">
                   {t("caseStudies.startConversation", "Start a conversation")} <ChevronRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
+                </span>
+              </a>
             </div>
 
           </div>
@@ -657,7 +662,7 @@ export function CaseStudies() {
         {/* Our Work Button */}
         <div className="flex justify-center mt-14">
           <Link href="/our-work">
-              <Button size="lg" className="rounded-lg bg-black text-white hover:bg-black/80 dark:bg-white dark:text-black dark:hover:bg-white/90 px-8 font-semibold">
+            <Button size="lg" className="rounded-lg bg-black text-white hover:bg-black/80 dark:bg-white dark:text-black dark:hover:bg-white/90 px-8 font-semibold">
               {t("caseStudies.ourWork", "Our Work")}
               <ArrowRight size={16} className="ml-2" />
             </Button>

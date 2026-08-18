@@ -39,7 +39,7 @@ export function IndustryTechSection({
   };
 
   return (
-    <div ref={sectionRef} className="border-b border-black/[0.04] dark:border-white/[0.04] overflow-hidden">
+    <div ref={sectionRef} className="relative border-b border-black/[0.04] dark:border-white/[0.04] overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 py-20">
         {/* Header with parallax */}
         <motion.div

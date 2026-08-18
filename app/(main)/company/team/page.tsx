@@ -154,7 +154,7 @@ export default function TeamPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             {[
-              { num: t("team.hero.stat1Num", "90+"), label: t("team.hero.stat1Label", "Team Members") },
+              { num: t("team.hero.stat1Num", "200+"), label: t("team.hero.stat1Label", "Team Members") },
               { num: t("team.hero.stat2Num", "4"), label: t("team.hero.stat2Label", "Specialized Squads") },
               { num: t("team.hero.stat3Num", "3"), label: t("team.hero.stat3Label", "Office Locations") },
               { num: t("team.hero.stat4Num", "10+"), label: t("team.hero.stat4Label", "Years of Delivery") },

@@ -7,7 +7,7 @@ import {
   ArrowRight, Eye, Rocket, Users, Shield, Zap, Globe,
   BrainCircuit, Award, Building2, Code2, Layers,
   HeartHandshake, Lightbulb, CheckCircle2, MapPin, BarChart3,
-  Phone, Sprout, Leaf, TreePine, Sun,
+  Phone,
 } from "lucide-react";
 import { useTranslatedData } from "@/lib/i18n/translate-data";
 import { useTranslation } from "@/lib/i18n/context";
@@ -37,9 +37,9 @@ function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
 
 /* ═══════ DATA ═══════ */
 const stats = [
-  { value: 200, suffix: "+", label: "Projects Delivered", icon: Rocket },
-  { value: 1, suffix: "+", label: "Year of Excellence", icon: Award },
-  { value: 90, suffix: "+", label: "Scalable Teams", icon: Users },
+  { value: 100, suffix: "+", label: "Projects Delivered", icon: Rocket },
+  { value: 10, suffix: "+", label: "Years of Excellence", icon: Award },
+  { value: 200, suffix: "+", label: "Scalable Teams", icon: Users },
   { value: 15, suffix: "+", label: "Industries Served", icon: Globe },
 ];
 
@@ -55,8 +55,8 @@ const whyCloudNexus = [
 
 const locations = [
   { region: "Hyderabad", city: "Hitech City, Hyderabad, Telangana, India", phone: "+91 000 000 0000", icon: Building2 },
-  { region: "Bhopal", city: "Plot No 20, Kusturi Arched, Barrai, Bhopal, MP 462042, India", phone: "+91 87938 30447", icon: Building2 },
-  { region: "Bengaluru", city: "2nd Stage, BTM Layout, Bengaluru, Karnataka 560076, India", phone: "+91 87938 30447", icon: Building2 },
+  { region: "Bhopal", city: "Plot No 20, Kusturi Arched, Barrai, Bhopal, MP 462042, India", phone: "+91 9201004208", icon: Building2 },
+  { region: "Bengaluru", city: "2nd Stage, BTM Layout, Bengaluru, Karnataka 560076, India", phone: "+91 9201004208", icon: Building2 },
 ];
 
 /* ═══════ VISION & MISSION SECTION ═══════ */
@@ -306,9 +306,9 @@ export default function OverviewPage() {
                   className="absolute bottom-5 left-5 right-5 flex gap-3"
                 >
                   {[
-                    { val: t("overview.hero.stat1Val", "200+"), lbl: t("overview.hero.stat1Label", "Projects") },
-                    { val: t("overview.hero.stat2Val", "1+"), lbl: t("overview.hero.stat2Label", "Year") },
-                    { val: t("overview.hero.stat3Val", "90+"), lbl: t("overview.hero.stat3Label", "Teams") },
+                    { val: t("overview.hero.stat1Val", "100+"), lbl: t("overview.hero.stat1Label", "Projects") },
+                    { val: t("overview.hero.stat2Val", "10+"), lbl: t("overview.hero.stat2Label", "Years") },
+                    { val: t("overview.hero.stat3Val", "200+"), lbl: t("overview.hero.stat3Label", "Teams") },
                   ].map((s) => (
                     <div key={s.lbl} className="flex-1 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 px-3 py-2.5 text-center">
                       <div className="text-lg font-black text-white">{s.val}</div>
@@ -445,9 +445,9 @@ export default function OverviewPage() {
               {/* Floating stats on image */}
               <div className="absolute bottom-0 left-0 right-0 p-6 space-y-3">
                 {[
-                  { num: t("overview.whyCloudNexus.stat1Val", "200+"), label: t("overview.whyCloudNexus.stat1Label", "Projects Delivered") },
-                  { num: t("overview.whyCloudNexus.stat2Val", "1+"), label: t("overview.whyCloudNexus.stat2Label", "Year of Excellence") },
-                  { num: t("overview.whyCloudNexus.stat3Val", "90+"), label: t("overview.whyCloudNexus.stat3Label", "Scalable Teams") },
+                  { num: t("overview.whyCloudNexus.stat1Val", "100+"), label: t("overview.whyCloudNexus.stat1Label", "Projects Delivered") },
+                  { num: t("overview.whyCloudNexus.stat2Val", "10+"), label: t("overview.whyCloudNexus.stat2Label", "Years of Excellence") },
+                  { num: t("overview.whyCloudNexus.stat3Val", "200+"), label: t("overview.whyCloudNexus.stat3Label", "Scalable Teams") },
                 ].map((s, i) => (
                   <motion.div
                     key={i}
@@ -546,62 +546,6 @@ export default function OverviewPage() {
         </div>
       </div>
 
-      {/* ═══════ GROWTH JOURNEY ═══════ */}
-      <div className="bg-[#fafafa] dark:bg-white/[0.015] border-y border-black/[0.06] dark:border-white/[0.06]">
-        <div className="mx-auto max-w-7xl px-6 py-20">
-          <motion.div className="text-center mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">{t("overview.growth.title", "Our Growth")} <span className="text-[#4EB3E8]">{t("overview.growth.titleHighlight", "Journey")}</span></h2>
-            <p className="text-base text-black/55 dark:text-white/50 max-w-2xl mx-auto leading-relaxed">
-              {t("overview.growth.description", "From a seed of an idea to a growing force in technology  -  every milestone marks a step toward our vision.")}
-            </p>
-          </motion.div>
-
-          <div className="relative max-w-4xl mx-auto">
-            <div className="flex flex-col items-center mb-0">
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                className="rounded-3xl overflow-hidden shadow-2xl shadow-black/10 dark:shadow-black/40 w-full">
-                <img src="/assets/images/growth-plant.png" alt={t("overview.growth.altPlant", "Growing plant seedling symbolizing company growth")} className="w-full h-[280px] md:h-[350px] object-cover" />
-              </motion.div>
-              <div className="w-[3px] h-16 bg-gradient-to-b from-[#4EB3E8] to-[#4EB3E8]/40 rounded-full" />
-            </div>
-
-            <div className="absolute left-6 md:left-1/2 top-[calc(350px+4rem)] bottom-0 w-[3px] bg-gradient-to-b from-[#4EB3E8]/30 via-[#4EB3E8]/20 to-[#10b981]/10 dark:from-[#4EB3E8]/25 dark:via-[#4EB3E8]/15 dark:to-[#10b981]/5 md:-translate-x-[1.5px] rounded-full" />
-
-            {[
-              { icon: Sprout, date: t("overview.growth.step1Date", "19 Jan 2025"), title: t("overview.growth.step1Title", "The Seed Was Planted"), desc: t("overview.growth.step1Desc", "Cloud Nexus was founded with a clear mission  -  to bridge the gap between business needs and technology. What started as a small team with big dreams became the foundation of something meaningful."), color: "#4EB3E8" },
-              { icon: Leaf, date: t("overview.growth.step2Date", "Mid 2025"), title: t("overview.growth.step2Title", "Taking Root & Growing"), desc: t("overview.growth.step2Desc", "We expanded our team, onboarded our first global clients, and delivered 30+ successful projects. Our expertise in mobile, web, cloud, and AI started gaining recognition across industries."), color: "#8b5cf6" },
-              { icon: TreePine, date: t("overview.growth.step3Date", "Early 2026"), title: t("overview.growth.step3Title", "Branching Out"), desc: t("overview.growth.step3Desc", "With 50+ projects delivered across 15+ industries, we began attending global tech conferences like GITEX, built dedicated AI/ML capabilities, and expanded our service portfolio significantly."), color: "#10b981" },
-              { icon: Sun, date: t("overview.growth.step4Date", "Today & Beyond"), title: t("overview.growth.step4Title", "Reaching New Heights"), desc: t("overview.growth.step4Desc", "We're now a full-service technology company trusted by businesses worldwide. Our journey is just beginning  -  with plans to scale further, innovate boldly, and create lasting impact."), color: "#f59e0b" },
-            ].map((step, i) => {
-              const Icon = step.icon;
-              const isLeft = i % 2 === 0;
-              return (
-                <div key={step.date} className="relative mb-12 last:mb-0">
-                  <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 z-10 top-4">
-                    <motion.div whileInView={{ scale: [0.5, 1.2, 1] }} viewport={{ once: true }} transition={{ delay: 0.2, duration: 0.5 }}
-                      className="w-12 h-12 rounded-full flex items-center justify-center border-[3px] bg-white dark:bg-[#0a0a0a] shadow-lg"
-                      style={{ borderColor: step.color, boxShadow: `0 0 20px ${step.color}20` }}>
-                      <Icon className="w-5 h-5" style={{ color: step.color }} strokeWidth={1.5} />
-                    </motion.div>
-                  </div>
-
-                  <motion.div initial={{ opacity: 0, x: isLeft ? -40 : 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.1, duration: 0.5 }}
-                    className={`ml-20 md:ml-0 md:w-[calc(50%-3.5rem)] ${isLeft ? "md:mr-auto" : "md:ml-auto"}`}>
-                    <div className="group rounded-2xl p-6 bg-white dark:bg-white/[0.03] border border-black/[0.06] dark:border-white/[0.06] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
-                      <div className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl" style={{ backgroundColor: step.color }} />
-                      <span className="text-[10px] font-black tracking-widest px-3 py-1 rounded-full text-white mb-3 inline-block" style={{ backgroundColor: step.color }}>
-                        {step.date}
-                      </span>
-                      <h4 className="text-lg font-bold mb-2">{step.title}</h4>
-                      <p className="text-xs text-black/50 dark:text-white/45 leading-relaxed">{step.desc}</p>
-                    </div>
-                  </motion.div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
 
       {/* ═══════ CTA ═══════ */}
       <div className="border-t border-black/[0.06] dark:border-white/[0.06]">

@@ -72,7 +72,7 @@ const resources = [
 ];
 
 const stats = [
-  { value: "150+", label: "Projects Delivered", icon: CheckCircle2 },
+  { value: "100+", label: "Projects Delivered", icon: CheckCircle2 },
   { value: "24/7", label: "Support Available", icon: Clock },
   { value: "99.9%", label: "Client Satisfaction", icon: Star },
   { value: "15+", label: "Services Offered", icon: Zap },
@@ -621,7 +621,7 @@ export default function ResourcesPage() {
                     </div>
                     <div>
                       <p className="text-xs font-bold uppercase tracking-wider text-black/35 dark:text-white/30 mb-1">{t("resourcesHub.contact.phoneLabel", "Phone")}</p>
-                      <a href="tel:+918793830447" className="text-sm font-semibold hover:text-[#4EB3E8] transition-colors">+91 87938 30447</a>
+                      <a href="tel:+919201004208" className="text-sm font-semibold hover:text-[#4EB3E8] transition-colors">+91 9201004208</a>
                       <p className="text-xs text-black/40 dark:text-white/35 mt-0.5">{t("resourcesHub.contact.phoneHours", "Mon–Sat, 9AM–7PM IST")}</p>
                     </div>
                   </div>
@@ -707,7 +707,7 @@ export default function ResourcesPage() {
                 {t("resourcesHub.cta.sendMessage", "Send a Message")}
               </Link>
             </div>
-            <p className="mt-4 text-xs text-black/30 dark:text-white/25">{t("resourcesHub.cta.footer", "work@cloudnexus.in · +91 87938 30447")}</p>
+            <p className="mt-4 text-xs text-black/30 dark:text-white/25">{t("resourcesHub.cta.footer", "work@cloudnexus.in · +91 9201004208")}</p>
           </motion.div>
         </div>
       </div>

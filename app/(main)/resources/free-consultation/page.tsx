@@ -12,7 +12,7 @@ import {
 import { useTranslatedData } from "@/lib/i18n/translate-data";
 import { useTranslation } from "@/lib/i18n/context";
 
-const CALENDLY_URL = "https://calendly.com/ritika-pankar-cloudnexus/30min";
+const CALENDLY_URL = "https://calendly.com/work-cloudnexus/new-meeting";
 
 // function CalendlyEmbed() {
 //   const containerRef = useRef<HTMLDivElement>(null);
@@ -164,21 +164,38 @@ export default function FreeConsultationPage() {
   return (
     <section className="min-h-screen bg-white text-black dark:bg-black dark:text-white">
 
+      {/* ═══════ HERO HEADING ═══════ */}
+      <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-6 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
+            {t("freeConsultation.hero.title", "Let's Build")}{" "}
+            <span className="text-[#4EB3E8]">{t("freeConsultation.hero.titleHighlight", "Something Great")}</span>
+          </h1>
+          {/* <p className="mt-5 text-base md:text-lg text-black/50 dark:text-white/50 max-w-2xl mx-auto leading-relaxed">
+            {t("freeConsultation.hero.description", "Book a free 30-minute strategy session with our senior architects. No strings attached — just expert guidance tailored to your goals.")}
+          </p> */}
+        </motion.div>
+      </div>
+
       {/* ═══════ HERO ═══════ */}
- <div className="relative mx-auto max-w-7xl px-6 py-10">
-  <div className="flex justify-center">
-    <motion.div
-      className="
-      w-full
-      max-w-6xl
-      rounded-2xl
-      overflow-hidden
-      "
-    >
-      <CalendlyEmbed />
-    </motion.div>
-  </div>
-</div>
+      <div className="relative mx-auto max-w-7xl px-6 py-6">
+        <div className="flex justify-center">
+          <motion.div
+            className="
+            w-full
+            max-w-6xl
+            rounded-2xl
+            overflow-hidden
+            "
+          >
+            <CalendlyEmbed />
+          </motion.div>
+        </div>
+      </div>
 
       {/* ═══════ STATS ═══════ */}
       <div className="border-y border-black/[0.05] dark:border-white/[0.05]">
@@ -322,11 +339,10 @@ export default function FreeConsultationPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.12 * i }}
                 onClick={() => setActiveStep(i)}
-                className={`group relative rounded-2xl p-6 cursor-pointer transition-all duration-400 hover:-translate-y-1 ${
-                  isActive
+                className={`group relative rounded-2xl p-6 cursor-pointer transition-all duration-400 hover:-translate-y-1 ${isActive
                     ? "bg-white dark:bg-[#0c1322] border-[#4EB3E8]/25 shadow-lg shadow-[#4EB3E8]/[0.06]"
                     : "bg-[#f8f9fa] dark:bg-white/[0.02] border-black/[0.05] dark:border-white/[0.05] hover:border-[#4EB3E8]/15"
-                } border`}
+                  } border`}
               >
                 {/* Step number */}
                 <div className="absolute top-4 right-4 text-[40px] font-black leading-none text-black/[0.03] dark:text-white/[0.03]">
@@ -340,11 +356,10 @@ export default function FreeConsultationPage() {
                   </div>
                 )}
 
-                <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 ${
-                  isActive
+                <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 ${isActive
                     ? "bg-[#4EB3E8]/15 border-[#4EB3E8]/30"
                     : "bg-[#4EB3E8]/8 border-[#4EB3E8]/12 group-hover:bg-[#4EB3E8]/12"
-                } border`}>
+                  } border`}>
                   <Icon className="w-6 h-6 text-[#4EB3E8]" strokeWidth={1.5} />
                 </div>
 
@@ -406,7 +421,7 @@ export default function FreeConsultationPage() {
                     <Mail className="w-4 h-4" /> {t("freeConsult.cta.emailUs", "Email Us")}
                   </a>
                   <span className="text-black/15 dark:text-white/15">|</span>
-                  <a href="tel:+918793830447" className="flex items-center gap-2 text-sm font-semibold text-black/50 dark:text-white/45 hover:text-[#4EB3E8] transition-colors">
+                  <a href="tel:+919201004208" className="flex items-center gap-2 text-sm font-semibold text-black/50 dark:text-white/45 hover:text-[#4EB3E8] transition-colors">
                     <Phone className="w-4 h-4" /> {t("freeConsult.cta.callUs", "Call Us")}
                   </a>
                 </div>

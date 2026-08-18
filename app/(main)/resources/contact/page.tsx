@@ -45,7 +45,7 @@ const budgets = [
 
 const contactInfo = [
   { icon: Mail, label: "Email Us", value: "work@cloudnexus.in", href: "mailto:work@cloudnexus.in" },
-  { icon: Phone, label: "Call Us", value: "+91 87938 30447", href: "tel:+918793830447" },
+  { icon: Phone, label: "Call Us", value: "+91 9201004208", href: "tel:+919201004208" },
   { icon: Clock, label: "Working Hours", value: "Mon - Sat, 9 AM - 7 PM IST", href: null },
 ];
 
@@ -165,7 +165,7 @@ export default function ContactPage() {
           >
             {[
               { num: t("contact.hero.responseTime", "< 24h"), label: t("contact.hero.responseTimeLabel", "Response Time") },
-              { num: t("contact.hero.projectsNum", "200+"), label: t("contact.hero.projectsLabel", "Projects Delivered") },
+              { num: t("contact.hero.projectsNum", "100+"), label: t("contact.hero.projectsLabel", "Projects Delivered") },
               { num: t("contact.hero.satisfactionNum", "100%"), label: t("contact.hero.satisfactionLabel", "Client Satisfaction") },
             ].map((s, i) => (
               <div key={i} className="flex items-center gap-2.5">

@@ -10,7 +10,7 @@ import { Testimonials } from "@/components/sections/testimonials"
 import { WhyCloudNexus } from "@/components/sections/why-cloudnexus"
 import { FreeConsultation } from "@/components/sections/free-consultation"
 import { FAQs } from "@/components/sections/faqs"
-import { HomeSplashWrapper } from "@/components/home-splash-wrapper"
+// import { HomeSplashWrapper } from "@/components/home-splash-wrapper"
 
 const CaseStudies = dynamic(() =>
   import("@/components/sections/case-studies").then((m) => m.CaseStudies)
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-between bg-white text-black dark:bg-black dark:text-white">
-      <HomeSplashWrapper />
+      {/* <HomeSplashWrapper /> */}
       <HeroSection />
       <BuildScaleThrive />
       <KnownFor />

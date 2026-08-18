@@ -12,10 +12,10 @@ export const heroProps: ServicePageHeroProps = {
   heroImage: "/images/stock/stock-1e05b0d347.jpg",
   heroImageAlt: "Bespoke",
   topBadge: { icon: null as any, title: "Bespoke", subtitle: "Custom-built", colorClass: "bg-[#4EB3E8]/10" },
-  bottomBadge: { icon: null as any, title: "200+ Projects", subtitle: "Delivered on time", colorClass: "bg-emerald-500/10" },
+  bottomBadge: { icon: null as any, title: "100+ Projects", subtitle: "Delivered on time", colorClass: "bg-emerald-500/10" },
   stats: [
-  { value: 200, suffix: "+", label: "Custom projects shipped" },
-  { value: 15, suffix: "+", label: "Years of delivery experience" },
+  { value: 100, suffix: "+", label: "Custom projects shipped" },
+  { value: 10, suffix: "+", label: "Years of delivery experience" },
   { value: 99, suffix: "%", label: "On-time milestone rate" },
   { value: 50, suffix: "+", label: "Integration endpoints built" },
 ],
