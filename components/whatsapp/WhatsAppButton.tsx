@@ -8,7 +8,8 @@ const DEFAULT_MESSAGE =
   "Hi CloudNexus! I'm interested in your services. Please share more information.";
 
 export default function WhatsAppButton() {
-  const whatsappUrl = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(
+  const cleanPhone = PHONE_NUMBER.replace(/[^0-9]/g, "");
+  const whatsappUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(
     DEFAULT_MESSAGE
   )}`;
 
