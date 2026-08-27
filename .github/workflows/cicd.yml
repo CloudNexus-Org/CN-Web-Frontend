@@ -120,7 +120,7 @@ jobs:
   # 🚀 VERCEL DEPLOYMENT
   # =========================
   deploy:
-    name: 🚀 Deploy to Vercel
+    name: Deploy to Vercel
     runs-on: ubuntu-latest
     needs: [build, docker]
     env:
@@ -129,6 +129,27 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Verify Vercel Configuration
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          MISSING=0
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "::error::VERCEL_TOKEN secret is missing. Go to Vercel -> Account Settings -> Tokens to create a token, and add it under GitHub Repository Settings -> Secrets and variables -> Actions."
+            MISSING=1
+          fi
+          if [ -z "$VERCEL_ORG_ID" ]; then
+            echo "::error::VERCEL_ORG_ID secret/variable is missing. Run 'vercel link' locally to get the orgId, and add it under GitHub Repository Settings -> Secrets and variables -> Actions."
+            MISSING=1
+          fi
+          if [ -z "$VERCEL_PROJECT_ID" ]; then
+            echo "::error::VERCEL_PROJECT_ID secret/variable is missing. Run 'vercel link' locally to get the projectId, and add it under GitHub Repository Settings -> Secrets and variables -> Actions."
+            MISSING=1
+          fi
+          if [ "$MISSING" -eq 1 ]; then
+            exit 1
+          fi
 
       - name: Set up Node.js 20
         uses: actions/setup-node@v4
