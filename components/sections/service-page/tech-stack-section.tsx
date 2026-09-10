@@ -90,7 +90,7 @@ function TechCard({ tech, index }: { tech: TechItem; index: number }) {
           alt={tech.name}
           width={48}
           height={48}
-          className="w-10 h-10 md:w-12 md:h-12 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-sm"
+          className={`w-10 h-10 md:w-12 md:h-12 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-sm ${tech.invertDark ? "dark:invert" : ""}`}
           onError={(e) => {
             e.currentTarget.onerror = null;
             e.currentTarget.style.display = "none";
@@ -134,7 +134,7 @@ function MarqueeStrip({ allTechs, visible }: { allTechs: TechItem[]; visible: bo
                       alt={tech.name}
                       width={32}
                       height={32}
-                      className="w-8 h-8 md:w-9 md:h-9 object-contain flex-shrink-0"
+                      className={`w-8 h-8 md:w-9 md:h-9 object-contain flex-shrink-0 ${tech.invertDark ? "dark:invert" : ""}`}
                       onError={(e) => {
                         e.currentTarget.onerror = null;
                         e.currentTarget.style.display = "none";
