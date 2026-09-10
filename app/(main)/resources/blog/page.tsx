@@ -9,7 +9,7 @@ import { getBlogs, type BlogPost } from "@/lib/api/services/blog.service";
 import { useTranslation } from "@/lib/i18n/context";
 import { useTranslatedData } from "@/lib/i18n/translate-data";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 function resolveImage(path?: string | null): string | null {
   if (!path) return null;

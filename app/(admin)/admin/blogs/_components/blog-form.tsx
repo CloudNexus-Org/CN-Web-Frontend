@@ -6,7 +6,7 @@ import { Loader2, Upload, AlertCircle, ArrowLeft, Image as ImageIcon } from "luc
 import Link from "next/link";
 import { createBlog, updateBlog, uploadBlogImage, type BlogFormData, type AdminBlog } from "@/lib/api/services/admin.service";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 interface Props {
   blog?: AdminBlog;
