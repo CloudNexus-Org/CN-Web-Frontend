@@ -26,6 +26,7 @@ export interface ProcessStep {
 export interface TechItem {
   name: string;
   logo: string;
+  invertDark?: boolean;
 }
 
 export interface TechCategory {

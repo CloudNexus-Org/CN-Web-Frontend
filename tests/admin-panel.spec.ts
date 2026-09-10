@@ -72,7 +72,7 @@ test.describe("Cloud Nexus Admin Panel E2E Tests", () => {
     await page.goto("/admin/login");
 
     // Fill incorrect credentials
-    await page.fill('input[type="email"]', "wrong-admin@cloudnexus.com");
+    await page.fill('input[type="email"]', "wrong-admin@cloudnexus.in");
     await page.fill('input[type="password"]', "wrong_password");
 
     // Click submit
@@ -369,8 +369,8 @@ test.describe("Cloud Nexus Admin Panel E2E Tests", () => {
       }
     });
 
-      await page.click('button[type="submit"]');
-      await expect(page).toHaveURL(/.*\/admin\/blogs/);
+    await page.click('button[type="submit"]');
+    await expect(page).toHaveURL(/.*\/admin\/blogs/);
   });
 });
 

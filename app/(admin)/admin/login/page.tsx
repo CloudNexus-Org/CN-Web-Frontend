@@ -196,7 +196,7 @@ export default function AdminLoginPage() {
               <label className="block text-xs font-semibold mb-2 text-black/60 dark:text-white/50">Email Address</label>
               <div className="relative group">
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20 dark:text-white/20 group-focus-within:text-[#4EB3E8] transition-colors" />
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="admin@cloudnexus.com" className={inputCls} />
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="admin@cloudnexus.in" className={inputCls} />
               </div>
             </div>
 

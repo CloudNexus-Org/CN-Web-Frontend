@@ -49,9 +49,9 @@ export const techCategories: TechCategory[] = [
   ] },
   { label: "Backend", items: [
     { name: "Node.js", logo: `${DEVICON}/nodejs/nodejs-original.svg` },
-    { name: "Express", logo: `${DEVICON}/express/express-original.svg` },
+    { name: "Express", logo: `${DEVICON}/express/express-original.svg`, invertDark: true },
     { name: "Python", logo: `${DEVICON}/python/python-original.svg` },
-    { name: "Django", logo: `${DEVICON}/django/django-plain.svg` },
+    { name: "Django", logo: `${DEVICON}/django/django-plain.svg`, invertDark: true },
     { name: "PHP", logo: `${DEVICON}/php/php-original.svg` },
     { name: "Go", logo: `${DEVICON}/go/go-original.svg` },
   ] },
@@ -69,10 +69,10 @@ export const techCategories: TechCategory[] = [
   ] },
   { label: "Cloud & DevOps", items: [
     { name: "AWS", logo: `${DEVICON}/amazonwebservices/amazonwebservices-original-wordmark.svg` },
-    { name: "Vercel", logo: `${DEVICON}/vercel/vercel-original.svg` },
+    { name: "Vercel", logo: `${DEVICON}/vercel/vercel-original.svg`, invertDark: true },
     { name: "Docker", logo: `${DEVICON}/docker/docker-original.svg` },
     { name: "Nginx", logo: `${DEVICON}/nginx/nginx-original.svg` },
-    { name: "GitHub Actions", logo: `${DEVICON}/github/github-original.svg` },
+    { name: "GitHub Actions", logo: `${DEVICON}/github/github-original.svg`, invertDark: true },
   ] },
 ];
 

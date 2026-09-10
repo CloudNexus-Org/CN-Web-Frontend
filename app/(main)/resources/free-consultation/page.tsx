@@ -54,7 +54,7 @@ function CalendlyEmbed() {
       data-url={CALENDLY_URL}
       style={{
         width: "100%",
-        minWidth: "600px",
+        minWidth: "320px",
         height: "700px",
       }}
     />
