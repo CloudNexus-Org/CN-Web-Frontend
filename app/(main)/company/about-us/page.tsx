@@ -77,7 +77,7 @@ const reasons = [
 ];
 
 const offices = [
-  { city: "Hyderabad", state: "Telangana", address: "Hitech City, Hyderabad, Telangana, India", phone: "+91 9201004208", type: "Development Center" },
+  { city: "Hyderabad", state: "Telangana", address: "9th Floor, ALT-F, Kapil Kavuri Hub, Financial District, Hyderabad 500032 , India", phone: "+91 9201004208", type: "Development Center" },
   { city: "Bhopal", state: "Madhya Pradesh", address: "Plot No 20, Kusturi Arched, Barrai, Bhopal, MP 462042", phone: "+91 9201004208", type: "Headquarters" },
   { city: "Bengaluru", state: "Karnataka", address: "2nd Stage, BTM Layout, Bengaluru, Karnataka 560076", phone: "+91 9201004208", type: "Technology Hub" },
 ];

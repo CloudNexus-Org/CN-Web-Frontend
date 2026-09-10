@@ -50,7 +50,7 @@ const contactInfo = [
 ];
 
 const offices = [
-  { city: "Hyderabad", address: "Hitech City, Hyderabad, Telangana, India" },
+  { city: "Hyderabad", address: "9th Floor, ALT-F, Kapil Kavuri Hub, Financial District, Hyderabad 500032, India"},
   { city: "Bhopal", address: "Plot No 20, Kusturi Arched, Barrai, MP 462042" },
   { city: "Bengaluru", address: "2nd Stage, BTM Layout, Karnataka 560076" },
 ];
