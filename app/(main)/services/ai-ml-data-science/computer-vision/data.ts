@@ -17,7 +17,6 @@ import type {
   ServiceOffering,
   ProcessStep,
   TechCategory,
-  Stat,
   WhyChooseItem,
   ServicePageHeroProps,
   ServicePageSectionProps,

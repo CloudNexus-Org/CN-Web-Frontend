@@ -1,6 +1,5 @@
 import { Cpu, Layers, Share2, AlertTriangle, Activity, Rocket, Target, Database, SlidersHorizontal, Brain, Gauge, Award, ShieldCheck, Puzzle, RefreshCw } from "lucide-react";
-import type { ServiceOffering, ProcessStep, TechCategory, TechItem, WhyChooseItem, ServicePageHeroProps, ServicePageSectionProps, CTAProps, Stat } from "@/components/sections/service-page";
-export type { ServiceOffering, ProcessStep, TechCategory, TechItem, WhyChooseItem };
+import type { ServiceOffering, ProcessStep, TechCategory, WhyChooseItem, ServicePageHeroProps, ServicePageSectionProps, CTAProps } from "@/components/sections/service-page";
 
 const DEVICON = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
 
@@ -21,8 +20,6 @@ export const heroProps: ServicePageHeroProps = {
     { value: 50, suffix: "+", label: "Clients Served" },
   ],
 };
-
-export const stats: Stat[] = heroProps.stats;
 
 export const servicesHeading: ServicePageSectionProps = { headingGray: "Service", headingWhite: "Offerings", subtitle: "Six focused capabilities covering modeling, optimization, and reliable deployment." };
 export const processHeading: ServicePageSectionProps = { headingGray: "Our", headingWhite: "Process", subtitle: "Six phases on an alternating vertical timeline." };

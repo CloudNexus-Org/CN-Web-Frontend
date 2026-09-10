@@ -84,18 +84,18 @@ const teams = [
   //   desc: "Specializing in AI/ML model development, NLP solutions, and advanced data engineering for enterprise-grade intelligence.",
   //   skills: ["PyTorch", "NLP", "Computer Vision", "MLOps", "Data Engineering", "AWS SageMaker"],
   // },
-  {
-    name: "Ariba",
-    department: "DevOps",
-    icon: Server,
-    accentColor: "#22c55e",
-    leader: "Tabasum Khan",
-    leaderRole: "Team Leader",
-    photo: "/assets/teams/tabasum-khan.jpeg",
-    photoPos: "center 6%",
-    desc: "Managing cloud infrastructure, CI/CD pipelines, and deployment automation to ensure maximum uptime and scalable delivery.",
-    skills: ["AWS", "Docker", "Kubernetes", "CI/CD", "Terraform", "Linux"],
-  },
+  // {
+  //   name: "Ariba",
+  //   department: "DevOps",
+  //   icon: Server,
+  //   accentColor: "#22c55e",
+  //   leader: "Tabasum Khan",
+  //   leaderRole: "Team Leader",
+  //   photo: "/assets/teams/tabasum-khan.jpeg",
+  //   photoPos: "center 6%",
+  //   desc: "Managing cloud infrastructure, CI/CD pipelines, and deployment automation to ensure maximum uptime and scalable delivery.",
+  //   skills: ["AWS", "Docker", "Kubernetes", "CI/CD", "Terraform", "Linux"],
+  // },
 ];
 
 const cultureValues = [

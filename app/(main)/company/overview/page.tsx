@@ -54,7 +54,7 @@ const whyCloudNexus = [
 ];
 
 const locations = [
-  { region: "Hyderabad", city: "Hitech City, Hyderabad, Telangana, India", phone: "+91 000 000 0000", icon: Building2 },
+  { region: "Hyderabad", city: "9th Floor, ALT-F, Kapil Kavuri Hub, Financial District, Hyderabad 500032, India", phone: "+91 000 000 0000", icon: Building2 },
   { region: "Bhopal", city: "Plot No 20, Kusturi Arched, Barrai, Bhopal, MP 462042, India", phone: "+91 9201004208", icon: Building2 },
   { region: "Bengaluru", city: "2nd Stage, BTM Layout, Bengaluru, Karnataka 560076, India", phone: "+91 9201004208", icon: Building2 },
 ];

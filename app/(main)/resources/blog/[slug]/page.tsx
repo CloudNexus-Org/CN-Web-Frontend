@@ -8,7 +8,7 @@ import { ArrowLeft, Loader2, Calendar, User, BookOpen, Clock, Share2 } from "luc
 import { getBlogBySlug, type BlogPost } from "@/lib/api/services/blog.service";
 import { useTranslation } from "@/lib/i18n/context";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 function resolveImage(path?: string | null): string | null {
   if (!path) return null;

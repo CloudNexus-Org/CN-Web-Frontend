@@ -1,13 +1,6 @@
 export const ENDPOINTS = {
-  HEALTH: "/health",
-
   AUTH: {
-    REGISTER: "/auth/register",
-    LOGIN: "/auth/login",
-    ME: "/auth/me",
     ADMIN_LOGIN: "/auth/admin/login",
-    ADMIN_SIGNUP: "/auth/admin/signup",
-    ADMIN_VERIFY_2FA: "/auth/admin/verify-2fa",
     ADMIN_ME: "/auth/admin/me",
   },
 

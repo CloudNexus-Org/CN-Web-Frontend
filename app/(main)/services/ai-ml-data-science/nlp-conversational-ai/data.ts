@@ -1,6 +1,5 @@
 import { MessageCircle, Brain, FileText, Languages, Target, BookOpen, Cpu, GitBranch, Plug, Rocket, Shield, HeartHandshake } from "lucide-react";
-import type { ServiceOffering, ProcessStep, TechCategory, TechItem, WhyChooseItem, ServicePageHeroProps, ServicePageSectionProps, CTAProps, Stat } from "@/components/sections/service-page";
-export type { ServiceOffering, ProcessStep, TechCategory, TechItem, WhyChooseItem };
+import type { ServiceOffering, ProcessStep, TechCategory, WhyChooseItem, ServicePageHeroProps, ServicePageSectionProps, CTAProps } from "@/components/sections/service-page";
 
 const DEVICON = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
 
@@ -21,8 +20,6 @@ export const heroProps: ServicePageHeroProps = {
     { value: 50, suffix: "+", label: "Clients Served" },
   ],
 };
-
-export const stats: Stat[] = heroProps.stats;
 
 export const servicesHeading: ServicePageSectionProps = { headingGray: "NLP & Conversational AI", headingWhite: "Services", subtitle: "From classical NLP to modern LLMs — we design systems that understand your customers, employees, and documents at scale." };
 export const processHeading: ServicePageSectionProps = { headingGray: "Our NLP & Conversational AI", headingWhite: "Process", subtitle: "Discovery through optimization — with evaluation harnesses and governance checkpoints baked in from the start." };
